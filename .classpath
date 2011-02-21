@@ -15,7 +15,15 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode News 1.1"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode Data 1.1"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode News 1.1">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode Data 1.1">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
