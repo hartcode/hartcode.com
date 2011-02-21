@@ -1,4 +1,3 @@
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -15,12 +14,13 @@ public class RSSNews {
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		NewsReaderDAO nrd = new NewsReaderDAO();
 		DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+		NewsReaderDAO nrd = null;
 		NewsItem[] nis = null;
 		try {
+			nrd = new NewsReaderDAO();
 			nis = nrd.Select();
-		}catch(SQLException se)
+		}catch(Exception se)
 		{
 			se.printStackTrace();
 		}

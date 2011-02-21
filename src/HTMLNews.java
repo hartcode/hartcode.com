@@ -1,4 +1,3 @@
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -16,12 +15,13 @@ public class HTMLNews {
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("<h2>News</h2><ul>");
-		NewsReaderDAO nrd = new NewsReaderDAO();
 		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+		NewsReaderDAO nrd = null;
 		NewsItem[] nis = null;
 		try {
+			nrd = new NewsReaderDAO();
 			nis = nrd.Select();
-		}catch(SQLException se)
+		}catch(Exception se)
 		{
 			se.printStackTrace();
 		}
