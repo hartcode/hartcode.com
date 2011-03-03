@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class IndexPage
  */
-public class IndexPage extends HttpServlet {
+public class ZombonePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public IndexPage() {
+    public ZombonePage() {
         // TODO Auto-generated constructor stub
     }
 
@@ -33,8 +33,8 @@ public class IndexPage extends HttpServlet {
 		pw.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
 		pw.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">");
 		pw.write("<head>");
-		pw.write("<title>HartCode - Home</title>");
-		pw.write("<meta name=\"description\" content=\"A forum for me to share my thoughts, programs, code, drawings, and other random ideas with the on-line community\"/>");
+		pw.write("<title>HartCode - Zombone</title>");
+		pw.write("<meta name=\"description\" content=\"A zombie stomping, gunshooting, whipping good time.\"/>");
 		pw.write("<meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml;charset=utf-8\" />");
 		pw.write("<meta name=\"google-site-verification\" content=\"zX9-oAux8713m5ccWxGN4s4_ziMp6LrYhn_FruDgUhM\" />");
 		pw.write("<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />");
@@ -42,7 +42,7 @@ public class IndexPage extends HttpServlet {
 		pw.write("<script type=\"text/javascript\" src=\"analytics.js\"></script>");
 		pw.write("<script type=\"text/javascript\" src=\"https://ssl.google-analytics.com/ga.js\"></script>");
 		pw.write("</head>");
-		pw.write("<body id=\"home\">");
+		pw.write("<body id=\"zombone\">");
 		pw.write("<h1>HartCode</h1>");
 		pw.write("<div id=\"sidebar\">");
 		pw.write("<ul>");
@@ -52,7 +52,7 @@ public class IndexPage extends HttpServlet {
 		pw.write("</ul>");
 		pw.write("</div>");
 		pw.write("<div id=\"main\">");
-		pw.write(hnews.toString());
+		pw.write("<h2>Download</h2><p><a href=\"/downloads/Zombone_winxp_1.0.zip\">Zombone_winxp_1.0.zip</a></p>");
 		pw.write("</div>");
 		pw.write("<div id=\"footer\">");
 		pw.write("<div class=\"right\">");

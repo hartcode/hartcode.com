@@ -29,4 +29,24 @@
     <servlet-name>NewsRSS</servlet-name>
     <url-pattern>/rss.xml</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ZombonePage</display-name>
+    <servlet-name>ZombonePage</servlet-name>
+    <servlet-class>ZombonePage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ZombonePage</servlet-name>
+    <url-pattern>/Zombone</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MoneyDropPage</display-name>
+    <servlet-name>MoneyDropPage</servlet-name>
+    <servlet-class>MoneyDropPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MoneyDropPage</servlet-name>
+    <url-pattern>/MoneyDrop</url-pattern>
+  </servlet-mapping>
 </web-app>
