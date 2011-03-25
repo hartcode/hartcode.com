@@ -26,7 +26,9 @@ p{
 ul+div p,#main>ul li>div{
 	color:#ABABAB;
 }
-
+#main>ul{
+	overflow:hidden;
+}
 #main>ul li>div{
 	text-align:right;
 }
@@ -67,4 +69,12 @@ img {
 {
 	color:white;
 	background-color:#CDCDCD;
+}
+
+
+#adpanel {
+	width: 120px;
+	height: 600px;
+	float:right;
+	margin: 10px;
 }

@@ -25,7 +25,7 @@ public class MoneyDropPage extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.addHeader("Content-Type", "application/xhtml+xml");
+		response.addHeader("Content-Type", "text/html");
 		HTMLNews hnews = new HTMLNews();
 		PrintWriter pw = response.getWriter();
 		
@@ -35,10 +35,10 @@ public class MoneyDropPage extends HttpServlet {
 		pw.write("<head>");
 		pw.write("<title>HartCode - Money Drop</title>");
 		pw.write("<meta name=\"description\" content=\"Catch the money, avoid the bombs.\"/>");
-		pw.write("<meta http-equiv=\"Content-Type\" content=\"application/xhtml+xml;charset=utf-8\" />");
+		pw.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />");
 		pw.write("<meta name=\"google-site-verification\" content=\"zX9-oAux8713m5ccWxGN4s4_ziMp6LrYhn_FruDgUhM\" />");
 		pw.write("<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />");
-		pw.write("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
+		pw.write("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://feeds.feedburner.com/HartCodeNews\" />");
 		pw.write("<script type=\"text/javascript\" src=\"analytics.js\"></script>");
 		pw.write("<script type=\"text/javascript\" src=\"https://ssl.google-analytics.com/ga.js\"></script>");
 		pw.write("</head>");
@@ -52,6 +52,19 @@ public class MoneyDropPage extends HttpServlet {
 		pw.write("</ul>");
 		pw.write("</div>");
 		pw.write("<div id=\"main\">");
+		pw.write("<div id=\"adpanel\">");
+		pw.write("<script type=\"text/javascript\"><!--\n");
+		pw.write("google_ad_client = \"ca-pub-3996808295883844\";\n");
+		pw.write("/* SidePanel */\n");
+		pw.write("google_ad_slot = \"8720621925\";\n");
+		pw.write("google_ad_width = 120;\n");
+		pw.write("google_ad_height = 600;\n");
+		pw.write("//-->\n");
+		pw.write("</script>\n");
+		pw.write("<script type=\"text/javascript\"\nsrc=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">\n");
+		pw.write("</script>\n");
+		pw.write("</div>");
+		
 		pw.write("<h2>Download</h2><p><a href=\"/downloads/MoneyDrop_winxp_1.0.zip\">MoneyDrop_winxp_1.0.zip</a></p>");
 		pw.write("</div>");
 		pw.write("<div id=\"footer\">");
