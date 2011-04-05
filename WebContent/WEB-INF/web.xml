@@ -21,12 +21,12 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>NewsRSS</display-name>
-    <servlet-name>NewsRSS</servlet-name>
-    <servlet-class>NewsRSS</servlet-class>
+    <display-name>RSSNewsPage</display-name>
+    <servlet-name>RSSNewsPage</servlet-name>
+    <servlet-class>RSSNewsPage</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>NewsRSS</servlet-name>
+    <servlet-name>RSSNewsPage</servlet-name>
     <url-pattern>/rss.xml</url-pattern>
   </servlet-mapping>
   <servlet>
