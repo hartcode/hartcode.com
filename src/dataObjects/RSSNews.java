@@ -1,3 +1,4 @@
+package dataObjects;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -5,17 +6,16 @@ import com.hartcode.news.NewsItem;
 import com.hartcode.news.reader.data.NewsReaderDAO;
 
 
-public class HTMLNews {
+public class RSSNews {
 
-	public HTMLNews()
+	public RSSNews()
 	{
-		
+	
 	}
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append("<h2>News</h2><ul>");
-		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+		DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
 		NewsReaderDAO nrd = null;
 		NewsItem[] nis = null;
 		try {
@@ -29,17 +29,18 @@ public class HTMLNews {
 		{
 			for(int i = 0; i < nis.length; i++)
 			{
-				sb.append("<li><h3>");
+				sb.append("<item><title>");
 				sb.append(nis[i].getTitle());
-				sb.append("</h3><p>");
+				sb.append("</title><description>");
 				sb.append(nis[i].getText());
-				sb.append("</p><div>Posted: ");
+				sb.append("</description><link>http://www.hartcode.com/</link><guid>");
+				sb.append(nis[i].getHash());;
+				sb.append("</guid><pubDate>");
 				sb.append(df.format(nis[i].getPostdate()));
-				sb.append("</div></li>");
+				sb.append("</pubDate>");
+				sb.append("</item>");
 			}
 		}
-		
-		sb.append("</ul>");		
 		return sb.toString();
 	}
 }
