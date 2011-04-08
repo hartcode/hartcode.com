@@ -1,7 +1,7 @@
 package modules;
 
 
-public class ZomboneModule implements IMainModule {
+public class ZomboneModule extends IndexModule {
 
 	public ZomboneModule()
 	{

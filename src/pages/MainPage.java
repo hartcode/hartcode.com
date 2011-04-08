@@ -38,6 +38,7 @@ public class MainPage {
 		sb.append("<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://feeds.feedburner.com/HartCodeNews\" />");
 		sb.append("<script type=\"text/javascript\" src=\"analytics.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"hartcode.js\"></script>");
 		sb.append("<script type=\"text/javascript\" src=\"https://ssl.google-analytics.com/ga.js\"></script>");
 		sb.append("</head>");
 		sb.append("<body id=\"");
@@ -47,6 +48,7 @@ public class MainPage {
 		sb.append("<div id=\"sidebar\">");
 		sb.append("<ul>");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
+		sb.append("<li><a id=\"passli\" href=\"/PasswordGenerator\">Password Generator</a></li>");
 		sb.append("<li><a id=\"moneyli\" href=\"/MoneyDrop\">Money Drop</a></li>");
 		sb.append("<li><a id=\"zombli\" href=\"/Zombone\">Zombone</a></li>");
 		sb.append("</ul>");

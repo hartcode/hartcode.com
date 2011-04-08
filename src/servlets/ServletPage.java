@@ -29,7 +29,7 @@ public class ServletPage extends HttpServlet {
     	m_ContentType = contenttype;
     }
 
-    public String GetFileData()
+    public String GetFileData(HttpServletRequest request)
     {
 		return "";
     }
@@ -39,7 +39,7 @@ public class ServletPage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.addHeader("Content-Type", m_ContentType);
 		PrintWriter pw = response.getWriter();
-		pw.write(GetFileData());
+		pw.write(GetFileData(request));
 		pw.close();
 	}
 

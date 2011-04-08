@@ -1,4 +1,6 @@
 package servlets;
+import javax.servlet.http.HttpServletRequest;
+
 import modules.IMainModule;
 import pages.MainPage;
 
@@ -25,8 +27,9 @@ public class MainServlet extends ServletPage {
     	m_NavID = navid;
     }
 
-    public String GetFileData()
+    public String GetFileData(HttpServletRequest request)
     {
+    	m_MainModule.SetRequest(request);
 		MainPage mp = new MainPage(m_MainModule,m_Title,m_Description,m_NavID);
 		return mp.toString();
     }

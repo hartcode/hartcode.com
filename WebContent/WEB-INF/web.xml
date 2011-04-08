@@ -49,4 +49,14 @@
     <servlet-name>MoneyDropPage</servlet-name>
     <url-pattern>/MoneyDrop</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PassGenPage</display-name>
+    <servlet-name>PassGenPage</servlet-name>
+    <servlet-class>servlets.PassGenPage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PassGenPage</servlet-name>
+    <url-pattern>/PasswordGenerator</url-pattern>
+  </servlet-mapping>
 </web-app>

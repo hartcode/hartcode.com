@@ -1,7 +1,7 @@
 package modules;
 
 
-public class MoneyDropModule implements IMainModule {
+public class MoneyDropModule extends IndexModule {
 
 	public MoneyDropModule()
 	{

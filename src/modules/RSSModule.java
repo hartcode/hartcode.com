@@ -2,7 +2,7 @@ package modules;
 
 import dataObjects.RSSNews;
 
-public class RSSModule implements IMainModule {
+public class RSSModule extends IndexModule {
 
 	
 	public String GetMainModule() {
