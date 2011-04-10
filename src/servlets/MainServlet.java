@@ -33,5 +33,9 @@ public class MainServlet extends ServletPage {
 		MainPage mp = new MainPage(m_MainModule,m_Title,m_Description,m_NavID);
 		return mp.toString();
     }
+    public String PostFileData(HttpServletRequest request)
+    {
+    	return GetFileData(request);
+    }
 
 }

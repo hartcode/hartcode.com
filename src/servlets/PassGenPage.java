@@ -1,4 +1,6 @@
 package servlets;
+import javax.servlet.http.HttpServletRequest;
+
 import modules.PassGenModule;
 
 /**
@@ -14,5 +16,9 @@ public class PassGenPage extends MainServlet  {
         super(new PassGenModule(), "Hart Password Generator", "Password Generator", "passgen");
     }
     
+    public String PostFileData(HttpServletRequest request)
+    {
+    	return GetFileData(request);
+    }
 
 }

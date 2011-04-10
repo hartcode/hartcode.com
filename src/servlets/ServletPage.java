@@ -33,6 +33,11 @@ public class ServletPage extends HttpServlet {
     {
 		return "";
     }
+    public String PostFileData(HttpServletRequest request)
+    {
+    	return GetFileData(request);
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -47,7 +52,10 @@ public class ServletPage extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request,response);
+		response.addHeader("Content-Type", m_ContentType);
+		PrintWriter pw = response.getWriter();
+		pw.write(PostFileData(request));
+		pw.close();
 	}
 
 
