@@ -23,7 +23,7 @@ public class MainPage {
 		String retval = "";
 		StringBuilder sb = new StringBuilder();
 		
-		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
 		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">");
 		sb.append("<head>");
@@ -68,13 +68,7 @@ public class MainPage {
 		sb.append("</div>");
 		sb.append(m_MainModule.GetMainModule());
 		sb.append("</div>");
-		sb.append("<div id=\"footer\">");
-		sb.append("<div class=\"right\">");
-		sb.append("<a href=\"http://validator.w3.org/check?uri=referer\"><img src=\"images/valid-xhtml10-blue.png\" alt=\"Valid XHTML 1.0\" /></a>");
-		sb.append("<a href=\"http://jigsaw.w3.org/css-validator/check/referer\"><img src=\"images/vcss-blue.gif\" alt=\"Valid CSS!\" /></a>");
-		sb.append("</div>");
-		sb.append("<div>alex@hartcode.com</div>");
-		sb.append("</div>");
+		sb.append("<div id=\"footer\"><ul class=\"right\"><li><a href=\"http://www.twitter.com/Hartcode\"><img src=\"http://twitter-badges.s3.amazonaws.com/t_logo-a.png\" alt=\"Follow Hartcode on Twitter\"/></a></li><li><a href=\"http://validator.w3.org/check?uri=referer\"><img src=\"images/valid-xhtml10-blue.png\" alt=\"Valid XHTML 1.0\" /></a></li><li><a href=\"http://jigsaw.w3.org/css-validator/check/referer\"><img src=\"images/vcss-blue.png\" alt=\"Valid CSS!\" /></a></li></ul><ul><li>&copy; 2011 HartCode</li><li><a href=\"mailto:alex@hartcode.com\">alex@hartcode.com</a></li></ul></div>");
 		sb.append("</body>");
 		sb.append("</html>");
 		retval = sb.toString();

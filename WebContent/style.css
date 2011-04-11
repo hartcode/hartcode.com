@@ -36,13 +36,20 @@ ul+div p,#main>ul li>div{
 #footer{
 	clear:both;
 }
-#footer div.right{
+#footer .right{
 	float:right;
-	clear:right;
+	
 }
-#footer div{
+#footer ul{
 	text-align:center;
 }
+
+#footer ul li {
+float: left;
+padding-right: 8px;
+padding-left: 8px;
+}
+
 img {
 	border-style:none;
 }

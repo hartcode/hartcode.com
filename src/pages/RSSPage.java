@@ -26,7 +26,7 @@ public class RSSPage {
 		StringBuilder sb = new StringBuilder();
 		DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy");
 		Date d = new Date();
-		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
+		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>");
 		sb.append("<rss version=\"2.0\">");
 		sb.append("<channel>");
 		sb.append("<title>");
