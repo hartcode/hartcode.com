@@ -38,7 +38,7 @@ public class MainPage {
 		sb.append("<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://feeds.feedburner.com/HartCodeNews\" />");
 		sb.append("<script type=\"text/javascript\" src=\"analytics.js\"></script>");
-		sb.append("<script type=\"text/javascript\" src=\"hartcode.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"hartcode.1.0.js\"></script>");
 		sb.append("<script type=\"text/javascript\" src=\"https://ssl.google-analytics.com/ga.js\"></script>");
 		sb.append("</head>");
 		sb.append("<body id=\"");
