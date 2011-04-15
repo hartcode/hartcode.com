@@ -1,0 +1,17 @@
+table
+{
+	border: solid black 1px;	
+}
+
+tr {
+	padding: 0px;
+	margin:0px;
+	}
+
+td {
+	height:5px;
+	width:5px;
+	background-color: #FF0000;
+	padding: 0px;
+	margin:0px;
+}
