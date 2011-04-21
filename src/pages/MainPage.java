@@ -44,7 +44,7 @@ public class MainPage {
 		sb.append("<body id=\"");
 		sb.append(GetNavID());
 		sb.append("\">");
-		sb.append("<h1>HartCode</h1>");
+		sb.append("<h1>HartCode Technology Solutions</h1>");
 		sb.append("<div id=\"sidebar\">");
 		sb.append("<ul>");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
