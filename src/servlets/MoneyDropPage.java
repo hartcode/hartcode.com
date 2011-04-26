@@ -13,7 +13,7 @@ public class MoneyDropPage extends MainServlet {
      * Default constructor. 
      */
     public MoneyDropPage() {
-        super(new MoneyDropModule(),"HartCode - Money Drop","Catch the money, avoid the bombs.","moneydrop");
+        super(new MoneyDropModule(),"HartCode - Money Drop","Catch the money, avoid the bombs. This game is crazy fun.","moneydrop");
     }
 
 	}

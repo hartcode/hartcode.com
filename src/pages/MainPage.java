@@ -34,7 +34,6 @@ public class MainPage {
 		sb.append(GetDescription());
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
-		sb.append("<meta name=\"google-site-verification\" content=\"zX9-oAux8713m5ccWxGN4s4_ziMp6LrYhn_FruDgUhM\" />");
 		sb.append("<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://feeds.feedburner.com/HartCodeNews\" />");
 		sb.append("<script type=\"text/javascript\" src=\"analytics.js\"></script>");
