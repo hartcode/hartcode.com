@@ -54,6 +54,7 @@ img {
 #sidebar{
 	float:left;
 	clear:left;
+	min-width:100px;
 }
 #main{
 	border-left:solid black 1px;

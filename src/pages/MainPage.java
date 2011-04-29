@@ -47,7 +47,7 @@ public class MainPage {
 		sb.append("<div id=\"sidebar\">");
 		sb.append("<ul>");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
-		sb.append("<li><a id=\"newsli\" href=\"/\">News</a></li>");
+		sb.append("<li><a id=\"newsli\" href=\"/News\">News</a></li>");
 		sb.append("</ul>");
 		sb.append("<div class=\"twitter\"><a href=\"http://www.twitter.com/Hartcode\">");
 		sb.append("<img src=\"http://twitter-badges.s3.amazonaws.com/t_logo-a.png\"");
