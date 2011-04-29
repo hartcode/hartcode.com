@@ -12,7 +12,7 @@ h2{
 ul{
 	list-style-type: none;
 }
-#footer,#main>ul li{
+#footer,#main>ul li,#Other>ul{
 	border-top:solid black 1px;
 	padding-top:5px;
 }
@@ -24,10 +24,10 @@ p,form{
 {
 	color:black;
 }
-ul+div p,#main>ul li>div{
+ul>div>p,#main>ul li>div{
 	color:#ABABAB;
 }
-#main>ul{
+#main>ul,#Other{
 	overflow:hidden;
 }
 #main>ul li>div{
@@ -36,18 +36,16 @@ ul+div p,#main>ul li>div{
 #footer{
 	clear:both;
 }
-#footer .right{
-	float:right;
-	
-}
+
 #footer ul{
 	text-align:center;
+	padding:0px;
+	margin:0px;
 }
 
 #footer ul li {
-float: left;
-padding-right: 8px;
-padding-left: 8px;
+	float:left;
+	width:33%;
 }
 
 img {
@@ -73,7 +71,7 @@ img {
 	text-transform: uppercase;
 }
 
-#home #homeli,#zombone #zombli, #moneydrop #moneyli, #passgen #passli
+#home #homeli,#news #newsli, #passgen #passli
 {
 	color:white;
 	background-color:#CDCDCD;
@@ -102,4 +100,23 @@ fieldset {
 	border: 0;
 }
 
+#address {
+	text-align:left;
+}
+.right
+{
+	text-align:right;
+}
 
+.center
+{
+text-align:center;
+}
+.twitter
+{
+	border-top: solid black 1px;
+	margin-top:50px;
+	margin-left:15px; 
+	margin-right:15px;
+	padding:5px;
+}
