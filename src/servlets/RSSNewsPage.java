@@ -22,7 +22,7 @@ public class RSSNewsPage extends ServletPage {
     
     public String GetFileData(HttpServletRequest request)
     {
-    	RSSPage rp = new RSSPage(new RSSModule(),"HartCode News","A forum for me to share my thoughts, programs, code, drawings, and other random ideas with the on-line community.","http://www.hartcode.com/");
+    	RSSPage rp = new RSSPage(new RSSModule(),"HartCode Technology Solutions News","","http://www.hartcode.com/");
     	return rp.toString();
     }
 }

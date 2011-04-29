@@ -12,7 +12,7 @@ public class ZombonePage extends MainServlet {
      * Default constructor. 
      */
     public ZombonePage() {
-        super(new ZomboneModule(),"HartCode - Zombone","A zombie stomping, gunshooting, whipping good time.","zombone");
+        super(new ZomboneModule(),"Zombone - HartCode Technology Solutions","A zombie stomping, gunshooting, whipping good time.","zombone");
     }
 
 
