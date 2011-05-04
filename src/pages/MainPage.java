@@ -34,11 +34,10 @@ public class MainPage {
 		sb.append(GetDescription());
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
-		sb.append("<link href=\"style.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"style.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://feeds.feedburner.com/HartCodeNews\" />");
-		sb.append("<script type=\"text/javascript\" src=\"analytics.js\"></script>");
 		sb.append("<script type=\"text/javascript\" src=\"hartcode.1.0.js\"></script>");
-		sb.append("<script type=\"text/javascript\" src=\"https://ssl.google-analytics.com/ga.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"ga.js\"></script>");
 		sb.append("</head>");
 		sb.append("<body id=\"");
 		sb.append(GetNavID());
@@ -49,12 +48,7 @@ public class MainPage {
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
 		sb.append("<li><a id=\"newsli\" href=\"/News\">News</a></li>");
 		sb.append("</ul>");
-		sb.append("<div class=\"twitter\"><a href=\"http://www.twitter.com/Hartcode\">");
-		sb.append("<img src=\"http://twitter-badges.s3.amazonaws.com/t_logo-a.png\"");
-		sb.append("alt=\"Follow Hartcode on Twitter\" />");
-		sb.append("</a></div>");
-		sb.append("</div>");
-		sb.append("<div id=\"main\">");
+		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"http://twitter-badges.s3.amazonaws.com/twitter-b.png\" alt=\"Follow Hartcode on Twitter\"/></a><br /><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FHartCode-Technology-Solutions%2F213056485378766&amp;send=false&amp;layout=button_count&amp;width=65&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" id=\"facebook\" allowTransparency=\"true\"></iframe></div>");
 		sb.append("<div id=\"adpanel\">");
 		sb.append("<script type=\"text/javascript\"><!--\n");
 		sb.append("google_ad_client = \"ca-pub-3996808295883844\";\n");
@@ -67,6 +61,8 @@ public class MainPage {
 		sb.append("<script type=\"text/javascript\"\nsrc=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">\n");
 		sb.append("</script>\n");
 		sb.append("</div>");
+		sb.append("</div>");
+		sb.append("<div id=\"main\">");
 		sb.append(m_MainModule.GetMainModule());
 		sb.append("</div>");
 		sb.append("<div id=\"footer\">");

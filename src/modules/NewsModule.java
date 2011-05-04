@@ -13,7 +13,9 @@ public class NewsModule  implements IMainModule {
 			public String GetMainModule() {
 				StringBuilder sb = new StringBuilder();
 				HTMLNews hnews = new HTMLNews();
+				sb.append("<div id=\"newsdiv\">");
 				sb.append(hnews.toString());
+				sb.append("</div>");
 				return sb.toString();
 			}
 			public void SetRequest(HttpServletRequest request)

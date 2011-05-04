@@ -1,123 +1,275 @@
+
 h1{
+
 	color:white;
+
 	padding-left: 5px;
+
 	background-color:#ABABAB;
+
 	font-family:monospace;
+
 	margin-bottom:0px;
-}
-h2{
-	padding-left: 15px;
+
 }
 
-ul{
-	list-style-type: none;
+h2{
+
+	padding-left: 15px;
+
 }
-#footer,#main>ul li,#Other>ul{
+
+
+
+ul{
+
+	list-style-type: none;
+
+}
+
+#footer,#newsdiv>ul ,#Other>#first,#newsdiv>ul li+li{
+
 	border-top:solid black 1px;
 	padding-top:5px;
 }
+
 p,form{
+
 	text-indent: 10px;
+
 }
 
+
+
 #sidebar>ul li a:visited,#sidebar>ul li a:link
+
 {
+
 	color:black;
+
 }
-ul>div>p,#main>ul li>div{
+
+ul>div>p,#newsdiv>ul li>div{
+
 	color:#ABABAB;
+
 }
-#main>ul,#Other{
+
+#newsdiv>ul,#Other{
+
 	overflow:hidden;
+
 }
-#main>ul li>div{
+
+#newsdiv>ul li>div{
+
 	text-align:right;
+
 }
+
 #footer{
+
 	clear:both;
 }
 
+
+
 #footer ul{
+
 	text-align:center;
+
 	padding:0px;
+
 	margin:0px;
+
 }
+
+
 
 #footer ul li {
+
 	float:left;
+
 	width:33%;
+
 }
+
+
 
 img {
+
 	border-style:none;
+
 }
+
 #sidebar{
+
 	float:left;
+
 	clear:left;
+
 	min-width:100px;
+
 }
+
 #main{
+
 	border-left:solid black 1px;
+
 	overflow:hidden;
+
 }
+
 #sidebar>ul{
+
 	margin-left:0px;
+
 }
+
+
 
 #sidebar>ul li a {
+
 	font-weight:bold;
+
 	display:block;
+
 	padding: 5px 15px 5px 15px;
+
 	text-decoration: none;
+
 	text-transform: uppercase;
+
 }
 
+
+
 #home #homeli,#news #newsli, #passgen #passli
+
 {
+
 	color:white;
+
 	background-color:#CDCDCD;
+
 }
+
+
+
 
 
 #adpanel {
+
 	width: 120px;
+
 	height: 600px;
+
 	float:right;
+
 	margin: 10px;
-}
-.hidden 
-{
-	display:none;
-}
-#alphaoptions
-{
-	text-indent: 10px;	
-}
-#alphaoptions > div
-{
-	text-indent: 20px;	
-}
-fieldset {
-	border: 0;
+
 }
 
-#address {
-	text-align:left;
-}
-.right
+.hidden 
+
 {
+
+	display:none;
+
+}
+
+#alphaoptions
+
+{
+
+	text-indent: 10px;	
+
+}
+
+#alphaoptions > div
+
+{
+
+	text-indent: 20px;	
+
+}
+
+fieldset {
+
+	border: 0;
+
+}
+
+
+
+#address {
+
+	text-align:left;
+
+}
+
+.right
+
+{
+
 	text-align:right;
+
 }
 
 .center
 {
+
 text-align:center;
+
 }
-.twitter
+
+#social
 {
+	text-align:center;
 	border-top: solid black 1px;
 	margin-top:50px;
-	margin-left:15px; 
-	margin-right:15px;
 	padding:5px;
+
+}
+
+#Services li
+{
+	float:left;
+	width: 30%;
+	padding:5px;
+	height:100%;
+	background-color:#CDCDCD;
+	margin:5px;
+	min-height: auto;
+}
+
+#Services li p
+{
+	border-top: solid black 1px;
+}
+#Other
+{
+margin-bottom:10px;
+}
+#Other>p
+{
+	clear:both;
+   padding-left:40px;
+}
+
+a{
+text-decoration: none;
+}
+#Services li h3
+{
+text-align:center;
+background-color:gray;
+color:white;
+}
+#facebook
+{
+	border:none; 
+	overflow:hidden; 
+	width:80px; 
+	height:21px;
 }
