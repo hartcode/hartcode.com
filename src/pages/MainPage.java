@@ -37,7 +37,7 @@ public class MainPage {
 		sb.append("<link href=\"style.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://feeds.feedburner.com/HartCodeNews\" />");
 		sb.append("<script type=\"text/javascript\" src=\"hartcode.1.0.js\"></script>");
-		sb.append("<script type=\"text/javascript\" src=\"ga.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"ga.1.0.0.js\"></script>");
 		sb.append("</head>");
 		sb.append("<body id=\"");
 		sb.append(GetNavID());
