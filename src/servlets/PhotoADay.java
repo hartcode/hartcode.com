@@ -38,6 +38,7 @@ public class PhotoADay extends HttpServlet {
 			java.util.Date thedate = Date.valueOf(strdate);
 			java.util.Date startdate = Date.valueOf("2012-01-01");
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			mycal.add(Calendar.DATE, 1);
 			java.util.Date stopdate = mycal.getTime();
 			String strdate2 = sdf.format(stopdate);
 			stopdate = Date.valueOf(strdate2);
@@ -68,30 +69,23 @@ public class PhotoADay extends HttpServlet {
 						os.close();
 					}else
 					{
-						PrintWriter pw = response.getWriter();
-						pw.write("filename was not found");
-						pw.close();
+						response.setStatus(404);
 					}
 				}
 				else
 				{
-					PrintWriter pw = response.getWriter();
-					pw.write("date to late");	
-					pw.close();
+					response.setStatus(404);
+					
 				}
 			}
 			else
 			{
-				PrintWriter pw = response.getWriter();
-				pw.write("date to early");
-				pw.close();
+				response.setStatus(404);
 			}
 		}
 		else
 		{
-			PrintWriter pw = response.getWriter();
-			pw.write("strdate was not found");
-			pw.close();
+			response.setStatus(404);
 		}
 	}
 	
