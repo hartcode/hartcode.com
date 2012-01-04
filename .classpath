@@ -30,5 +30,6 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode PhotoADay"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
