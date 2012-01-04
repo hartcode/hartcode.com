@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -33,19 +35,26 @@ public class PhotoADay extends HttpServlet {
 		if (strdate != null && strdate != "")
 		{
 			
+		Calendar mycal = Calendar.getInstance();
 		
-		Date thedate = Date.valueOf(strdate);
+		java.util.Date thedate = Date.valueOf(strdate);
+		java.util.Date startdate = Date.valueOf("2012-01-01");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		java.util.Date stopdate = mycal.getTime();
+		String strdate2 = sdf.format(stopdate);
+		stopdate = Date.valueOf(strdate2);
+		
+		if (thedate.after(startdate) || thedate.equals(startdate))
+		{
+		if (thedate.before(stopdate) || thedate.equals(stopdate))
+		{
 		Integer PhotoID = null;
 		String filename = null;
 		try {
 			PhotoID = PhotoAdder.GetPhotoDay(thedate);
 			filename = PhotoAdder.GetPhotoFileName(PhotoID);
 		} catch (Exception e) {
-			PrintWriter pw = response.getWriter();
-			//pw.write(thedate.toString());
-			//pw.write(PhotoID);
-			pw.write("exception: " + e.getMessage());
-			pw.close(); 
+
 		}
 		if (filename != null)
 		{
@@ -71,6 +80,20 @@ public class PhotoADay extends HttpServlet {
 		{
 			PrintWriter pw = response.getWriter();
 			pw.write("strdate was not found");
+			pw.close();
+		}
+		}
+		else
+		{
+			PrintWriter pw = response.getWriter();
+			pw.write("date to late");
+			pw.close();
+		}
+		}
+		else
+		{
+			PrintWriter pw = response.getWriter();
+			pw.write("date to early");
 			pw.close();
 		}
 	}
