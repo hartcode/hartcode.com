@@ -1,14 +1,13 @@
 package servlets;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.TimeZone;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,10 +34,10 @@ public class PhotoADay extends HttpServlet {
 		if (strdate != null && strdate != "")
 		{
 			Calendar mycal = Calendar.getInstance();
+			mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
 			java.util.Date thedate = Date.valueOf(strdate);
 			java.util.Date startdate = Date.valueOf("2012-01-01");
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			mycal.add(Calendar.DATE, 1);
 			java.util.Date stopdate = mycal.getTime();
 			String strdate2 = sdf.format(stopdate);
 			stopdate = Date.valueOf(strdate2);
@@ -48,25 +47,16 @@ public class PhotoADay extends HttpServlet {
 				if (thedate.before(stopdate) || thedate.equals(stopdate))
 				{
 					Integer PhotoID = null;
-					String filename = null;
+					
 					try {
 						PhotoID = PhotoAdder.GetPhotoDay(thedate);
-						filename = PhotoAdder.GetPhotoFileName(PhotoID);
+					
 					} catch (Exception e) {
 					}
-					if (filename != null)
+					if (PhotoID != null)
 					{
-						ServletOutputStream os = response.getOutputStream();
-						//	FileInputStream is = new FileInputStream("/usr/java/tomcat-5.5/hartcode/ROOT/images/photos/1.jpg");
-						FileInputStream is = new FileInputStream(filename);
-						int b = is.read();
-						while(b!= -1)
-						{
-							os.write(b);
-							b = is.read();
-						}
-						is.close();
-						os.close();
+						 RequestDispatcher rd = request.getRequestDispatcher("/photoserver?id=" + PhotoID.toString());
+						  rd.forward(request, response);
 					}else
 					{
 						response.setStatus(404);

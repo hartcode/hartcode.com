@@ -34,10 +34,10 @@ public class MainPage {
 		sb.append(GetDescription());
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
-		sb.append("<link href=\"style.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"/style.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
-		sb.append("<script type=\"text/javascript\" src=\"hartcode.1.0.js\"></script>");
-		sb.append("<script type=\"text/javascript\" src=\"ga.1.0.0.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"/hartcode.1.0.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"/ga.1.0.0.js\"></script>");
 		sb.append("</head>");
 		sb.append("<body id=\"");
 		sb.append(GetNavID());

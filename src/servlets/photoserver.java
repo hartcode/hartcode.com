@@ -1,0 +1,65 @@
+package servlets;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.hartcode.PhotoADay.PhotoAdder;
+
+/**
+ * Servlet implementation class photoserver
+ */
+public class photoserver extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public photoserver() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String strphotoid = request.getParameter("id");
+		Integer photoid = Integer.valueOf(strphotoid);
+		String filename = null;
+		try {
+			filename = PhotoAdder.GetPhotoFileName(photoid);
+		} catch (Exception e) {
+		}
+		if (filename != null)
+		{
+			response.setContentType("image/jpeg");
+			ServletOutputStream os = response.getOutputStream();
+			//	FileInputStream is = new FileInputStream("/usr/java/tomcat-5.5/hartcode/ROOT/images/photos/1.jpg");
+			FileInputStream is = new FileInputStream(filename);
+			int b = is.read();
+			while(b!= -1)
+			{
+				os.write(b);
+				b = is.read();
+			}
+			is.close();
+			os.close();
+		}else
+		{
+			response.setStatus(404);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request,response);
+	}
+
+}
