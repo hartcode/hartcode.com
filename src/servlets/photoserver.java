@@ -29,10 +29,24 @@ public class photoserver extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String strphotoid = request.getParameter("id");
+		String strphotowidth = request.getParameter("width");
+		String strphotoheight = request.getParameter("height");
+		
+		
+		
 		Integer photoid = Integer.valueOf(strphotoid);
 		String filename = null;
 		try {
-			filename = PhotoAdder.GetPhotoFileName(photoid);
+			if (strphotowidth != null)
+			{
+			Integer photowidth = Integer.valueOf(strphotowidth);
+			Integer photoheight = Integer.valueOf(strphotoheight);
+			filename = PhotoAdder.GetPhotoFileName(photoid,photoheight,photowidth);
+			}
+			else {
+				filename = PhotoAdder.GetPhotoFileName(photoid);	
+			}
+			
 		} catch (Exception e) {
 		}
 		if (filename != null)
