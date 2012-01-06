@@ -144,8 +144,7 @@ img {
 
 
 
-#home #homeli,#news #newsli, #passgen #passli
-
+#home #homeli,#news #newsli, #passgen #passli, #vote #voteli, #wall #wallli
 {
 
 	color:white;
@@ -242,6 +241,15 @@ text-align:center;
 	margin:5px;
 	min-height: auto;
 }
+#Choices li
+{
+	float:left;
+	padding:5px;
+	height:100%;
+	background-color:#CDCDCD;
+	margin:5px;
+	min-height: auto;
+}
 
 #Services li p
 {
@@ -260,7 +268,7 @@ margin-bottom:10px;
 a{
 text-decoration: none;
 }
-#Services li h3
+#Services li h3, #Choices li h3
 {
 text-align:center;
 background-color:gray;
@@ -272,4 +280,8 @@ color:white;
 	overflow:hidden; 
 	width:80px; 
 	height:21px;
+}
+#Choices li p
+{
+	text-align:center;
 }

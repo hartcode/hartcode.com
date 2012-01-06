@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modules.PhotoVoteModule;
+import modules.PhotoVoteResultsModule;
 
 import pages.MainPage;
 
-import sun.util.resources.TimeZoneNames;
 
 import com.hartcode.PhotoADay.*;
 
@@ -48,6 +48,8 @@ public class PhotoVote extends HttpServlet {
 		mycal.add(Calendar.DATE, 1);
 		Date thedate = mycal.getTime();
 		PrintWriter pw = response.getWriter();
+		if (cookies != null)
+		{
 		for( int i =0; i < cookies.length; i++)
 		{
 	
@@ -55,6 +57,7 @@ public class PhotoVote extends HttpServlet {
 			{
 				MyCookie = cookies[i];
 			}
+		}
 		}
 		String ip  = request.getHeader("X-FORWARDED-FOR");  
         if(ip == null)  
@@ -114,6 +117,19 @@ public class PhotoVote extends HttpServlet {
 		
 		if (UserID != null)
 		{
+			String strCandidateID = request.getParameter("cid");
+			if (strCandidateID != null)
+			{
+				Integer CandidateID = Integer.valueOf(strCandidateID);
+				try {
+					VoteDAO.Vote(UserID,CandidateID,thedate);
+					//response.sendRedirect("/photos/Vote");
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 			Boolean hasvoted = false;
 			try {
 				hasvoted = VoteDAO.hasUserVotedToday(thedate, UserID);
@@ -126,14 +142,36 @@ public class PhotoVote extends HttpServlet {
 			if (hasvoted)
 			{
 				
-				pw.write("true");
+				response.addHeader("Content-Type", "text/html");
+				Long maxcnt = null;
+				try {
+					maxcnt = VoteDAO.GetVoteMaxResults(thedate);
+				} catch (Exception e) {
+					pw.write(e.getMessage());
+					pw.write(e.getStackTrace().toString());
+				}
+				Integer[][] voteResults = null;				
+				try {
+					voteResults = VoteDAO.GetVoteResults(thedate);
+				} catch (Exception e) {
+					pw.write(e.getMessage());
+					pw.write(e.getStackTrace().toString());
+				}
+				if (maxcnt != null && voteResults != null)
+				{
+					MainPage mp = new MainPage(new PhotoVoteResultsModule(voteResults,maxcnt),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote");
+					pw.write(mp.toString());
+				}
 				
 				
 			}else
 			{
+				
 				Integer[] photoIDs = null;
+				Integer[] CandidateIDs = null;
 				try {
 					photoIDs = VoteDAO.GetVoteOptions(thedate);
+					CandidateIDs = VoteDAO.GetVoteCandidateIDOptions(thedate);
 				} catch (Exception e) {
 					
 					pw.write(e.getMessage());
@@ -145,6 +183,7 @@ public class PhotoVote extends HttpServlet {
 				{
 					try {
 						photoIDs = VoteDAO.CreateVoteOptions(thedate);
+						CandidateIDs = VoteDAO.GetVoteCandidateIDOptions(thedate);
 					} catch (Exception e) {
 						pw.write(e.getMessage());
 						pw.write(e.getStackTrace().toString());
@@ -154,7 +193,7 @@ public class PhotoVote extends HttpServlet {
 				if (photoIDs != null)
 				{
 					response.addHeader("Content-Type", "text/html");
-					MainPage mp = new MainPage(new PhotoVoteModule(photoIDs),"Photo Vote","Vote for Tomorrows Photo!","Vote");
+					MainPage mp = new MainPage(new PhotoVoteModule(photoIDs,CandidateIDs, UserID),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote");
 					pw.write(mp.toString());
 				}		
 				
@@ -169,7 +208,7 @@ public class PhotoVote extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		doGet(request,response);
 	}
 
 }

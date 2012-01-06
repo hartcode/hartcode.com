@@ -44,7 +44,7 @@ public class PhotoADay extends HttpServlet {
 		
 			if (thedate.after(startdate) || thedate.equals(startdate))
 			{
-				if (thedate.before(stopdate) || thedate.equals(stopdate))
+				if (thedate.before(stopdate) || sdf.format(thedate).equals(sdf.format(stopdate)))
 				{
 					Integer PhotoID = null;
 					

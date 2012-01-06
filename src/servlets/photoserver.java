@@ -2,6 +2,8 @@ package servlets;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +43,14 @@ public class photoserver extends HttpServlet {
 			{
 			Integer photowidth = Integer.valueOf(strphotowidth);
 			Integer photoheight = Integer.valueOf(strphotoheight);
+			if (photowidth < 240)
+			{
+				photowidth = 240;
+			}
+			if (photoheight < 200)
+			{
+				photoheight = 200;
+			}
 			filename = PhotoAdder.GetPhotoFileName(photoid,photoheight,photowidth);
 			}
 			else {
@@ -48,6 +58,10 @@ public class photoserver extends HttpServlet {
 			}
 			
 		} catch (Exception e) {
+			PrintWriter pw = response.getWriter();
+			pw.write(e.getMessage());
+			pw.write(e.getStackTrace().toString());
+			pw.close();
 		}
 		if (filename != null)
 		{
@@ -65,7 +79,7 @@ public class photoserver extends HttpServlet {
 			os.close();
 		}else
 		{
-			response.setStatus(404);
+			//response.setStatus(404);
 		}
 	}
 

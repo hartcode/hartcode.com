@@ -120,4 +120,14 @@
     <servlet-name>photoserver</servlet-name>
     <url-pattern>/photoserver</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Wallpaper</display-name>
+    <servlet-name>Wallpaper</servlet-name>
+    <servlet-class>servlets.Wallpaper</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Wallpaper</servlet-name>
+    <url-pattern>/Wallpaper</url-pattern>
+  </servlet-mapping>
 </web-app>

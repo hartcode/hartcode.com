@@ -6,19 +6,24 @@ import dataObjects.HTMLNews;
 
 public class PhotoVoteModule implements IMainModule {
 
-	Integer[] myints = null;
-	public PhotoVoteModule(Integer[] ints)
+	Integer[] photoIDs = null;
+	Integer[] candidateIDs = null;
+	Integer userID = null;
+	public PhotoVoteModule(Integer[] pids, Integer[] cids, Integer uid)
 	{
-		myints = ints;
+		photoIDs = pids;
+		candidateIDs = cids;
+		userID = uid;
 	}
 	
 	public String GetMainModule() {
 		StringBuilder sb = new StringBuilder();
-		
-		for (int i = 0; i < myints.length;i++)
+		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"></p><ul >");
+		for (Integer i = 0; i < photoIDs.length;i++)
 		{
-			sb.append("<img id='" + myints[i].toString() + "' src = '/photos/id/"+myints[i].toString()+"/' alt='"+myints[i].toString()+"' width='66' height='55' />");	
+			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><a  href='/photos/Vote?cid="+candidateIDs[i].toString()+"'><img id='" + photoIDs[i].toString() + "' src = '/photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='"+photoIDs[i].toString()+"' width='240' height='200' /><br/><br/>Vote Now</p></a></li>");	
 		}
+		sb.append("</ul></div>");
 		
 
 		

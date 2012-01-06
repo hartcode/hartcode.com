@@ -7,7 +7,7 @@
             The rule means that requests to /test/status/ will be redirected to /rewrite-status
             the url will be rewritten.
         </note>
-        <from>/photos/([0-9]+)/([0-9]+)/([0-9]+)/</from>
+        <from>/photos/([0-9]+)/([0-9]+)/([0-9]+)/image.jpg</from>
         <to>/PhotoADay?date=$1-$2-$3</to>
     </rule>
     <rule>
@@ -15,8 +15,16 @@
             The rule means that requests to /test/status/ will be redirected to /rewrite-status
             the url will be rewritten.
         </note>
-        <from>/photos/id/([0-9]+)/</from>
+        <from>/photos/id/([0-9]+)/image.jpg</from>
         <to>/photoserver?id=$1</to>
+    </rule>
+    <rule>
+        <note>
+            The rule means that requests to /test/status/ will be redirected to /rewrite-status
+            the url will be rewritten.
+        </note>
+        <from>/photos/thumb/([0-9]+)/image.jpg</from>
+        <to>/photoserver?id=$1&amp;width=240&amp;height=200</to>
     </rule>
 </urlrewrite>
 

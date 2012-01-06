@@ -34,7 +34,7 @@ public class MainPage {
 		sb.append(GetDescription());
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
-		sb.append("<link href=\"/style.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"/style.1.1.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
 		sb.append("<script type=\"text/javascript\" src=\"/hartcode.1.0.js\"></script>");
 		sb.append("<script type=\"text/javascript\" src=\"/ga.1.0.0.js\"></script>");
@@ -47,6 +47,8 @@ public class MainPage {
 		sb.append("<ul>");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
 		sb.append("<li><a id=\"newsli\" href=\"/News\">News</a></li>");
+		sb.append("<li><a id=\"wallli\" href=\"/Wallpaper\">Wallpaper</a></li>");
+		sb.append("<li><a id=\"voteli\" href=\"/photos/Vote\">Vote</a></li>");
 		sb.append("</ul>");
 		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"http://twitter-badges.s3.amazonaws.com/twitter-b.png\" alt=\"Follow Hartcode on Twitter\"/></a><br /><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FHartCode-Technology-Solutions%2F213056485378766&amp;send=false&amp;layout=button_count&amp;width=65&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" id=\"facebook\" allowTransparency=\"true\"></iframe></div>");
 		sb.append("</div>");
@@ -61,7 +63,7 @@ public class MainPage {
 		sb.append("	Verona WI, 53593<br />");
 		sb.append("</li>");
 		sb.append("<li  class=\"center\">");
-		sb.append("&#169; 2012 HartCode");
+		sb.append("&#169; 2012 HartCode<br/>All pictures, graphics, logos are copyrighted to their respective owners.");
 		sb.append("</li>");
 		sb.append("<li  class=\"right\">");
 		sb.append("<a href=\"mailto:alex@hartcode.com\">alex@hartcode.com</a><br />");
