@@ -108,7 +108,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>PhotoVote</servlet-name>
-    <url-pattern>/photos/Vote</url-pattern>
+    <url-pattern>/Vote</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -129,5 +129,15 @@
   <servlet-mapping>
     <servlet-name>Wallpaper</servlet-name>
     <url-pattern>/Wallpaper</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PhotoVoteResults</display-name>
+    <servlet-name>PhotoVoteResults</servlet-name>
+    <servlet-class>servlets.PhotoVoteResults</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoVoteResults</servlet-name>
+    <url-pattern>/VoteResults</url-pattern>
   </servlet-mapping>
 </web-app>

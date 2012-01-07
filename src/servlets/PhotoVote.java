@@ -52,7 +52,6 @@ public class PhotoVote extends HttpServlet {
 		{
 		for( int i =0; i < cookies.length; i++)
 		{
-	
 			if (cookies[i].getName().equals("photos"))
 			{
 				MyCookie = cookies[i];
@@ -141,28 +140,7 @@ public class PhotoVote extends HttpServlet {
 			}
 			if (hasvoted)
 			{
-				
-				response.addHeader("Content-Type", "text/html");
-				Long maxcnt = null;
-				try {
-					maxcnt = VoteDAO.GetVoteMaxResults(thedate);
-				} catch (Exception e) {
-					pw.write(e.getMessage());
-					pw.write(e.getStackTrace().toString());
-				}
-				Integer[][] voteResults = null;				
-				try {
-					voteResults = VoteDAO.GetVoteResults(thedate);
-				} catch (Exception e) {
-					pw.write(e.getMessage());
-					pw.write(e.getStackTrace().toString());
-				}
-				if (maxcnt != null && voteResults != null)
-				{
-					MainPage mp = new MainPage(new PhotoVoteResultsModule(voteResults,maxcnt),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote");
-					pw.write(mp.toString());
-				}
-				
+				response.sendRedirect("/VoteResults");
 				
 			}else
 			{
@@ -192,7 +170,7 @@ public class PhotoVote extends HttpServlet {
 				}
 				if (photoIDs != null)
 				{
-					response.addHeader("Content-Type", "text/html");
+					response.addHeader("Content-Type", "application/xhtml+xml");
 					MainPage mp = new MainPage(new PhotoVoteModule(photoIDs,CandidateIDs, UserID),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote");
 					pw.write(mp.toString());
 				}		
