@@ -15,7 +15,7 @@ public class PhotoVoteModule implements IMainModule {
 		candidateIDs = cids;
 		userID = uid;
 	}
-	
+		
 	public String GetMainModule() {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"></p><ul >");
