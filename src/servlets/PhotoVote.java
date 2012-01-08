@@ -170,7 +170,7 @@ public class PhotoVote extends HttpServlet {
 				}
 				if (photoIDs != null)
 				{
-					response.addHeader("Content-Type", "application/html");
+					response.addHeader("Content-Type", "text/html");
 					MainPage mp = new MainPage(new PhotoVoteModule(photoIDs,CandidateIDs, UserID),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote");
 					pw.write(mp.toString());
 				}		
