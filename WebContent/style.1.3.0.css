@@ -60,10 +60,11 @@ IMG {
 	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
 }
 #sidebar {
-	CLEAR: left; MIN-WIDTH: 100px; FLOAT: left
+	CLEAR: left; MIN-WIDTH: 100px; FLOAT: left;
+	BORDER-RIGHT: black 1px solid;
 }
 #main {
-	OVERFLOW: hidden; BORDER-LEFT: black 1px solid;
+	OVERFLOW: hidden; 
 	PADDING-BOTTOM:10px;
 	
 }
