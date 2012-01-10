@@ -42,7 +42,11 @@ public class PhotoVoteResultsModule implements IMainModule {
 		{
 			double start = voteResults[i][1];
 			double end = maxcnt;
-			String percentval = getPercentValue(start/end); 
+			String percentval = getPercentValue(start/end);
+			if (i == 2)
+			{
+				sb.append("</ul><ul class=\"newrow\">");
+			}
 			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='" + voteResults[i][0].toString() + "' src = '/photos/thumb/"+voteResults[i][0].toString()+"/image.jpg' alt='"+voteResults[i][0].toString()+"' width='240' height='200' /><br/><br/>"+percentval+"</p></li>");	
 		}
 		sb.append("</ul></div>");
