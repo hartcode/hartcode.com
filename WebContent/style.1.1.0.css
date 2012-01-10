@@ -1,287 +1,169 @@
 
-h1{
-
-	color:white;
-
-	padding-left: 5px;
-
-	background-color:#ABABAB;
-
-	font-family:monospace;
-
-	margin-bottom:0px;
-
+H1 {
+	PADDING-LEFT: 5px; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; COLOR: white; FONT-FAMILY: monospace; BACKGROUND-COLOR: #ababab
 }
-
-h2{
-
-	padding-left: 15px;
-
+H2 {
+	PADDING-LEFT: 15px
 }
-
-
-
-ul{
-
-	list-style-type: none;
-
+UL {
+	LIST-STYLE-TYPE: none
 }
-
-#footer,#newsdiv>ul ,#Other>#first,#newsdiv>ul li+li{
-
-	border-top:solid black 1px;
-	padding-top:5px;
+#footer {
+	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
 }
-
-p,form{
-
-	text-indent: 10px;
-
+#newsdiv > UL {
+	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
 }
-
-
-
-#sidebar>ul li a:visited,#sidebar>ul li a:link
-
-{
-
-	color:black;
-
+#Other > #first {
+	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
 }
-
-ul>div>p,#newsdiv>ul li>div{
-
-	color:#ABABAB;
-
+#newsdiv > UL LI + LI {
+	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
 }
-
-#newsdiv>ul,#Other{
-
-	overflow:hidden;
-
+P {
+	TEXT-INDENT: 10px
 }
-
-#newsdiv>ul li>div{
-
-	text-align:right;
-
+FORM {
+	TEXT-INDENT: 10px
 }
-
-#footer{
-
-	clear:both;
+#sidebar > UL LI A:visited {
+	COLOR: black
 }
-
-
-
-#footer ul{
-
-	text-align:center;
-
-	padding:0px;
-
-	margin:0px;
-
+#sidebar > UL LI A:link {
+	COLOR: black
 }
-
-
-
-#footer ul li {
-
-	float:left;
-
-	width:33%;
-
+UL > DIV > P {
+	COLOR: #ababab
 }
-
-
-
-img {
-
-	border-style:none;
-
+#newsdiv > UL LI > DIV {
+	COLOR: #ababab
 }
-
-#sidebar{
-
-	float:left;
-
-	clear:left;
-
-	min-width:100px;
-
+#newsdiv > UL {
+	OVERFLOW: hidden
 }
-
-#main{
-
-	border-left:solid black 1px;
-
-	overflow:hidden;
-
+#Other {
+	OVERFLOW: hidden
 }
-
-#sidebar>ul{
-
-	margin-left:0px;
-
+#newsdiv > UL LI > DIV {
+	TEXT-ALIGN: right
 }
-
-
-
-#sidebar>ul li a {
-
-	font-weight:bold;
-
-	display:block;
-
-	padding: 5px 15px 5px 15px;
-
-	text-decoration: none;
-
-	text-transform: uppercase;
-
+#footer {
+	CLEAR: both
 }
-
-
-
-#home #homeli,#news #newsli, #passgen #passli, #vote #voteli, #wall #wallli
-{
-
-	color:white;
-
-	background-color:#CDCDCD;
-
+#footer UL {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; TEXT-ALIGN: center
 }
-
-
-
-
-
+#footer UL LI {
+	FLOAT: left; WIDTH: 33%
+}
+IMG {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+#sidebar {
+	CLEAR: left; MIN-WIDTH: 100px; FLOAT: left
+}
+#main {
+	OVERFLOW: hidden; BORDER-LEFT: black 1px solid;
+	PADDING-BOTTOM:10px;
+	
+}
+#sidebar > UL {
+	MARGIN-LEFT: 0px
+}
+#sidebar > UL LI A {
+	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 15px; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-TRANSFORM: uppercase; PADDING-TOP: 5px; TEXT-DECORATION: none
+}
+#home #homeli {
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+}
+#news #newsli {
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+}
+#passgen #passli {
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+}
+#vote #voteli {
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+}
+#wall #wallli {
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+}
 #adpanel {
-
-	width: 120px;
-
-	height: 600px;
-
-	float:right;
-
-	margin: 10px;
-
+	FLOAT: right; MARGIN: 10px; WIDTH: 120px; HEIGHT: 600px
 }
-
-.hidden 
-
-{
-
-	display:none;
-
+.hidden {
+	DISPLAY: none
 }
-
-#alphaoptions
-
-{
-
-	text-indent: 10px;	
-
+#alphaoptions {
+	TEXT-INDENT: 10px
 }
-
-#alphaoptions > div
-
-{
-
-	text-indent: 20px;	
-
+#alphaoptions > DIV {
+	TEXT-INDENT: 20px
 }
-
-fieldset {
-
-	border: 0;
-
+FIELDSET {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
 }
-
-
-
 #address {
-
-	text-align:left;
-
+	TEXT-ALIGN: left
 }
-
-.right
-
+.right {
+	TEXT-ALIGN: right
+}
+.center {
+	TEXT-ALIGN: center
+}
+#social {
+	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; MARGIN-TOP: 50px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; TEXT-ALIGN: center
+}
+#Services LI {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; MIN-HEIGHT: auto; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 5px; WIDTH: 30%; PADDING-TOP: 5px; HEIGHT: 100%; BACKGROUND-COLOR: #cdcdcd
+}
+#Choices LI {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; MIN-HEIGHT: auto; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 5px; PADDING-TOP: 5px; HEIGHT: 100%; BACKGROUND-COLOR: #cdcdcd	
+}
+#Services LI P {
+	BORDER-TOP: black 1px solid
+}
+#Other {
+	MARGIN-BOTTOM: 10px
+}
+.newrow
 {
-
-	text-align:right;
-
+	CLEAR: both;
+}
+#Other > P {
+	CLEAR: both; PADDING-LEFT: 40px
+}
+A {
+	TEXT-DECORATION: none
+}
+#Services LI H3 {
+	COLOR: white; BACKGROUND-COLOR: gray; TEXT-ALIGN: center
+}
+#Choices LI H3 {
+	COLOR: white; BACKGROUND-COLOR: gray; TEXT-ALIGN: center
+}
+#facebook {
+	OVERFLOW: hidden; WIDTH: 80px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
+}
+#Choices LI P {
+	TEXT-ALIGN: center;
+	TEXT-INDENT: 0px
+}
+#HeadInner {
+	 Height:3px;
+	 MARGIN-LEFT: -5px;
+	 MARGIN-RIGHT: 5px;
+	 BACKGROUND-COLOR: gray
 }
 
-.center
-{
-
-text-align:center;
-
+#HeadInner2 {
+	 Height:3px;
+	 MARGIN-LEFT: -2px;
+	 BACKGROUND-COLOR: #cdcdcd
 }
 
-#social
-{
-	text-align:center;
-	border-top: solid black 1px;
-	margin-top:50px;
-	padding:5px;
-
-}
-
-#Services li
-{
-	float:left;
-	width: 30%;
-	padding:5px;
-	height:100%;
-	background-color:#CDCDCD;
-	margin:5px;
-	min-height: auto;
-}
-#Choices li
-{
-	float:left;
-	padding:5px;
-	height:100%;
-	background-color:#CDCDCD;
-	margin:5px;
-	min-height: auto;
-}
-
-#Services li p
-{
-	border-top: solid black 1px;
-}
-#Other
-{
-margin-bottom:10px;
-}
-#Other>p
-{
-	clear:both;
-   padding-left:40px;
-}
-
-a{
-text-decoration: none;
-}
-#Services li h3, #Choices li h3
-{
-text-align:center;
-background-color:gray;
-color:white;
-}
-#facebook
-{
-	border:none; 
-	overflow:hidden; 
-	width:80px; 
-	height:21px;
-}
-#Choices li p
-{
-	text-align:center;
+#HeadOuter {
+	BACKGROUND-COLOR: #ababab;
+	Padding-TOP: 5px;
 }
