@@ -90,8 +90,9 @@ IMG {
 	COLOR: white; BACKGROUND-COLOR: #cdcdcd
 }
 #adpanel {
-	FLOAT: right; MARGIN: 10px; WIDTH: 120px; HEIGHT: 600px
+	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
 }
+
 .hidden {
 	DISPLAY: none
 }
@@ -114,7 +115,7 @@ FIELDSET {
 	TEXT-ALIGN: center
 }
 #social {
-	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; MARGIN-TOP: 50px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; TEXT-ALIGN: center
+	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
 }
 #Services LI {
 	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; MIN-HEIGHT: auto; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 5px; WIDTH: 30%; PADDING-TOP: 5px; HEIGHT: 100%; BACKGROUND-COLOR: #cdcdcd
