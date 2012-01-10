@@ -54,7 +54,7 @@ public class MainPage {
 		sb.append("<li><a id=\"wallli\" href=\"/Wallpaper\">Wallpaper</a></li>");
 		sb.append("<li><a id=\"voteli\" href=\"/Vote\">Vote</a></li>");
 		sb.append("</ul>");
-		sb.append("<div id=\"social\"><iframe src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&o=1&p=10&l=bn1&mode=books&browse=5&fc1=000000&lt1=_blank&lc1=5F636E&bg1=FFFFFF&f=ifr\" marginwidth=\"0\" marginheight=\"0\" width=\"120\" height=\"450\" border=\"0\" frameborder=\"0\" style=\"border:none;\" scrolling=\"no\"></iframe></div>");
+		//sb.append("<div id=\"social\"><iframe src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&o=1&p=10&l=bn1&mode=books&browse=5&fc1=000000&lt1=_blank&lc1=5F636E&bg1=FFFFFF&f=ifr\" marginwidth=\"0\" marginheight=\"0\" width=\"120\" height=\"450\" border=\"0\" frameborder=\"0\" style=\"border:none;\" scrolling=\"no\"></iframe></div>");
 		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"http://twitter-badges.s3.amazonaws.com/twitter-b.png\" alt=\"Follow Hartcode on Twitter\"/></a><br /><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FHartCode-Technology-Solutions%2F213056485378766&amp;send=false&amp;layout=button_count&amp;width=65&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" id=\"facebook\" allowTransparency=\"true\"></iframe></div>");
 		sb.append("</div>");
 		sb.append("<div id=\"main\">");
