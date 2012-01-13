@@ -15,17 +15,14 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode Data 1.1">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode PassGen 1.0">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/PhotoADay"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ApacheTomcat 6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ApacheTomcat7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode Data 1.2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/HartCode PhotoADay 1.6"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
