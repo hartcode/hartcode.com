@@ -96,7 +96,6 @@ public class PhotoVote extends HttpServlet {
 
 			}
 			MyCookie = new Cookie("photos", cookievalue);
-			MyCookie.setDomain(".hartcode.com");
 			MyCookie.setMaxAge(31536000);
 			response.addCookie(MyCookie);
 		}else
@@ -131,7 +130,11 @@ public class PhotoVote extends HttpServlet {
 			
 			Boolean hasvoted = false;
 			try {
+				//Date starttime = mycal.getTime();
 				hasvoted = VoteDAO.hasUserVotedToday(thedate, UserID);
+				//Date endtime = mycal.getTime();
+				//pw.write(endtime.getDate() - starttime.getDate());
+				//pw.write(endtime);
 			} catch (Exception e) {
 				
 				pw.write(e.getMessage());
