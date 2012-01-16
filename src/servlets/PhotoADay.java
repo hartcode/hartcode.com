@@ -11,8 +11,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import com.hartcode.PhotoADay.PhotoAdder;
+import com.hartcode.PhotoADay.PhotoAdder2;
+import com.hartcode.exceptions.InvalidPortException;
+import com.hartcode.exceptions.NullArgumentException;
 
 /**
  * Servlet implementation class PhotoADay
@@ -41,7 +47,7 @@ public class PhotoADay extends HttpServlet {
 			java.util.Date stopdate = mycal.getTime();
 			String strdate2 = sdf.format(stopdate);
 			stopdate = Date.valueOf(strdate2);
-		
+			PhotoAdder2 pa2 = null;
 			if (thedate.after(startdate) || thedate.equals(startdate))
 			{
 				if (thedate.before(stopdate) || sdf.format(thedate).equals(sdf.format(stopdate)))
@@ -49,9 +55,17 @@ public class PhotoADay extends HttpServlet {
 					Integer PhotoID = null;
 					
 					try {
-						PhotoID = PhotoAdder.GetPhotoDay(thedate);
-					
+						pa2 = new PhotoAdder2();
+						PhotoID = pa2.GetPhotoDay(thedate);
+						pa2.closeConnections();
 					} catch (Exception e) {
+					}finally
+					{
+						if (pa2 != null)
+							{
+								pa2.closeConnections();
+							}
+							
 					}
 					if (PhotoID != null)
 					{

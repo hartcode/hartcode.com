@@ -13,6 +13,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import modules.PhotoVoteModule;
 import modules.PhotoVoteResultsModule;
@@ -21,6 +24,8 @@ import pages.MainPage;
 
 
 import com.hartcode.PhotoADay.*;
+import com.hartcode.exceptions.InvalidPortException;
+import com.hartcode.exceptions.NullArgumentException;
 
 /**
  * Servlet implementation class PhotoVote
@@ -48,6 +53,22 @@ public class PhotoVote extends HttpServlet {
 		mycal.add(Calendar.DATE, 1);
 		Date thedate = mycal.getTime();
 		PrintWriter pw = response.getWriter();
+		VoteDAO2 va2 = null;
+		try {
+			va2 = new VoteDAO2();
+		} catch (NullArgumentException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (InvalidPortException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (ParserConfigurationException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (SAXException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		if (cookies != null)
 		{
 		for( int i =0; i < cookies.length; i++)
@@ -88,7 +109,7 @@ public class PhotoVote extends HttpServlet {
 	    	cookievalue = hexString.toString();
 			
 			try {
-				UserID = VoteDAO.NewUser(ip, cookievalue);
+				UserID = va2.NewUser(ip, cookievalue);
 			} catch (Exception e) {
 				
 				pw.write(e.getMessage());
@@ -101,13 +122,13 @@ public class PhotoVote extends HttpServlet {
 		}else
 		{
 			try {
-				UserID = VoteDAO.GetUserID(MyCookie.getValue());
+				UserID = va2.GetUserID(MyCookie.getValue());
 
 			} catch (Exception e) {
 			}
 			if (UserID == null)
 			{try {
-				UserID = VoteDAO.NewUser(ip, MyCookie.getValue());
+				UserID = va2.NewUser(ip, MyCookie.getValue());
 			} catch (Exception e) {
 			}
 			}
@@ -120,7 +141,7 @@ public class PhotoVote extends HttpServlet {
 			{
 				Integer CandidateID = Integer.valueOf(strCandidateID);
 				try {
-					VoteDAO.Vote(UserID,CandidateID,thedate);
+					va2.Vote(UserID,CandidateID,thedate);
 					//response.sendRedirect("/photos/Vote");
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
@@ -131,7 +152,7 @@ public class PhotoVote extends HttpServlet {
 			Boolean hasvoted = false;
 			try {
 				//Date starttime = mycal.getTime();
-				hasvoted = VoteDAO.hasUserVotedToday(thedate, UserID);
+				hasvoted = va2.hasUserVotedToday(thedate, UserID);
 				//Date endtime = mycal.getTime();
 				//pw.write(endtime.getDate() - starttime.getDate());
 				//pw.write(endtime);
@@ -143,7 +164,8 @@ public class PhotoVote extends HttpServlet {
 			}
 			if (hasvoted)
 			{
-		response.sendRedirect("/VoteResults");
+				va2.closeConnections();
+				response.sendRedirect("/VoteResults");
 				
 			}else
 			{
@@ -151,8 +173,8 @@ public class PhotoVote extends HttpServlet {
 				Integer[] photoIDs = null;
 				Integer[] CandidateIDs = null;
 				try {
-					photoIDs = VoteDAO.GetVoteOptions(thedate);
-					CandidateIDs = VoteDAO.GetVoteCandidateIDOptions(thedate);
+					photoIDs = va2.GetVoteOptions(thedate);
+					CandidateIDs = va2.GetVoteCandidateIDOptions(thedate);
 				} catch (Exception e) {
 					
 					pw.write(e.getMessage());
@@ -163,8 +185,8 @@ public class PhotoVote extends HttpServlet {
 				if (photoIDs == null)
 				{
 					try {
-						photoIDs = VoteDAO.CreateVoteOptions(thedate);
-						CandidateIDs = VoteDAO.GetVoteCandidateIDOptions(thedate);
+						photoIDs = va2.CreateVoteOptions(thedate);
+						CandidateIDs = va2.GetVoteCandidateIDOptions(thedate);
 					} catch (Exception e) {
 						pw.write(e.getMessage());
 						pw.write(e.getStackTrace().toString());
@@ -181,7 +203,7 @@ public class PhotoVote extends HttpServlet {
 			}
 
 		}
-		
+		va2.closeConnections();
 		pw.close();
 	}
 

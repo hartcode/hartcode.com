@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.hartcode.PhotoADay.PhotoAdder;
+import com.hartcode.PhotoADay.PhotoAdder2;
 
 /**
  * Servlet implementation class photoserver
@@ -39,6 +40,7 @@ public class photoserver extends HttpServlet {
 		Integer photoid = Integer.valueOf(strphotoid);
 		String filename = null;
 		try {
+			PhotoAdder2 pa2 = new PhotoAdder2();
 			if (strphotowidth != null)
 			{
 			Integer photowidth = Integer.valueOf(strphotowidth);
@@ -51,12 +53,12 @@ public class photoserver extends HttpServlet {
 			{
 				photoheight = 200;
 			}
-			filename = PhotoAdder.GetPhotoFileName(photoid,photoheight,photowidth);
+			filename = pa2.GetPhotoFileName(photoid,photoheight,photowidth);
 			}
 			else {
-				filename = PhotoAdder.GetPhotoFileName(photoid);	
+				filename = pa2.GetPhotoFileName(photoid);	
 			}
-			
+			pa2.closeConnections();
 		} catch (Exception e) {
 			PrintWriter pw = response.getWriter();
 			pw.write(e.getMessage());
