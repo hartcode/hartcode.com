@@ -11,14 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.xml.sax.SAXException;
-
-import com.hartcode.PhotoADay.PhotoAdder;
 import com.hartcode.PhotoADay.PhotoAdder2;
-import com.hartcode.exceptions.InvalidPortException;
-import com.hartcode.exceptions.NullArgumentException;
 
 /**
  * Servlet implementation class PhotoADay

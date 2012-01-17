@@ -2,7 +2,6 @@ package modules;
 
 import javax.servlet.http.HttpServletRequest;
 
-import dataObjects.HTMLNews;
 
 public class PhotoVoteModule implements IMainModule {
 

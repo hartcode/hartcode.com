@@ -18,7 +18,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.xml.sax.SAXException;
 
 import modules.PhotoVoteModule;
-import modules.PhotoVoteResultsModule;
 
 import pages.MainPage;
 

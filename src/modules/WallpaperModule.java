@@ -7,9 +7,6 @@ import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 
-import dataObjects.HTMLNews1;
-
-
 public class WallpaperModule implements IMainModule {
 	protected HttpServletRequest m_request;
 	public WallpaperModule()

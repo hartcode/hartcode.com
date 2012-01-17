@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hartcode.PhotoADay.PhotoAdder;
 import com.hartcode.PhotoADay.PhotoAdder2;
 
 /**
@@ -63,10 +62,12 @@ public class photoserver extends HttpServlet {
 			PrintWriter pw = response.getWriter();
 			pw.write(e.getMessage());
 			pw.write(e.getStackTrace().toString());
+			e.printStackTrace();
 			pw.close();
 		}
 		if (filename != null)
 		{
+			
 			response.setContentType("image/jpeg");
 			ServletOutputStream os = response.getOutputStream();
 			//	FileInputStream is = new FileInputStream("/usr/java/tomcat-5.5/hartcode/ROOT/images/photos/1.jpg");
@@ -79,9 +80,10 @@ public class photoserver extends HttpServlet {
 			}
 			is.close();
 			os.close();
+			
 		}else
 		{
-			//response.setStatus(404);
+			response.setStatus(404);
 		}
 	}
 

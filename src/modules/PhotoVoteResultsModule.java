@@ -12,7 +12,6 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import com.hartcode.PhotoADay.VoteDAO;
 import com.hartcode.PhotoADay.VoteDAO2;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
