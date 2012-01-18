@@ -1,11 +1,14 @@
 package pages;
 
+import org.apache.log4j.Logger;
+
 import modules.ADs;
 import modules.IMainModule;
 
 
 public class MainPage {
-
+	static Logger logger = Logger.getLogger(MainPage.class);
+	
 	protected String m_Main;
 	protected String m_Title;
 	protected String m_NavID;
@@ -23,7 +26,7 @@ public class MainPage {
 	{
 		String retval = "";
 		StringBuilder sb = new StringBuilder();
-		
+		logger.debug("Start Main Page");
 		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
 		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">");
@@ -55,11 +58,15 @@ public class MainPage {
 		sb.append("<li><a id=\"wallli\" href=\"/Wallpaper\">Wallpaper</a></li>");
 		sb.append("<li><a id=\"voteli\" href=\"/Vote\">Vote</a></li>");
 		sb.append("</ul>");
+		logger.debug("Start Ad Module");
 		sb.append("<div id=\"adpanel\">"+ADs.getRandomAd()+"</div>");
+		logger.debug("End Ad Module");
 		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"http://twitter-badges.s3.amazonaws.com/twitter-b.png\" alt=\"Follow Hartcode on Twitter\"/></a><br /><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FHartCode-Technology-Solutions%2F213056485378766&amp;send=false&amp;layout=button_count&amp;width=65&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" id=\"facebook\" allowTransparency=\"true\"></iframe></div>");
 		sb.append("</div>");
 		sb.append("<div id=\"main\">");
+		logger.debug("Start Main Page Module");
 		sb.append(m_MainModule.GetMainModule());
+		logger.debug("End Main Page Module");
 		sb.append("</div>");
 		sb.append("<div id=\"footer\">");
 		sb.append("  <ul>");
@@ -80,6 +87,7 @@ public class MainPage {
 		sb.append("</body>");
 		sb.append("</html>");
 		retval = sb.toString();
+		logger.debug("End Main Page");
 		return retval;
 	}
 

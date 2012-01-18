@@ -1,5 +1,9 @@
 package modules;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -17,7 +21,33 @@ public class PhotoVoteModule implements IMainModule {
 		
 	public String GetMainModule() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"></p><ul >");
+		Calendar mycal = Calendar.getInstance();
+		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+		int hourofday = mycal.get(Calendar.HOUR_OF_DAY);
+		int minofhour = mycal.get(Calendar.MINUTE);
+		int hoursleft = 23 - hourofday;
+		int minsleft = 59 - minofhour;
+		String hours = "hour";
+		 if (hoursleft>1)
+		 {
+			 hours+="s";
+		 }
+		 String minutes = "minute";
+		 if (minsleft>1)
+		 {
+			 minutes+="s";
+		 }
+		 String timeleft = "";
+		 if (hoursleft >0)
+		 {
+			 timeleft += hoursleft + " "+hours+" and ";
+		 }
+		 else 
+		 {
+			 timeleft += "Hurry only ";
+		 }
+		 timeleft += minsleft + " minutes left to vote!";
+		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><h3>"+timeleft+"</h3><p id=\"first\"></p><ul >");
 		for (Integer i = 0; i < photoIDs.length;i++)
 		{
 			if (i == 2)

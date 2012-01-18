@@ -14,6 +14,7 @@
     <display-name>IndexPage</display-name>
     <servlet-name>IndexPage</servlet-name>
     <servlet-class>servlets.IndexPage</servlet-class>
+     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>IndexPage</servlet-name>
@@ -24,6 +25,7 @@
     <display-name>RSSNewsPage</display-name>
     <servlet-name>RSSNewsPage</servlet-name>
     <servlet-class>servlets.RSSNewsPage</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>RSSNewsPage</servlet-name>
@@ -34,6 +36,7 @@
     <display-name>NewsPage</display-name>
     <servlet-name>NewsPage</servlet-name>
     <servlet-class>servlets.NewsPage</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>NewsPage</servlet-name>
@@ -44,16 +47,19 @@
     <display-name>PassGenPage</display-name>
     <servlet-name>PassGenPage</servlet-name>
     <servlet-class>servlets.PassGenPage</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>PassGenPage</servlet-name>
     <url-pattern>/PasswordGenerator</url-pattern>
+
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>NewsPoster</display-name>
     <servlet-name>NewsPoster</servlet-name>
     <servlet-class>com.hartcode.servlets.NewsPoster</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>NewsPoster</servlet-name>
@@ -83,6 +89,7 @@
     <display-name>PhotoADay</display-name>
     <servlet-name>PhotoADay</servlet-name>
     <servlet-class>servlets.PhotoADay</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>PhotoADay</servlet-name>
@@ -105,6 +112,7 @@
     <display-name>PhotoVote</display-name>
     <servlet-name>PhotoVote</servlet-name>
     <servlet-class>servlets.PhotoVote</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>PhotoVote</servlet-name>
@@ -115,6 +123,7 @@
     <display-name>photoserver</display-name>
     <servlet-name>photoserver</servlet-name>
     <servlet-class>servlets.photoserver</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>photoserver</servlet-name>
@@ -125,6 +134,7 @@
     <display-name>Wallpaper</display-name>
     <servlet-name>Wallpaper</servlet-name>
     <servlet-class>servlets.Wallpaper</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>Wallpaper</servlet-name>
@@ -135,9 +145,20 @@
     <display-name>PhotoVoteResults</display-name>
     <servlet-name>PhotoVoteResults</servlet-name>
     <servlet-class>servlets.PhotoVoteResults</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>PhotoVoteResults</servlet-name>
     <url-pattern>/VoteResults</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>log4j-init</servlet-name>
+    <servlet-class>servlets.Log4jInit</servlet-class>
+    <init-param>
+      <param-name>log4j-init-file</param-name>
+      <param-value>WEB-INF/conf/log4j.lcf</param-value>
+    </init-param>
+
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 </web-app>

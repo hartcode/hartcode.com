@@ -1,11 +1,18 @@
 package modules;
 
-import java.security.NoSuchAlgorithmException;
+
 import java.util.Vector;
 
+import org.apache.log4j.Logger;
+
+import com.hartcode.library.random.Random;
+
 public class ADs {
+	static Logger logger = Logger.getLogger(ADs.class);
+	
 	public static String getRandomAd()
 	{
+		logger.debug("Creating AD Vector");
 		Vector<String> ads = new Vector<String>();
 		ads.add("<iframe src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&o=1&p=10&l=bn1&mode=books&browse=5&fc1=000000&lt1=_blank&lc1=5F636E&bg1=FFFFFF&f=ifr\" marginwidth=\"0\" marginheight=\"0\" width=\"120\" height=\"450\" border=\"0\" frameborder=\"0\" style=\"border:none;\" scrolling=\"no\"></iframe>");
 		ads.add("<iframe src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&o=1&p=29&l=ur1&category=endless&banner=0R1FFPJMQ9WGRHF5N8R2&m=endless&f=ifr\" width=\"120\" height=\"600\" scrolling=\"no\" border=\"0\" marginwidth=\"0\" style=\"border:none;\" frameborder=\"0\"></iframe>");
@@ -19,18 +26,8 @@ public class ADs {
 		ads.add("<a target=\"_blank\" href=\"http://affiliate.godaddy.com/redirect/26F04496FBE33781A2F6EACE9BAB7AD7CCDCFC67A25675D797DDB4269FE70B28CADCF3042B214CFB2B3DE3C0D487FA859C9AFCB2334E05B2BBEC6A55F5A74DEC\"><img src=\"http://affiliate.godaddy.com/ads/26F04496FBE33781A2F6EACE9BAB7AD7CCDCFC67A25675D797DDB4269FE70B28CADCF3042B214CFB2B3DE3C0D487FA859C9AFCB2334E05B2BBEC6A55F5A74DEC\" border=\"0\" width=\"120\"  height=\"240\" alt=\"SPECIAL Offer! Save 20% off all New Hosting Plans!\"/></a>");
 		ads.add("<a target=\"_blank\" href=\"http://affiliate.godaddy.com/redirect/BFBDAE2B5143A86D6CD81C42A083E0E952EB12F7B9449E4786E6EC22FE6EFD4401DADFBDCEE8204F1C029D35F8920134279782CA5D0F17DE32AC876B83ED57B2\"><img src=\"http://affiliate.godaddy.com/ads/BFBDAE2B5143A86D6CD81C42A083E0E952EB12F7B9449E4786E6EC22FE6EFD4401DADFBDCEE8204F1C029D35F8920134279782CA5D0F17DE32AC876B83ED57B2\" border=\"0\" width=\"120\"  height=\"240\" alt=\"Online File Folder - just $1.99/mo for a year!\"/></a>");
 		ads.add("<a target=\"_blank\" href=\"http://affiliate.godaddy.com/redirect/D6DC92E11DCB1FB52FB682F3C7DD122369759C80CCFFBEBF925E4E778C32ABBD4692FB7084832FA6E7AB670FC114485D5E676E421D94FD3ECAA05CAE1BEED973\"><img src=\"http://affiliate.godaddy.com/ads/D6DC92E11DCB1FB52FB682F3C7DD122369759C80CCFFBEBF925E4E778C32ABBD4692FB7084832FA6E7AB670FC114485D5E676E421D94FD3ECAA05CAE1BEED973\" border=\"0\" width=\"120\"  height=\"240\" alt=\"Selling Made Easy with Quick Shopping Cart from GoDaddy.com\"/></a>");
-
-		java.security.SecureRandom randomizer = null;
-		java.security.SecureRandom randomizer1 = null;
-		try {
-			randomizer = java.security.SecureRandom.getInstance("SHA1PRNG");
-			byte seed[] = randomizer.generateSeed(20);
-			randomizer1 = java.security.SecureRandom.getInstance("SHA1PRNG");
-			randomizer1.setSeed(seed);
-		} catch (NoSuchAlgorithmException e1) {
-			randomizer1 = new java.security.SecureRandom();
-		}
-		Integer index = randomizer1.nextInt(ads.size());
+		Integer index = Random.getRandomInt(ads.size());
+		logger.debug("Found AD: " +  ads.elementAt(index));
 		return ads.elementAt(index);
 	}
 

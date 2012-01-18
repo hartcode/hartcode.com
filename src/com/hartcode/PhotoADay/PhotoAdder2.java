@@ -11,24 +11,29 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
+
+import servlets.photoserver;
 
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
+import com.hartcode.library.random.Random;
 
 
 public class PhotoAdder2 {
-	
+	static Logger logger = Logger.getLogger(PhotoAdder2.class);
 	PhotoADayDAO mydao = null;
 	public PhotoAdder2() throws NullArgumentException, FileNotFoundException, InvalidPortException, ParserConfigurationException, SAXException, IOException
 	{
+		logger.debug("Getting PhotoADayDAO() object.");
 		mydao = new PhotoADayDAO();
+		logger.debug("Finished getting PhotoADayDAO() object.");
 	}
 	
 	public  void AddPhoto(PhotoObject photo) throws Exception
@@ -225,17 +230,8 @@ public class PhotoAdder2 {
 				index = 0;
 			}else
 			{
-				java.security.SecureRandom randomizer = null;
-				java.security.SecureRandom randomizer1 = null;
-				try {
-					randomizer = java.security.SecureRandom.getInstance("SHA1PRNG");
-					byte seed[] = randomizer.generateSeed(20);
-					randomizer1 = java.security.SecureRandom.getInstance("SHA1PRNG");
-					randomizer1.setSeed(seed);
-				} catch (NoSuchAlgorithmException e1) {
-					randomizer1 = new java.security.SecureRandom();
-				}
-				index = randomizer1.nextInt(highestvotes.size());
+				
+				index = Random.getRandomInt(highestvotes.size());
 			}
 			retval = highestvotes.elementAt(index);
 		}
@@ -254,17 +250,7 @@ public class PhotoAdder2 {
 		Integer availscount = avails.length;
 		if (availscount > 0)
 		{
-			java.security.SecureRandom randomizer = null;
-			java.security.SecureRandom randomizer1 = null;
-			try {
-				randomizer = java.security.SecureRandom.getInstance("SHA1PRNG");
-				byte seed[] = randomizer.generateSeed(20);
-				randomizer1 = java.security.SecureRandom.getInstance("SHA1PRNG");
-				randomizer1.setSeed(seed);
-			} catch (NoSuchAlgorithmException e1) {
-				randomizer1 = new java.security.SecureRandom();
-			}
-			Integer randomindex = randomizer1.nextInt(availscount);
+			Integer randomindex = Random.getRandomInt(availscount);
 			retval = avails[randomindex];
 		}else
 		{
@@ -294,8 +280,12 @@ public class PhotoAdder2 {
 	public  String GetPhotoFileName(Integer PhotoID) throws Exception
 	{
 		String retval = null;
-	
+		logger.debug("Getting Photo File Name");
+		logger.debug("PhotoID: " + PhotoID);
+		
+		logger.debug("Selecting");
 		Object[][] obj = mydao.Select("Select vpf.FileName from vwPhotoFiles vpf inner join vwLargestPhotoFile vlpf on vpf.ID = vlpf.ID where vlpf.PhotoID = " + PhotoID.toString() + ";");
+		logger.debug("Finished Selecting");
 		if (obj == null || obj.length == 0)
 		{ 
 			throw new Exception("Couldn't Find FileName for the given PhotoID: " + PhotoID.toString());
@@ -309,13 +299,22 @@ public class PhotoAdder2 {
 	public  String GetPhotoFileName(Integer PhotoID, Integer Height, Integer Width) throws Exception
 	{
 		String retval = null;
+		logger.debug("Getting Photo File Name");
+		logger.debug("PhotoID: " + PhotoID);
+		logger.debug("Height: " + Height);
+		logger.debug("Width: " + Width);
 		
+		logger.debug("Selecting");
 		Object[][] obj = mydao.Select("Select vpf.FileName from vwPhotoFiles vpf where vpf.PhotoID = " + PhotoID.toString() + " and vpf.Height = " + Height.toString()+  " and vpf.Width = " + Width.toString() + ";");
+		logger.debug("Finished Selecting");
 		if (obj == null || obj.length == 0)
 		{ 
 			// Need to create different sized file
+			logger.warn("Photo file not found in the proper size. Get the largest photo and create an image in the proper size.");
 			String filename = GetPhotoFileName(PhotoID);
+			logger.debug("Got Largest Photo");
 			String outfilename = filename.replace(".jpg", "-" +Width.toString() + "x" + Height.toString() + ".jpg");
+			logger.debug("Begin Resize");
 			FileInputStream fis = new FileInputStream(filename);
 			FileOutputStream fos = new FileOutputStream(outfilename);
 			BufferedImage bi = ImageIO.read(fis);
@@ -327,10 +326,15 @@ public class PhotoAdder2 {
 		        g.dispose();
 			ImageIO.write(scaledBI,"JPG",(OutputStream)fos);
 			fos.close();
+			logger.debug("End Resize");
+			
 			PhotoObject pho = new PhotoObject(outfilename,outfilename.substring(0,25),outfilename);
 			ImageDimension size = pho.getDimensions();
+			logger.debug("Add new photo size to database.");
 			InsertPhotoFiles(PhotoID,pho.getFileName(),size.Height,size.Width,pho.getHash());
+			logger.debug("Selecting");
 			obj = mydao.Select("Select vpf.FileName from vwPhotoFiles vpf where vpf.PhotoID = " + PhotoID.toString() + " and vpf.Height = " + Height.toString()+  " and vpf.Width = " + Width.toString() + ";");
+			logger.debug("Finished Selecting");
 			if (obj == null || obj.length == 0)
 			{
 				throw new Exception("Couldn't Find FileName for the given PhotoID and size: " + PhotoID.toString());
@@ -341,6 +345,7 @@ public class PhotoAdder2 {
 			
 		}else
 		{
+			
 			retval = (String)(obj[0][0]);
 		} 
 		return retval;

@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import javax.imageio.ImageIO;
@@ -21,6 +20,7 @@ import org.xml.sax.SAXException;
 
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
+import com.hartcode.library.random.Random;
 
 
 public class PhotoAdder {
@@ -226,17 +226,7 @@ public class PhotoAdder {
 				index = 0;
 			}else
 			{
-				java.security.SecureRandom randomizer = null;
-				java.security.SecureRandom randomizer1 = null;
-				try {
-					randomizer = java.security.SecureRandom.getInstance("SHA1PRNG");
-					byte seed[] = randomizer.generateSeed(20);
-					randomizer1 = java.security.SecureRandom.getInstance("SHA1PRNG");
-					randomizer1.setSeed(seed);
-				} catch (NoSuchAlgorithmException e1) {
-					randomizer1 = new java.security.SecureRandom();
-				}
-				index = randomizer1.nextInt(highestvotes.size());
+				index = Random.getRandomInt(highestvotes.size());
 			}
 			retval = highestvotes.elementAt(index);
 		}
@@ -255,17 +245,7 @@ public class PhotoAdder {
 		Integer availscount = avails.length;
 		if (availscount > 0)
 		{
-			java.security.SecureRandom randomizer = null;
-			java.security.SecureRandom randomizer1 = null;
-			try {
-				randomizer = java.security.SecureRandom.getInstance("SHA1PRNG");
-				byte seed[] = randomizer.generateSeed(20);
-				randomizer1 = java.security.SecureRandom.getInstance("SHA1PRNG");
-				randomizer1.setSeed(seed);
-			} catch (NoSuchAlgorithmException e1) {
-				randomizer1 = new java.security.SecureRandom();
-			}
-			Integer randomindex = randomizer1.nextInt(availscount);
+			Integer randomindex = Random.getRandomInt(availscount);
 			retval = avails[randomindex];
 		}else
 		{
