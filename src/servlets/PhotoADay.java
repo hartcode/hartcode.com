@@ -33,7 +33,7 @@ public class PhotoADay extends HttpServlet {
 		if (strdate != null && strdate != "")
 		{
 			Calendar mycal = Calendar.getInstance();
-			mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+			//mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
 			java.util.Date thedate = Date.valueOf(strdate);
 			java.util.Date startdate = Date.valueOf("2012-01-01");
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
