@@ -33,7 +33,7 @@ public class PhotoVoteModule implements IMainModule {
 			 hours+="s";
 		 }
 		 String minutes = "minute";
-		 if (minsleft>1)
+		 if (minsleft>1 || minsleft == 0)
 		 {
 			 minutes+="s";
 		 }
@@ -46,7 +46,7 @@ public class PhotoVoteModule implements IMainModule {
 		 {
 			 timeleft += "Hurry only ";
 		 }
-		 timeleft += minsleft + " minutes left to vote!";
+		 timeleft += minsleft + " " + minutes +" left to vote!";
 		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><h3>"+timeleft+"</h3><p id=\"first\"></p><ul >");
 		for (Integer i = 0; i < photoIDs.length;i++)
 		{

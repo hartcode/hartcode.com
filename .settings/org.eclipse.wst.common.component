@@ -3,7 +3,7 @@
     <wb-module deploy-name="HartCode">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/web"/>
         <property name="java-output-path" value="/HartCode2/build/classes"/>
         <property name="context-root" value="HartCode"/>
     </wb-module>

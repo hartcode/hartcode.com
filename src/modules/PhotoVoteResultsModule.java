@@ -53,6 +53,28 @@ public class PhotoVoteResultsModule implements IMainModule {
 			e.printStackTrace();
 		}
 		StringBuilder sb = new StringBuilder();
+		mycal = Calendar.getInstance();
+		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+		int hourofday = mycal.get(Calendar.HOUR_OF_DAY);
+		int minofhour = mycal.get(Calendar.MINUTE);
+		int hoursleft = 23 - hourofday;
+		int minsleft = 59 - minofhour;
+		String hours = "hour";
+		 if (hoursleft>1)
+		 {
+			 hours+="s";
+		 }
+		 String minutes = "minute";
+		 if (minsleft>1 || minsleft == 0)
+		 {
+			 minutes+="s";
+		 }
+		 String timeleft = "";
+		 if (hoursleft >0)
+		 {
+			 timeleft += hoursleft + " "+hours+" and ";
+		 }
+		 timeleft += minsleft + " " + minutes +" of voting time left.";
 		Long maxcnt = null;
 		try {
 			maxcnt = va2.GetVoteMaxResults(thedate);
@@ -66,7 +88,7 @@ public class PhotoVoteResultsModule implements IMainModule {
 		if (maxcnt != null && voteResults != null)
 		{
 		
-		sb.append("<div id=\"Choices\"><h2>Vote Results For Tomorrows Wallpaper</h2><p id=\"first\"></p><ul>");
+		sb.append("<div id=\"Choices\"><h2>Vote Results For Tomorrows Wallpaper</h2><h3>"+timeleft+"</h3><p id=\"first\"></p><ul>");
 		for (int i = 0; i < voteResults.length;i++)
 		{
 			double start = voteResults[i][1];
