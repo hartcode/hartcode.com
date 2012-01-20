@@ -2,7 +2,7 @@ package com.hartcode.news.reader.data;
 import com.hartcode.news.*;
 import java.sql.SQLException;
 
-import com.hartcode.data.mysql.DAO;
+import com.hartcode.data.mysql.JNDI_DAO;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
 

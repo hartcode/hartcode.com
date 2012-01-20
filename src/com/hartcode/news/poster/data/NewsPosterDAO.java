@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import com.hartcode.data.mysql.DAO;
+import com.hartcode.data.mysql.JNDI_DAO;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
 import com.hartcode.news.NewsItem;

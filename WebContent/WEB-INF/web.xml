@@ -13,7 +13,7 @@
     <description></description>
     <display-name>IndexPage</display-name>
     <servlet-name>IndexPage</servlet-name>
-    <servlet-class>servlets.IndexPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.IndexPage</servlet-class>
      <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -24,7 +24,7 @@
     <description></description>
     <display-name>RSSNewsPage</display-name>
     <servlet-name>RSSNewsPage</servlet-name>
-    <servlet-class>servlets.RSSNewsPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.RSSNewsPage</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -35,7 +35,7 @@
     <description></description>
     <display-name>NewsPage</display-name>
     <servlet-name>NewsPage</servlet-name>
-    <servlet-class>servlets.NewsPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.NewsPage</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -46,7 +46,7 @@
     <description></description>
     <display-name>PassGenPage</display-name>
     <servlet-name>PassGenPage</servlet-name>
-    <servlet-class>servlets.PassGenPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.PassGenPage</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -88,7 +88,7 @@
     <description></description>
     <display-name>PhotoADay</display-name>
     <servlet-name>PhotoADay</servlet-name>
-    <servlet-class>servlets.PhotoADay</servlet-class>
+    <servlet-class>com.hartcode.servlets.PhotoADay</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -111,7 +111,7 @@
     <description></description>
     <display-name>PhotoVote</display-name>
     <servlet-name>PhotoVote</servlet-name>
-    <servlet-class>servlets.PhotoVote</servlet-class>
+    <servlet-class>com.hartcode.servlets.PhotoVote</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -122,7 +122,7 @@
     <description></description>
     <display-name>photoserver</display-name>
     <servlet-name>photoserver</servlet-name>
-    <servlet-class>servlets.photoserver</servlet-class>
+    <servlet-class>com.hartcode.servlets.photoserver</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -133,7 +133,7 @@
     <description></description>
     <display-name>Wallpaper</display-name>
     <servlet-name>Wallpaper</servlet-name>
-    <servlet-class>servlets.Wallpaper</servlet-class>
+    <servlet-class>com.hartcode.servlets.Wallpaper</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -144,7 +144,7 @@
     <description></description>
     <display-name>PhotoVoteResults</display-name>
     <servlet-name>PhotoVoteResults</servlet-name>
-    <servlet-class>servlets.PhotoVoteResults</servlet-class>
+    <servlet-class>com.hartcode.servlets.PhotoVoteResults</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -153,12 +153,11 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>log4j-init</servlet-name>
-    <servlet-class>servlets.Log4jInit</servlet-class>
+    <servlet-class>com.hartcode.servlets.Log4jInit</servlet-class>
     <init-param>
       <param-name>log4j-init-file</param-name>
       <param-value>WEB-INF/conf/log4j.lcf</param-value>
     </init-param>
-
     <load-on-startup>1</load-on-startup>
   </servlet>
 </web-app>

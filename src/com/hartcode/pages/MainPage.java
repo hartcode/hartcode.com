@@ -51,6 +51,7 @@ public class MainPage {
 		sb.append("<div id=\"HeadInner\"></div>");
 		sb.append("<h1>HartCode Technology Solutions</h1>");
 		sb.append("</div>");
+		sb.append("<div id=\"total\">");
 		sb.append("<div id=\"sidebar\">");
 		sb.append("<ul>");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
@@ -67,6 +68,7 @@ public class MainPage {
 		logger.debug("Start Main Page Module");
 		sb.append(m_MainModule.GetMainModule());
 		logger.debug("End Main Page Module");
+		sb.append("</div>");
 		sb.append("</div>");
 		sb.append("<div id=\"footer\">");
 		sb.append("  <ul>");

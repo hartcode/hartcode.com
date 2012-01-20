@@ -20,5 +20,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/PhotoADay"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/NewsPoster"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
