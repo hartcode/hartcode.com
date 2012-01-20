@@ -130,12 +130,12 @@
   <property name="app.path"      value="/"/> <!--value="/${app.name}"/>-->
   <property name="app.version"   value="0.1-dev"/>
   <property name="build.home"    value="${basedir}/build"/>
-  <property name="catalina.home" value="../../../.."/> <!-- UPDATE THIS! -->
+  <property name="catalina.home" value="C:\Utilities\java\tomcat7"/> <!-- UPDATE THIS! -->
   <property name="dist.home"     value="${basedir}/dist"/>
   <property name="docs.home"     value="${basedir}/docs"/>
   <property name="manager.url"   value="http://localhost:8080/manager/text"/>
   <property name="src.home"      value="${basedir}/src"/>
-  <property name="web.home"      value="${basedir}/web"/>
+  <property name="web.home"      value="${basedir}/WebContent"/>
 
 
 <!-- ==================== External Dependencies =========================== -->
@@ -158,10 +158,10 @@
 -->
 
 <!-- Dummy external dependency -->
-<!--
-  <property name="foo.jar"
-           value="/path/to/foo.jar"/>
--->
+
+  <property name="Data Library 1.2"
+           value="com.hartcode.data.1.2.jar"/>
+
 
 
 <!-- ==================== Compilation Classpath =========================== -->
@@ -181,19 +181,32 @@
 
     <!-- Include all JAR files that will be included in /WEB-INF/lib -->
     <!-- *** CUSTOMIZE HERE AS REQUIRED BY YOUR APPLICATION *** -->
-<!--
-    <pathelement location="${foo.jar}"/>
--->
+
+   <!-- <pathelement location="${Data Library 1.2}"/> -->
+
 
     <!-- Include all elements that Tomcat exposes to applications -->
-    <fileset dir="${catalina.home}/bin">
+    <fileset dir="${catalina.home}">
       <include name="*.jar"/>
     </fileset>
-    <pathelement location="${catalina.home}/lib"/>
-    <fileset dir="${catalina.home}/lib">
+    <fileset dir="C:\utilities\java\apache-log4j-1.2.16">
       <include name="*.jar"/>
     </fileset>
-
+  	<fileset dir="C:\utilities\java\mysql">
+  	      <include name="*.jar"/>
+  	</fileset>
+  	<fileset dir="C:\Program Files (x86)\Java\jre6\lib">
+  	      <include name="*.jar"/>
+  	</fileset>
+  	<fileset dir="C:\Program Files (x86)\Java\jre6\lib\ext">
+  	  	      <include name="*.jar"/>
+  	</fileset>
+  	<fileset dir="${web.home}\WEB-INF\lib">
+  	      <include name="*.jar"/>
+  	</fileset>
+  	    
+  	  
+  	  
   </path>
 
 
@@ -344,6 +357,14 @@
 
 
 
+	<target name="war" depends="compile">
+		<war destfile="HartCode.war" 
+			webxml="WebContent/WEB-INF/web.xml">
+			<fileset dir="WebContent" />
+			<lib dir="WebContent/WEB-INF/lib"/>
+			<classes dir="build/WEB-INF/classes"/>
+		</war>
+	</target>
 <!-- ==================== Install Target ================================== -->
 
 <!--
@@ -365,15 +386,14 @@
 
 -->
 
-  <target name="install" depends="compile"
+  <target name="install" depends="war"
    description="Install application to servlet container">
-
     <deploy url="${manager.url}"
        username="${manager.username}"
        password="${manager.password}"
-           path="${app.path}"
-       localWar="file://${build.home}"/>
-
+       path="${app.path}"
+       war="HartCode.war"
+       update="true" />
   </target>
 
 

@@ -190,7 +190,7 @@ public class PhotoVote extends HttpServlet {
 			{
 				logger.info("User has already voted today!");
 				va2.closeConnections();
-				response.sendRedirect("/VoteResults");
+				response.sendRedirect("VoteResults");
 				
 			}else
 			{

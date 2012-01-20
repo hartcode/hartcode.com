@@ -2,7 +2,6 @@ package servlets;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.hartcode.PhotoADay.PhotoAdder2;
-import com.hartcode.library.random.Random;
 
 /**
  * Servlet implementation class photoserver

@@ -2,9 +2,7 @@ package pages;
 
 import org.apache.log4j.Logger;
 
-import modules.ADs;
-import modules.IMainModule;
-
+import modules.*;
 
 public class MainPage {
 	static Logger logger = Logger.getLogger(MainPage.class);
@@ -14,6 +12,7 @@ public class MainPage {
 	protected String m_NavID;
 	protected String m_Description;
 	protected IMainModule m_MainModule;
+	
 	public MainPage(IMainModule MainModule, String title, String desc, String navid)
 	{
 		m_MainModule = MainModule;
@@ -38,10 +37,10 @@ public class MainPage {
 		sb.append(GetDescription());
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
-		sb.append("<link href=\"/style.1.3.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"style.1.3.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
-		sb.append("<script type=\"text/javascript\" src=\"/hartcode.1.0.js\"></script>");
-		sb.append("<script type=\"text/javascript\" src=\"/ga.1.0.0.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"hartcode.1.0.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"ga.1.0.0.js\"></script>");
 		sb.append("</head>");
 		sb.append("<body id=\"");
 		sb.append(GetNavID());
@@ -54,9 +53,9 @@ public class MainPage {
 		sb.append("<div id=\"sidebar\">");
 		sb.append("<ul>");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
-		sb.append("<li><a id=\"newsli\" href=\"/News\">News</a></li>");
-		sb.append("<li><a id=\"wallli\" href=\"/Wallpaper\">Wallpaper</a></li>");
-		sb.append("<li><a id=\"voteli\" href=\"/Vote\">Vote</a></li>");
+		sb.append("<li><a id=\"newsli\" href=\"News\">News</a></li>");
+		sb.append("<li><a id=\"wallli\" href=\"Wallpaper\">Wallpaper</a></li>");
+		sb.append("<li><a id=\"voteli\" href=\"Vote\">Vote</a></li>");
 		sb.append("</ul>");
 		logger.debug("Start Ad Module");
 		sb.append("<div id=\"adpanel\">"+ADs.getRandomAd()+"</div>");
