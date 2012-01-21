@@ -199,7 +199,7 @@ A {
 	BACKGROUND-COLOR: #ababab;
 	Padding-TOP: 5px;
 	border-bottom-right-radius:10px;
-	
+	border-top-left-radius:10px;
 }
 
 #Choices>H3 {
