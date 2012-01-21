@@ -46,7 +46,7 @@ public class PhotoVoteModule implements IMainModule {
 			 timeleft += "Hurry only ";
 		 }
 		 timeleft += minsleft + " " + minutes +" left to vote!";
-		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><h3>"+timeleft+"</h3><p id=\"first\"></p><ul >");
+		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><h3>"+timeleft+"</h3><p id=\"first\"></p><div id='choice'><ul >");
 		for (Integer i = 0; i < photoIDs.length;i++)
 		{
 			if (i == 2)
@@ -55,7 +55,7 @@ public class PhotoVoteModule implements IMainModule {
 			}
 			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><a  href='Vote?cid="+candidateIDs[i].toString()+"'><img id='" + photoIDs[i].toString() + "' src = 'photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>Vote Now</p></a></li>");	
 		}
-		sb.append("</ul></div>");
+		sb.append("</ul></div></div>");
 		
 
 		

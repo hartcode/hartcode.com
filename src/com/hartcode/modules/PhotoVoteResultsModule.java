@@ -88,7 +88,7 @@ public class PhotoVoteResultsModule implements IMainModule {
 		if (maxcnt != null && voteResults != null)
 		{
 		
-		sb.append("<div id=\"Choices\"><h2>Vote Results For Tomorrows Wallpaper</h2><h3>"+timeleft+"</h3><p id=\"first\"></p><ul>");
+		sb.append("<div id=\"Choices\"><h2>Vote Results For Tomorrows Wallpaper</h2><h3>"+timeleft+"</h3><p id=\"first\"></p><div id='choice'><ul>");
 		for (int i = 0; i < voteResults.length;i++)
 		{
 			double start = voteResults[i][1];
@@ -100,7 +100,7 @@ public class PhotoVoteResultsModule implements IMainModule {
 			}
 			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='" + voteResults[i][0].toString() + "' src = 'photos/thumb/"+voteResults[i][0].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>"+percentval+"</p></li>");	
 		}
-		sb.append("</ul></div>");
+		sb.append("</ul></div></div>");
 		}
 		va2.closeConnections();
 		return sb.toString();

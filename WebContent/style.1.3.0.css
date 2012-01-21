@@ -1,6 +1,7 @@
 
 H1 {
-	PADDING-LEFT: 5px; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; COLOR: white; FONT-FAMILY: monospace; BACKGROUND-COLOR: #ababab
+	PADDING-LEFT: 5px; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; COLOR: white; FONT-FAMILY: monospace; BACKGROUND-COLOR: #ababab;
+	border-bottom-right-radius:10px;
 }
 H2 {
 	PADDING-LEFT: 15px
@@ -63,36 +64,53 @@ IMG {
 	 
 	MIN-WIDTH: 100px; 
 	BORDER-RIGHT: black 1px solid;
-    display: table-cell;
+    DISPLAY: table-cell;
 }
 #main {
 	Width:100%; 
 	PADDING-BOTTOM: 10px;
-	 display: table-cell;
+	 DISPLAY: table-cell;
 }
 #total {
-	display: table-row
+	DISPLAY: table-row;
 	}
+#Services {
+	DISPLAY: table;
+BORDER-SPACING: 5px;
+}
+#Services > DIV
+{
+ display: table-cell;	
+ border:1px solid #FFFFFF;
+
+}
 #sidebar > UL {
 	MARGIN-LEFT: 0px
 }
+
 #sidebar > UL LI A {
-	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 15px; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-TRANSFORM: uppercase; PADDING-TOP: 5px; TEXT-DECORATION: none
+	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 15px; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-TRANSFORM: uppercase; PADDING-TOP: 5px; TEXT-DECORATION: none;
+	border-bottom-left-radius:10px;
+	border-top-left-radius:10px;	
 }
 #home #homeli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
+
 }
 #news #newsli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
+	
 }
 #passgen #passli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
 }
 #vote #voteli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
+
 }
 #wall #wallli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
+
 }
 #adpanel {
 	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
@@ -122,17 +140,24 @@ FIELDSET {
 #social {
 	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
 }
-#Services LI {
-	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; MIN-HEIGHT: auto; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 5px; WIDTH: 30%; PADDING-TOP: 5px; HEIGHT: 100%; BACKGROUND-COLOR: #cdcdcd
+#Services DIV {
+	WIDTH: 30%;  BACKGROUND-COLOR: #cdcdcd;
+	border-radius: 10px;
+	PADDING: 10px;
 }
 #Choices LI {
-	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; MIN-HEIGHT: auto; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 5px; PADDING-TOP: 5px; HEIGHT: 100%; BACKGROUND-COLOR: #cdcdcd	
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px;  FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 5px; PADDING-TOP: 5px; HEIGHT: 100%; BACKGROUND-COLOR: #cdcdcd;
+	border-radius: 10px;	
 }
-#Services LI P {
+#Services DIV P {
 	BORDER-TOP: black 1px solid
 }
 #Other {
 	MARGIN-BOTTOM: 10px
+}
+#Services DIV.whitebackground
+{
+	BACKGROUND-COLOR: white;
 }
 .newrow
 {
@@ -144,7 +169,7 @@ FIELDSET {
 A {
 	TEXT-DECORATION: none
 }
-#Services LI H3 {
+#Services DIV H3 {
 	COLOR: white; BACKGROUND-COLOR: gray; TEXT-ALIGN: center
 }
 #Choices LI H3 {
@@ -173,8 +198,43 @@ A {
 #HeadOuter {
 	BACKGROUND-COLOR: #ababab;
 	Padding-TOP: 5px;
+	border-bottom-right-radius:10px;
+	
 }
 
 #Choices>H3 {
 	PADDING-LEFT: 30px
 }
+#Choices IMG
+{
+	border-radius: 10px;
+}
+#Choices H3
+{
+	border-radius: 10px;
+}
+#Services H3
+{
+	border-radius: 10px;
+}
+
+#wallpaper IMG
+{
+	border-radius: 10px;
+}
+#wallpaper
+{
+	TEXT-ALIGN: center;
+	 BACKGROUND-COLOR: #cdcdcd;
+		PADDING: 20px;
+		MARGIN-LEFT: auto;
+		MARGIN-RIGHT: auto;
+		WIDTH:640px;
+		border-radius: 10px;
+}
+#Choices #choice 
+		{
+		width:580px;
+		MARGIN-LEFT: auto;
+		MARGIN-RIGHT: auto;
+		}

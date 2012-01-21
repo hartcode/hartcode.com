@@ -189,8 +189,14 @@ public class PhotoVote extends HttpServlet {
 			if (hasvoted)
 			{
 				logger.info("User has already voted today!");
-				va2.closeConnections();
-				response.sendRedirect("VoteResults");
+			//	va2.closeConnections();
+				//response.sendRedirect("VoteResults");
+				response.addHeader("Content-Type", "text/html");
+				PrintWriter pw = response.getWriter();
+				MainPage mp = new MainPage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote");
+				pw.write(mp.toString());
+				pw.close();
+				
 				
 			}else
 			{
