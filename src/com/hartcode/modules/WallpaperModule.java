@@ -26,7 +26,7 @@ public class WallpaperModule implements IMainModule {
 		String strdate3 = sdf.format(thedate);
 		
 		
-		sb.append("<div id=\"Other\"><h2>Wallpaper For "+strdate+"</h2><p id=\"first\"><div id='wallpaper'><img id='"+strdate2+"' src='photos/"+strdate3+"/image.jpg' alt='"+strdate2+"' width='640' height='480' /></div></p></div>");
+		sb.append("<div id=\"Other\"><h2>Wallpaper For "+strdate+"</h2><p id=\"first\"><div id='wallpaperout'><div id='wallpaper'><img id='"+strdate2+"' src='photos/"+strdate3+"/image.jpg' alt='"+strdate2+"' width='640' height='480' /></div></div></p></div>");
 		return sb.toString();
 	}
 	public void SetRequest(HttpServletRequest request)

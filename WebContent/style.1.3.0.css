@@ -16,7 +16,7 @@ UL {
 	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
 }
 #Other > #first {
-	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
+	BORDER-TOP: black 1px solid; PADDING-TOP: 5px;
 }
 #newsdiv > UL LI + LI {
 	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
@@ -87,9 +87,20 @@ BORDER-SPACING: 5px;
 #sidebar > UL {
 	MARGIN-LEFT: 0px
 }
+#sidebar > UL LI A:HOVER {
+	BACKGROUND-COLOR: #cdcdcd;
+	COLOR:white;
+	Padding-LEFT:15px;
+	TEXT-DECORATION:underline;
+	Margin-left:0px;
+}
 
+A:HOVER {
+	TEXT-DECORATION:underline;
+}
 #sidebar > UL LI A {
-	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 15px; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-TRANSFORM: uppercase; PADDING-TOP: 5px; TEXT-DECORATION: none;
+	Margin-left:-10px;
+	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 25px; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-TRANSFORM: uppercase; PADDING-TOP: 5px; TEXT-DECORATION: none;
 	border-bottom-left-radius:10px;
 	border-top-left-radius:10px;	
 }
@@ -200,6 +211,7 @@ A {
 	Padding-TOP: 5px;
 	border-bottom-right-radius:10px;
 	border-top-left-radius:10px;
+	
 }
 
 #Choices>H3 {
@@ -208,6 +220,7 @@ A {
 #Choices IMG
 {
 	border-radius: 10px;
+	
 }
 #Choices H3
 {
@@ -226,11 +239,26 @@ A {
 {
 	TEXT-ALIGN: center;
 	 BACKGROUND-COLOR: #cdcdcd;
-		PADDING: 20px;
-		MARGIN-LEFT: auto;
-		MARGIN-RIGHT: auto;
-		WIDTH:640px;
-		border-radius: 10px;
+	PADDING: 20px;
+	WIDTH:640px;
+	border-radius: 10px;
+}
+#wallpaper, H1,#HeadOuter
+{
+	background: linear-gradient(bottom,  #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
+	background-image: -o-linear-gradient(bottom, #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
+	background-image: -moz-linear-gradient(bottom, #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
+	background-image: -webkit-linear-gradient(bottom, #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
+	background-image: -ms-linear-gradient(bottom, #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.3, #ababab),
+		color-stop(0.65, #FFFFFF),
+		color-stop(0.83, #cdcdcd)
+	);
+	
 }
 #Choices #choice 
 		{
@@ -238,3 +266,11 @@ A {
 		MARGIN-LEFT: auto;
 		MARGIN-RIGHT: auto;
 		}
+#wallpaperout
+{
+	PADDING-LEFT:20px;
+	MARGIN-LEFT: auto;
+		MARGIN-RIGHT: auto;
+		width:600px;
+		
+	}
