@@ -196,6 +196,7 @@ public class PhotoAdder2 {
 
 	public  Integer CreateRandomPhotoDay(Date thedate) throws Exception
 	{
+		logger.debug("Getting Random PhotoDay");
 		Integer retval = null;
 		Integer[][] voteResults = null;				
 		Integer highestvote = -1;
@@ -208,6 +209,7 @@ public class PhotoAdder2 {
 		}
 		if (voteResults != null)
 		{
+			logger.debug("We have Vote Results");
 			Vector<Integer> highestvotes = new Vector<Integer>();
 			for(int i= 0; i<voteResults.length;i++)
 			{
@@ -236,6 +238,7 @@ public class PhotoAdder2 {
 		}
 		else
 		{
+			logger.debug("We DON'T have Vote Results");
 			retval = getRandomPhotoID();
 		}
 		InsertPhotoDay(thedate, retval);
@@ -268,6 +271,7 @@ public class PhotoAdder2 {
 		Object[][] obj = mydao.Select("Select PhotoID from vwPhotoDay where ShowDate = '" + strdate + "';");
 		if (obj == null || obj.length == 0)
 		{ 
+			
 			retval = CreateRandomPhotoDay(thedate);
 		}else
 		{

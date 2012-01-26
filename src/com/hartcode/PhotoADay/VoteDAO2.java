@@ -230,7 +230,8 @@ public class VoteDAO2 {
 		Object[][] obj = mydao.Select("Select PhotoID, cnt from vwVoteResults where ShowDate = '" + strdate + "';");
 		if (obj == null || obj.length == 0)
 		{ 
-			throw new Exception("Couldn't get vote options for date: " + strdate);
+			retval = null;
+			//throw new Exception("Couldn't get vote options for date: " + strdate);
 		}else
 		{
 			int rowcount = obj.length;
