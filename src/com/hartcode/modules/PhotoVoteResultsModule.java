@@ -88,7 +88,7 @@ public class PhotoVoteResultsModule implements IMainModule {
 		if (maxcnt != null && voteResults != null)
 		{
 		
-		sb.append("<div id=\"Choices\"><h2>Vote Results For Tomorrows Wallpaper</h2><h3>"+timeleft+"</h3><p id=\"first\"></p><div id='choice'><ul>");
+		sb.append("<div id=\"ChoicesResults\"><h2>Vote Results</h2><p id=\"first\"> </p><h3>Thank you for voting.</h3><p>Here are the results so far, but there is still " + timeleft + "&nbsp;Stop by tomorrow and you can cast your vote on a new set of photos.</p><div id='choice'><ul>");
 		for (int i = 0; i < voteResults.length;i++)
 		{
 			double start = voteResults[i][1];

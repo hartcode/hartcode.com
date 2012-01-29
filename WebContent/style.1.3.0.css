@@ -15,7 +15,7 @@ UL {
 #newsdiv > UL {
 	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
 }
-#Other > #first {
+#Other > #first ,#Choices > #first,#ChoicesResults > #first{
 	BORDER-TOP: black 1px solid; PADDING-TOP: 5px;
 }
 #newsdiv > UL LI + LI {
@@ -88,11 +88,9 @@ BORDER-SPACING: 5px;
 	MARGIN-LEFT: 0px
 }
 #sidebar > UL LI A:HOVER {
-	BACKGROUND-COLOR: #cdcdcd;
+	BACKGROUND-COLOR: #c0c0c0;
 	COLOR:white;
-	Padding-LEFT:15px;
 	TEXT-DECORATION:underline;
-	Margin-left:0px;
 }
 
 A:HOVER {
@@ -156,7 +154,7 @@ FIELDSET {
 	border-radius: 10px;
 	PADDING: 10px;
 }
-#Choices LI {
+#Choices LI, #ChoicesResults LI {
 	PADDING-RIGHT: 10px; PADDING-LEFT: 10px;  FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 5px; PADDING-TOP: 5px; HEIGHT: 100%; BACKGROUND-COLOR: #cdcdcd;
 	border-radius: 10px;	
 }
@@ -183,15 +181,18 @@ A {
 #Services DIV H3 {
 	COLOR: white; BACKGROUND-COLOR: gray; TEXT-ALIGN: center
 }
-#Choices LI H3 {
+#Choices LI H3 , #ChoicesResults LI H3 {
 	COLOR: white; BACKGROUND-COLOR: gray; TEXT-ALIGN: center
 }
 #facebook {
 	OVERFLOW: hidden; WIDTH: 80px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
 }
-#Choices LI P {
+#Choices LI P, #ChoicesResults LI P {
 	TEXT-ALIGN: center;
 	TEXT-INDENT: 0px
+}
+#Choices LI:HOVER{
+	BACKGROUND-COLOR: #c0c0c0;
 }
 #HeadInner {
 	 Height:3px;
@@ -214,15 +215,19 @@ A {
 	
 }
 
-#Choices>H3 {
-	PADDING-LEFT: 30px
+#Choices > H3,#ChoicesResults > H3 {
+	PADDING-LEFT: 30px;
 }
-#Choices IMG
+#Choices >p,#ChoicesResults >p
+{
+	PADDING-LEFT: 40px;
+}
+#Choices IMG, #ChoicesResults IMG
 {
 	border-radius: 10px;
 	
 }
-#Choices H3
+#Choices H3 , #ChoicesResults H3
 {
 	border-radius: 10px;
 }
@@ -243,24 +248,8 @@ A {
 	WIDTH:640px;
 	border-radius: 10px;
 }
-#wallpaper, H1,#HeadOuter
-{
-	background: linear-gradient(bottom,  #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
-	background-image: -o-linear-gradient(bottom, #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
-	background-image: -moz-linear-gradient(bottom, #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
-	background-image: -webkit-linear-gradient(bottom, #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
-	background-image: -ms-linear-gradient(bottom, #ababab 30%, #FFFFFF 65%, #cdcdcd 83%);
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0.3, #ababab),
-		color-stop(0.65, #FFFFFF),
-		color-stop(0.83, #cdcdcd)
-	);
-	
-}
-#Choices #choice 
+
+#Choices #choice ,#ChoicesResults #choice
 		{
 		width:580px;
 		MARGIN-LEFT: auto;
@@ -273,4 +262,4 @@ A {
 		MARGIN-RIGHT: auto;
 		width:600px;
 		
-	}
+}
