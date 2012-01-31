@@ -67,7 +67,7 @@ IMG {
     DISPLAY: table-cell;
 }
 #main {
-	Width:100%; 
+	WIDTH:100%;
 	PADDING-BOTTOM: 10px;
 	 DISPLAY: table-cell;
 }
@@ -243,7 +243,7 @@ A {
 #wallpaper
 {
 	TEXT-ALIGN: center;
-	 BACKGROUND-COLOR: #cdcdcd;
+	BACKGROUND-COLOR: #cdcdcd;
 	PADDING: 20px;
 	WIDTH:640px;
 	border-radius: 10px;
@@ -251,15 +251,22 @@ A {
 
 #Choices #choice ,#ChoicesResults #choice
 		{
+		PADDING-LEFT:20px;
+	PADDING-RIGHT:20px;
 		width:580px;
 		MARGIN-LEFT: auto;
 		MARGIN-RIGHT: auto;
 		}
+#choice UL
+{
+	PADDING-LEFT:0px;
+	}
 #wallpaperout
 {
 	PADDING-LEFT:20px;
+	PADDING-RIGHT: 20px;
 	MARGIN-LEFT: auto;
 		MARGIN-RIGHT: auto;
-		width:600px;
+		width:680px;
 		
 }

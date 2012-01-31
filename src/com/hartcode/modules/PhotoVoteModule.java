@@ -46,7 +46,7 @@ public class PhotoVoteModule implements IMainModule {
 			 timeleft += "Hurry only ";
 		 }
 		 timeleft += minsleft + " " + minutes +" left to vote!";
-		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"> </p><h3>"+timeleft+"</h3><p>There is "+timeleft+"  At the end of the day the winning photo will be the wallpaper photo of the day. Stand up and let yourself be heard.</p><div id='choice'><ul >");
+		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"> </p><h3>"+timeleft+"</h3><p>There is "+timeleft+"  At the end of the day the winning image will be the wallpaper image of the day. Stand up and let yourself be heard.</p><div id='choice'><ul >");
 		for (Integer i = 0; i < photoIDs.length;i++)
 		{
 			if (i == 2)
