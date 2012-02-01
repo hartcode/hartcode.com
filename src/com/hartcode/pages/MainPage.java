@@ -48,7 +48,10 @@ public class MainPage {
 		sb.append(GetDescription());
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
-		sb.append("<link href=\"style.1.3.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />");
+		sb.append("<link href=\"style.1.4.0.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		
+		sb.append("<!--[if lte IE 7]><link href=\"style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
 		sb.append("<script type=\"text/javascript\" src=\"hartcode.1.0.js\"></script>");
 		sb.append("<script type=\"text/javascript\" src=\"ga.1.0.0.js\"></script>");
@@ -75,7 +78,7 @@ public class MainPage {
 		sb.append("<div id=\"adpanel\">"+ADs.getRandomAd()+"</div>");
 		logger.debug("End Ad Module");
 		}
-		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61px\" height=\"23px\"/></a><br /><iframe src=\"http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FHartCode-Technology-Solutions%2F213056485378766&amp;send=false&amp;layout=button_count&amp;width=65&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21\" scrolling=\"no\" frameborder=\"0\" id=\"facebook\" allowTransparency=\"true\"></iframe></div>");
+		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a></div>");
 		sb.append("</div>");
 		sb.append("<div id=\"main\">");
 		logger.debug("Start Main Page Module");

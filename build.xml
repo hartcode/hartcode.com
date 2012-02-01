@@ -387,9 +387,9 @@
 
 -->
 
-  <target name="install" depends="war"
+  <target name="install dev" depends="war"
    description="Install application to servlet container">
-    <deploy url="${manager.url}"
+    <deploy url="${manager.url.dev}"
        username="${manager.username}"
        password="${manager.password}"
        path="${app.path}"
@@ -397,6 +397,15 @@
        update="true" />
   </target>
 
+	  <target name="install prod" depends="war"
+	   description="Install application to servlet container">
+	    <deploy url="${manager.url.prod}"
+	       username="${manager.username}"
+	       password="${manager.password}"
+	       path="${app.path}"
+	       war="HartCode.war"
+	       update="true" />
+	  </target>
 
 <!-- ==================== Javadoc Target ================================== -->
 

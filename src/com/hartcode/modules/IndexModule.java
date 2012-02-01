@@ -24,7 +24,7 @@ public class IndexModule implements IMainModule {
 				sb.append("<div><h3>Website Administration</h3><p>Let us manage your website. We will manager your website, the web hosting, your domain names and emails. We will take care of backups, domain renewals, monitoring bandwith. We treat every site as if it were our own.</p></div>");
 				sb.append("<div><h3>Search Engine Optimization</h3><p>Already have a site? Let us optimize it. What does that mean? It means we will tweak your site so that it will load faster and will also make your site show up higher in search engines such as Google, Yahoo, or Bing. Higher results get more traffic. Poorly designed websites do not get good results in search engines and sales.</p></div>");
 			sb.append("</div>");
-			sb.append("<div id=\"Services\">");
+			sb.append("<div id=\"Services1\">");
 				sb.append("<div><h3>Web Advertising</h3><p> We will create internet advertising campaigns that will drive business to your website and to your front door. Our custom ads will make your business stand out on internet.</p></div>");
 				sb.append("<div><h3>Web Statistics</h3><p> We will generate reports of your website's vistors, traffic, and bandwidth. Our reports will help you make the right decisions when it comes to your business.</p></div>");
 				sb.append("<div class=\"whitebackground\"></div>");

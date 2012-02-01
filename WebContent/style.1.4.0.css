@@ -6,20 +6,27 @@ H1 {
 H2 {
 	PADDING-LEFT: 15px
 }
+
 UL {
-	LIST-STYLE-TYPE: none
+	LIST-STYLE-TYPE: none;
+	MARGIN-LEFT:1.4em;
 }
 #footer {
 	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
 }
+#newsdiv  LI {
+	PADDING-LEFT:30px;
+}
 #newsdiv > UL {
-	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
+	BORDER-TOP: black 1px solid; PADDING-TOP: 5px;
+	MARGIN-LEFT: 0px;
+	PADDING-LEFT: 0px;
 }
 #Other > #first ,#Choices > #first,#ChoicesResults > #first{
 	BORDER-TOP: black 1px solid; PADDING-TOP: 5px;
 }
 #newsdiv > UL LI + LI {
-	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
+	BORDER-TOP: black 1px solid; PADDING-TOP: 5px;
 }
 P {
 	TEXT-INDENT: 10px
@@ -46,7 +53,8 @@ UL > DIV > P {
 	OVERFLOW: hidden
 }
 #newsdiv > UL LI > DIV {
-	TEXT-ALIGN: right
+	TEXT-ALIGN: right;
+	WIDTH:100%;
 }
 #footer {
 	CLEAR: both
@@ -61,24 +69,25 @@ IMG {
 	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
 }
 #sidebar {
-	 
 	MIN-WIDTH: 100px; 
 	BORDER-RIGHT: black 1px solid;
     DISPLAY: table-cell;
 }
 #main {
-	WIDTH:100%;
+	WIDTH: 100%;
 	PADDING-BOTTOM: 10px;
-	 DISPLAY: table-cell;
+	DISPLAY: table-cell;
 }
 #total {
 	DISPLAY: table-row;
 	}
-#Services {
+#Services, #Services1 {
+	PADDING-LEFT: 20px;
+	PADDING-RIGHT: 20px;
 	DISPLAY: table;
-BORDER-SPACING: 5px;
+	BORDER-SPACING: 5px;
 }
-#Services > DIV
+#Services > DIV,#Services1 > DIV
 {
  display: table-cell;	
  border:1px solid #FFFFFF;
@@ -149,7 +158,7 @@ FIELDSET {
 #social {
 	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
 }
-#Services DIV {
+#Services DIV,#Services1 DIV {
 	WIDTH: 30%;  BACKGROUND-COLOR: #cdcdcd;
 	border-radius: 10px;
 	PADDING: 10px;
@@ -158,13 +167,13 @@ FIELDSET {
 	PADDING-RIGHT: 10px; PADDING-LEFT: 10px;  FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 5px; PADDING-TOP: 5px; HEIGHT: 100%; BACKGROUND-COLOR: #cdcdcd;
 	border-radius: 10px;	
 }
-#Services DIV P {
+#Services DIV P,#Services1 DIV P {
 	BORDER-TOP: black 1px solid
 }
 #Other {
 	MARGIN-BOTTOM: 10px
 }
-#Services DIV.whitebackground
+#Services DIV.whitebackground,#Services1 DIV.whitebackground
 {
 	BACKGROUND-COLOR: white;
 }
@@ -178,7 +187,7 @@ FIELDSET {
 A {
 	TEXT-DECORATION: none
 }
-#Services DIV H3 {
+#Services DIV H3,#Services1 DIV H3 {
 	COLOR: white; BACKGROUND-COLOR: gray; TEXT-ALIGN: center
 }
 #Choices LI H3 , #ChoicesResults LI H3 {
@@ -231,7 +240,7 @@ A {
 {
 	border-radius: 10px;
 }
-#Services H3
+#Services H3,#Services1 H3
 {
 	border-radius: 10px;
 }

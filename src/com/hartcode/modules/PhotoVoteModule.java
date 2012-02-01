@@ -43,17 +43,17 @@ public class PhotoVoteModule implements IMainModule {
 		 }
 		 else 
 		 {
-			 timeleft += "Hurry only ";
+			 //timeleft += "Hurry only ";
 		 }
 		 timeleft += minsleft + " " + minutes +" left to vote!";
-		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"> </p><h3>"+timeleft+"</h3><p>There is "+timeleft+"  At the end of the day the winning image will be the wallpaper image of the day. Stand up and let yourself be heard.</p><div id='choice'><ul >");
+		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"> </p><h3>"+timeleft+"</h3><p>There are "+timeleft+"  At the end of the day the winning image will be the wallpaper image of the day. Stand up and let yourself be heard.</p><div id='choice'><ul >");
 		for (Integer i = 0; i < photoIDs.length;i++)
 		{
 			if (i == 2)
 			{
 				sb.append("</ul><ul class=\"newrow\">");
 			}
-			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><a  href='Vote?cid="+candidateIDs[i].toString()+"'><img id='" + photoIDs[i].toString() + "' src = 'photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>Vote Now</p></a></li>");	
+			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><a  href='Vote?cid="+candidateIDs[i].toString()+"'><img id='img" + photoIDs[i].toString() + "' src = 'photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>Vote Now</a></p></li>");	
 		}
 		sb.append("</ul></div></div>");
 		
