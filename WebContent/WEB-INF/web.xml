@@ -13,7 +13,8 @@
     <description></description>
     <display-name>IndexPage</display-name>
     <servlet-name>IndexPage</servlet-name>
-    <servlet-class>servlets.IndexPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.IndexPage</servlet-class>
+     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>IndexPage</servlet-name>
@@ -23,7 +24,8 @@
     <description></description>
     <display-name>RSSNewsPage</display-name>
     <servlet-name>RSSNewsPage</servlet-name>
-    <servlet-class>servlets.RSSNewsPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.RSSNewsPage</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>RSSNewsPage</servlet-name>
@@ -31,22 +33,131 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ZombonePage</display-name>
-    <servlet-name>ZombonePage</servlet-name>
-    <servlet-class>servlets.ZombonePage</servlet-class>
+    <display-name>NewsPage</display-name>
+    <servlet-name>NewsPage</servlet-name>
+    <servlet-class>com.hartcode.servlets.NewsPage</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ZombonePage</servlet-name>
-    <url-pattern>/Zombone</url-pattern>
+    <servlet-name>NewsPage</servlet-name>
+    <url-pattern>/News</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>MoneyDropPage</display-name>
-    <servlet-name>MoneyDropPage</servlet-name>
-    <servlet-class>servlets.MoneyDropPage</servlet-class>
+    <display-name>PassGenPage</display-name>
+    <servlet-name>PassGenPage</servlet-name>
+    <servlet-class>com.hartcode.servlets.PassGenPage</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>MoneyDropPage</servlet-name>
-    <url-pattern>/MoneyDrop</url-pattern>
+    <servlet-name>PassGenPage</servlet-name>
+    <url-pattern>/PasswordGenerator</url-pattern>
+
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewsPoster</display-name>
+    <servlet-name>NewsPoster</servlet-name>
+    <servlet-class>com.hartcode.servlets.NewsPoster</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewsPoster</servlet-name>
+    <url-pattern>/internal/NewsPoster</url-pattern>
+  </servlet-mapping>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Internal Application</web-resource-name>
+      <url-pattern>/internal/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>internal-role</role-name>
+    </auth-constraint>
+  </security-constraint>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Internal Application</realm-name>
+  </login-config>
+  <security-role>
+    <description>
+      The role that is required to log in to the Internal Application
+    </description>
+    <role-name>internal-role</role-name>
+  </security-role>
+  <servlet>
+    <description></description>
+    <display-name>PhotoADay</display-name>
+    <servlet-name>PhotoADay</servlet-name>
+    <servlet-class>com.hartcode.servlets.PhotoADay</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoADay</servlet-name>
+    <url-pattern>/PhotoADay</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>UrlRewriteFilter</filter-name>
+    <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+    <init-param>
+      <param-name>logLevel</param-name>
+      <param-value>WARN</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>UrlRewriteFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PhotoVote</display-name>
+    <servlet-name>PhotoVote</servlet-name>
+    <servlet-class>com.hartcode.servlets.PhotoVote</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoVote</servlet-name>
+    <url-pattern>/Vote</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>photoserver</display-name>
+    <servlet-name>photoserver</servlet-name>
+    <servlet-class>com.hartcode.servlets.photoserver</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>photoserver</servlet-name>
+    <url-pattern>/photoserver</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Wallpaper</display-name>
+    <servlet-name>Wallpaper</servlet-name>
+    <servlet-class>com.hartcode.servlets.Wallpaper</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Wallpaper</servlet-name>
+    <url-pattern>/Wallpaper</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PhotoVoteResults</display-name>
+    <servlet-name>PhotoVoteResults</servlet-name>
+    <servlet-class>com.hartcode.servlets.PhotoVoteResults</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PhotoVoteResults</servlet-name>
+    <url-pattern>/VoteResults</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>log4j-init</servlet-name>
+    <servlet-class>com.hartcode.servlets.Log4jInit</servlet-class>
+    <init-param>
+      <param-name>log4j-init-file</param-name>
+      <param-value>WEB-INF/conf/log4j.lcf</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 </web-app>
