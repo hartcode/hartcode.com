@@ -94,6 +94,7 @@ public class PhotoVote extends HttpServlet {
         {  
         	ip = request.getRemoteAddr();  
         }  
+        
         logger.debug("User IP is: " + ip);
 		if (MyCookie == null)
 		{

@@ -1,7 +1,9 @@
 package com.hartcode.servlets;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -79,7 +81,20 @@ public class photoserver extends HttpServlet {
 		{
 			logger.debug("Found Image filename: " + filename);
 			response.setContentType("image/jpeg");
-			
+			File file = new File(filename); 
+			        
+			// Get the last modification information. 
+			        
+			Long lastModified = file.lastModified(); 
+ 
+			 
+			        
+			// Create a new date object and pass last modified information 
+			        
+			// to the date object. 
+			        
+			Date lastmoddate = new Date(lastModified);
+			response.addHeader("Last-Modified", lastmoddate.toGMTString());
 			logger.debug("Opening Image File");
 			ServletOutputStream os = response.getOutputStream();
 			//	FileInputStream is = new FileInputStream("/usr/java/tomcat-5.5/hartcode/ROOT/images/photos/1.jpg");
