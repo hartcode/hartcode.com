@@ -14,7 +14,7 @@
     <display-name>IndexPage</display-name>
     <servlet-name>IndexPage</servlet-name>
     <servlet-class>com.hartcode.servlets.IndexPage</servlet-class>
-     <load-on-startup>1</load-on-startup>
+    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>IndexPage</servlet-name>
@@ -52,7 +52,6 @@
   <servlet-mapping>
     <servlet-name>PassGenPage</servlet-name>
     <url-pattern>/PasswordGenerator</url-pattern>
-
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -160,4 +159,14 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>channel</display-name>
+    <servlet-name>channel</servlet-name>
+    <servlet-class>com.hartcode.servlets.channel</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>channel</servlet-name>
+    <url-pattern>/channel.html</url-pattern>
+  </servlet-mapping>
 </web-app>

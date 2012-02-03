@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 import com.hartcode.modules.*;
 
 
-public class MainPage {
-	static Logger logger = Logger.getLogger(MainPage.class);
+public class VotePage {
+	static Logger logger = Logger.getLogger(VotePage.class);
 	
 	protected String m_Main;
 	protected String m_Title;
@@ -15,7 +15,7 @@ public class MainPage {
 	protected IMainModule m_MainModule;
 	protected Boolean m_UseADS = false;
 	
-	public MainPage(IMainModule MainModule, String title, String desc, String navid)
+	public VotePage(IMainModule MainModule, String title, String desc, String navid)
 	{
 		m_MainModule = MainModule;
 		SetTitle(title);
@@ -23,7 +23,7 @@ public class MainPage {
 		SetNavID(navid);
 		m_UseADS = false;
 	}
-	public MainPage(IMainModule MainModule, String title, String desc, String navid, Boolean useads)
+	public VotePage(IMainModule MainModule, String title, String desc, String navid, Boolean useads)
 	{
 		m_MainModule = MainModule;
 		SetTitle(title);
@@ -39,8 +39,14 @@ public class MainPage {
 		logger.debug("Start Main Page");
 		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
-		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">");
-		sb.append("<head>");
+		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\" xmlns:fb=\"https://www.facebook.com/2008/fbml\">");
+		sb.append("		 <head prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# hartcode: http://ogp.me/ns/fb/hartcode#\">");
+			sb.append("<meta property=\"fb:app_id\"      content=\"161596347286085\" /> ");
+		sb.append("<meta property=\"og:type\"        content=\"hartcode:wallpaper\" /> ");
+		sb.append("<meta property=\"og:url\"         content=\"http://www.hartcode.com:13133/Vote\" />"); 
+		sb.append("<meta property=\"og:title\"       content=\"Tomorrow&#039;s Wallpaper\" />"); 
+		sb.append("<meta property=\"og:description\" content=\"\" /> ");
+		//sb.append("<meta property=\"og:image\"       content=\"http://www.hartcode.com/photos/thumb/1057/image.jpg\" /> ");
 		sb.append("<title>");
 		sb.append(GetTitle());
 		sb.append("</title>");

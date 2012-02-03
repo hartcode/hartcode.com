@@ -1,3 +1,23 @@
+function postVote(id,cid)
+{
+   if (!fbuserid)
+   {
+  		window.location = "/Vote?cid=" + cid;
+   }
+   else
+   {
+	   FB.api('/'+fbuserid+'/hartcode:vote_for', 'post',{access_token:'161596347286085|Rthw3WvIOWP1XNO815yzuXPpxLM',wallpaper:'http://www.hartcode.com:13133/Vote',image:'http://www.hartcode.com:13133/photos/thumb/'+ id +'/image.jpg'},
+        function(response) {
+        if (!response || response.error) {
+                alert(response.error.message);
+        } else {
+            //alert('Post was successful! Action ID: ' + response.id);
+        		window.location = "/Vote?cid=" + cid;        	
+            }
+    });
+   }   
+}
+
 function toggle(showHideDiv,checkboxele) {
 	var chk = document.getElementById(checkboxele);
 	var ele = document.getElementById(showHideDiv);

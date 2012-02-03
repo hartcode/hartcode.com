@@ -156,7 +156,7 @@ FIELDSET {
 	TEXT-ALIGN: center
 }
 #social {
-	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
+	BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
 }
 #Services DIV,#Services1 DIV {
 	WIDTH: 30%;  BACKGROUND-COLOR: #cdcdcd;
@@ -278,4 +278,30 @@ A {
 		MARGIN-RIGHT: auto;
 		width:680px;
 		
+}
+
+#user-info
+{
+	Padding:5px;
+	Background-COLOR:#3B5998;
+	Color:#D8DFEA;
+	font-weight: bold;
+	font-size: 11px;
+	font-family: "lucida grande",tahoma,verda;
+	Margin-left:0px;
+	border-bottom-left-radius:10px;
+	border-top-left-radius:10px;
+}
+#user-info:hover
+{
+	Background-COLOR:#526DA4;
+	Color:white;
+	
+}
+
+#user-info img
+{
+	width:25px;
+	height:25px;
+	margin-right: 5px;
 }

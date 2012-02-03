@@ -194,7 +194,7 @@ public class PhotoVote extends HttpServlet {
 				//response.sendRedirect("VoteResults");
 				response.addHeader("Content-Type", "text/html");
 				PrintWriter pw = response.getWriter();
-				MainPage mp = new MainPage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote");
+				VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote");
 				pw.write(mp.toString());
 				pw.close();
 				
@@ -234,7 +234,7 @@ public class PhotoVote extends HttpServlet {
 				{
 					response.addHeader("Content-Type", "text/html");
 					PrintWriter pw = response.getWriter();
-					MainPage mp = new MainPage(new PhotoVoteModule(photoIDs,CandidateIDs, UserID),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote");
+					VotePage mp = new VotePage(new PhotoVoteModule(photoIDs,CandidateIDs, UserID),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote");
 					pw.write(mp.toString());
 					pw.close();
 				}else 

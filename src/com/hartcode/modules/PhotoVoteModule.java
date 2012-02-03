@@ -53,11 +53,10 @@ public class PhotoVoteModule implements IMainModule {
 			{
 				sb.append("</ul><ul class=\"newrow\">");
 			}
-			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><a  href='Vote?cid="+candidateIDs[i].toString()+"'><img id='img" + photoIDs[i].toString() + "' src = 'photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>Vote Now</a></p></li>");	
+			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><a  onclick=\"postVote('"+photoIDs[i].toString()+"',"+candidateIDs[i].toString()+")\" ><img id='img" + photoIDs[i].toString() + "' src = 'photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>Vote Now</a></p></li>");	
 		}
 		sb.append("</ul></div></div>");
 		
-
 		
 		return sb.toString();
 	}
