@@ -1,4 +1,7 @@
-
+BODY
+{
+	font-size: 15px;
+	}
 H1 {
 	PADDING-LEFT: 5px; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; COLOR: white; FONT-FAMILY: monospace; BACKGROUND-COLOR: #ababab;
 	border-bottom-right-radius:10px;
@@ -280,7 +283,7 @@ A {
 		
 }
 
-#user-info
+#fbdiv
 {
 	Padding:5px;
 	Background-COLOR:#3B5998;
@@ -291,8 +294,9 @@ A {
 	Margin-left:0px;
 	border-bottom-left-radius:10px;
 	border-top-left-radius:10px;
+	Margin-bottom:10px;
 }
-#user-info:hover
+#fb-auth:hover
 {
 	Background-COLOR:#526DA4;
 	Color:white;
@@ -304,4 +308,10 @@ A {
 	width:25px;
 	height:25px;
 	margin-right: 5px;
+}
+
+#fb-auth
+{
+	text-align:center;
+	font-size: 15px;
 }

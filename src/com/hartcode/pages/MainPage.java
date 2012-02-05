@@ -72,6 +72,10 @@ public class MainPage {
 		sb.append("<li><a id=\"wallli\" href=\"Wallpaper\">Wallpaper</a></li>");
 		sb.append("<li><a id=\"voteli\" href=\"Vote\">Vote</a></li>");
 		sb.append("</ul>");
+		sb.append("<div id=\"fbdiv\">");
+		sb.append("<div id=\"user-info\"></div>");
+		sb.append("<a ><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
+		
 		if (m_UseADS)
 		{
 		logger.debug("Start Ad Module");
@@ -79,8 +83,7 @@ public class MainPage {
 		logger.debug("End Ad Module");
 		}
 		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a>");
-		sb.append("<div id=\"user-info\"></div>");
-		sb.append("<p><button id=\"fb-auth\">Login</button></p></div>");
+		sb.append("</div>");
 		sb.append("</div>");
 		sb.append("<div id=\"main\">");
 		logger.debug("Start Main Page Module");

@@ -6,7 +6,7 @@ function postVote(id,cid)
    }
    else
    {
-	   FB.api('/'+fbuserid+'/hartcode:vote_for', 'post',{access_token:'161596347286085|Rthw3WvIOWP1XNO815yzuXPpxLM',wallpaper:'http://www.hartcode.com:13133/Vote',image:'http://www.hartcode.com:13133/photos/thumb/'+ id +'/image.jpg'},
+	   FB.api('/'+fbuserid+'/hartcode:vote_for', 'post',{access_token:'161596347286085|Rthw3WvIOWP1XNO815yzuXPpxLM',wallpaper:'http://www.hartcode.com/Vote',image:'http://www.hartcode.com/photos/thumb/'+ id +'/image.jpg'},
         function(response) {
         if (!response || response.error) {
                 alert(response.error.message);

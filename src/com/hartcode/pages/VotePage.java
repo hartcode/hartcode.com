@@ -43,9 +43,10 @@ public class VotePage {
 		sb.append("		 <head prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# hartcode: http://ogp.me/ns/fb/hartcode#\">");
 			sb.append("<meta property=\"fb:app_id\"      content=\"161596347286085\" /> ");
 		sb.append("<meta property=\"og:type\"        content=\"hartcode:wallpaper\" /> ");
-		sb.append("<meta property=\"og:url\"         content=\"http://www.hartcode.com:13133/Vote\" />"); 
+		sb.append("<meta property=\"og:url\"         content=\"http://www.hartcode.com/Vote\" />"); 
 		sb.append("<meta property=\"og:title\"       content=\"Tomorrow&#039;s Wallpaper\" />"); 
-		sb.append("<meta property=\"og:description\" content=\"\" /> ");
+		sb.append("<meta property=\"og:description\" content=\"Vote for Tomorrow&#039;s Wallpaper.\" /> ");
+		sb.append("<meta property=\"og:image\" content=\"http://www.hartcode.com/images/voteicon.png\" /> ");
 		//sb.append("<meta property=\"og:image\"       content=\"http://www.hartcode.com/photos/thumb/1057/image.jpg\" /> ");
 		sb.append("<title>");
 		sb.append(GetTitle());
@@ -78,6 +79,10 @@ public class VotePage {
 		sb.append("<li><a id=\"wallli\" href=\"Wallpaper\">Wallpaper</a></li>");
 		sb.append("<li><a id=\"voteli\" href=\"Vote\">Vote</a></li>");
 		sb.append("</ul>");
+		sb.append("<div id=\"fbdiv\">");
+		sb.append("<div id=\"user-info\"></div>");
+		sb.append("<a ><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
+		
 		if (m_UseADS)
 		{
 		logger.debug("Start Ad Module");
@@ -85,8 +90,7 @@ public class VotePage {
 		logger.debug("End Ad Module");
 		}
 		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a>");
-		sb.append("<div id=\"user-info\"></div>");
-		sb.append("<p><button id=\"fb-auth\">Login</button></p></div>");
+		sb.append("</div>");
 		sb.append("</div>");
 		sb.append("<div id=\"main\">");
 		logger.debug("Start Main Page Module");

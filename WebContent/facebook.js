@@ -29,7 +29,7 @@ window.fbAsyncInit = function() {
       };
     } else {
       //user is not connected to your app or logged out
-      button.innerHTML = 'Login';
+      button.innerHTML = 'Login to Facebook';
       button.onclick = function() {
         FB.login(function(response) {
 	  if (response.authResponse) {
