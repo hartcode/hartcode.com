@@ -44,8 +44,8 @@ public class VotePage {
 			sb.append("<meta property=\"fb:app_id\"      content=\"161596347286085\" /> ");
 		sb.append("<meta property=\"og:type\"        content=\"hartcode:wallpaper\" /> ");
 		sb.append("<meta property=\"og:url\"         content=\"http://www.hartcode.com/Vote\" />"); 
-		sb.append("<meta property=\"og:title\"       content=\"Tomorrow&#039;s Wallpaper\" />"); 
-		sb.append("<meta property=\"og:description\" content=\"Vote for Tomorrow&#039;s Wallpaper.\" /> ");
+		sb.append("<meta property=\"og:title\"       content=\"Tomorrow&#039;s Wallpaper?\" />"); 
+		sb.append("<meta property=\"og:description\" content=\"Vote for one of 4 candidates for Tomorrow&#039;s Wallpaper.\" /> ");
 		sb.append("<meta property=\"og:image\" content=\"http://www.hartcode.com/images/voteicon.png\" /> ");
 		//sb.append("<meta property=\"og:image\"       content=\"http://www.hartcode.com/photos/thumb/1057/image.jpg\" /> ");
 		sb.append("<title>");
