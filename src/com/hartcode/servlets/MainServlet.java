@@ -31,7 +31,7 @@ public class MainServlet extends ServletPage {
     public String GetFileData(HttpServletRequest request)
     {
     	m_MainModule.SetRequest(request);
-		MainPage mp = new MainPage(m_MainModule,m_Title,m_Description,m_NavID);
+		MainPage mp = new MainPage(m_MainModule,m_Title,m_Description,m_NavID,request);
 		return mp.toString();
     }
     public String PostFileData(HttpServletRequest request)

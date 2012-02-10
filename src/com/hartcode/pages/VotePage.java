@@ -1,7 +1,19 @@
 package com.hartcode.pages;
 
-import org.apache.log4j.Logger;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.apache.log4j.Logger;
+import org.xml.sax.SAXException;
+
+import com.hartcode.Facebook.Objects.UserData;
+import com.hartcode.PhotoADay.VoteDAO2;
+import com.hartcode.exceptions.InvalidPortException;
+import com.hartcode.exceptions.NullArgumentException;
 import com.hartcode.modules.*;
 
 
@@ -14,22 +26,25 @@ public class VotePage {
 	protected String m_Description;
 	protected IMainModule m_MainModule;
 	protected Boolean m_UseADS = false;
+	protected HttpServletRequest m_request = null;
 	
-	public VotePage(IMainModule MainModule, String title, String desc, String navid)
+	public VotePage(IMainModule MainModule, String title, String desc, String navid,HttpServletRequest request)
 	{
 		m_MainModule = MainModule;
 		SetTitle(title);
 		SetDescription(desc);
 		SetNavID(navid);
 		m_UseADS = false;
+		m_request = request;
 	}
-	public VotePage(IMainModule MainModule, String title, String desc, String navid, Boolean useads)
+	public VotePage(IMainModule MainModule, String title, String desc, String navid, Boolean useads,HttpServletRequest request)
 	{
 		m_MainModule = MainModule;
 		SetTitle(title);
 		SetDescription(desc);
 		SetNavID(navid);
 		m_UseADS = useads;
+		m_request = request;
 	}
 	
 	public String toString()
@@ -37,6 +52,56 @@ public class VotePage {
 		String retval = "";
 		StringBuilder sb = new StringBuilder();
 		logger.debug("Start Main Page");
+		VoteDAO2 va2 = null;
+		String FBUserName = null;
+		String FBID = null;
+		UserData ud = null;
+		HttpSession session = m_request.getSession(true);
+		Integer myuserid = null;
+		myuserid = (Integer)session.getAttribute("myuserid");
+		if (myuserid != null)
+		{
+			logger.debug("We have a hartcode userid: " + myuserid);
+		try {
+			logger.debug("Creating VoteDAO2 object.");
+			va2 = new VoteDAO2();
+			ud = va2.GetUserData(myuserid);
+			va2.closeConnections();
+			logger.debug("Finished Creating VoteDAO2 object.");
+		} catch (NullArgumentException e2) {
+			// TODO Auto-generated catch block
+			logger.error(e2);
+		} catch (InvalidPortException e2) {
+			// TODO Auto-generated catch block
+			logger.error(e2);
+		} catch (ParserConfigurationException e2) {
+			// TODO Auto-generated catch block
+			logger.error(e2);
+		} catch (SAXException e2) {
+			// TODO Auto-generated catch block
+			logger.error(e2);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (ud != null)
+		{
+			FBUserName = ud.First_Name + " " + ud.Last_Name;
+			FBID = ud.ID;
+		}
+		else
+		{
+			logger.debug("No UserData pulled back");
+		
+		}
+			
+		}
 		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
 		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\" xmlns:fb=\"https://www.facebook.com/2008/fbml\">");
@@ -80,9 +145,18 @@ public class VotePage {
 		sb.append("<li><a id=\"voteli\" href=\"Vote\">Vote</a></li>");
 		sb.append("</ul>");
 		sb.append("<div id=\"fbdiv\">");
-		sb.append("<div id=\"user-info\"></div>");
-		sb.append("<a ><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
-		
+		if (FBID != null)
+		{
+			sb.append("<div id=\"user-info\">");
+			sb.append("<img src=\"https://graph.facebook.com/" + FBID + "/picture\">");
+			sb.append(FBUserName);
+			sb.append("</div>");
+			sb.append("<a href=\"/Logout\" ><p id=\"fb-auth\">Logout</p></a></div>");
+		}else
+		{
+			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://www.hartcode.com/Login&scope=email,publish_actions\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
+		}
+
 		if (m_UseADS)
 		{
 		logger.debug("Start Ad Module");
@@ -114,8 +188,6 @@ public class VotePage {
 		sb.append("</li>");
 		sb.append("</ul>");
 		sb.append("</div>");
-		sb.append("<div id=\"fb-root\"></div>");
-		sb.append("<script type=\"text/javascript\" src=\"facebook.js\"></script>");
 		sb.append("</body>");
 		sb.append("</html>");
 		retval = sb.toString();

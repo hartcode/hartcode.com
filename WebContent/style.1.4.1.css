@@ -295,6 +295,7 @@ A {
 	border-bottom-left-radius:10px;
 	border-top-left-radius:10px;
 	Margin-bottom:10px;
+	text-align:center;
 }
 #fb-auth:hover
 {
@@ -314,4 +315,5 @@ A {
 {
 	text-align:center;
 	font-size: 15px;
+	Color:#D8DFEA;
 }

@@ -16,7 +16,8 @@ public class PhotoADayDAO extends JNDI_DAO {
 
 	
 	public PhotoADayDAO()
-			throws InvalidPortException, NullArgumentException, FileNotFoundException, ParserConfigurationException, SAXException, IOException{
+			throws InvalidPortException, NullArgumentException, FileNotFoundException, ParserConfigurationException, SAXException, IOException
+			{
 		//super("localhost",3306, "PhotoADay", "root","psw754It#");
 		//super("184.168.92.162",3306, "PhotoADay", "root","psw754It#");
 		super("jdbc/photoaday");

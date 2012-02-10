@@ -9,17 +9,19 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import com.hartcode.Facebook.Objects.UserData;
+import com.hartcode.data.mysql.DAO;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
 
 public class VoteDAO2 {
-	protected PhotoADayDAO mydao = null;
+	protected DAO mydao = null;
 	protected Boolean isOKToClose = true;
 	public VoteDAO2() throws NullArgumentException, FileNotFoundException, InvalidPortException, ParserConfigurationException, SAXException, IOException
 	{
 		mydao = new PhotoADayDAO();
 	}
-	public VoteDAO2(PhotoADayDAO dao)
+	public VoteDAO2(DAO dao)
 	{
 		mydao = dao;
 		isOKToClose = false;
@@ -37,7 +39,71 @@ public class VoteDAO2 {
 		}
 		*/
 	}
-	public  Integer GetUserID(String cookie) throws Exception
+	public UserData GetUserData(Integer id) throws Exception
+	{
+		UserData retval = null;
+		Object[][] obj = mydao.Select("Select FirstName, LastName, FBID, Gender, Email,FBLastUpdate, Verified, TimeZone, Locale from FBuser where ID= " + id + ";");
+		if (obj == null || obj.length == 0)
+		{ 
+			throw new Exception("Couldn't get FBUser Data for ID: " + id);
+		}else
+		{
+			retval = new UserData();
+			retval.First_Name = (String)(obj[0][0]);
+			retval.Last_Name = (String)(obj[0][1]);
+			retval.ID = ((Long)(obj[0][2])).toString();
+			retval.Gender = (String)(obj[0][3]);
+			retval.Email = (String)(obj[0][4]);
+			//retval.Updatedtime = (String)(obj[0][5]);
+			retval.Verified = (Boolean)(obj[0][6]);
+			retval.timezone =(Integer)(obj[0][7]);
+			retval.locale = (String)(obj[0][8]);
+		} 
+	
+		return retval;
+	}
+	
+	public  Integer GetFBUserID(String id) throws Exception
+	{
+		Integer retval = null;
+		Object[][] obj = mydao.Select("Select ID from FBuser where FBID= " + id + ";");
+		if (obj == null || obj.length == 0)
+		{ 
+			throw new Exception("Couldn't get FBUser ID for FBID: " + id);
+		}else
+		{
+			retval = (Integer)(obj[0][0]);
+		} 
+		return retval;
+	}
+	public  Integer NewUpdateFBUser(UserData ud) throws Exception
+	{
+		Integer retval = null;
+		try 
+		{
+			retval = GetFBUserID(ud.ID);
+			
+		}catch (Exception e)
+		{
+		}
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String strdate = sdf.format(ud.getUpdatedTime());
+		// Doesn't exist, we need to create a new user record
+		if (retval == null)
+		{
+			mydao.ExecuteSql("insert into FBuser (FBID,FirstName, LastName, Gender, Email,FBLastUpdate,Verified,TimeZone,Locale) values (" + ud.ID + ",'" + ud.First_Name + "','" + ud.Last_Name + "','" + ud.getGender() + "','" + ud.Email + "','" + strdate + "'," + ud.Verified + "," + ud.timezone + ",'" + ud.locale + "');");
+			retval = GetFBUserID(ud.ID);
+		}else
+		{
+		 // Exists we should update it with new information.
+			mydao.ExecuteSql("update FBuser set FirstName = '" + ud.First_Name + "', LastName='" + ud.Last_Name + "',Gender = '" + ud.getGender() + "', Email = '" + ud.Email + "', FBLastUpdate= '" + strdate + "', Verified = " + ud.Verified + ", TimeZone = " + ud.timezone + ", Locale = '" + ud.locale + "' where FBID = " + ud.ID + " ;");
+		}
+		
+		return retval;
+	}
+	
+	public  Integer GetUserComputerID(String cookie) throws Exception
 	{
 		Integer retval = null;
 		Object[][] obj = mydao.Select("Select ID from User where Cookie = '" + cookie + "';");
@@ -51,29 +117,40 @@ public class VoteDAO2 {
 		return retval;
 	}
 	
-	public  Integer NewUser(String ipv4, String cookie) throws Exception
+	public  Integer NewUserComputer(String ipv4, String cookie) throws Exception
 	{
 		Integer retval = null;
 	
 		mydao.ExecuteSql("insert into User (Cookie, ipv4) values ('" + cookie + "','" + ipv4 + "');");
-		
-		Object[][] obj = mydao.Select("Select ID from User where Cookie = '" + cookie + "';");
-		if (obj == null || obj.length == 0)
-		{ 
-			throw new Exception("Couldn't get User ID for cookie: " + cookie);
-		}else
-		{
-			retval = (Integer)(obj[0][0]);
-		} 
+		retval = GetUserComputerID(cookie); 
 		return retval;
 	}
 	
-	public  Boolean hasUserVotedToday(Date today, Integer UserID) throws Exception
+	public  Boolean hasUserVotedToday(Date today, Integer FBUserID, Integer UserComputerID) throws Exception
 	{
 		Boolean retval = false;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String strdate = sdf.format(today);
-		Object[][] obj = mydao.Select("Select count(*) from CandidateDay cd inner join Candidates c on cd.ID = c.CandidateDayID inner join Votes v on v.CandidateID = c.ID where v.UserID = "+UserID.toString()+" and cd.ShowDate = '" + strdate + "';");
+		Object[][] obj = mydao.Select("Select count(*) from CandidateDay cd inner join Candidates c on cd.ID = c.CandidateDayID inner join Votes v on v.CandidateID = c.ID where v.UserID = "+UserComputerID.toString()+" and v.FBUserID = "+ FBUserID.toString() +" and cd.ShowDate = '" + strdate + "';");
+		if (obj == null || obj.length == 0)
+		{ 
+			retval = false;
+		}else
+		{
+			Long value =(Long)(obj[0][0]);
+			if (value > 0)
+			{
+				retval = true;
+			}
+		} 
+		return retval;
+	}
+	public  Boolean hasUserVotedToday(Date today, Integer UserComputerID) throws Exception
+	{
+		Boolean retval = false;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String strdate = sdf.format(today);
+		Object[][] obj = mydao.Select("Select count(*) from CandidateDay cd inner join Candidates c on cd.ID = c.CandidateDayID inner join Votes v on v.CandidateID = c.ID where v.UserID = "+UserComputerID.toString()+" and cd.ShowDate = '" + strdate + "';");
 		if (obj == null || obj.length == 0)
 		{ 
 			retval = false;
@@ -196,15 +273,44 @@ public class VoteDAO2 {
 					found = true;
 				}
 			}
-			
 		}
-	
 		if (!hasUserVotedToday(VoteDate,UserID) && found)
 		{
 			mydao.ExecuteSql("insert into Votes (UserID, CandidateID, VoteDate) values ("+UserID+","+CandidateID+",'"+strdate+"');");
 		}
 	
 	}
+
+	public  void Vote(Integer FBUserID, Integer UserID, Integer CandidateID, Date VoteDate) throws Exception
+	{
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String strdate = sdf.format(VoteDate);
+
+		Integer[] candidates = null;
+		try {
+			candidates = GetVoteCandidateIDOptions(VoteDate);
+		}catch(Exception e)
+		{
+			throw e;
+		}
+		Boolean found = false;
+		if (candidates != null)
+		{
+			for(int i = 0; i<candidates.length;i++)
+			{
+				if (candidates[i].equals(CandidateID))
+				{
+					found = true;
+				}
+			}
+		}
+		if (!hasUserVotedToday(VoteDate,FBUserID,UserID) && found)
+		{
+			mydao.ExecuteSql("insert into Votes (UserID,FBUserID, CandidateID, VoteDate) values ("+UserID+","+FBUserID+","+CandidateID+",'"+strdate+"');");
+		}
+	
+	}
+
 	
 	public  Long GetVoteMaxResults(Date thedate) throws Exception
 	{

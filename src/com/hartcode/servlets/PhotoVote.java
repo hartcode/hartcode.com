@@ -14,6 +14,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.Logger;
@@ -22,6 +23,7 @@ import org.xml.sax.SAXException;
 
 
 
+import com.hartcode.Facebook.FacebookAPI;
 import com.hartcode.PhotoADay.*;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
@@ -47,11 +49,14 @@ public class PhotoVote extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cookie MyCookie = null;
-		Integer UserID = null;
+		Integer UserComputerID = null;
+		String FacebookStrUserID = null;
+		Integer FacebookUserID = null;
 		Cookie[] cookies = request.getCookies();
 		Calendar mycal = Calendar.getInstance();
 		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
 		mycal.add(Calendar.DATE, 1);
+		HttpSession session = request.getSession(false);
 		Date thedate = mycal.getTime();
 		if (logger.isDebugEnabled())
 		{
@@ -98,7 +103,7 @@ public class PhotoVote extends HttpServlet {
         logger.debug("User IP is: " + ip);
 		if (MyCookie == null)
 		{
-			logger.warn("Couldn't Find User Cookie. Creating new user.");
+			logger.warn("Couldn't Find User computer Cookie. Creating new user computer.");
 			String cookievalue = null;
 			
 			logger.debug("Creating cookie hash");
@@ -123,9 +128,9 @@ public class PhotoVote extends HttpServlet {
 	    	logger.debug("Finished Creating cookie hash: " + cookievalue);
 	    	
 			try {
-				logger.debug("Creating new user in db.");
-				UserID = va2.NewUser(ip, cookievalue);
-				logger.debug("Finished Creating new user in db: " + UserID);
+				logger.debug("Creating new user computer in db.");
+				UserComputerID = va2.NewUserComputer(ip, cookievalue);
+				logger.debug("Finished Creating new user computer in db: " + UserComputerID);
 			} catch (Exception e) {
 				
 				logger.error(e);
@@ -136,25 +141,25 @@ public class PhotoVote extends HttpServlet {
 			logger.debug("Created cookie");
 		}else
 		{
-			logger.info("Found User Cookie. Getting user data from db.");
+			logger.info("Found User computer Cookie. Getting user computer data from db.");
 			try 
 			{
-				logger.debug("Getting user from db.");
-				UserID = va2.GetUserID(MyCookie.getValue());
-				logger.debug("Finished Getting user from db: " + UserID);
+				logger.debug("Getting user computer from db.");
+				UserComputerID = va2.GetUserComputerID(MyCookie.getValue());
+				logger.debug("Finished Getting user computer from db: " + UserComputerID);
 			}
 			catch (Exception e) 
 			{
 				logger.error(e);
 			}
-			if (UserID == null)
+			if (UserComputerID == null)
 			{
-				logger.warn("Couldn't find user in db. Now we have to create a new one in db.");
+				logger.warn("Couldn't find user computer in db. Now we have to create a new one in db.");
 				try 
 				{
-					logger.debug("Creating new user in db.");
-					UserID = va2.NewUser(ip, MyCookie.getValue());
-					logger.debug("Finished Creating new user in db: " + UserID);
+					logger.debug("Creating new user computer in db.");
+					UserComputerID = va2.NewUserComputer(ip, MyCookie.getValue());
+					logger.debug("Finished Creating new user computer in db: " + UserComputerID);
 				} 
 				catch (Exception e) 
 				{
@@ -163,27 +168,41 @@ public class PhotoVote extends HttpServlet {
 			}
 		}
 		
-		if (UserID != null)
+		if (UserComputerID != null)
 		{
-			
-			String strCandidateID = request.getParameter("cid");
-			if (strCandidateID != null)
+			FacebookStrUserID = request.getParameter("FBUser");
+			if (FacebookStrUserID == null)
 			{
-				logger.info("User is Voting!");
-				logger.info("for cid: " + strCandidateID);
-				Integer CandidateID = Integer.valueOf(strCandidateID);
+				if (session != null)
+				{
+				FacebookStrUserID = (String)session.getAttribute("fbid");
+				}else
+				{
+					logger.debug("Session was not found");
+				}
+			}
+			if (FacebookStrUserID != null)
+			{
+				logger.debug("We have a facebook String userid: " + FacebookStrUserID);
 				try {
-					va2.Vote(UserID,CandidateID,thedate);
-					//response.sendRedirect("/photos/Vote");
-				} catch (Exception e) {
+				FacebookUserID = va2.GetFBUserID(FacebookStrUserID);
+				}catch (Exception e)
+				{
 					logger.error(e);
 				}
 			}
 			
+			
+			
 			Boolean hasvoted = false;
 			try {
-				
-				hasvoted = va2.hasUserVotedToday(thedate, UserID);
+				if (FacebookUserID != null)
+				{
+					hasvoted = va2.hasUserVotedToday(thedate, FacebookUserID, UserComputerID);
+				}else
+				{
+					hasvoted = va2.hasUserVotedToday(thedate, UserComputerID);
+				}
 			} catch (Exception e) {
 				logger.error(e);
 			}
@@ -194,13 +213,53 @@ public class PhotoVote extends HttpServlet {
 				//response.sendRedirect("VoteResults");
 				response.addHeader("Content-Type", "text/html");
 				PrintWriter pw = response.getWriter();
-				VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote");
+				VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote",request);
 				pw.write(mp.toString());
 				pw.close();
 				
-				
 			}else
 			{
+				String strCandidateID = request.getParameter("cid");
+				String strPhotoID = request.getParameter("pid");
+				if (strCandidateID != null )
+				{
+					Integer photoID = 0;
+					if (strPhotoID != null)
+					{
+						photoID = Integer.valueOf(strPhotoID);
+					}
+					logger.info("User is Voting!");
+					logger.info("for cid: " + strCandidateID);
+					Integer CandidateID = Integer.valueOf(strCandidateID);
+					try {
+						if (FacebookUserID != null)
+						{
+							logger.debug("We now have a facebook user id: " + FacebookUserID);
+							va2.Vote(FacebookUserID,UserComputerID,CandidateID,thedate);
+							FacebookAPI.PostVote(FacebookStrUserID,photoID);
+						}else
+						{
+							logger.debug("We don't have a facebook user id. The user must not be logged in.");
+							va2.Vote(UserComputerID,CandidateID,thedate);
+						}
+						logger.info("User has already voted today!");
+						//	va2.closeConnections();
+						response.sendRedirect("Vote");
+						//response.addHeader("Content-Type", "text/html");
+						//PrintWriter pw = response.getWriter();
+						//VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote",request);
+						//pw.write(mp.toString());
+						//pw.close();
+						//response.sendRedirect("/photos/Vote");
+					} catch (Exception e) {
+						logger.error(e);
+					}
+				}else
+				{
+					
+					logger.debug("Didn't cast vote because there was no candidate choosen");
+				}
+
 				logger.info("User has NOT voted yet");
 				Integer[] photoIDs = null;
 				Integer[] CandidateIDs = null;
@@ -234,7 +293,7 @@ public class PhotoVote extends HttpServlet {
 				{
 					response.addHeader("Content-Type", "text/html");
 					PrintWriter pw = response.getWriter();
-					VotePage mp = new VotePage(new PhotoVoteModule(photoIDs,CandidateIDs, UserID),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote");
+					VotePage mp = new VotePage(new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote",request);
 					pw.write(mp.toString());
 					pw.close();
 				}else 
