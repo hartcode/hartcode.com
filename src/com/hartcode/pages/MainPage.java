@@ -10,6 +10,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
+import com.hartcode.Facebook.FacebookAPI;
 import com.hartcode.Facebook.Objects.UserData;
 import com.hartcode.PhotoADay.VoteDAO2;
 import com.hartcode.exceptions.InvalidPortException;
@@ -147,7 +148,7 @@ public class MainPage {
 			sb.append("<a href=\"/Logout\" ><p id=\"fb-auth\">Logout</p></a></div>");
 		}else
 		{
-			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://www.hartcode.com/Login&scope=email,publish_actions\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
+			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_stream\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
 		}
 		if (m_UseADS)
 		{

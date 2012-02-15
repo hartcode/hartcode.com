@@ -79,7 +79,7 @@ public class Login extends HttpServlet {
 		if (facebookauthcode != null)
 		{
 			String facebookclientid = "161596347286085";
-			String redirecturl = "http://www.hartcode.com/Login";
+			String redirecturl = "http://"+FacebookAPI.domain+"/Login";
 			String facebooksecret = "34d423706e24428280d3a4c721771ffc";
 			AccessTokenData atd = FacebookAPI.getAccessTokenDataFromCode(facebookauthcode, facebookclientid, redirecturl, facebooksecret);
 			UserData ud = FacebookAPI.getUserData(atd);

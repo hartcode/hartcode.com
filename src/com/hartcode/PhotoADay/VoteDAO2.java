@@ -7,14 +7,17 @@ import java.util.Date;
 
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import com.hartcode.Facebook.Objects.UserData;
 import com.hartcode.data.mysql.DAO;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
+import com.hartcode.servlets.Login;
 
 public class VoteDAO2 {
+	static Logger logger = Logger.getLogger(VoteDAO2.class);
 	protected DAO mydao = null;
 	protected Boolean isOKToClose = true;
 	public VoteDAO2() throws NullArgumentException, FileNotFoundException, InvalidPortException, ParserConfigurationException, SAXException, IOException
@@ -85,19 +88,78 @@ public class VoteDAO2 {
 			
 		}catch (Exception e)
 		{
+			logger.warn(e);
 		}
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String strdate = sdf.format(ud.getUpdatedTime());
+		String strdate = null;
+		try {
+		 strdate = sdf.format(ud.getUpdatedTime());
+		}catch(Exception e)
+		{
+			logger.warn(e);
+			
+		}
 		// Doesn't exist, we need to create a new user record
+		String email;
+		 String date;
+		 String verified;
+		 String timezone;
+		 String locale;
+		 if (ud.Email== null)
+		 {
+			 email = "NULL";
+		 }else
+		 {
+			 email = "'" + ud.Email+"'";
+		 }
+		 if (strdate == null)
+		 {
+			 date = "NULL";
+		 }else
+		 {
+			 date = "'" + strdate+"'";
+		 }
+		 if (ud.Verified == null)
+		 {
+			 verified = "NULL";
+		 }else
+		 {
+			 verified =ud.Verified.toString();
+		 }
+		 if (ud.timezone == null)
+		 {
+			 timezone = "NULL";
+		 }else
+		 {
+			 timezone =ud.timezone.toString();
+		 }
+		 if (ud.locale == null)
+		 {
+			 locale = "NULL";
+		 }else
+		 {
+			 locale = "'" +ud.locale+"'";
+		 }
 		if (retval == null)
 		{
-			mydao.ExecuteSql("insert into FBuser (FBID,FirstName, LastName, Gender, Email,FBLastUpdate,Verified,TimeZone,Locale) values (" + ud.ID + ",'" + ud.First_Name + "','" + ud.Last_Name + "','" + ud.getGender() + "','" + ud.Email + "','" + strdate + "'," + ud.Verified + "," + ud.timezone + ",'" + ud.locale + "');");
+			mydao.ExecuteSql("insert into FBuser (FBID,FirstName, LastName, Gender, Email,FBLastUpdate,Verified,TimeZone,Locale) values (" + ud.ID + ",'" + ud.First_Name + "','" + ud.Last_Name + "'," +
+					"'" + ud.getGender() + "'," +
+					 email + "," +
+					date + "," +
+					verified + "," +
+					timezone + "," +
+					locale + ");");
 			retval = GetFBUserID(ud.ID);
 		}else
 		{
 		 // Exists we should update it with new information.
-			mydao.ExecuteSql("update FBuser set FirstName = '" + ud.First_Name + "', LastName='" + ud.Last_Name + "',Gender = '" + ud.getGender() + "', Email = '" + ud.Email + "', FBLastUpdate= '" + strdate + "', Verified = " + ud.Verified + ", TimeZone = " + ud.timezone + ", Locale = '" + ud.locale + "' where FBID = " + ud.ID + " ;");
+			mydao.ExecuteSql("update FBuser set FirstName = '" + ud.First_Name + "', LastName='" + ud.Last_Name + "',Gender = '" + ud.getGender() + "'," +
+					" Email = " + email + "," +
+					" FBLastUpdate= " + date + "," +
+					" Verified = " + verified + "," +
+					" TimeZone = " + timezone + "," +
+					" Locale = " + locale + " where FBID = " + ud.ID + " ;");
 		}
 		
 		return retval;
@@ -131,7 +193,7 @@ public class VoteDAO2 {
 		Boolean retval = false;
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String strdate = sdf.format(today);
-		Object[][] obj = mydao.Select("Select count(*) from CandidateDay cd inner join Candidates c on cd.ID = c.CandidateDayID inner join Votes v on v.CandidateID = c.ID where v.UserID = "+UserComputerID.toString()+" and v.FBUserID = "+ FBUserID.toString() +" and cd.ShowDate = '" + strdate + "';");
+		Object[][] obj = mydao.Select("Select count(*) from CandidateDay cd inner join Candidates c on cd.ID = c.CandidateDayID inner join Votes v on v.CandidateID = c.ID where v.FBUserID = "+ FBUserID.toString() +" and cd.ShowDate = '" + strdate + "';");
 		if (obj == null || obj.length == 0)
 		{ 
 			retval = false;

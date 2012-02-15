@@ -20,13 +20,15 @@ import com.hartcode.exceptions.NullArgumentException;
 
 public class FacebookAPI {
 
+	//public static String domain = "tomcat.dev.home.hartcode.com";
+	 public static String domain = "www.hartcode.com";
 	static Logger logger = Logger.getLogger(FacebookAPI.class);
 
-	public static void PostVote(String FBID, Integer PhotoID)
+	public static void PostVote(AccessTokenData atd,String FBID, Integer PhotoID)
 	{
-		String input = "access_token=161596347286085|Rthw3WvIOWP1XNO815yzuXPpxLM&wallpaper=http://www.hartcode.com/Vote&image=http://www.hartcode.com/photos/thumb/"+ PhotoID +"/image.jpg"; 
-		String content = MakeFaceBookCall("https://graph.facebook.com/"+FBID+"/hartcode:vote_for", "POST", input);
-		
+		String input = "access_token="+atd.AccessToken+"&link=http://"+domain+"/Vote&picture=http://"+domain+"/photos/thumb/"+ PhotoID +"/image.jpg&message=I voted today."; 
+		String content = MakeFaceBookCall("https://graph.facebook.com/"+FBID+"/feed", "POST", input);
+		logger.debug(content);
 	}
 	
 	public static String Logout(AccessTokenData atd, String redirect)

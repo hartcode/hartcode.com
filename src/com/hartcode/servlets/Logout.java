@@ -40,10 +40,13 @@ public class Logout extends HttpServlet {
 			AccessTokenData atd = new AccessTokenData();
 			atd.AccessToken = accessToken;
 			session.invalidate();
-			response.sendRedirect(FacebookAPI.Logout(atd,"http://www.hartcode.com/"));	
-		}
+			response.sendRedirect(FacebookAPI.Logout(atd,"http://"+FacebookAPI.domain+"/"));	
+		}else
+		{response.sendRedirect("http://"+FacebookAPI.domain+"/");}
 		
-		}
+		}else
+		{response.sendRedirect("http://"+FacebookAPI.domain+"/");}
+		
 		
 		
 	}

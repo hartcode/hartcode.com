@@ -24,6 +24,7 @@ import org.xml.sax.SAXException;
 
 
 import com.hartcode.Facebook.FacebookAPI;
+import com.hartcode.Facebook.Objects.AccessTokenData;
 import com.hartcode.PhotoADay.*;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
@@ -48,6 +49,7 @@ public class PhotoVote extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		AccessTokenData atd = null;
 		Cookie MyCookie = null;
 		Integer UserComputerID = null;
 		String FacebookStrUserID = null;
@@ -171,11 +173,15 @@ public class PhotoVote extends HttpServlet {
 		if (UserComputerID != null)
 		{
 			FacebookStrUserID = request.getParameter("FBUser");
+			
 			if (FacebookStrUserID == null)
 			{
 				if (session != null)
 				{
 				FacebookStrUserID = (String)session.getAttribute("fbid");
+				atd = new AccessTokenData();
+				atd.AccessToken = (String)session.getAttribute("accessToken");
+				
 				}else
 				{
 					logger.debug("Session was not found");
@@ -236,7 +242,7 @@ public class PhotoVote extends HttpServlet {
 						{
 							logger.debug("We now have a facebook user id: " + FacebookUserID);
 							va2.Vote(FacebookUserID,UserComputerID,CandidateID,thedate);
-							FacebookAPI.PostVote(FacebookStrUserID,photoID);
+							FacebookAPI.PostVote(atd,FacebookStrUserID,photoID);
 						}else
 						{
 							logger.debug("We don't have a facebook user id. The user must not be logged in.");

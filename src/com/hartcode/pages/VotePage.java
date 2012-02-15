@@ -10,6 +10,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
+import com.hartcode.Facebook.FacebookAPI;
 import com.hartcode.Facebook.Objects.UserData;
 import com.hartcode.PhotoADay.VoteDAO2;
 import com.hartcode.exceptions.InvalidPortException;
@@ -109,8 +110,8 @@ public class VotePage {
 			sb.append("<meta property=\"fb:app_id\"      content=\"161596347286085\" /> ");
 		sb.append("<meta property=\"og:type\"        content=\"hartcode:wallpaper\" /> ");
 		sb.append("<meta property=\"og:url\"         content=\"http://www.hartcode.com/Vote\" />"); 
-		sb.append("<meta property=\"og:title\"       content=\"Tomorrow&#039;s Wallpaper?\" />"); 
-		sb.append("<meta property=\"og:description\" content=\"Vote for one of 4 candidates for Tomorrow&#039;s Wallpaper.\" /> ");
+		sb.append("<meta property=\"og:title\"       content=\"Vote For Tomorrow&#039;s Wallpaper\" />"); 
+		sb.append("<meta property=\"og:description\" content=\"Help choose tomorrow's wallpaper by voting for one of 4 candidates.\" /> ");
 		sb.append("<meta property=\"og:image\" content=\"http://www.hartcode.com/images/voteicon.png\" /> ");
 		//sb.append("<meta property=\"og:image\"       content=\"http://www.hartcode.com/photos/thumb/1057/image.jpg\" /> ");
 		sb.append("<title>");
@@ -154,7 +155,7 @@ public class VotePage {
 			sb.append("<a href=\"/Logout\" ><p id=\"fb-auth\">Logout</p></a></div>");
 		}else
 		{
-			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://www.hartcode.com/Login&scope=email,publish_actions\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
+			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_actions\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
 		}
 
 		if (m_UseADS)
