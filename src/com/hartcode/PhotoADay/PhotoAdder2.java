@@ -6,6 +6,7 @@ import java.util.Vector;
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -295,6 +296,7 @@ public class PhotoAdder2 {
 		}else
 		{
 			retval = (String)(obj[0][0]);
+			
 		} 
 		return retval;
 	}
@@ -312,24 +314,22 @@ public class PhotoAdder2 {
 		logger.debug("Finished Selecting");
 		if (obj == null || obj.length == 0)
 		{ 
-			// Need to create different sized file
-			logger.warn("Photo file not found in the proper size. Get the largest photo and create an image in the proper size.");
-			String filename = GetPhotoFileName(PhotoID);
-			logger.debug("Got Largest Photo");
-			String outfilename = filename.replace(".jpg", "-" +Width.toString() + "x" + Height.toString() + ".jpg");
-			logger.debug("Begin Resize");
-			FileInputStream fis = new FileInputStream(filename);
-			FileOutputStream fos = new FileOutputStream(outfilename);
-			BufferedImage bi = ImageIO.read(fis);
-			fis.close();
-			 BufferedImage scaledBI = new BufferedImage(Width, Height, BufferedImage.TYPE_INT_RGB);
-		        Graphics2D g = scaledBI.createGraphics();
-		        g.setComposite(AlphaComposite.Src);
-		        g.drawImage(bi, 0, 0, Width, Height, null);
-		        g.dispose();
-			ImageIO.write(scaledBI,"JPG",(OutputStream)fos);
-			fos.close();
-			logger.debug("End Resize");
+			logger.debug("Photo not found in database");
+			String outfilename = null;
+			Integer maxAttempts = 3;
+			Integer attempt = 1;
+			while(outfilename == null && attempt < maxAttempts)
+			{
+				try 
+				{
+					outfilename = resizeimage(PhotoID, Width, Height);
+				}catch(Exception e)
+				{
+					logger.error(e);
+					outfilename = null;
+				}
+				attempt++;
+			}
 			
 			PhotoObject pho = new PhotoObject(outfilename,outfilename.substring(0,25),outfilename);
 			ImageDimension size = pho.getDimensions();
@@ -344,25 +344,85 @@ public class PhotoAdder2 {
 			}else
 			{
 				retval = (String)(obj[0][0]);
+				File myfile = new File(retval);
+				if (!myfile.exists())
+				{
+					logger.debug("File: " + retval + " doesn't exist try to resize.");
+					Integer maxAttempts2 = 3;
+					Integer attempt2 = 1;
+					retval = null;
+					while(retval == null && attempt2 < maxAttempts2)
+					{
+						try 
+						{
+							retval = resizeimage(PhotoID, Width, Height);
+						}catch(Exception e)
+						{
+							logger.error(e);
+							retval = null;
+						}
+						attempt2++;
+					}
+				}else
+				{logger.debug("File: " + retval + " exists.");
+				}
 			}
 			
 		}else
 		{
-			
+			logger.debug("Photo was found in database");
 			retval = (String)(obj[0][0]);
+			File myfile = new File(retval);
+			if (!myfile.exists())
+			{
+				logger.debug("File: " + retval + " doesn't exist try to resize.");
+				Integer maxAttempts2 = 3;
+				Integer attempt2 = 1;
+				retval = null;
+				while(retval == null && attempt2 < maxAttempts2)
+				{
+					try 
+					{
+						retval = resizeimage(PhotoID, Width, Height);
+					}catch(Exception e)
+					{
+						logger.error(e);
+						retval = null;
+					}
+					attempt2++;
+				}
+			}else
+			{logger.debug("File: " + retval + " exists.");
+			}
 		} 
 		return retval;
 	}
+protected String resizeimage(Integer PhotoID, Integer Width, Integer Height) throws Exception
+{
+	// Need to create different sized file
+	logger.warn("Photo file not found in the proper size. Get the largest photo and create an image in the proper size.");
+	String filename = GetPhotoFileName(PhotoID);
+	logger.debug("Got Largest Photo");
+	String outfilename = filename.replace(".jpg", "-" +Width.toString() + "x" + Height.toString() + ".jpg");
+	logger.debug("Begin Resize");
+	FileInputStream fis = new FileInputStream(filename);
+	FileOutputStream fos = new FileOutputStream(outfilename);
+	BufferedImage bi = ImageIO.read(fis);
+	fis.close();
+	 BufferedImage scaledBI = new BufferedImage(Width, Height, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g = scaledBI.createGraphics();
+        g.setComposite(AlphaComposite.Src);
+        g.drawImage(bi, 0, 0, Width, Height, null);
+        g.dispose();
+	ImageIO.write(scaledBI,"JPG",(OutputStream)fos);
+	fos.close();
+	logger.debug("End Resize");
+	return outfilename;
+}
 	
 	public void closeConnections()
 	{
-	/*	try {
-			//mydao.closeConnection();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
+	
 	}
 }
 	

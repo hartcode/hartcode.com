@@ -2,6 +2,7 @@ package com.hartcode.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
@@ -21,7 +22,7 @@ public class channel extends ServletPage implements Servlet {
      */
     public channel() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
        
     /**
@@ -29,19 +30,20 @@ public class channel extends ServletPage implements Servlet {
      */
     public channel(String contenttype) {
         super(contenttype);
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		long expire = 60*60*24*365;
 		Calendar mycal = Calendar.getInstance();
 		mycal.add(Calendar.YEAR, 1);
 		Date d = mycal.getTime();
+		String dGMT = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+		dGMT = sdf.format(d);
 		
-		response.addHeader("Expires",d.toGMTString());
+		response.addHeader("Expires",dGMT);
 		PrintWriter pw = response.getWriter();
 		pw.write("<script src=\"//connect.facebook.net/en_US/all.js\"></script>");
 		pw.close();

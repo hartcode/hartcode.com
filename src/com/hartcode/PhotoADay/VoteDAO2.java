@@ -14,7 +14,7 @@ import com.hartcode.Facebook.Objects.UserData;
 import com.hartcode.data.mysql.DAO;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
-import com.hartcode.servlets.Login;
+
 
 public class VoteDAO2 {
 	static Logger logger = Logger.getLogger(VoteDAO2.class);
@@ -31,16 +31,7 @@ public class VoteDAO2 {
 	}
 	public void closeConnections()
 	{
-		/*try {
-			if (isOKToClose)
-			{
-				mydao.closeConnection();
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
+		
 	}
 	public UserData GetUserData(Integer id) throws Exception
 	{

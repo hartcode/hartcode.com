@@ -3,6 +3,7 @@ package com.hartcode.servlets;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -28,7 +29,7 @@ public class photoserver extends HttpServlet {
      */
     public photoserver() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
@@ -68,6 +69,8 @@ public class photoserver extends HttpServlet {
 			{
 				filename = pa2.GetPhotoFileName(photoid);	
 			}
+			
+			
 			logger.debug("Begin Closing Connection");
 			pa2.closeConnections();
 			logger.debug("Closed Connection");
@@ -81,6 +84,7 @@ public class photoserver extends HttpServlet {
 		{
 			logger.debug("Found Image filename: " + filename);
 			response.setContentType("image/jpeg");
+			
 			File file = new File(filename); 
 			        
 			// Get the last modification information. 
@@ -94,11 +98,17 @@ public class photoserver extends HttpServlet {
 			// to the date object. 
 			        
 			Date lastmoddate = new Date(lastModified);
-			response.addHeader("Last-Modified", lastmoddate.toGMTString());
+			String lastmodGMT = null;
+			SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+			lastmodGMT = sdf.format(lastmoddate);
+			
+			response.addHeader("Last-Modified", lastmodGMT);
 			logger.debug("Opening Image File");
 			ServletOutputStream os = response.getOutputStream();
 			//	FileInputStream is = new FileInputStream("/usr/java/tomcat-5.5/hartcode/ROOT/images/photos/1.jpg");
-			FileInputStream is = new FileInputStream(filename);
+			FileInputStream is = null;
+			is = new FileInputStream(filename);
+			
 			int b = is.read();
 			while(b!= -1)
 			{
