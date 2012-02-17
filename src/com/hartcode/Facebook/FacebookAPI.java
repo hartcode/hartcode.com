@@ -20,8 +20,8 @@ import com.hartcode.exceptions.NullArgumentException;
 
 public class FacebookAPI {
 
-	public static String domain = "tomcat.dev.home.hartcode.com";
-	//public static String domain = "www.hartcode.com";
+	//public static String domain = "tomcat.dev.home.hartcode.com";
+	public static String domain = "www.hartcode.com";
 	static Logger logger = Logger.getLogger(FacebookAPI.class);
 
 	public static void PostVote(AccessTokenData atd,String FBID, Integer PhotoID)
