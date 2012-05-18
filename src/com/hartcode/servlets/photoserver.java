@@ -101,9 +101,12 @@ public class photoserver extends HttpServlet {
 			String lastmodGMT = null;
 			SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
 			lastmodGMT = sdf.format(lastmoddate);
+			String filelen = String.valueOf(file.length());
 			
 			response.addHeader("Last-Modified", lastmodGMT);
+			response.addHeader("content-length",filelen);
 			logger.debug("Opening Image File");
+			
 			ServletOutputStream os = response.getOutputStream();
 			//	FileInputStream is = new FileInputStream("/usr/java/tomcat-5.5/hartcode/ROOT/images/photos/1.jpg");
 			FileInputStream is = null;
