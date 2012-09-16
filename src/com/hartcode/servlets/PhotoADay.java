@@ -28,6 +28,8 @@ public class PhotoADay extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String strdate = request.getParameter("date");
+		String strphotowidth = request.getParameter("width");
+		String strphotoheight = request.getParameter("height");
 		if (strdate != null && strdate != "")
 		{
 			Calendar mycal = Calendar.getInstance();
@@ -60,8 +62,18 @@ public class PhotoADay extends HttpServlet {
 					}
 					if (PhotoID != null)
 					{
-						 RequestDispatcher rd = request.getRequestDispatcher("/photoserver?id=" + PhotoID.toString());
-						  rd.forward(request, response);
+						Integer width = 0;
+						Integer height = 0;
+						String url = "/photoserver?id=" + PhotoID.toString();
+						if (strphotowidth != null)
+						{
+							width = Integer.valueOf(strphotowidth);
+							height = Integer.valueOf(strphotoheight);
+							url += "&width=" + width.toString() + "&height=" + height.toString();
+						}
+						
+						RequestDispatcher rd = request.getRequestDispatcher(url );
+						rd.forward(request, response);
 					}else
 					{
 						response.setStatus(404);

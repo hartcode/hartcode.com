@@ -13,6 +13,14 @@
             The rule means that requests to /test/status/ will be redirected to /rewrite-status
             the url will be rewritten.
         </note>
+        <from>/photos/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/image.jpg</from>
+        <to>/PhotoADay?date=$1-$2-$3&amp;width=$4&amp;height=$5</to>
+    </rule>
+    <rule>
+        <note>
+            The rule means that requests to /test/status/ will be redirected to /rewrite-status
+            the url will be rewritten.
+        </note>
         <from>/photos/id/([0-9]+)/image.jpg</from>
         <to>/photoserver?id=$1</to>
     </rule>
