@@ -22,6 +22,17 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>AmazonFreeApp</display-name>
+    <servlet-name>AmazonFreeApp</servlet-name>
+    <servlet-class>com.hartcode.servlets.AmazonFreeAppXml</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AmazonFreeApp</servlet-name>
+    <url-pattern>/AmazonFreeApp.xml</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>RSSNewsPage</display-name>
     <servlet-name>RSSNewsPage</servlet-name>
     <servlet-class>com.hartcode.servlets.RSSNewsPage</servlet-class>
