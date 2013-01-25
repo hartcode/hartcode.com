@@ -34,7 +34,7 @@ import com.hartcode.Facebook.Objects.UserData;
 import com.hartcode.PhotoADay.VoteDAO2;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
-import com.sun.jndi.toolkit.url.UrlUtil;
+
 
 /**
  * Servlet implementation class Login

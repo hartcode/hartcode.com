@@ -162,6 +162,17 @@
     <url-pattern>/VoteResults</url-pattern>
   </servlet-mapping>
   <servlet>
+    <description></description>
+    <display-name>Yeast</display-name>
+    <servlet-name>Yeast</servlet-name>
+    <servlet-class>com.hartcode.servlets.Yeast</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Yeast</servlet-name>
+    <url-pattern>/yeast</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>log4j-init</servlet-name>
     <servlet-class>com.hartcode.servlets.Log4jInit</servlet-class>
     <init-param>
