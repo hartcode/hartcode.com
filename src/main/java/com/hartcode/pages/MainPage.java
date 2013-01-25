@@ -115,12 +115,12 @@ public class MainPage {
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
 		sb.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />");
-		sb.append("<link href=\"style.1.4.1.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"/style.1.4.1.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		
-		sb.append("<!--[if lte IE 7]><link href=\"style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
+		sb.append("<!--[if lte IE 7]><link href=\"/style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
-		sb.append("<script type=\"text/javascript\" src=\"hartcode.1.0.js\"></script>");
-		sb.append("<script type=\"text/javascript\" src=\"ga.1.0.0.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"/hartcode.1.0.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"/ga.1.0.0.js\"></script>");
 		sb.append("</head>");
 		sb.append("<body id=\"");
 		sb.append(GetNavID());
@@ -134,9 +134,10 @@ public class MainPage {
 		sb.append("<div id=\"sidebar\">");
 		sb.append("<ul>");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
-		sb.append("<li><a id=\"newsli\" href=\"News\">News</a></li>");
-		sb.append("<li><a id=\"wallli\" href=\"Wallpaper\">Wallpaper</a></li>");
-		sb.append("<li><a id=\"voteli\" href=\"Vote\">Vote</a></li>");
+		sb.append("<li><a id=\"newsli\" href=\"/News\">News</a></li>");
+		sb.append("<li><a id=\"wallli\" href=\"/Wallpaper\">Wallpaper</a></li>");
+		sb.append("<li><a id=\"voteli\" href=\"/Vote\">Vote</a></li>");
+		sb.append("<li><a id=\"yeastli\" href=\"/yeast/1\">Yeast</a></li>");
 		sb.append("</ul>");
 		sb.append("<div id=\"fbdiv\">");
 		if (FBID != null)

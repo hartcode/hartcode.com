@@ -1,90 +1,165 @@
 package com.hartcode.modules;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.text.NumberFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.parsers.ParserConfigurationException;
+import javax.swing.text.DefaultEditorKit.CutAction;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
-import org.xml.sax.SAXException;
 
-import com.hartcode.PhotoADay.VoteDAO2;
-import com.hartcode.exceptions.InvalidPortException;
-import com.hartcode.exceptions.NullArgumentException;
 import com.hartcode.libyeast.Culture;
+import com.hartcode.libyeast.CultureLocation;
 import com.hartcode.libyeast.Strain;
 import com.hartcode.libyeast.hibernate.HibernateUtil;
-import com.hartcode.servlets.PhotoVote;
 
 
 public class CultureModule implements IMainModule {
 	static Logger logger = Logger.getLogger(CultureModule.class);
 	protected HttpServletRequest m_request;
-	public CultureModule()
-	{
-		
+
+	public CultureModule() {
+
 	}
+
 	
-	public String GetMainModule() {
+	public String GetMainModule() 
+	{
+		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
 		StringBuilder sb = new StringBuilder();
 		Integer CultureID = -1;
 		String strCleanCultureID = null;
 		String strCultureID = m_request.getParameter("ID");
-		if (strCultureID != null)
+		if (strCultureID != null) 
 		{
 			CultureID = Integer.valueOf(strCultureID);
 			strCleanCultureID = CultureID.toString();
-		}else
-		{
+		} else {
 			logger.warn("ID parameter was empty");
 		}
+
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Culture c = null;
+		Strain s = null;
+		List<CultureLocation> cl = null;
+		List<Culture> cc = null;
+		try 
+		{
+			Criteria crit = session.createCriteria(Culture.class);
+			c = (Culture)crit.add(Restrictions.eq("ID", CultureID)).uniqueResult();
 		
-		 Session session = HibernateUtil.getSessionFactory().openSession();
-		  
-	     session.beginTransaction();
-	     try {
-	    	 	Culture c = null;
-	    	 	Strain s = null;
-	    	 	Criteria crit = session.createCriteria(Culture.class);
-	    	 	c  = (Culture)crit.add(Restrictions.eq("ID", 1)).uniqueResult(); 
-				if (c != null)
+		
+			if (c != null) {
+				Criteria crit2 = session.createCriteria(CultureLocation.class);
+				cl =  crit2.add(Restrictions.eq("Culture", c)).addOrder(Order.desc("MoveDate")).list();
+				
+				Criteria crit3 = session.createCriteria(Culture.class);
+				cc =  crit3.add(Restrictions.eq("Source", c)).addOrder(Order.asc("CreateDate")).list();
+				
+			}
+		} catch (Exception e) {
+		
+			logger.error("Exception: ", e);
+			sb.append("<p>"+e.getMessage()+"</p>");
+		}
+
+		if (c != null) 
+		{
+			if (c.getStrain() != null) 
+			{
+				s = c.getStrain();
+				sb.append("<div id=\"cultures\"><h2>Culture "
+						+ strCleanCultureID + " </h2>");
+				
+				sb.append("<h3>Culture</h3>");
+				sb.append("<ul><li><span class=\"bold\">ID:</span> " + strCleanCultureID + "</li>");
+				sb.append("<li><span class=\"bold\">Generation:</span> " + c.getGeneration() + "</li>");
+				sb.append("<li><span class=\"bold\">Creation Date:</span> " + df.format(c.getCreateDate()) + "</li>");
+				sb.append("<li><span class=\"bold\">Type:</span> " + c.getCultureType().getName() + "</li>");
+				if (c.getSource() != null) 
 				{
-					if (c.getStrain()!= null)
+					sb.append("<li><span class=\"bold\">Parent:</span> <a href=\"/yeast/"
+							+ c.getSource().getID() + "\">Culture "
+							+ c.getSource().getID() + "</a><li>");
+				}
+				if (cc != null) 
+				{
+					sb.append("<li><span class=\"bold\">Children:</span> ");
+					for (Culture myc : cc) 
 					{
-						s = c.getStrain();
-						sb.append("<div id=\"ChoicesResults\"><h2>Culture " + strCleanCultureID + " </h2>");
-						sb.append("<p id=\"first\"> </p><h3>Strain</h3>");
-						sb.append("<p>"+s.getName()+"</p>");
-					}else
+						
+					sb.append("<a href=\"/yeast/"
+							+ myc.getID() + "\">Culture "
+							+myc.getID() + "</a> ");
+					}
+					sb.append("<li>");
+				}
+				sb.append("</ul>");
+				sb.append("<h3>Strain</h3>");
+				sb.append("<ul><li><span class=\"bold\">Name:</span> " + s.getName() + "</li>");
+				sb.append("<li><span class=\"bold\">OrignID:</span> " + s.getOriginID() + "</li>");
+				sb.append("<li><span class=\"bold\">Description:</span> " + s.getDescription() + "</li>");
+				sb.append("<li><span class=\"bold\">Type:</span> " + s.getStrainType().getName() + "</li>");
+				sb.append("<li><span class=\"bold\">Temperature:</span> " + s.getTempLow() + " - "
+						+ s.getTempHigh() + "</li>");
+				sb.append("<li><span class=\"bold\">Flocculation:</span> " + s.getFlocculation().getName()
+						+ "</li>");
+				sb.append("<li><span class=\"bold\">Attenuation:</span> " + s.getAttenuationLow() + " - "
+						+ s.getAttenuationHigh() + "</li>");
+				sb.append("<li><span class=\"bold\">Alcohol Tolerance:</span> " + s.getTolerance()
+						+ "</li>");
+				sb.append("</ul>");
+				
+								
+
+				sb.append("<h3>Location</h3>");
+				sb.append("<div id=\"location\"><ul>");
+				if (cl != null) 
+				{
+					logger.info("cl is not null");
+					for (CultureLocation mycl : cl) 
 					{
-						logger.info("strain not found");
+						sb.append("<li><ul>");
+						sb.append("<li>" +df.format(mycl.getMoveDate()) + "</li>");
+						sb.append("<li>" + mycl.getLocation().getName()
+								+ "</li>");
+						if (mycl.getReason() != null)
+						{
+							sb.append("<li>" + mycl.getReason() + "</li>");
+						}
+						sb.append("</ul></li>");
 					}
 					
-				}else
-				{
-					logger.info("culture not found");
 				}
-	     }catch(Exception e)
-	     {
-	    	 logger.error("Exception: ",e);
-	     }
+				sb.append("</ul>");
+				sb.append("</div>");
+				
+				sb.append("<h3>QR Code</h3>");
+				sb.append("<img src=\"https://chart.googleapis.com/chart?cht=qr&chs=50x50&chl=http%3A%2F%2Fwww.hartcode.com%2Fyeast%2F"+strCleanCultureID+"\" /></p>");
+				sb.append("</div>");
+
+			} else 
+			{
+				logger.info("strain not found");
+			}
+
+		} else 
+		{
+			logger.info("culture not found");
+			sb.append("<div id=\"cultures\"><h2>Culture Not Found</h2></div>");
+		}
+
 
 		return sb.toString();
 	}
-	 
+
 	public void SetRequest(HttpServletRequest request) {
 		m_request = request;
 	}
-
-
-
 
 }

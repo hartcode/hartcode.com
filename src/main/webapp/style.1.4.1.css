@@ -1,3 +1,4 @@
+
 BODY
 {
 	font-size: 15px;
@@ -118,6 +119,10 @@ A:HOVER {
 	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
 
 }
+#yeast #yeastli {
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
+
+}
 #news #newsli {
 	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
 	
@@ -196,6 +201,7 @@ A {
 #Choices LI H3 , #ChoicesResults LI H3 {
 	COLOR: white; BACKGROUND-COLOR: gray; TEXT-ALIGN: center
 }
+
 #facebook {
 	OVERFLOW: hidden; WIDTH: 80px; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; HEIGHT: 21px; BORDER-BOTTOM-STYLE: none
 }
@@ -228,6 +234,9 @@ A {
 }
 
 #Choices > H3,#ChoicesResults > H3 {
+	PADDING-LEFT: 30px;
+}
+#cultures > H3{
 	PADDING-LEFT: 30px;
 }
 #Choices >p,#ChoicesResults >p
@@ -316,4 +325,27 @@ A {
 	text-align:center;
 	font-size: 15px;
 	Color:#D8DFEA;
+}
+#cultures LI LI{
+    PADDING-RIGHT: 10px;  PADDING-BOTTOM: 5px;  HEIGHT: 100%; min-width:100px;
+	FLOAT: left;
+}
+
+#cultures UL LI UL {
+	clear:both;
+	PADDING-LEFT: 0px;
+}
+#cultures  #location UL {
+	clear:both;
+	PADDING-LEFT: 10px;
+}
+#cultures H3 {
+	clear:both;
+}
+#cultures img {
+	PADDING-LEFT: 50px;
+}
+.bold
+{
+	font-weight: bold;
 }
