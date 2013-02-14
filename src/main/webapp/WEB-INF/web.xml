@@ -173,6 +173,17 @@
     <url-pattern>/yeast</url-pattern>
   </servlet-mapping>
   <servlet>
+    <description></description>
+    <display-name>YeastStrains</display-name>
+    <servlet-name>YeastStrains</servlet-name>
+    <servlet-class>com.hartcode.servlets.YeastStrains</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YeastStrains</servlet-name>
+    <url-pattern>/yeaststrains</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>log4j-init</servlet-name>
     <servlet-class>com.hartcode.servlets.Log4jInit</servlet-class>
     <init-param>

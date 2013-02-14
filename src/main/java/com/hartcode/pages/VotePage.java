@@ -144,6 +144,7 @@ public class VotePage {
 		sb.append("<li><a id=\"newsli\" href=\"News\">News</a></li>");
 		sb.append("<li><a id=\"wallli\" href=\"Wallpaper\">Wallpaper</a></li>");
 		sb.append("<li><a id=\"voteli\" href=\"Vote\">Vote</a></li>");
+		sb.append("<li><a id=\"yeastli\" href=\"/yeaststrains\">Yeast</a></li>");
 		sb.append("</ul>");
 		sb.append("<div id=\"fbdiv\">");
 		if (FBID != null)
@@ -176,16 +177,14 @@ public class VotePage {
 		sb.append("<div id=\"footer\">");
 		sb.append("  <ul>");
 		sb.append("<li id=\"address\">");
-		sb.append("	764 E. Hillcrest Dr.<br />");
-		sb.append("	Suite 101<br />");
-		sb.append("	Verona WI, 53593<br />");
+		sb.append("	<br />");
 		sb.append("</li>");
 		sb.append("<li  class=\"center\">");
 		sb.append("&#169; 2012 HartCode<br/>All pictures, graphics, logos are copyrighted to their respective owners.");
 		sb.append("</li>");
 		sb.append("<li  class=\"right\">");
-		sb.append("<a href=\"mailto:alex@hartcode.com\">alex@hartcode.com</a><br />");
-		sb.append("608-658-0359<br />");
+		sb.append("");
+		sb.append("<br />");
 		sb.append("</li>");
 		sb.append("</ul>");
 		sb.append("</div>");
