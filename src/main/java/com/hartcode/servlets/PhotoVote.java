@@ -299,7 +299,7 @@ public class PhotoVote extends HttpServlet {
 				{
 					response.addHeader("Content-Type", "text/html");
 					PrintWriter pw = response.getWriter();
-					VotePage mp = new VotePage(new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID),"Vote - HartCode Technology Solutions","Vote for Tomorrows Photo!","vote",request);
+					VotePage mp = new VotePage(new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID),"Vote - HartCode","Vote for Tomorrows Photo!","vote",request);
 					pw.write(mp.toString());
 					pw.close();
 				}else 

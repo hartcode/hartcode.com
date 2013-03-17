@@ -16,7 +16,7 @@ public class YeastStrains extends MainServlet {
      */
     public YeastStrains() {
     			
-    	super(new CultureListModule(),"Yeast Strains- HartCode Technology Solutions","","yeast");
+    	super(new CultureListModule(),"Yeast Strains- HartCode","","yeast");
     }
 
 }

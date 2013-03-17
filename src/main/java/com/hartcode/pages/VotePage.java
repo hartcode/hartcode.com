@@ -35,7 +35,7 @@ public class VotePage {
 		SetTitle(title);
 		SetDescription(desc);
 		SetNavID(navid);
-		m_UseADS = false;
+		m_UseADS = true;
 		m_request = request;
 	}
 	public VotePage(IMainModule MainModule, String title, String desc, String navid, Boolean useads,HttpServletRequest request)
@@ -135,7 +135,7 @@ public class VotePage {
 		sb.append("<div id=\"HeadOuter\">");
 		sb.append("<div id=\"HeadInner2\"></div>");
 		sb.append("<div id=\"HeadInner\"></div>");
-		sb.append("<h1>HartCode Technology Solutions</h1>");
+		sb.append("<h1>HartCode</h1>");
 		sb.append("</div>");
 		sb.append("<div id=\"total\">");
 		sb.append("<div id=\"sidebar\">");
@@ -158,15 +158,16 @@ public class VotePage {
 		{
 			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_actions\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
 		}
-
+		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a></div>");
+		
 		if (m_UseADS)
 		{
 		logger.debug("Start Ad Module");
 		sb.append("<div id=\"adpanel\">"+ADs.getRandomAd()+"</div>");
 		logger.debug("End Ad Module");
 		}
-		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a>");
-		sb.append("</div>");
+		//sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a></div>");
+	
 		sb.append("</div>");
 		sb.append("<div id=\"main\">");
 		logger.debug("Start Main Page Module");

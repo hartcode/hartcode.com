@@ -14,7 +14,7 @@ public class PhotoVoteResults extends MainServlet {
      */
     public PhotoVoteResults() {
     			
-    	super(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote");
+    	super(new PhotoVoteResultsModule(),"Vote - HartCode","","vote");
     }
 
 }

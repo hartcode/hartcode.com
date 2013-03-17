@@ -12,6 +12,6 @@ public class NewsPage extends MainServlet {
      * Default constructor. 
      */
     public NewsPage() {
-    	super(new NewsModule(),"News - HartCode Technology Solutions","","news");
+    	super(new NewsModule(),"News - HartCode","","news");
     }
 }
