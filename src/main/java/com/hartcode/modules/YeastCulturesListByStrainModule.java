@@ -20,11 +20,11 @@ import com.hartcode.libyeast.StrainType;
 import com.hartcode.libyeast.hibernate.HibernateUtil;
 
 
-public class CultureListModule implements IMainModule {
-	static Logger logger = Logger.getLogger(CultureListModule.class);
+public class YeastCulturesListByStrainModule implements IMainModule {
+	static Logger logger = Logger.getLogger(YeastCulturesListByStrainModule.class);
 	protected HttpServletRequest m_request;
 
-	public CultureListModule() {
+	public YeastCulturesListByStrainModule() {
 
 	}
 
@@ -33,60 +33,69 @@ public class CultureListModule implements IMainModule {
 	{
 		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
 		StringBuilder sb = new StringBuilder();
-	
+		Integer StrainID = -1;
+		String strCleanStrainID = null;
+		String strStrainID = m_request.getParameter("ID");
+		if (strStrainID != null) 
+		{
+			StrainID = Integer.valueOf(strStrainID);
+			strCleanStrainID = StrainID.toString();
+		} else {
+			logger.warn("ID parameter was empty");
+		}
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		
-		List<StrainType> cst = null; 
-		List<Strain> cs = null;
+		Strain st = null;
+		List<Culture> cl = null;
 		
 		try 
 		{
-			Criteria crit = session.createCriteria(StrainType.class);
-			cst = crit.addOrder(Order.asc("name")).list();
-		
+			Criteria crit = session.createCriteria(Strain.class);
+			st = (Strain)crit.add(Restrictions.eq("ID",StrainID)).uniqueResult();
+			
 		} catch (Exception e) {
 		
 			logger.error("Exception: ", e);
 			sb.append("<p>"+e.getMessage()+"</p>");
 		}
-
-		if (cst != null) 
+		if (st != null)
 		{
-				sb.append("<div id=\"cultures\"><h2>Strains<h2>");
-				
-				for (StrainType st : cst) 
-				{
+			
+			sb.append("<h2>" + st.getName()+"</h2>");
+		
+		
 					try 
 					{
-						Criteria crit = session.createCriteria(Strain.class);
-						cs = crit.add(Restrictions.eq("StrainType", st)).addOrder(Order.asc("name")).list();
+						Criteria crit2 = session.createCriteria(Culture.class);
+						cl = crit2.add(Restrictions.eq("Strain", st)).list();
 					} catch (Exception e) {
 					
 						logger.error("Exception: ", e);
 						sb.append("<p>"+e.getMessage()+"</p>");
 					}
 				
-					if (cs != null)
+					if (cl != null)
 					{
-						sb.append("<h3>"+st.getName()+"</h3>");
 						sb.append("<ul>");
-						for (Strain s : cs) 
+						for (Culture c : cl) 
 						{
-							sb.append("<li>" + s.getName() + "</li>");
+							sb.append("<li><a href=\"/yeast/"
+							+ c.getID() + "\">Culture "
+							+ c.getID() + "</a></li>");
 						}
-						sb.append("</ul>");
+						sb.append("</ul>");	
 					} else 
 					{
-						logger.info("Strains not found");
+						logger.info("Cultures not found");
 					}
 				
-				}
-				sb.append("</div>");
-		} else 
+					
+		}else
 		{
-			logger.info("StrainTypes not found");
+			logger.warn("Strain was not found.");
 		}
-	
+		
+		
 
 		return sb.toString();
 	}

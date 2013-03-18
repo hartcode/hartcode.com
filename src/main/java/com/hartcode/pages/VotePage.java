@@ -122,12 +122,12 @@ public class VotePage {
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
 		sb.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />");
-		sb.append("<link href=\"style.1.4.1.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"/style.1.4.1.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		
-		sb.append("<!--[if lte IE 7]><link href=\"style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
-		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
-		sb.append("<script type=\"text/javascript\" src=\"hartcode.1.0.js\"></script>");
-		sb.append("<script type=\"text/javascript\" src=\"ga.1.0.0.js\"></script>");
+		sb.append("<!--[if lte IE 7]><link href=\"/style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
+		//sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
+		sb.append("<script type=\"text/javascript\" src=\"/hartcode.1.0.js\"></script>");
+		sb.append("<script type=\"text/javascript\" src=\"/ga.1.0.0.js\"></script>");
 		sb.append("</head>");
 		sb.append("<body id=\"");
 		sb.append(GetNavID());
@@ -139,14 +139,14 @@ public class VotePage {
 		sb.append("</div>");
 		sb.append("<div id=\"total\">");
 		sb.append("<div id=\"sidebar\">");
-		sb.append("<ul>");
+		sb.append("<ul id=\"menu\">");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
-		sb.append("<li><a id=\"newsli\" href=\"News\">News</a></li>");
-		sb.append("<li><a id=\"wallli\" href=\"Wallpaper\">Wallpaper</a></li>");
-		sb.append("<li><a id=\"voteli\" href=\"Vote\">Vote</a></li>");
+		sb.append("<li><a id=\"newsli\" href=\"/news\">News</a></li>");
+		sb.append("<li><a id=\"walltopli\" href=\"/wallpaper\">Wallpaper</a></li>");
+		sb.append("<li class=\"indent\"><a id=\"voteli\" href=\"/wallpaper/vote\">Vote</a></li>");
 		sb.append("<li><a id=\"yeastli\" href=\"/yeaststrains\">Yeast</a></li>");
 		sb.append("</ul>");
-		sb.append("<div id=\"fbdiv\">");
+		/*sb.append("<div id=\"fbdiv\">");
 		if (FBID != null)
 		{
 			sb.append("<div id=\"user-info\">");
@@ -158,6 +158,7 @@ public class VotePage {
 		{
 			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_actions\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
 		}
+		*/
 		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a></div>");
 		
 		if (m_UseADS)

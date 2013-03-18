@@ -7,7 +7,8 @@ H1 {
 	PADDING-LEFT: 5px; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; COLOR: white; FONT-FAMILY: monospace; BACKGROUND-COLOR: #ababab;
 	border-bottom-right-radius:10px;
 }
-H2 {
+H2
+	{
 	PADDING-LEFT: 15px
 }
 
@@ -105,16 +106,24 @@ IMG {
 	COLOR:white;
 	TEXT-DECORATION:underline;
 }
+.indent {
+	MARGIN-LEFT:10px;	
+}
+
+
 
 A:HOVER {
 	TEXT-DECORATION:underline;
 }
+
 #sidebar > UL LI A {
 	Margin-left:-10px;
-	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 25px; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-TRANSFORM: uppercase; PADDING-TOP: 5px; TEXT-DECORATION: none;
+	PADDING-RIGHT: 15px; DISPLAY: block; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; TEXT-TRANSFORM: uppercase; PADDING-TOP: 5px; TEXT-DECORATION: none;
+	PADDING-LEFT: 25px;
 	border-bottom-left-radius:10px;
 	border-top-left-radius:10px;	
 }
+
 #home #homeli {
 	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
 
@@ -136,8 +145,12 @@ A:HOVER {
 }
 #wall #wallli {
 	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
-
 }
+#wall #walltopli, #vote #walltopli {
+	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
+}
+
+
 #adpanel {
 	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
 }
@@ -188,6 +201,15 @@ FIELDSET {
 .newrow
 {
 	CLEAR: both;
+}
+.choiceleft
+{
+	FLOAT: left;
+	PADDING-LEFT:20px;
+	PADDING-RIGHT:20px;
+	PADDING-TOP: 20px;
+	
+		
 }
 #Other > P {
 	CLEAR: both; PADDING-LEFT: 40px
@@ -273,10 +295,11 @@ A {
 #Choices #choice ,#ChoicesResults #choice
 		{
 		PADDING-LEFT:20px;
-	PADDING-RIGHT:20px;
+		PADDING-RIGHT:20px;
 		width:580px;
 		MARGIN-LEFT: auto;
 		MARGIN-RIGHT: auto;
+		FLOAT: left;
 		}
 #choice UL
 {

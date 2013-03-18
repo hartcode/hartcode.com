@@ -216,12 +216,12 @@ public class PhotoVote extends HttpServlet {
 			{
 				logger.info("User has already voted today!");
 			//	va2.closeConnections();
-				//response.sendRedirect("VoteResults");
-				response.addHeader("Content-Type", "text/html");
-				PrintWriter pw = response.getWriter();
-				VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote",request);
-				pw.write(mp.toString());
-				pw.close();
+				response.sendRedirect("voteresults");
+				//response.addHeader("Content-Type", "text/html");
+				//PrintWriter pw = response.getWriter();
+				//VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode","","vote",request);
+				//pw.write(mp.toString());
+				//pw.close();
 				
 			}else
 			{
@@ -250,7 +250,8 @@ public class PhotoVote extends HttpServlet {
 						}
 						logger.info("User has already voted today!");
 						//	va2.closeConnections();
-						response.sendRedirect("Vote");
+						response.sendRedirect("voteresults");
+						//response.sendRedirect("Vote");
 						//response.addHeader("Content-Type", "text/html");
 						//PrintWriter pw = response.getWriter();
 						//VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote",request);

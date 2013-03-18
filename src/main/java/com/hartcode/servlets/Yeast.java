@@ -1,6 +1,6 @@
 package com.hartcode.servlets;
 
-import com.hartcode.modules.CultureModule;
+import com.hartcode.modules.YeastCultureModule;
 
 
 
@@ -15,7 +15,7 @@ public class Yeast extends MainServlet {
      */
     public Yeast() {
     			
-    	super(new CultureModule(),"Yeast - HartCode","","yeast");
+    	super(new YeastCultureModule(),"Yeast - HartCode","","yeast");
     }
 
 }

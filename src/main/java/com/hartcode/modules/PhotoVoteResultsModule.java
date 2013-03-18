@@ -88,7 +88,10 @@ public class PhotoVoteResultsModule implements IMainModule {
 		if (maxcnt != null && voteResults != null)
 		{
 		
-		sb.append("<div id=\"ChoicesResults\"><h2>Vote Results</h2><p id=\"first\"> </p><h3>Thank you for voting.</h3><p>Here are the results so far, but there are still " + timeleft + "&nbsp;Stop by tomorrow and you can cast your vote on a new set of images.</p><div id='choice'><ul>");
+		sb.append("<div id=\"ChoicesResults\"><h2>Vote Results</h2><p id=\"first\"> </p><h3>Thank you for voting.</h3><p>Here are the results so far, but there are still " + timeleft + "&nbsp;Stop by tomorrow and you can cast your vote on a new set of images.</p>");
+		sb.append("<div class=\"choiceleft\"><iframe scrolling=\"no\" style=\"border: 0; width: 120px; height: 600px;\" src=\"http://coinurl.com/get.php?id=3723\"></iframe></div>");
+		sb.append("<div id='choice'>");
+		sb.append("<ul>");
 		for (int i = 0; i < voteResults.length;i++)
 		{
 			double start = voteResults[i][1];
@@ -100,7 +103,11 @@ public class PhotoVoteResultsModule implements IMainModule {
 			}
 			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='img" + voteResults[i][0].toString() + "' src = 'photos/thumb/"+voteResults[i][0].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>"+percentval+"</p></li>");
 		}	
-		sb.append("</ul></div></div>");
+		sb.append("</ul>");
+		sb.append("</div>");
+		sb.append("<div class=\"choiceleft\"><iframe scrolling=\"no\" style=\"border: 0; width: 120px; height: 600px;\" src=\"http://coinurl.com/get.php?id=3724\"></iframe></div>");
+		
+		sb.append("</div>");
 		}
 		va2.closeConnections();
 		return sb.toString();

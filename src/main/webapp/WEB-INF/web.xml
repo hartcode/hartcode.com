@@ -51,7 +51,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>NewsPage</servlet-name>
-    <url-pattern>/News</url-pattern>
+    <url-pattern>/news</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -126,7 +126,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>PhotoVote</servlet-name>
-    <url-pattern>/Vote</url-pattern>
+    <url-pattern>/vote</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PhotoVote</servlet-name>
+    <url-pattern>/wallpaper/vote</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -139,6 +143,10 @@
     <servlet-name>photoserver</servlet-name>
     <url-pattern>/photoserver</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>photoserver</servlet-name>
+    <url-pattern>/wallpaper/photoserver</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>Wallpaper</display-name>
@@ -148,7 +156,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Wallpaper</servlet-name>
-    <url-pattern>/Wallpaper</url-pattern>
+    <url-pattern>/wallpaper</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -160,6 +168,10 @@
   <servlet-mapping>
     <servlet-name>PhotoVoteResults</servlet-name>
     <url-pattern>/VoteResults</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PhotoVoteResults</servlet-name>
+    <url-pattern>/wallpaper/voteresults</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -183,6 +195,19 @@
     <servlet-name>YeastStrains</servlet-name>
     <url-pattern>/yeaststrains</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>YeastCulturesByStrain</display-name>
+    <servlet-name>YeastCulturesByStrain</servlet-name>
+    <servlet-class>com.hartcode.servlets.YeastCulturesByStrain</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>YeastCulturesByStrain</servlet-name>
+    <url-pattern>/yeastculturesbystrain</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet>
     <servlet-name>log4j-init</servlet-name>
     <servlet-class>com.hartcode.servlets.Log4jInit</servlet-class>

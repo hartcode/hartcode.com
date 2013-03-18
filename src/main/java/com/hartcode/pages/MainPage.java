@@ -132,25 +132,25 @@ public class MainPage {
 		sb.append("</div>");
 		sb.append("<div id=\"total\">");
 		sb.append("<div id=\"sidebar\">");
-		sb.append("<ul>");
+		sb.append("<ul id=\"menu\">");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
-		sb.append("<li><a id=\"newsli\" href=\"/News\">News</a></li>");
-		sb.append("<li><a id=\"wallli\" href=\"/Wallpaper\">Wallpaper</a></li>");
-		sb.append("<li><a id=\"voteli\" href=\"/Vote\">Vote</a></li>");
+		sb.append("<li><a id=\"newsli\" href=\"/news\">News</a></li>");
+		sb.append("<li><a id=\"walltopli\" href=\"/wallpaper\">Wallpaper</a></li>");
+		sb.append("<li class=\"indent\"><a id=\"voteli\" href=\"/wallpaper/vote\">Vote</a></li>");
 		sb.append("<li><a id=\"yeastli\" href=\"/yeaststrains\">Yeast</a></li>");
 		sb.append("</ul>");
-		sb.append("<div id=\"fbdiv\">");
-		if (FBID != null)
-		{
-			sb.append("<div id=\"user-info\">");
-			sb.append("<img src=\"https://graph.facebook.com/" + FBID + "/picture\">");
-			sb.append(FBUserName);
-			sb.append("</div>");
-			sb.append("<a href=\"/Logout\" ><p id=\"fb-auth\">Logout</p></a></div>");
-		}else
-		{
-			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_stream\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
-		}
+		//sb.append("<div id=\"fbdiv\">");
+		//if (FBID != null)
+		//{
+		//	sb.append("<div id=\"user-info\">");
+		//	sb.append("<img src=\"https://graph.facebook.com/" + FBID + "/picture\">");
+		//	sb.append(FBUserName);
+		//	sb.append("</div>");
+		//	sb.append("<a href=\"/Logout\" ><p id=\"fb-auth\">Logout</p></a></div>");
+		//}else
+		//{
+		//	sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_stream\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
+		//}
 		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a></div>");
 		
 		if (m_UseADS)

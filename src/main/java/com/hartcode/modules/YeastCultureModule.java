@@ -19,11 +19,11 @@ import com.hartcode.libyeast.Strain;
 import com.hartcode.libyeast.hibernate.HibernateUtil;
 
 
-public class CultureModule implements IMainModule {
-	static Logger logger = Logger.getLogger(CultureModule.class);
+public class YeastCultureModule implements IMainModule {
+	static Logger logger = Logger.getLogger(YeastCultureModule.class);
 	protected HttpServletRequest m_request;
 
-	public CultureModule() {
+	public YeastCultureModule() {
 
 	}
 
