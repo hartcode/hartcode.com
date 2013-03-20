@@ -2,6 +2,7 @@
 BODY
 {
 	font-size: 15px;
+	
 	}
 H1 {
 	PADDING-LEFT: 5px; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; COLOR: white; FONT-FAMILY: monospace; BACKGROUND-COLOR: #ababab;
@@ -10,6 +11,32 @@ H1 {
 H2
 	{
 	PADDING-LEFT: 15px
+}
+.submitout
+{
+	width:100%;
+	clear:both;
+	TEXT-ALIGN: center;
+}
+.submit
+{
+	MARGIN-LEFT: auto;
+	MARGIN-RIGHT: auto;
+	height:25px;
+	width:100px;
+}
+.btcaddress
+{ 
+	vertical-align: middle;
+	height:250px;
+	display: table-cell;
+}
+#captcha {
+	float:left;
+}
+#Choices, #ChoicesResults {
+	
+width:900px;
 }
 
 UL {
@@ -37,7 +64,8 @@ P {
 	TEXT-INDENT: 10px
 }
 FORM {
-	TEXT-INDENT: 10px
+	TEXT-INDENT: 10px;
+	width:100%;
 }
 #sidebar > UL LI A:visited {
 	COLOR: black
@@ -202,12 +230,17 @@ FIELDSET {
 {
 	CLEAR: both;
 }
+.left
+{
+	FLOAT: left;
+	
+}
 .choiceleft
 {
 	FLOAT: left;
-	PADDING-LEFT:20px;
-	PADDING-RIGHT:20px;
-	PADDING-TOP: 20px;
+	PADDING-LEFT:10px;
+	PADDING-RIGHT:10px;
+	PADDING-TOP: 10px;
 	
 		
 }
@@ -294,11 +327,7 @@ A {
 
 #Choices #choice ,#ChoicesResults #choice
 		{
-		PADDING-LEFT:20px;
-		PADDING-RIGHT:20px;
-		width:580px;
-		MARGIN-LEFT: auto;
-		MARGIN-RIGHT: auto;
+		width:570px;
 		FLOAT: left;
 		}
 #choice UL

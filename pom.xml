@@ -84,7 +84,14 @@
       <version>1.0</version>
       <scope>system</scope>
       <systemPath>C:\Users\tainted\workspace\HartCode\src\main\webapp\WEB-INF\lib\com.hartcode.passgen.1.0.jar</systemPath>
-    </dependency>
+      </dependency>
+  <dependency>
+      <groupId>net.adscaptcha</groupId>
+      <artifactId>adscaptcha</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>C:\Users\tainted\workspace\HartCode\src\main\webapp\WEB-INF\lib\adscaptcha.jar</systemPath>
+    </dependency>  
       
   
   </dependencies>

@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 
+import net.adscaptcha.AdsCaptchaAPI;
+
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
@@ -37,6 +39,10 @@ import com.hartcode.pages.*;
 public class PhotoVote extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static Logger logger = Logger.getLogger(PhotoVote.class);
+	private Double btcvalue = 0.000001;
+	private Double btctotalvaluetoday = 0.0;
+	private Double maxtotalbitcoins = btcvalue * 10;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -85,6 +91,22 @@ public class PhotoVote extends HttpServlet {
 			// TODO Auto-generated catch block
 			logger.error(e2);
 		}
+		
+		try {
+			logger.debug("Check bitcointotal.");
+			
+			btctotalvaluetoday = va2.GetBitcoinsLeftToday(thedate);
+			
+			logger.debug("Finished Check bitcointotal");
+		} catch (Exception e) {
+			
+			logger.error(e);
+		}
+		if (btctotalvaluetoday >= maxtotalbitcoins)
+		{
+		   btcvalue = 0.0;
+		}
+		
 		if (cookies != null)
 		{
 			logger.debug("We got Cookies!");
@@ -108,6 +130,19 @@ public class PhotoVote extends HttpServlet {
 			logger.warn("Couldn't Find User computer Cookie. Creating new user computer.");
 			String cookievalue = null;
 			
+			
+			// Check db for matching ip.
+			try {
+				logger.debug("Check dp for matching ip.");
+				
+				cookievalue = va2.GetCookieByIP(ip);
+				logger.debug("Finished Checking dp for matching ip");;
+			} catch (Exception e) {
+				
+				logger.error(e);
+			}
+			if (cookievalue == null)
+			{
 			logger.debug("Creating cookie hash");
 			MessageDigest md = null;
 	    	byte[] digest = null;
@@ -137,10 +172,25 @@ public class PhotoVote extends HttpServlet {
 				
 				logger.error(e);
 			}
+			}
 			MyCookie = new Cookie("photos", cookievalue);
 			MyCookie.setMaxAge(31536000);
 			response.addCookie(MyCookie);
 			logger.debug("Created cookie");
+			if (UserComputerID == null)
+			{
+				try 
+				{
+					logger.debug("Getting user computer from db.");
+					UserComputerID = va2.GetUserComputerID(MyCookie.getValue());
+					logger.debug("Finished Getting user computer from db: " + UserComputerID);
+				}
+				catch (Exception e) 
+				{
+					logger.error(e);
+				}
+				
+			}
 		}else
 		{
 			logger.info("Found User computer Cookie. Getting user computer data from db.");
@@ -226,14 +276,28 @@ public class PhotoVote extends HttpServlet {
 			}else
 			{
 				String strCandidateID = request.getParameter("cid");
-				String strPhotoID = request.getParameter("pid");
+				//String strPhotoID = request.getParameter("pid");
+				String strBitcoin = request.getParameter("btcadd");
+				
+				final String challengeValue = request.getParameter("adscaptcha_challenge_field");
+				final String responseValue = request.getParameter("adscaptcha_response_field");		
+				final String remoteAddress = request.getRemoteAddr();
+				final String captchaId  = "4726";
+				final String privateKey = "d726958c-fa8a-4417-a158-be800e49bda5";
+				
+				AdsCaptchaAPI adscaptcha = new AdsCaptchaAPI();
+
+				if (strBitcoin == "")
+				{
+					strBitcoin = null;
+				}
 				if (strCandidateID != null )
 				{
-					Integer photoID = 0;
-					if (strPhotoID != null)
+					//Integer photoID = 0;
+					/*if (strPhotoID != null)
 					{
 						photoID = Integer.valueOf(strPhotoID);
-					}
+					}*/
 					logger.info("User is Voting!");
 					logger.info("for cid: " + strCandidateID);
 					Integer CandidateID = Integer.valueOf(strCandidateID);
@@ -242,11 +306,29 @@ public class PhotoVote extends HttpServlet {
 						{
 							logger.debug("We now have a facebook user id: " + FacebookUserID);
 							va2.Vote(FacebookUserID,UserComputerID,CandidateID,thedate);
-							FacebookAPI.PostVote(atd,FacebookStrUserID,photoID);
+							//FacebookAPI.PostVote(atd,FacebookStrUserID,photoID);
 						}else
 						{
 							logger.debug("We don't have a facebook user id. The user must not be logged in.");
-							va2.Vote(UserComputerID,CandidateID,thedate);
+							if (strBitcoin !=null)
+							{
+								String result = adscaptcha.validateCaptcha(captchaId, privateKey, challengeValue, responseValue, remoteAddress);
+
+								if (result.equalsIgnoreCase("true")) 
+								{
+									logger.info("Captch success");
+									va2.Vote(UserComputerID,CandidateID,thedate,strBitcoin,btcvalue);
+								} 
+								else 
+								{
+									logger.warn("Captcha failed");
+									va2.Vote(UserComputerID,CandidateID,thedate);
+								}
+								
+							}else
+							{
+								va2.Vote(UserComputerID,CandidateID,thedate);
+							}
 						}
 						logger.info("User has already voted today!");
 						//	va2.closeConnections();
@@ -300,7 +382,9 @@ public class PhotoVote extends HttpServlet {
 				{
 					response.addHeader("Content-Type", "text/html");
 					PrintWriter pw = response.getWriter();
-					VotePage mp = new VotePage(new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID),"Vote - HartCode","Vote for Tomorrows Photo!","vote",request);
+					IMainModule module = new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID,btcvalue);
+					module.SetRequest(request);
+					VotePage mp = new VotePage(module,"Vote - HartCode","Vote for Tomorrows Photo!","vote",request);
 					pw.write(mp.toString());
 					pw.close();
 				}else 

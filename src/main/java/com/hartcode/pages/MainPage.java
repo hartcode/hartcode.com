@@ -58,6 +58,11 @@ public class MainPage {
 		String FBID = null;
 		UserData ud = null;
 		HttpSession session = m_request.getSession(true);
+		String ip  = m_request.getHeader("X-FORWARDED-FOR");  
+        if(ip == null)  
+        {  
+        	ip = m_request.getRemoteAddr();  
+        }
 		Integer myuserid = null;
 		myuserid = (Integer)session.getAttribute("myuserid");
 		if (myuserid != null)
@@ -115,7 +120,7 @@ public class MainPage {
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
 		sb.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />");
-		sb.append("<link href=\"/style.1.4.1.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"/style.1.4.2.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		
 		sb.append("<!--[if lte IE 7]><link href=\"/style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
@@ -156,7 +161,7 @@ public class MainPage {
 		if (m_UseADS)
 		{
 		logger.debug("Start Ad Module");
-		sb.append("<div id=\"adpanel\">"+ADs.getRandomAd()+"</div>");
+		sb.append("<div id=\"adpanel\">"+ADs.getRandomAd120x240(ip)+"</div>");
 		logger.debug("End Ad Module");
 		}
 		

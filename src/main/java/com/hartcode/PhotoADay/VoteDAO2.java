@@ -2,6 +2,7 @@ package com.hartcode.PhotoADay;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -156,6 +157,20 @@ public class VoteDAO2 {
 		return retval;
 	}
 	
+	public  String GetCookieByIP(String IP) throws Exception
+	{
+		String retval = null;
+		Object[][] obj = mydao.Select("Select Cookie from User where ipv4 = '" + IP + "';");
+		if (obj == null || obj.length == 0)
+		{ 
+			throw new Exception("Couldn't get cookie for ip: " + IP);
+		}else
+		{
+			retval = (String)(obj[0][0]);
+		} 
+		return retval;
+	}
+	
 	public  Integer GetUserComputerID(String cookie) throws Exception
 	{
 		Integer retval = null;
@@ -167,6 +182,27 @@ public class VoteDAO2 {
 		{
 			retval = (Integer)(obj[0][0]);
 		} 
+		return retval;
+	}
+	
+	public  Double GetBitcoinsLeftToday(Date today) throws Exception
+	{
+		Double retval = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String strdate = sdf.format(today);
+		Object[][] obj = mydao.Select("Select sum(btc.btcvalue) from PhotoADay.CandidateDay cd inner join PhotoADay.Candidates c on cd.ID = c.CandidateDayID inner join PhotoADay.Votes v on v.CandidateID = c.ID inner join PhotoADay.btc on v.ID = btc.VoteID where cd.ShowDate = '" + strdate + "';");
+		if (obj == null || obj.length == 0)
+		{ 
+			throw new Exception("Couldn't get bitcoin value for today");
+		}else
+		{
+			retval = (Double)(obj[0][0]);
+		} 
+		if (retval == null)
+		{
+			retval = 0.0;
+			
+		}
 		return retval;
 	}
 	
@@ -258,6 +294,8 @@ public class VoteDAO2 {
 		} 
 		return retval;
 	}
+	
+	
 
 	public  Integer[] CreateVoteOptions(Date thedate) throws Exception
 	{
@@ -303,8 +341,12 @@ public class VoteDAO2 {
 		
 		return retval;
 	}
-	
 	public  void Vote(Integer UserID, Integer CandidateID, Date VoteDate) throws Exception
+	{
+		Vote(UserID, CandidateID, VoteDate,null,0.0);
+	}
+	
+	public  void Vote(Integer UserID, Integer CandidateID, Date VoteDate, String bitcoinaddress, Double btcvalue) throws Exception
 	{
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String strdate = sdf.format(VoteDate);
@@ -329,10 +371,19 @@ public class VoteDAO2 {
 		}
 		if (!hasUserVotedToday(VoteDate,UserID) && found)
 		{
-			mydao.ExecuteSql("insert into Votes (UserID, CandidateID, VoteDate) values ("+UserID+","+CandidateID+",'"+strdate+"');");
+			if (bitcoinaddress != null)
+			{
+				mydao.ExecuteSql("insert into Votes (UserID, CandidateID, VoteDate,btcAddress) values ("+UserID+","+CandidateID+",'"+strdate+"','"+ bitcoinaddress +"');");
+				DecimalFormat df = new DecimalFormat("#.##############");
+				
+				mydao.ExecuteSql("insert into btc (VoteID, createdate,btcvalue) select ID, NOW(), '" + df.format(btcvalue) +"' from Votes where VoteDate = '" + strdate + "' and UserID = '" + UserID + "' and CandidateID = '" +CandidateID + "' and btcAddress = '" +bitcoinaddress + "';");
+			}else
+			{
+				mydao.ExecuteSql("insert into Votes (UserID, CandidateID, VoteDate,btcAddress) values ("+UserID+","+CandidateID+",'"+strdate+"',null);");
+			}
 		}
-	
 	}
+	
 
 	public  void Vote(Integer FBUserID, Integer UserID, Integer CandidateID, Date VoteDate) throws Exception
 	{
