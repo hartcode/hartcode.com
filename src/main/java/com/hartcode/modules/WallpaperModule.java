@@ -35,4 +35,14 @@ public class WallpaperModule implements IMainModule {
 		
 	}
 
+	@Override
+	public String GetTitle() {
+		String retval = "Wallpaper Of The Day - HartCode";
+		return retval;
+	}
+	@Override
+	public String GetDescription() {
+		String retval = "The people have spoken. This is the wallpaper of the day.";
+		return retval;
+	}
 }

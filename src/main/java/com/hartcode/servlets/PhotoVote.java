@@ -394,7 +394,7 @@ public class PhotoVote extends HttpServlet {
 					PrintWriter pw = response.getWriter();
 					IMainModule module = new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID,btcvalue,captchafailed);
 					module.SetRequest(request);
-					VotePage mp = new VotePage(module,"Vote - HartCode","Vote for Tomorrows Photo!","vote",request);
+					VotePage mp = new VotePage(module,"vote",request);
 					pw.write(mp.toString());
 					pw.close();
 				}else 

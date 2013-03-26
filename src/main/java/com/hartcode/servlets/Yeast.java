@@ -15,7 +15,7 @@ public class Yeast extends MainServlet {
      */
     public Yeast() {
     			
-    	super(new YeastCultureModule(),"Yeast - HartCode","","yeast");
+    	super(new YeastCultureModule(),"yeast");
     }
 
 }

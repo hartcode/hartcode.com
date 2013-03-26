@@ -169,5 +169,24 @@ public class YeastCultureModule implements IMainModule {
 	public void SetRequest(HttpServletRequest request) {
 		m_request = request;
 	}
+	@Override
+	public String GetTitle() {
+		String strCleanCultureID = null;
+		String strCultureID = m_request.getParameter("ID");
+		if (strCultureID != null) 
+		{
+			Integer CultureID = Integer.valueOf(strCultureID);
+			strCleanCultureID = CultureID.toString();
+		} else {
+			logger.warn("ID parameter was empty");
+		}
 
+		String retval = "Yeast Culture " +strCleanCultureID +" - HartCode";
+		return retval;
+	}
+	@Override
+	public String GetDescription() {
+		String retval = "A culure of yeast in my library.";
+		return retval;
+	}
 }

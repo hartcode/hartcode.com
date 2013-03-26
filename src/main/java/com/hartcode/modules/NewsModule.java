@@ -25,4 +25,13 @@ public class NewsModule  implements IMainModule {
 				
 			}
 
-}
+			@Override
+			public String GetTitle() {
+				String retval = "News - HartCode";
+				return retval;
+			}
+			@Override
+			public String GetDescription() {
+				String retval = "Read all about it!";
+				return retval;
+			}}

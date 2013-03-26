@@ -123,4 +123,14 @@ public void SetRequest(HttpServletRequest request)
 	
 }
 
+@Override
+public String GetTitle() {
+	String retval = "Vote For The Wallpaper Of The Day - HartCode";
+	return retval;
+}
+@Override
+public String GetDescription() {
+	String retval = "Cast your vote for the wallpaper of the day and receive free bitcoins.";
+	return retval;
+}
 }

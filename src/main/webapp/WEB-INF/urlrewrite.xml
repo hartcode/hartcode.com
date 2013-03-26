@@ -30,12 +30,19 @@
         <from>/photos/thumb/([0-9]+)/image.jpg</from>
         <to>/photoserver?id=$1&amp;width=240&amp;height=200</to>
     </rule>
-        <rule>
+    <rule>
         <note>
         </note>
         <from>/yeast/([0-9]+)</from>
         <to>/yeast?ID=$1</to>
     </rule>
+    <rule>
+        <note>
+        </note>
+        <from>/yeastculturesbystrain/([0-9]+)</from>
+        <to>/yeastculturesbystrain?ID=$1</to>
+    </rule>
+    
     
 </urlrewrite>
 

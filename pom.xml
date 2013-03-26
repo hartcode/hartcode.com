@@ -94,5 +94,11 @@
     </dependency>  
       
   
+  
+  <dependency>
+  	<groupId>tk.nekotech</groupId>
+  	<artifactId>MinecraftServerPing</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </dependency>
   </dependencies>
 </project>

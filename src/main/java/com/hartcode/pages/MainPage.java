@@ -29,20 +29,20 @@ public class MainPage {
 	protected Boolean m_UseADS = false;
 	protected HttpServletRequest m_request = null;
 	
-	public MainPage(IMainModule MainModule, String title, String desc, String navid,HttpServletRequest request)
+	public MainPage(IMainModule MainModule,  String navid,HttpServletRequest request)
 	{
 		m_MainModule = MainModule;
-		SetTitle(title);
-		SetDescription(desc);
+		SetTitle(m_MainModule.GetTitle());
+		SetDescription(m_MainModule.GetDescription());
 		SetNavID(navid);
 		m_UseADS = true;
 		m_request = request;
 	}
-	public MainPage(IMainModule MainModule, String title, String desc, String navid, Boolean useads,HttpServletRequest request)
+	public MainPage(IMainModule MainModule,  String navid, Boolean useads,HttpServletRequest request)
 	{
 		m_MainModule = MainModule;
-		SetTitle(title);
-		SetDescription(desc);
+		SetTitle(m_MainModule.GetTitle());
+		SetDescription(m_MainModule.GetDescription());
 		SetNavID(navid);
 		m_UseADS = useads;
 		m_request = request;
@@ -140,6 +140,7 @@ public class MainPage {
 		sb.append("<ul id=\"menu\">");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
 		sb.append("<li><a id=\"newsli\" href=\"/news\">News</a></li>");
+		sb.append("<li><a id=\"minecraftli\" href=\"/minecraft\">Minecraft</a></li>");
 		sb.append("<li><a id=\"walltopli\" href=\"/wallpaper\">Wallpaper</a></li>");
 		sb.append("<li class=\"indent\"><a id=\"voteli\" href=\"/wallpaper/vote\">Vote</a></li>");
 		sb.append("<li><a id=\"yeastli\" href=\"/yeaststrains\">Yeast</a></li>");

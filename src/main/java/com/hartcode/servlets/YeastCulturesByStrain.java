@@ -17,7 +17,7 @@ public class YeastCulturesByStrain extends MainServlet {
      */
     public YeastCulturesByStrain() {
     			
-    	super(new YeastCulturesListByStrainModule(),"Yeast Cultures - HartCode","","yeast");
+    	super(new YeastCulturesListByStrainModule(),"yeast");
     }
 
 }

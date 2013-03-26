@@ -19,7 +19,7 @@ public class PassGenPage extends MainServlet  {
      * @see MainServlet#MainServlet()
      */
     public PassGenPage() {
-        super(new PassGenModule(), "Password Generator - HartCode", "A Simple Password Generator.", "passgen");
+        super(new PassGenModule(), "passgen");
     }
     
     public String PostFileData(HttpServletRequest request)

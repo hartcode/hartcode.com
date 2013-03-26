@@ -16,7 +16,7 @@ public class YeastStrains extends MainServlet {
      */
     public YeastStrains() {
     			
-    	super(new YeastStrainsListModule(),"Yeast Strains- HartCode","","yeast");
+    	super(new YeastStrainsListModule(),"yeast");
     }
 
 }

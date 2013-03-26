@@ -109,5 +109,23 @@ public class YeastCulturesListByStrainModule implements IMainModule {
 	public void SetRequest(HttpServletRequest request) {
 		m_request = request;
 	}
-
+	@Override
+	public String GetTitle() {
+		String strCleanStrainID = null;
+		String strStrainID = m_request.getParameter("ID");
+		if (strStrainID != null) 
+		{
+			Integer StrainID = Integer.valueOf(strStrainID);
+			strCleanStrainID = StrainID.toString();
+		} else {
+			logger.warn("ID parameter was empty");
+		}
+		String retval = "Yeast Strain " +strCleanStrainID + " - HartCode";
+		return retval;
+	}
+	@Override
+	public String GetDescription() {
+		String retval = "The many yeast cultures in my library by strain.";
+		return retval;
+	}
 }

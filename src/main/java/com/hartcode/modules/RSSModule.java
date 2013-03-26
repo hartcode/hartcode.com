@@ -10,4 +10,14 @@ public class RSSModule extends IndexModule {
 		return rnews.toString();
 	}
 
+	@Override
+	public String GetTitle() {
+		String retval = "";
+		return retval;
+	}
+	@Override
+	public String GetDescription() {
+		String retval = "";
+		return retval;
+	}
 }

@@ -12,7 +12,7 @@ public class Wallpaper extends MainServlet {
      * Default constructor. 
      */
     public Wallpaper() {
-    	super(new WallpaperModule(),"Wallpaper - HartCode","","wall");
+    	super(new WallpaperModule(),"wall");
     }
 
 }

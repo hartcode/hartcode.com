@@ -21,6 +21,15 @@ public class PassGenModule extends IndexModule {
 		sb.append("</fieldset></form>"); 
 		return sb.toString();
 	}
-	
+	@Override
+	public String GetTitle() {
+		String retval = "Password Generator - HartCode";
+		return retval;
+	}
+	@Override
+	public String GetDescription() {
+		String retval =  "A Simple Password Generator.";
+		return retval;
+	}	
 	
 }

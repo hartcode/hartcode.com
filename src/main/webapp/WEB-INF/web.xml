@@ -22,6 +22,28 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>SiteMapPage</display-name>
+    <servlet-name>SiteMapPage</servlet-name>
+    <servlet-class>com.hartcode.servlets.SiteMapPage</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SiteMapPage</servlet-name>
+    <url-pattern>/sitemap.xml</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MinecraftPage</display-name>
+    <servlet-name>MinecraftPage</servlet-name>
+    <servlet-class>com.hartcode.servlets.MinecraftPage</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MinecraftPage</servlet-name>
+    <url-pattern>/minecraft</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>AmazonFreeApp</display-name>
     <servlet-name>AmazonFreeApp</servlet-name>
     <servlet-class>com.hartcode.servlets.AmazonFreeAppXml</servlet-class>

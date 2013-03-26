@@ -156,28 +156,11 @@ A:HOVER {
 	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
 
 }
-#yeast #yeastli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
 
-}
-#news #newsli {
+#news #newsli, #minecraft #minecraftli, #yeast #yeastli, #passgen #passli, #vote #voteli, #wall #wallli,#wall #walltopli, #vote #walltopli {
 	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
 	
 }
-#passgen #passli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
-}
-#vote #voteli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
-
-}
-#wall #wallli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
-}
-#wall #walltopli, #vote #walltopli {
-	COLOR: white; BACKGROUND-COLOR: #cdcdcd;
-}
-
 
 #adpanel {
 	PADDING-RIGHT: 5px; BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
@@ -201,9 +184,7 @@ FIELDSET {
 .right {
 	TEXT-ALIGN: right
 }
-.center {
-	TEXT-ALIGN: center
-}
+
 #social {
 	BORDER-TOP: black 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 15px; PADDING-TOP: 15px; TEXT-ALIGN: center
 }
@@ -291,13 +272,18 @@ A {
 #Choices > H3,#ChoicesResults > H3 {
 	PADDING-LEFT: 30px;
 }
-#cultures > H3{
+#cultures > H3, #minecraftdiv > H3{
 	PADDING-LEFT: 30px;
 }
-#Choices >p,#ChoicesResults >p
+#Choices >p,#ChoicesResults >p,
 {
 	PADDING-LEFT: 40px;
 }
+ #minecraftdiv > p
+ {
+ 	MARGIN-LEFT: 40px;
+ 	Margin-bottom:10px;
+ }
 #Choices IMG, #ChoicesResults IMG
 {
 	border-radius: 10px;
@@ -316,6 +302,30 @@ A {
 {
 	border-radius: 10px;
 }
+.center
+{
+	text-align: center;
+}
+
+#serversout
+{
+	PADDING-LEFT:20px;
+	PADDING-RIGHT:20px;
+	PADDING-Bottom:20px;
+	MARGIN-LEFT: auto;
+		MARGIN-RIGHT: auto;
+		width:680px;
+}
+#serverrules, #chatcommands, #servers
+{
+	BACKGROUND-COLOR: #cdcdcd;
+	PADDING: 20px;
+	WIDTH:640px;
+	border-radius: 10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
 #wallpaper
 {
 	TEXT-ALIGN: center;
@@ -397,7 +407,7 @@ A {
 #cultures img {
 	PADDING-LEFT: 50px;
 }
-.bold
+.bold, .Offline, .Online
 {
 	font-weight: bold;
 }
@@ -405,4 +415,12 @@ A {
 { 
 	color:red;
 	font-weight: bold;
+}
+.Offline
+{color:red;
+	
+}
+.Online
+{
+color:green;
 }

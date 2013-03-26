@@ -12,6 +12,6 @@ public class IndexPage extends MainServlet {
      * Default constructor. 
      */
     public IndexPage() {
-    	super(new IndexModule(),"Home - HartCode","","home");
+    	super(new IndexModule(),"home");
     }
 }

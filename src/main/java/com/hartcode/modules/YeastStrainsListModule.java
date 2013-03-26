@@ -74,7 +74,7 @@ public class YeastStrainsListModule implements IMainModule {
 						sb.append("<ul>");
 						for (Strain s : cs) 
 						{
-							sb.append("<li><a href=\"/yeastculturesbystrain?ID="+s.getID()+"\">" + s.getName() + "</a></li>");
+							sb.append("<li><a href=\"/yeastculturesbystrain/"+s.getID()+"\">" + s.getName() + "</a></li>");
 						}
 						sb.append("</ul>");
 					} else 
@@ -97,4 +97,14 @@ public class YeastStrainsListModule implements IMainModule {
 		m_request = request;
 	}
 
+	@Override
+	public String GetTitle() {
+		String retval = "Yeast Strains - HartCode";
+		return retval;
+	}
+	@Override
+	public String GetDescription() {
+		String retval = "The many strains of yeast in my library.";
+		return retval;
+	}
 }

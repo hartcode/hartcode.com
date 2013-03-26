@@ -164,6 +164,15 @@ public class PhotoVoteResultsModule implements IMainModule {
 	}
 
 
-
+	@Override
+	public String GetTitle() {
+		String retval = "Voting Results For The Wallpaper Of The Day - HartCode";
+		return retval;
+	}
+	@Override
+	public String GetDescription() {
+		String retval = "The ballots are in and here are the results.";
+		return retval;
+	}
 
 }

@@ -28,5 +28,15 @@ public class IndexModule implements IMainModule {
 		m_request = request;
 		
 	}
+	@Override
+	public String GetTitle() {
+		String retval = "HartCode";
+		return retval;
+	}
+	@Override
+	public String GetDescription() {
+		String retval = "Random thoughts relating to Computer Science, Bitcoin, Minecraft, and Homebrewing.";
+		return retval;
+	}
 
 }

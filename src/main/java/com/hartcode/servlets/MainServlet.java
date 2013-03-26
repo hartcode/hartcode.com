@@ -20,18 +20,16 @@ public class MainServlet extends ServletPage {
 		super();
 	}
 	
-    public MainServlet(IMainModule mainmodule, String title, String desc, String navid) {
+    public MainServlet(IMainModule mainmodule, String navid) {
     	super();
     	m_MainModule = mainmodule;
-    	m_Title = title;
-    	m_Description = desc;
     	m_NavID = navid;
     }
 
     public String GetFileData(HttpServletRequest request)
     {
     	m_MainModule.SetRequest(request);
-		MainPage mp = new MainPage(m_MainModule,m_Title,m_Description,m_NavID,request);
+    	MainPage mp = new MainPage(m_MainModule,m_NavID,request);
 		return mp.toString();
     }
     public String PostFileData(HttpServletRequest request)
