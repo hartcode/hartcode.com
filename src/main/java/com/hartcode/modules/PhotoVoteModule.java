@@ -16,7 +16,8 @@ public class PhotoVoteModule implements IMainModule {
 	Integer userID = null;
 	Double m_btcvalue = 0.0;
 	String m_strbtcvalue = null;
-	public PhotoVoteModule(Integer[] pids, Integer[] cids, Integer uid, Double btcvalue)
+	Boolean m_captchafailed = false;
+	public PhotoVoteModule(Integer[] pids, Integer[] cids, Integer uid, Double btcvalue, Boolean captchafailed)
 	{
 		photoIDs = pids;
 		candidateIDs = cids;
@@ -24,6 +25,7 @@ public class PhotoVoteModule implements IMainModule {
 		m_btcvalue = btcvalue;
 		DecimalFormat df = new DecimalFormat("#.##############");
 		m_strbtcvalue = df.format(m_btcvalue * 1000000);
+		m_captchafailed = captchafailed;
 	}
 		
 	public String GetMainModule() {
@@ -74,12 +76,21 @@ public class PhotoVoteModule implements IMainModule {
 			sb.append("  Sorry we have given out all of our Bitcoins for the day.  While we are beta testing, we are only giving out a limited number of BTC per day.  Please come back tomorrow.");
 		}
 		sb.append("</p>");
+		
 		sb.append("<form action=\"vote\" method=\"get\">");
+		sb.append("<hr><h3>Step 1 (Optional)</h3>");
+		sb.append("<p>Enter your Bitcoin address and solve the captcha.</p>");
+		if (m_captchafailed)
+		{
+			sb.append("<p class=\"error\">Incorrect Captcha! Please Try Again.</p>");
+		}
 		sb.append("<p class=\"submitout\"><div class=\"left\">"+ADs.getRandomAd250x250(ip)+"</div><div class=\"left\"><div class=\"btcaddress\"><p>Bitcoin Address: <input type=\"text\" name=\"btcadd\"></p></div></div>");
 		sb.append("<div id=\"captcha\">");
 		sb.append(adscaptcha.getCaptcha(captchaId, publicKey));
 		sb.append("</div></p>");
 		sb.append("<p class=\"newrow\"> </p>");
+		sb.append("<hr><h3>Step 2</h3>");
+		sb.append("<p>Choose one of the following wallpaper candidates.</p>");
 		sb.append("<div class=\"choiceleft\">"+ ADs.getRandomAd120x600(ip)+"</div>");
 		sb.append("<div id='choice'><ul >");
 		for (Integer i = 0; i < photoIDs.length;i++)
@@ -93,6 +104,8 @@ public class PhotoVoteModule implements IMainModule {
 		//<a href=\"vote?pid="+photoIDs[i].toString()+"&cid="+candidateIDs[i].toString()+"\" >
 		sb.append("</ul></div>");
 		sb.append("<div class=\"choiceleft\">"+ ADs.getRandomAd120x600(ip)+"</div>");
+		sb.append("<hr style=\"clear:both;\"><h3>Step 3</h3>");
+		sb.append("<p>Submit your vote</p>");
 		sb.append("<p class=\"submitout\"><input class=\"submit\" type=\"submit\" value=\"Vote\"></p>");
 		//sb.append("<input type=\"submit\" value=\"Vote\">");
 		sb.append("</form>");

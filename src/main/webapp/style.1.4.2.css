@@ -384,20 +384,25 @@ A {
 }
 
 #cultures UL LI UL {
-	clear:both;
+	clear:left;
 	PADDING-LEFT: 0px;
 }
 #cultures  #location UL {
-	clear:both;
+	clear:left;
 	PADDING-LEFT: 10px;
 }
 #cultures H3 {
-	clear:both;
+	clear:left;
 }
 #cultures img {
 	PADDING-LEFT: 50px;
 }
 .bold
 {
+	font-weight: bold;
+}
+.error
+{ 
+	color:red;
 	font-weight: bold;
 }

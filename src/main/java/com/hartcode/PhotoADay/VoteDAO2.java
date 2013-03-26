@@ -455,4 +455,26 @@ public class VoteDAO2 {
 		} 
 		return retval;
 	}
+	public  Faucets[] GetFaucets() throws Exception
+	{
+		Faucets[] retval = null;
+		
+		Object[][] obj = mydao.Select("Select name, url, active from PhotoADay.faucets;");
+		if (obj == null || obj.length == 0)
+		{ 
+			throw new Exception("Couldn't get faucets from db.");
+		}else
+		{
+			int rowcount = obj.length;
+			retval = new Faucets[rowcount];
+			for (int ri = 0; ri < rowcount; ri++)
+			{
+				retval[ri] = new Faucets();
+				retval[ri].name = (String)obj[ri][0];
+				retval[ri].url = (String)obj[ri][1];
+				retval[ri].is_active = (Boolean)obj[ri][2];
+			}
+		} 
+		return retval;
+	}
 }

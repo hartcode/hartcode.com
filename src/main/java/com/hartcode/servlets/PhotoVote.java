@@ -41,7 +41,7 @@ public class PhotoVote extends HttpServlet {
 	static Logger logger = Logger.getLogger(PhotoVote.class);
 	private Double btcvalue = 0.000001;
 	private Double btctotalvaluetoday = 0.0;
-	private Double maxtotalbitcoins = btcvalue * 10;
+	private Double maxtotalbitcoins = btcvalue * 10000;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -60,6 +60,9 @@ public class PhotoVote extends HttpServlet {
 		Integer UserComputerID = null;
 		String FacebookStrUserID = null;
 		Integer FacebookUserID = null;
+		String captcharesult = null;
+		String strBitcoin = null;
+		Boolean captchafailed = false;
 		Cookie[] cookies = request.getCookies();
 		Calendar mycal = Calendar.getInstance();
 		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -277,7 +280,7 @@ public class PhotoVote extends HttpServlet {
 			{
 				String strCandidateID = request.getParameter("cid");
 				//String strPhotoID = request.getParameter("pid");
-				String strBitcoin = request.getParameter("btcadd");
+				strBitcoin = request.getParameter("btcadd");
 				
 				final String challengeValue = request.getParameter("adscaptcha_challenge_field");
 				final String responseValue = request.getParameter("adscaptcha_response_field");		
@@ -312,27 +315,34 @@ public class PhotoVote extends HttpServlet {
 							logger.debug("We don't have a facebook user id. The user must not be logged in.");
 							if (strBitcoin !=null)
 							{
-								String result = adscaptcha.validateCaptcha(captchaId, privateKey, challengeValue, responseValue, remoteAddress);
+								 captcharesult = adscaptcha.validateCaptcha(captchaId, privateKey, challengeValue, responseValue, remoteAddress);
 
-								if (result.equalsIgnoreCase("true")) 
+								if (captcharesult.equalsIgnoreCase("true")) 
 								{
 									logger.info("Captch success");
+									captchafailed = false;
 									va2.Vote(UserComputerID,CandidateID,thedate,strBitcoin,btcvalue);
 								} 
 								else 
 								{
 									logger.warn("Captcha failed");
-									va2.Vote(UserComputerID,CandidateID,thedate);
+									//va2.Vote(UserComputerID,CandidateID,thedate);
+									 captchafailed = true;
+									
 								}
 								
 							}else
 							{
 								va2.Vote(UserComputerID,CandidateID,thedate);
+								captchafailed = false;
 							}
 						}
 						logger.info("User has already voted today!");
 						//	va2.closeConnections();
-						response.sendRedirect("voteresults");
+						if (captchafailed == false)
+						{
+							response.sendRedirect("voteresults");
+						}
 						//response.sendRedirect("Vote");
 						//response.addHeader("Content-Type", "text/html");
 						//PrintWriter pw = response.getWriter();
@@ -382,7 +392,7 @@ public class PhotoVote extends HttpServlet {
 				{
 					response.addHeader("Content-Type", "text/html");
 					PrintWriter pw = response.getWriter();
-					IMainModule module = new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID,btcvalue);
+					IMainModule module = new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID,btcvalue,captchafailed);
 					module.SetRequest(request);
 					VotePage mp = new VotePage(module,"Vote - HartCode","Vote for Tomorrows Photo!","vote",request);
 					pw.write(mp.toString());

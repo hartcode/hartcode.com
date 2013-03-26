@@ -60,9 +60,15 @@ public class YeastCulturesListByStrainModule implements IMainModule {
 		}
 		if (st != null)
 		{
-			
 			sb.append("<h2>" + st.getName()+"</h2>");
-		
+			String strainsearch = st.getName().trim();
+			strainsearch = strainsearch.replace('\\', ' ');
+			strainsearch = strainsearch.replace('/', ' ');
+			strainsearch = strainsearch.replace('+', ' ');
+			strainsearch = strainsearch.replace('-', ' ');
+			strainsearch = strainsearch.replace(' ', '+');
+					
+			sb.append("<iframe style=\"float:right;\" src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&o=1&p=14&l=st1&mode=industrial&search=Yeast+"+strainsearch+"&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr\" marginwidth=\"0\" marginheight=\"0\" width=\"160\" height=\"600\" border=\"0\" frameborder=\"0\" style=\"border:none;\" scrolling=\"no\"></iframe>");
 		
 					try 
 					{

@@ -178,7 +178,7 @@ public class MainPage {
 		sb.append("	<br />");
 		sb.append("</li>");
 		sb.append("<li  class=\"center\">");
-		sb.append("&#169; 2012 HartCode<br/>All pictures, graphics, logos are copyrighted to their respective owners.");
+		sb.append("&#169; 2012 HartCode<br/>Bitcoin Donations: 19q6NcQqgv2obmFj2iRiugjQT9dqyhBvcr<br/>All pictures, graphics, logos are copyrighted to their respective owners.");
 		sb.append("</li>");
 		sb.append("<li  class=\"right\">");
 		sb.append("");
