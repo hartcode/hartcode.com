@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.TimeZone;
 
 import javax.servlet.ServletException;
@@ -394,9 +395,19 @@ public class PhotoVote extends HttpServlet {
 					PrintWriter pw = response.getWriter();
 					IMainModule module = new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID,btcvalue,captchafailed);
 					module.SetRequest(request);
+					Date lastmod = module.GetLastModifiedDate();;
+					if (lastmod != null)
+					{
+						SimpleDateFormat dateFormat = new SimpleDateFormat(
+						        "EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
+						    dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+						    
+						response.addHeader("Last-Modified",dateFormat.format(lastmod));
+					}
 					VotePage mp = new VotePage(module,"vote",request);
 					pw.write(mp.toString());
 					pw.close();
+					
 				}else 
 				{
 					logger.error("Couldn't find any vote options! Should have had vote Options by now!");

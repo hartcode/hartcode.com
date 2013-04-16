@@ -109,6 +109,8 @@ public class PhotoVoteResultsModule implements IMainModule {
 				Boolean isfirst = true;
 			for (Faucets faucet : faucets) 
 			{
+				if (faucet.is_active)
+				{
 				if (isfirst)
 				{
 					isfirst = false;
@@ -116,16 +118,15 @@ public class PhotoVoteResultsModule implements IMainModule {
 				{
 					sb.append(", ");
 				}
-				if (faucet.is_active)
-				{
+				
 					sb.append("<a href=\""+faucet.url+"\">"+faucet.name+"</a>");
 				}
 			}
 			sb.append("</p>");
+			sb.append("<p>If you are feeling adventurous enough start mining we recommend the 50btc pool.  You can earn much more mining than you can through bitcoin faucet sites.  There are many mining pools out there, 50btc pays you per share, and has instant payouts.  It can be found here: <a href=\"http://50btc.com\">http://50btc.com</a></p>");
 			}
 			
 		}
-		sb.append("</p>");
 		sb.append("<div class=\"choiceleft\">"+ADs.getRandomAd120x600(ip)+"</div>");
 		sb.append("<div id='choice'>");
 		sb.append("<ul>");
@@ -146,8 +147,8 @@ public class PhotoVoteResultsModule implements IMainModule {
 		
 		sb.append("</div>");
 		// coin url conversion tracking
-		sb.append("<iframe style=\"display: none;\" src=\"http://coinurl.com/track.php?type=int&id=1381\"></iframe>");
-		sb.append("<iframe style=\"display: none;\" src=\"http://coinurl.com/track.php?type=banner&id=588\"></iframe>");
+		sb.append("<iframe style=\"display: none;\" src=\"http://coinurl.com/track.php?type=int&amp;id=1381\"></iframe>");
+		sb.append("<iframe style=\"display: none;\" src=\"http://coinurl.com/track.php?type=banner&amp;id=588\"></iframe>");
 		}
 		va2.closeConnections();
 		return sb.toString();
@@ -173,6 +174,16 @@ public class PhotoVoteResultsModule implements IMainModule {
 	public String GetDescription() {
 		String retval = "The ballots are in and here are the results.";
 		return retval;
+	}
+	
+	@Override
+	public Date GetLastModifiedDate() {
+		Calendar mycal = Calendar.getInstance();
+		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+		mycal.add(Calendar.SECOND, -1*mycal.get(Calendar.SECOND));
+		mycal.add(Calendar.MINUTE, -1*mycal.get(Calendar.MINUTE));
+		mycal.add(Calendar.HOUR, -1*mycal.get(Calendar.HOUR));
+		return mycal.getTime();
 	}
 
 }

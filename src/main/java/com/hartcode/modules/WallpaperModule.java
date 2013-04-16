@@ -45,4 +45,13 @@ public class WallpaperModule implements IMainModule {
 		String retval = "The people have spoken. This is the wallpaper of the day.";
 		return retval;
 	}
+	@Override
+	public Date GetLastModifiedDate() {
+		Calendar mycal = Calendar.getInstance();
+		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+		mycal.add(Calendar.SECOND, -1*mycal.get(Calendar.SECOND));
+		mycal.add(Calendar.MINUTE, -1*mycal.get(Calendar.MINUTE));
+		mycal.add(Calendar.HOUR, -1*mycal.get(Calendar.HOUR));
+		return mycal.getTime();
+	}
 }

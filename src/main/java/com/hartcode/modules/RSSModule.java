@@ -1,13 +1,20 @@
 package com.hartcode.modules;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
+
 import com.hartcode.dataObjects.RSSNews;
 
 public class RSSModule extends IndexModule {
 
+	protected Date m_lastmodifieddate;
 	
 	public String GetMainModule() {
 		RSSNews rnews = new RSSNews();
-		return rnews.toString();
+		String retval = rnews.toString();
+		m_lastmodifieddate = rnews.GetMostRecentDate();
+		return retval;
 	}
 
 	@Override
@@ -19,5 +26,10 @@ public class RSSModule extends IndexModule {
 	public String GetDescription() {
 		String retval = "";
 		return retval;
+	}
+	
+	@Override
+	public Date GetLastModifiedDate() {
+		return m_lastmodifieddate;
 	}
 }

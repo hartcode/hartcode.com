@@ -1,5 +1,7 @@
 package com.hartcode.modules;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.hartcode.dataObjects.HTMLNews1;
@@ -8,6 +10,7 @@ import com.hartcode.dataObjects.HTMLNews1;
 
 public class IndexModule implements IMainModule {
 	protected HttpServletRequest m_request;
+	protected Date m_lastmodifieddate;
 	public IndexModule()
 	{
 		
@@ -19,8 +22,7 @@ public class IndexModule implements IMainModule {
 		sb.append(hnews.toString());
 		sb.append("</div>");
 		sb.append("<div id=\"Other\"></div>");
-			sb.append("</div>");
-	
+		m_lastmodifieddate = hnews.GetMostRecentDate();
 		return sb.toString();
 	}
 	public void SetRequest(HttpServletRequest request)
@@ -37,6 +39,10 @@ public class IndexModule implements IMainModule {
 	public String GetDescription() {
 		String retval = "Random thoughts relating to Computer Science, Bitcoin, Minecraft, and Homebrewing.";
 		return retval;
+	}
+	@Override
+	public Date GetLastModifiedDate() {
+		return m_lastmodifieddate;
 	}
 
 }

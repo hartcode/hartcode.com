@@ -2,11 +2,17 @@ package com.hartcode.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.DateFormatter;
 
 
 
@@ -38,25 +44,49 @@ public class ServletPage extends HttpServlet {
     	return GetFileData(request);
     }
     
+    public Date GetLastModifiedDate()
+    {
+    	Calendar mycal = Calendar.getInstance();
+		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+		mycal.add(Calendar.SECOND, -1*mycal.get(Calendar.SECOND));
+		mycal.add(Calendar.MINUTE, -1*mycal.get(Calendar.MINUTE));
+		mycal.add(Calendar.HOUR, -1*mycal.get(Calendar.HOUR));
+		return mycal.getTime();
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.addHeader("Content-Type", m_ContentType);
-		PrintWriter pw = response.getWriter();
-		pw.write(GetFileData(request));
-		pw.close();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		doPage(request,response,GetFileData(request));
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.addHeader("Content-Type", m_ContentType);
-		PrintWriter pw = response.getWriter();
-		pw.write(PostFileData(request));
-		pw.close();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		doPage(request,response,PostFileData(request));
 	}
 
+	protected void doPage(HttpServletRequest request, HttpServletResponse response, String data) throws ServletException, IOException {
+		response.addHeader("Content-Type", m_ContentType);
+		PrintWriter pw = response.getWriter();
+		pw.write(data);
+		
+		Date lastmod = GetLastModifiedDate();
+		
+		if (lastmod != null)
+		{
+			SimpleDateFormat dateFormat = new SimpleDateFormat(
+			        "EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
+			    dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+			    
+			response.addHeader("Last-Modified",dateFormat.format(lastmod));
+		}
+		
+		pw.close();
+	}
 
 }

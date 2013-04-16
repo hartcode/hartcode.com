@@ -1,4 +1,6 @@
 package com.hartcode.servlets;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.hartcode.modules.IMainModule;
@@ -35,6 +37,12 @@ public class MainServlet extends ServletPage {
     public String PostFileData(HttpServletRequest request)
     {
     	return GetFileData(request);
+    }
+    
+    @Override
+    public Date GetLastModifiedDate()
+    {
+    	return m_MainModule.GetLastModifiedDate();
     }
 
 }

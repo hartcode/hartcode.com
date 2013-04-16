@@ -109,15 +109,9 @@ public class VotePage {
 			
 		}
 		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
-		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
+		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\" xmlns:fb=\"https://www.facebook.com/2008/fbml\">");
-		sb.append("		 <head prefix=\"og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# hartcode: http://ogp.me/ns/fb/hartcode#\">");
-			sb.append("<meta property=\"fb:app_id\"      content=\"161596347286085\" /> ");
-		sb.append("<meta property=\"og:type\"        content=\"hartcode:wallpaper\" /> ");
-		sb.append("<meta property=\"og:url\"         content=\"http://www.hartcode.com/Vote\" />"); 
-		sb.append("<meta property=\"og:title\"       content=\"Vote For Tomorrow&#039;s Wallpaper\" />"); 
-		sb.append("<meta property=\"og:description\" content=\"Help choose tomorrow's wallpaper by voting for one of 4 candidates.\" /> ");
-		sb.append("<meta property=\"og:image\" content=\"http://www.hartcode.com/images/voteicon.png\" /> ");
+		sb.append("<head>");
 		//sb.append("<meta property=\"og:image\"       content=\"http://www.hartcode.com/photos/thumb/1057/image.jpg\" /> ");
 		sb.append("<title>");
 		sb.append(GetTitle());
@@ -127,7 +121,7 @@ public class VotePage {
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
 		sb.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />");
-		sb.append("<link href=\"/style.1.4.2.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"/style.1.4.3.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		
 		sb.append("<!--[if lte IE 7]><link href=\"/style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
 		//sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
@@ -197,6 +191,7 @@ public class VotePage {
 		sb.append("</ul>");
 		sb.append("</div>");
 		sb.append("</body>");
+	
 		sb.append("</html>");
 		retval = sb.toString();
 		logger.debug("End Main Page");

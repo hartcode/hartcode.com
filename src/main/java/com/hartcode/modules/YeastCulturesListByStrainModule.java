@@ -2,7 +2,10 @@ package com.hartcode.modules;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.swing.text.DefaultEditorKit.CutAction;
@@ -68,7 +71,7 @@ public class YeastCulturesListByStrainModule implements IMainModule {
 			strainsearch = strainsearch.replace('-', ' ');
 			strainsearch = strainsearch.replace(' ', '+');
 					
-			sb.append("<iframe style=\"float:right;\" src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&o=1&p=14&l=st1&mode=industrial&search=Yeast+"+strainsearch+"&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr\" marginwidth=\"0\" marginheight=\"0\" width=\"160\" height=\"600\" border=\"0\" frameborder=\"0\" style=\"border:none;\" scrolling=\"no\"></iframe>");
+			sb.append("<iframe style=\"float:right;border:none;\" src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&amp;o=1&amp;p=14&amp;l=st1&amp;mode=industrial&amp;search=Yeast+"+strainsearch+"&amp;fc1=000000&amp;lt1=_blank&amp;lc1=3366FF&amp;bg1=FFFFFF&amp;f=ifr\" marginwidth=\"0\" marginheight=\"0\" width=\"160\" height=\"600\"  frameborder=\"0\" scrolling=\"no\"></iframe>");
 		
 					try 
 					{
@@ -127,5 +130,16 @@ public class YeastCulturesListByStrainModule implements IMainModule {
 	public String GetDescription() {
 		String retval = "The many yeast cultures in my library by strain.";
 		return retval;
+	}
+
+
+	@Override
+	public Date GetLastModifiedDate() {
+		Calendar mycal = Calendar.getInstance();
+		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+		mycal.add(Calendar.SECOND, -1*mycal.get(Calendar.SECOND));
+		mycal.add(Calendar.MINUTE, -1*mycal.get(Calendar.MINUTE));
+		mycal.add(Calendar.HOUR, -1*mycal.get(Calendar.HOUR));
+		return mycal.getTime();
 	}
 }

@@ -33,8 +33,8 @@ public class SiteMapPage extends ServletPage {
 		StringBuilder retval = new StringBuilder();
 		retval.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
 		retval.append("<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"");
-		retval.append("xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\"");
-		retval.append("xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
+		retval.append(" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\"");
+		retval.append(" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">");
 		retval.append("<url>");
 		retval.append("<loc>http://www.hartcode.com/</loc>");
 		retval.append("<changefreq>daily</changefreq>");

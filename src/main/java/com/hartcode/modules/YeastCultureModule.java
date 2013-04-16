@@ -2,6 +2,8 @@ package com.hartcode.modules;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +24,7 @@ import com.hartcode.libyeast.hibernate.HibernateUtil;
 public class YeastCultureModule implements IMainModule {
 	static Logger logger = Logger.getLogger(YeastCultureModule.class);
 	protected HttpServletRequest m_request;
-
+	protected Date m_lastmoddate;
 	public YeastCultureModule() {
 
 	}
@@ -35,6 +37,9 @@ public class YeastCultureModule implements IMainModule {
 		Integer CultureID = -1;
 		String strCleanCultureID = null;
 		String strCultureID = m_request.getParameter("ID");
+		Calendar mycal = Calendar.getInstance();
+		mycal.add(Calendar.YEAR, -25);
+		Date lastmoddate = mycal.getTime();
 		if (strCultureID != null) 
 		{
 			CultureID = Integer.valueOf(strCultureID);
@@ -55,6 +60,10 @@ public class YeastCultureModule implements IMainModule {
 		
 		
 			if (c != null) {
+				if (c.getCreateDate().after(lastmoddate))
+				{
+					lastmoddate = c.getCreateDate();
+				}
 				Criteria crit2 = session.createCriteria(CultureLocation.class);
 				cl =  crit2.add(Restrictions.eq("Culture", c)).addOrder(Order.desc("MoveDate")).list();
 				
@@ -84,7 +93,7 @@ public class YeastCultureModule implements IMainModule {
 				strainsearch = strainsearch.replace('-', ' ');
 				strainsearch = strainsearch.replace(' ', '+');
 						
-				sb.append("<iframe style=\"float:right;\" src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&o=1&p=14&l=st1&mode=industrial&search=Yeast+"+strainsearch+"&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr\" marginwidth=\"0\" marginheight=\"0\" width=\"160\" height=\"600\" border=\"0\" frameborder=\"0\" style=\"border:none;\" scrolling=\"no\"></iframe>");
+				sb.append("<iframe style=\"float:right;border:none;\" src=\"http://rcm.amazon.com/e/cm?t=harttechsol0b-20&amp;o=1&amp;p=14&amp;l=st1&amp;mode=industrial&amp;search=Yeast+"+strainsearch+"&amp;fc1=000000&amp;lt1=_blank&amp;lc1=3366FF&amp;bg1=FFFFFF&amp;f=ifr\" marginwidth=\"0\" marginheight=\"0\" width=\"160\" height=\"600\" frameborder=\"0\" scrolling=\"no\"></iframe>");
 				sb.append("<ul><li><span class=\"bold\">ID:</span> " + strCleanCultureID + "</li>");
 				sb.append("<li><span class=\"bold\">Generation:</span> " + c.getGeneration() + "</li>");
 				sb.append("<li><span class=\"bold\">Creation Date:</span> " + df.format(c.getCreateDate()) + "</li>");
@@ -93,7 +102,7 @@ public class YeastCultureModule implements IMainModule {
 				{
 					sb.append("<li><span class=\"bold\">Parent:</span> <a href=\"/yeast/"
 							+ c.getSource().getID() + "\">Culture "
-							+ c.getSource().getID() + "</a><li>");
+							+ c.getSource().getID() + "</a></li>");
 				}
 				if (cc != null) 
 				{
@@ -105,7 +114,7 @@ public class YeastCultureModule implements IMainModule {
 							+ myc.getID() + "\">Culture "
 							+myc.getID() + "</a> ");
 					}
-					sb.append("<li>");
+					sb.append("</li>");
 				}
 				sb.append("</ul>");
 				sb.append("<h3>Strain</h3>");
@@ -132,6 +141,10 @@ public class YeastCultureModule implements IMainModule {
 					logger.info("cl is not null");
 					for (CultureLocation mycl : cl) 
 					{
+						if (mycl.getMoveDate().after(lastmoddate))
+						{
+							lastmoddate = mycl.getMoveDate();
+						}
 						sb.append("<li><ul>");
 						sb.append("<li>" +df.format(mycl.getMoveDate()) + "</li>");
 						sb.append("<li>" + mycl.getLocation().getName()
@@ -148,8 +161,8 @@ public class YeastCultureModule implements IMainModule {
 				sb.append("</div>");
 				
 				sb.append("<h3>QR Code</h3>");
-				sb.append("<img src=\"https://chart.googleapis.com/chart?cht=qr&chs=50x50&chl=http%3A%2F%2Fwww.hartcode.com%2Fyeast%2F"+strCleanCultureID+"\" /></p>");
-				sb.append("</div>");
+				sb.append("<img src=\"https://chart.googleapis.com/chart?cht=qr&amp;chs=50x50&amp;chl=http%3A%2F%2Fwww.hartcode.com%2Fyeast%2F"+strCleanCultureID+"\" alt=\"QR Code for "+strCleanCultureID+"\" title=\""+strCleanCultureID+"\"/>");
+  			    sb.append("</div>");
 
 			} else 
 			{
@@ -162,7 +175,7 @@ public class YeastCultureModule implements IMainModule {
 			sb.append("<div id=\"cultures\"><h2>Culture Not Found</h2></div>");
 		}
 
-
+		m_lastmoddate = lastmoddate;
 		return sb.toString();
 	}
 
@@ -188,5 +201,12 @@ public class YeastCultureModule implements IMainModule {
 	public String GetDescription() {
 		String retval = "A culure of yeast in my library.";
 		return retval;
+	}
+
+
+	@Override
+	public Date GetLastModifiedDate() {
+		
+		return m_lastmoddate;
 	}
 }

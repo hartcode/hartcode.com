@@ -1,6 +1,9 @@
 package com.hartcode.modules;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -22,8 +25,8 @@ public class MinecraftModule  implements IMainModule {
 				sb.append("<div id=\"minecraftdiv\">");
 				sb.append("<p>Minecraft is a game about building with blocks by either placing them or destroying them. Watch out in Minecraft, evil creatures lurk in the darkness and the night, make sure to build a hideout before they get you.</p>");
 				sb.append("<p>Minecraft is also fun to play with friends. You can team up to build anything you desire and let the imagination run wild, battle the things that go bump in the night. If you are brave enough, travel to The Nether, you will surely be surprised.</p>");
-				sb.append("<p>Check it out at: <a href=\"www.minecraft.net\">www.minecraft.net</a></p>");
-				sb.append("<h3>Our Server:</h2>");
+				sb.append("<p>Check it out at: <a href=\"http://www.minecraft.net\">www.minecraft.net</a></p>");
+				sb.append("<h3>Our Server:</h3>");
 				
 				sb.append("<div id=\"serversout\"><div id=\"servers\"><div class=\"center\"><span class=\"bold\">MC.HARTCODE.COM</span><br />");
 				MinecraftPing mp = new MinecraftPing();
@@ -108,4 +111,14 @@ public class MinecraftModule  implements IMainModule {
 			public String GetDescription() {
 				String retval = "The official home of the HartCode minecraft server.";
 				return retval;
-			}}
+			}
+			@Override
+			public Date GetLastModifiedDate() {
+				Calendar mycal = Calendar.getInstance();
+				mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+				mycal.add(Calendar.SECOND, -1*mycal.get(Calendar.SECOND));
+				mycal.add(Calendar.MINUTE, -1*mycal.get(Calendar.MINUTE));
+				mycal.add(Calendar.HOUR, -1*mycal.get(Calendar.HOUR));
+				return mycal.getTime();
+			}
+		}

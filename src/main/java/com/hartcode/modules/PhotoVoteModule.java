@@ -2,6 +2,7 @@ package com.hartcode.modules;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,30 +67,31 @@ public class PhotoVoteModule implements IMainModule {
 			 //timeleft += "Hurry only ";
 		 }
 		 timeleft += minsleft + " " + minutes +" left to vote!";
-		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"> </p><h3>"+timeleft+"</h3><p>There are "+timeleft+"  At the end of the day the winning image will be the wallpaper image of the day. Stand up and let yourself be heard.");
+		sb.append("<div id=\"Choices\"><h2>Vote For Tomorrows Wallpaper</h2><p id=\"first\"> </p><h3>"+timeleft+"</h3><p>There are "+timeleft+"  At the end of the day the winning image will be the wallpaper image of the day. Stand up and let yourself be heard.</p>");
+		sb.append("<h3>We are now a bitcoin faucet.</h3><p>");
 		if (m_btcvalue != 0.0)
 		{
 			
-			sb.append("  If you enter a valid Bitcoin address and correctly solve the captcha you will recieve: " + m_strbtcvalue + " \u00B5BTC.");
+			sb.append("If you enter a valid Bitcoin address and correctly solve the captcha you will recieve: " + m_strbtcvalue + " \u00B5BTC.");
 		}else
 		{
-			sb.append("  Sorry we have given out all of our Bitcoins for the day.  While we are beta testing, we are only giving out a limited number of BTC per day.  Please come back tomorrow.");
+			sb.append("Sorry we have given out all of our Bitcoins for the day.  While we are beta testing, we are only giving out a limited number of BTC per day.  Please come back tomorrow.");
 		}
 		sb.append("</p>");
 		
 		sb.append("<form action=\"vote\" method=\"get\">");
-		sb.append("<hr><h3>Step 1 (Optional)</h3>");
+		sb.append("<hr/><h3>Step 1 (Optional)</h3>");
 		sb.append("<p>Enter your Bitcoin address and solve the captcha.</p>");
 		if (m_captchafailed)
 		{
 			sb.append("<p class=\"error\">Incorrect Captcha! Please Try Again.</p>");
 		}
-		sb.append("<p class=\"submitout\"><div class=\"left\">"+ADs.getRandomAd250x250(ip)+"</div><div class=\"left\"><div class=\"btcaddress\"><p>Bitcoin Address: <input type=\"text\" name=\"btcadd\"></p></div></div>");
+		sb.append("<div class=\"submitout\"><div class=\"left\">"+ADs.getRandomAd250x250(ip)+"</div><div class=\"left\"><div class=\"btcaddress\"><p>Bitcoin Address: <input type=\"text\" name=\"btcadd\"/></p></div></div>");
 		sb.append("<div id=\"captcha\">");
-		sb.append(adscaptcha.getCaptcha(captchaId, publicKey));
-		sb.append("</div></p>");
-		sb.append("<p class=\"newrow\"> </p>");
-		sb.append("<hr><h3>Step 2</h3>");
+		sb.append(adscaptcha.getCaptcha(captchaId, publicKey).replace("&", "&amp;"));
+		sb.append("</div></div>");
+		sb.append("<p class=\"newrow\"></p>");
+		sb.append("<hr/><h3>Step 2</h3>");
 		sb.append("<p>Choose one of the following wallpaper candidates.</p>");
 		sb.append("<div class=\"choiceleft\">"+ ADs.getRandomAd120x600(ip)+"</div>");
 		sb.append("<div id='choice'><ul >");
@@ -99,14 +101,14 @@ public class PhotoVoteModule implements IMainModule {
 			{
 				sb.append("</ul><ul class=\"newrow\">");
 			}
-			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='img" + photoIDs[i].toString() + "' src = 'photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/><input type=\"radio\" name=\"cid\" value=\""+candidateIDs[i].toString()+"\">Vote</p></li>");	
+			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='img" + photoIDs[i].toString() + "' src = 'photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/><input type=\"radio\" name=\"cid\" value=\""+candidateIDs[i].toString()+"\"/>Vote</p></li>");	
 		}
 		//<a href=\"vote?pid="+photoIDs[i].toString()+"&cid="+candidateIDs[i].toString()+"\" >
 		sb.append("</ul></div>");
 		sb.append("<div class=\"choiceleft\">"+ ADs.getRandomAd120x600(ip)+"</div>");
-		sb.append("<hr style=\"clear:both;\"><h3>Step 3</h3>");
+		sb.append("<hr style=\"clear:both;\"/><h3>Step 3</h3>");
 		sb.append("<p>Submit your vote</p>");
-		sb.append("<p class=\"submitout\"><input class=\"submit\" type=\"submit\" value=\"Vote\"></p>");
+		sb.append("<p class=\"submitout\"><input class=\"submit\" type=\"submit\" value=\"Vote\"/></p>");
 		//sb.append("<input type=\"submit\" value=\"Vote\">");
 		sb.append("</form>");
 		sb.append("</div>");
@@ -130,7 +132,18 @@ public String GetTitle() {
 }
 @Override
 public String GetDescription() {
-	String retval = "Cast your vote for the wallpaper of the day and receive free bitcoins.";
+	String retval = "Cast your vote for the wallpaper of the day and receive free Bitcoins.  We are now a Bitcoin faucet";
 	return retval;
 }
+
+@Override
+public Date GetLastModifiedDate() {
+	Calendar mycal = Calendar.getInstance();
+	mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
+	mycal.add(Calendar.SECOND, -1*mycal.get(Calendar.SECOND));
+	mycal.add(Calendar.MINUTE, -1*mycal.get(Calendar.MINUTE));
+	mycal.add(Calendar.HOUR, -1*mycal.get(Calendar.HOUR));
+	return mycal.getTime();
+}
+
 }

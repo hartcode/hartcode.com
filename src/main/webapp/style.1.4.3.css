@@ -275,7 +275,7 @@ A {
 #cultures > H3, #minecraftdiv > H3{
 	PADDING-LEFT: 30px;
 }
-#Choices >p,#ChoicesResults >p,
+#Choices > p, #ChoicesResults > p
 {
 	PADDING-LEFT: 40px;
 }

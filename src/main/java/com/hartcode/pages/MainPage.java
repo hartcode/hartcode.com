@@ -109,7 +109,7 @@ public class MainPage {
 			
 		}
 		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
-		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
+		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">");
 		sb.append("<head>");
 		sb.append("<title>");
@@ -120,7 +120,7 @@ public class MainPage {
 		sb.append("\"/>");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
 		sb.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />");
-		sb.append("<link href=\"/style.1.4.2.css\" rel=\"stylesheet\" type=\"text/css\" />");
+		sb.append("<link href=\"/style.1.4.3.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		
 		sb.append("<!--[if lte IE 7]><link href=\"/style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
 		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
@@ -157,7 +157,7 @@ public class MainPage {
 		//{
 		//	sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_stream\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
 		//}
-		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a></div>");
+		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\" title=\"twitter\"/></a></div>");
 		
 		if (m_UseADS)
 		{
@@ -188,6 +188,7 @@ public class MainPage {
 		sb.append("</ul>");
 		sb.append("</div>");
 		sb.append("</body>");
+		
 		sb.append("</html>");
 		retval = sb.toString();
 		logger.debug("End Main Page");
