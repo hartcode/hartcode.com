@@ -139,7 +139,7 @@ public class PhotoVoteResultsModule implements IMainModule {
 			{
 				sb.append("</ul><ul class=\"newrow\">");
 			}
-			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='img" + voteResults[i][0].toString() + "' src = 'photos/thumb/"+voteResults[i][0].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>"+percentval+"</p></li>");
+			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='img" + voteResults[i][0].toString() + "' src = '/photos/thumb/"+voteResults[i][0].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/>"+percentval+"</p></li>");
 		}	
 		sb.append("</ul>");
 		sb.append("</div>");

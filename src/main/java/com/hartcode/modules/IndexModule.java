@@ -20,7 +20,9 @@ public class IndexModule implements IMainModule {
 		HTMLNews1 hnews = new HTMLNews1();
 		sb.append("<div id=\"newsdiv\">");
 		sb.append(hnews.toString());
+		sb.append("<p><a href=\"/news\">More ...</a></p>");
 		sb.append("</div>");
+		
 		sb.append("<div id=\"Other\"></div>");
 		m_lastmodifieddate = hnews.GetMostRecentDate();
 		return sb.toString();

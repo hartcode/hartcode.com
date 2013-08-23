@@ -2,6 +2,25 @@
 <urlrewrite >
     <rule>
         <note>
+          </note>
+        <from>/minecraft/</from>
+        <to>/minecraft</to>
+    </rule>
+    <rule>
+        <note>
+          </note>
+        <from>/news/</from>
+        <to>/news</to>
+    </rule>
+    <rule>
+        <note>
+          </note>
+        <from>/yeaststrains/</from>
+        <to>/yeaststrains</to>
+    </rule>
+    
+    <rule>
+        <note>
             The rule means that requests to /test/status/ will be redirected to /rewrite-status
             the url will be rewritten.
         </note>
@@ -42,7 +61,7 @@
         <from>/yeastculturesbystrain/([0-9]+)</from>
         <to>/yeastculturesbystrain?ID=$1</to>
     </rule>
-    
+   
     
 </urlrewrite>
 

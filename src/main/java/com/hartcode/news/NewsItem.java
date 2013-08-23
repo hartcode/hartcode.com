@@ -1,4 +1,5 @@
-package com.hartcode.news;
+package com.hartcode.bitcoin;
+
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
 

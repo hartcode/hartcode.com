@@ -79,7 +79,7 @@ public class PhotoVoteModule implements IMainModule {
 		}
 		sb.append("</p>");
 		
-		sb.append("<form action=\"vote\" method=\"get\">");
+		sb.append("<form action=\"/wallpaper/vote\" method=\"get\">");
 		sb.append("<hr/><h3>Step 1 (Optional)</h3>");
 		sb.append("<p>Enter your Bitcoin address and solve the captcha.</p>");
 		if (m_captchafailed)
@@ -101,7 +101,7 @@ public class PhotoVoteModule implements IMainModule {
 			{
 				sb.append("</ul><ul class=\"newrow\">");
 			}
-			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='img" + photoIDs[i].toString() + "' src = 'photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/><input type=\"radio\" name=\"cid\" value=\""+candidateIDs[i].toString()+"\"/>Vote</p></li>");	
+			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='img" + photoIDs[i].toString() + "' src = '/photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/><input type=\"radio\" name=\"cid\" value=\""+candidateIDs[i].toString()+"\"/>Vote</p></li>");	
 		}
 		//<a href=\"vote?pid="+photoIDs[i].toString()+"&cid="+candidateIDs[i].toString()+"\" >
 		sb.append("</ul></div>");
