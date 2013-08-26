@@ -46,10 +46,15 @@ UL {
 #footer {
 	BORDER-TOP: black 1px solid; PADDING-TOP: 5px
 }
-#newsdiv  LI {
+#newsdiv  LI , #minecraftindexdiv  LI{
 	PADDING-LEFT:30px;
 }
-#newsdiv > UL {
+#minecraftindexdiv 
+{
+	BORDER-TOP: black 1px solid;
+}
+
+#newsdiv > UL , #minecraftindexdiv > UL{
 	BORDER-TOP: black 1px solid; PADDING-TOP: 5px;
 	MARGIN-LEFT: 0px;
 	PADDING-LEFT: 0px;
@@ -307,20 +312,30 @@ A {
 	text-align: center;
 }
 
-#serversout
+
+#serversoutindex, #serversout
 {
 	PADDING-LEFT:20px;
 	PADDING-RIGHT:20px;
 	PADDING-Bottom:20px;
 	MARGIN-LEFT: auto;
 		MARGIN-RIGHT: auto;
+}
+#serversout
+{
 		width:680px;
 }
+
 #serverrules, #chatcommands, #servers
+{
+	WIDTH:640px;
+}
+
+#serverrules, #chatcommands, #servers, #serversindex
 {
 	BACKGROUND-COLOR: #cdcdcd;
 	PADDING: 20px;
-	WIDTH:640px;
+
 	border-radius: 10px;
 	margin-left:auto;
 	margin-right:auto;

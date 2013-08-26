@@ -1,8 +1,12 @@
 package com.hartcode.modules;
 
+import java.io.IOException;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+
+import tk.nekotech.MinecraftPing;
+import tk.nekotech.MinecraftPingReply;
 
 import com.hartcode.dataObjects.HTMLNews1;
 
@@ -18,10 +22,16 @@ public class IndexModule implements IMainModule {
 	public String GetMainModule() {
 		StringBuilder sb = new StringBuilder();
 		HTMLNews1 hnews = new HTMLNews1();
+		MinecraftIndexModule mim = new MinecraftIndexModule();
+		
 		sb.append("<div id=\"newsdiv\">");
 		sb.append(hnews.toString());
 		sb.append("<p><a href=\"/news\">More ...</a></p>");
 		sb.append("</div>");
+		sb.append("<div>");
+		sb.append(mim.toString());
+		sb.append("</div>");
+		
 		
 		sb.append("<div id=\"Other\"></div>");
 		m_lastmodifieddate = hnews.GetMostRecentDate();
