@@ -52,7 +52,7 @@ public class MinecraftIndexModule {
 			//sb.append("</span>");
 		}
 		
-		sb.append("</p></li></ul><p><a href=\"http://www.hartcode.com/minecraft\">More ...</a></p></div>");
+		sb.append("</p></li></ul><p><a href=\"/minecraft\">More ...</a></p></div>");
 		return sb.toString();
 	}
 }

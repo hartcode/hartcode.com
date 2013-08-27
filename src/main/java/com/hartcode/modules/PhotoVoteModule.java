@@ -4,9 +4,10 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-
+import net.tanesha.recaptcha.ReCaptcha;
+import net.tanesha.recaptcha.ReCaptchaFactory;
 import javax.servlet.http.HttpServletRequest;
-import net.adscaptcha.AdsCaptchaAPI;
+
 
 public class PhotoVoteModule implements IMainModule {
 	
@@ -32,10 +33,10 @@ public class PhotoVoteModule implements IMainModule {
 	public String GetMainModule() {
 		StringBuilder sb = new StringBuilder();
 		Calendar mycal = Calendar.getInstance();
-		final String captchaId  = "4726";
-		final String publicKey  = "5f7e695a-fc65-4a6a-941a-1bd0a5d4f589";
-		
-		AdsCaptchaAPI adscaptcha = new AdsCaptchaAPI();
+		final String publicKey  = "6LdypOYSAAAAAGFtg-ZXX-XoEdg2CXxZke1nKJsD";
+		final String privateKey  = "6LdypOYSAAAAAJBYK_MnWTthH_ledbuyKyGV3rWb";
+   	    ReCaptcha adscaptcha = ReCaptchaFactory.newSecureReCaptcha(publicKey, privateKey, false);
+   	    
 		String ip  = m_request.getHeader("X-FORWARDED-FOR");  
         if(ip == null)  
         {  
@@ -88,7 +89,7 @@ public class PhotoVoteModule implements IMainModule {
 		}
 		sb.append("<div class=\"submitout\"><div class=\"left\">"+ADs.getRandomAd250x250(ip)+"</div><div class=\"left\"><div class=\"btcaddress\"><p>Bitcoin Address: <input type=\"text\" name=\"btcadd\"/></p></div></div>");
 		sb.append("<div id=\"captcha\">");
-		sb.append(adscaptcha.getCaptcha(captchaId, publicKey).replace("&", "&amp;"));
+		sb.append(adscaptcha.createRecaptchaHtml(null, null).replace("https://api-secure.recaptcha.net/","https://www.google.com/recaptcha/api/"));
 		sb.append("</div></div>");
 		sb.append("<p class=\"newrow\"></p>");
 		sb.append("<hr/><h3>Step 2</h3>");

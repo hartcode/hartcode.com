@@ -15,12 +15,12 @@ public class ADs {
 		String url = null;
 		if (ip.startsWith("192.168.2."))
 		{
-			url = "http://www.hartcode.com/style.1.4.2.css";
+			url = "https://www.hartcode.com/style.1.4.2.css";
 			
 		}
 		else 
 		{
-			url = "http://coinurl.com/get.php?id=3666";
+			url = "https://coinurl.com/get.php?id=3666&SSL=1";
 		}
 		logger.debug("Creating AD Vector");
 		Vector<String> ads = new Vector<String>();
@@ -46,12 +46,12 @@ public class ADs {
 		String url = null;
 		if (ip.startsWith("192.168.2."))
 		{
-			url = "http://www.hartcode.com/style.1.4.2.css";
+			url = "https://www.hartcode.com/style.1.4.2.css";
 			
 		}
 		else 
 		{
-			url = "http://coinurl.com/get.php?id=3724";
+			url = "https://coinurl.com/get.php?id=3724&SSL=1";
 		}
 		return "<iframe scrolling=\"no\" style=\"border: 0; width: 120px; height: 600px;\" src=\""+url+"\"></iframe>";
 	}
@@ -61,12 +61,12 @@ public class ADs {
 		String url = null;
 		if (ip.startsWith("192.168.2."))
 		{
-			url = "http://www.hartcode.com/style.1.4.2.css";
+			url = "https://www.hartcode.com/style.1.4.2.css";
 			
 		}
 		else 
 		{
-			url = "http://coinurl.com/get.php?id=3764";
+			url = "https://coinurl.com/get.php?id=3764&SSL=1";
 		}
 		return "<iframe scrolling=\"no\" style=\"border: 0; width: 250px; height: 250px;\" src=\""+url+"\"></iframe>";
 	}

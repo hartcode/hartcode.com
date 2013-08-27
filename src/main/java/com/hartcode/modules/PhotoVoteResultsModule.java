@@ -147,8 +147,8 @@ public class PhotoVoteResultsModule implements IMainModule {
 		
 		sb.append("</div>");
 		// coin url conversion tracking
-		sb.append("<iframe style=\"display: none;\" src=\"http://coinurl.com/track.php?type=int&amp;id=1381\"></iframe>");
-		sb.append("<iframe style=\"display: none;\" src=\"http://coinurl.com/track.php?type=banner&amp;id=588\"></iframe>");
+		sb.append("<iframe style=\"display: none;\" src=\"https://coinurl.com/track.php?type=int&amp;id=1381\"></iframe>");
+		sb.append("<iframe style=\"display: none;\" src=\"https://coinurl.com/track.php?type=banner&amp;id=588\"></iframe>");
 		}
 		va2.closeConnections();
 		return sb.toString();

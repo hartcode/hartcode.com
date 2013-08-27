@@ -123,7 +123,7 @@ public class MainPage {
 		sb.append("<link href=\"/style.1.4.4.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		
 		sb.append("<!--[if lte IE 7]><link href=\"/style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
-		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
+		sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"/rss.xml\" />");
 		sb.append("<script type=\"text/javascript\" src=\"/hartcode.1.0.js\"></script>");
 		sb.append("<script type=\"text/javascript\" src=\"/ga.1.0.0.js\"></script>");
 		sb.append("</head>");

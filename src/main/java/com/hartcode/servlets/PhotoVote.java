@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
 
-import net.adscaptcha.AdsCaptchaAPI;
+import net.tanesha.recaptcha.ReCaptchaImpl;
+
+import net.tanesha.recaptcha.ReCaptchaResponse;
 
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
@@ -283,13 +285,15 @@ public class PhotoVote extends HttpServlet {
 				//String strPhotoID = request.getParameter("pid");
 				strBitcoin = request.getParameter("btcadd");
 				
-				final String challengeValue = request.getParameter("adscaptcha_challenge_field");
-				final String responseValue = request.getParameter("adscaptcha_response_field");		
+				final String challengeValue = request.getParameter("recaptcha_challenge_field");
+				final String responseValue = request.getParameter("recaptcha_response_field");		
 				final String remoteAddress = request.getRemoteAddr();
-				final String captchaId  = "4726";
-				final String privateKey = "d726958c-fa8a-4417-a158-be800e49bda5";
 				
-				AdsCaptchaAPI adscaptcha = new AdsCaptchaAPI();
+				final String privateKey = "6LdypOYSAAAAAJBYK_MnWTthH_ledbuyKyGV3rWb";
+				
+		        ReCaptchaImpl reCaptcha = new ReCaptchaImpl();
+		        reCaptcha.setPrivateKey(privateKey);
+
 
 				if (strBitcoin == "")
 				{
@@ -316,9 +320,9 @@ public class PhotoVote extends HttpServlet {
 							logger.debug("We don't have a facebook user id. The user must not be logged in.");
 							if (strBitcoin !=null)
 							{
-								 captcharesult = adscaptcha.validateCaptcha(captchaId, privateKey, challengeValue, responseValue, remoteAddress);
+								ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(remoteAddress, challengeValue, responseValue);
 
-								if (captcharesult.equalsIgnoreCase("true")) 
+								if (reCaptchaResponse.isValid()) 
 								{
 									logger.info("Captch success");
 									captchafailed = false;
