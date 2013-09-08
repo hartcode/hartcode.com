@@ -157,7 +157,9 @@ public class MainPage {
 		//{
 		//	sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_stream\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
 		//}
-		sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\" title=\"twitter\"/></a></div>");
+		sb.append("<div id=\"social\">");
+		sb.append("<a class=\"twitter-timeline\" data-dnt=\"true\" href=\"https://twitter.com/hartalex0\" data-widget-id=\"375935069124173824\">Tweets by @hartalex0</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\"://platform.twitter.com/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document,\"script\",\"twitter-wjs\");</script>");
+		sb.append("</div>");
 		
 		if (m_UseADS)
 		{
