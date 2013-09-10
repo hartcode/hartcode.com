@@ -53,18 +53,18 @@ public class VotePage {
 		String retval = "";
 		StringBuilder sb = new StringBuilder();
 		logger.debug("Start Main Page");
-		VoteDAO2 va2 = null;
-		String FBUserName = null;
-		String FBID = null;
-		UserData ud = null;
-		HttpSession session = m_request.getSession(true);
+//		VoteDAO2 va2 = null;
+//		String FBUserName = null;
+//		String FBID = null;
+		// UserData ud = null;
+//		HttpSession session = m_request.getSession(true);
 		String ip  = m_request.getHeader("X-FORWARDED-FOR");  
         if(ip == null)  
         {  
         	ip = m_request.getRemoteAddr();  
         }
-		Integer myuserid = null;
-		myuserid = (Integer)session.getAttribute("myuserid");
+	/*	Integer myuserid = null;
+	    myuserid = (Integer)session.getAttribute("myuserid");
 		if (myuserid != null)
 		{
 			logger.debug("We have a hartcode userid: " + myuserid);
@@ -107,7 +107,8 @@ public class VotePage {
 		
 		}
 			
-		}
+		}*/
+		
 		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\" xmlns:fb=\"https://www.facebook.com/2008/fbml\">");
