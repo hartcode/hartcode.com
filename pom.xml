@@ -76,14 +76,21 @@
       <artifactId>data</artifactId>
       <version>1.2</version>
       <scope>system</scope>
-      <systemPath>C:\Users\tainted\workspace\HartCode\src\main\webapp\WEB-INF\lib\com.hartcode.data.1.2.jar</systemPath>
+      <systemPath>C:\Utilities\java\hartcode\com.hartcode.data.1.2.jar</systemPath>
+    </dependency>
+  <dependency>
+      <groupId>com.hartcode</groupId>
+      <artifactId>news</artifactId>
+      <version>1.2</version>
+      <scope>system</scope>
+      <systemPath>C:\Utilities\java\hartcode\com.hartcode.news.1.1.jar</systemPath>
     </dependency>
       <dependency>
       <groupId>com.hartcode</groupId>
       <artifactId>passgen</artifactId>
       <version>1.0</version>
       <scope>system</scope>
-      <systemPath>C:\Users\tainted\workspace\HartCode\src\main\webapp\WEB-INF\lib\com.hartcode.passgen.1.0.jar</systemPath>
+      <systemPath>C:\Utilities\java\hartcode\com.hartcode.passgen.1.0.jar</systemPath>
       </dependency>
   <dependency>
   	<groupId>tk.nekotech</groupId>
