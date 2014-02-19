@@ -8,18 +8,14 @@ import java.util.List;
 import java.util.TimeZone;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.swing.text.DefaultEditorKit.CutAction;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 import com.hartcode.libyeast.Culture;
-import com.hartcode.libyeast.CultureLocation;
 import com.hartcode.libyeast.Strain;
-import com.hartcode.libyeast.StrainType;
 import com.hartcode.libyeast.hibernate.HibernateUtil;
 
 

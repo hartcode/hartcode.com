@@ -10,7 +10,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
-import com.hartcode.Facebook.FacebookAPI;
 import com.hartcode.Facebook.Objects.UserData;
 import com.hartcode.PhotoADay.VoteDAO2;
 import com.hartcode.exceptions.InvalidPortException;
@@ -140,23 +139,10 @@ public class MainPage {
 		sb.append("<ul id=\"menu\">");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
 		sb.append("<li><a id=\"newsli\" href=\"/news\">News</a></li>");
-		sb.append("<li><a id=\"minecraftli\" href=\"/minecraft\">Minecraft</a></li>");
 		sb.append("<li><a id=\"walltopli\" href=\"/wallpaper\">Wallpaper</a></li>");
 		sb.append("<li class=\"indent\"><a id=\"voteli\" href=\"/wallpaper/vote\">Vote</a></li>");
 		sb.append("<li><a id=\"yeastli\" href=\"/yeaststrains\">Yeast</a></li>");
 		sb.append("</ul>");
-		//sb.append("<div id=\"fbdiv\">");
-		//if (FBID != null)
-		//{
-		//	sb.append("<div id=\"user-info\">");
-		//	sb.append("<img src=\"https://graph.facebook.com/" + FBID + "/picture\">");
-		//	sb.append(FBUserName);
-		//	sb.append("</div>");
-		//	sb.append("<a href=\"/Logout\" ><p id=\"fb-auth\">Logout</p></a></div>");
-		//}else
-		//{
-		//	sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_stream\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
-		//}
 		sb.append("<div id=\"social\">");
 		sb.append("<a class=\"twitter-timeline\" data-dnt=\"true\" href=\"https://twitter.com/hartalex0\" data-widget-id=\"375935069124173824\">Tweets by @hartalex0</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\"://platform.twitter.com/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document,\"script\",\"twitter-wjs\");</script>");
 		sb.append("</div>");

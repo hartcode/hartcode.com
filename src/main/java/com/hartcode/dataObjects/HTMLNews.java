@@ -3,7 +3,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 import com.hartcode.news.NewsItem;
 import com.hartcode.news.reader.data.NewsReaderDAO;

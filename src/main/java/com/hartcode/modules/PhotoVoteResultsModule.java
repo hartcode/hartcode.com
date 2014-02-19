@@ -12,11 +12,10 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import com.hartcode.PhotoADay.Faucets;
+
 import com.hartcode.PhotoADay.VoteDAO2;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
-import com.hartcode.libyeast.StrainType;
 
 
 public class PhotoVoteResultsModule implements IMainModule {
@@ -91,42 +90,12 @@ public class PhotoVoteResultsModule implements IMainModule {
 			voteResults = va2.GetVoteResults(thedate);
 		} catch (Exception e) {
 		}
-		Faucets[] faucets = null;				
-		try {
-			faucets = va2.GetFaucets();
-		} catch (Exception e) {
-		}
+		
 		
 		if (maxcnt != null && voteResults != null)
 		{
 		
 		sb.append("<div id=\"ChoicesResults\"><h2>Vote Results</h2><p id=\"first\"> </p><h3>Thank you for voting.</h3><p>Here are the results so far, but there are still " + timeleft + "&nbsp;Stop by tomorrow and you can cast your vote on a new set of images.</p>");
-		if (faucets != null)
-		{
-			if (faucets.length > 0)
-			{
-				sb.append("<p>In the mean time here are some of our favorite Bitcoin Faucet sites: ");
-				Boolean isfirst = true;
-			for (Faucets faucet : faucets) 
-			{
-				if (faucet.is_active)
-				{
-				if (isfirst)
-				{
-					isfirst = false;
-				}else
-				{
-					sb.append(", ");
-				}
-				
-					sb.append("<a href=\""+faucet.url+"\">"+faucet.name+"</a>");
-				}
-			}
-			sb.append("</p>");
-			sb.append("<p>If you are feeling adventurous enough start mining we recommend the 50btc pool.  You can earn much more mining than you can through bitcoin faucet sites.  There are many mining pools out there, 50btc pays you per share, and has instant payouts.  It can be found here: <a href=\"http://50btc.com\">http://50btc.com</a></p>");
-			}
-			
-		}
 		sb.append("<div class=\"choiceleft\">"+ADs.getRandomAd120x600(ip)+"</div>");
 		sb.append("<div id='choice'>");
 		sb.append("<ul>");

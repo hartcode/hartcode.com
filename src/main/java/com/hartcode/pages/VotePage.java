@@ -1,20 +1,9 @@
 package com.hartcode.pages;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.Logger;
-import org.xml.sax.SAXException;
 
-import com.hartcode.Facebook.FacebookAPI;
-import com.hartcode.Facebook.Objects.UserData;
-import com.hartcode.PhotoADay.VoteDAO2;
-import com.hartcode.exceptions.InvalidPortException;
-import com.hartcode.exceptions.NullArgumentException;
 import com.hartcode.modules.*;
 
 
@@ -53,67 +42,16 @@ public class VotePage {
 		String retval = "";
 		StringBuilder sb = new StringBuilder();
 		logger.debug("Start Main Page");
-//		VoteDAO2 va2 = null;
-//		String FBUserName = null;
-//		String FBID = null;
-		// UserData ud = null;
-//		HttpSession session = m_request.getSession(true);
 		String ip  = m_request.getHeader("X-FORWARDED-FOR");  
         if(ip == null)  
         {  
         	ip = m_request.getRemoteAddr();  
         }
-	/*	Integer myuserid = null;
-	    myuserid = (Integer)session.getAttribute("myuserid");
-		if (myuserid != null)
-		{
-			logger.debug("We have a hartcode userid: " + myuserid);
-		try {
-			logger.debug("Creating VoteDAO2 object.");
-			va2 = new VoteDAO2();
-			ud = va2.GetUserData(myuserid);
-			va2.closeConnections();
-			logger.debug("Finished Creating VoteDAO2 object.");
-		} catch (NullArgumentException e2) {
-			// TODO Auto-generated catch block
-			logger.error(e2);
-		} catch (InvalidPortException e2) {
-			// TODO Auto-generated catch block
-			logger.error(e2);
-		} catch (ParserConfigurationException e2) {
-			// TODO Auto-generated catch block
-			logger.error(e2);
-		} catch (SAXException e2) {
-			// TODO Auto-generated catch block
-			logger.error(e2);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if (ud != null)
-		{
-			FBUserName = ud.First_Name + " " + ud.Last_Name;
-			FBID = ud.ID;
-		}
-		else
-		{
-			logger.debug("No UserData pulled back");
-		
-		}
-			
-		}*/
 		
 		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
 		sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\" xmlns:fb=\"https://www.facebook.com/2008/fbml\">");
 		sb.append("<head>");
-		//sb.append("<meta property=\"og:image\"       content=\"http://www.hartcode.com/photos/thumb/1057/image.jpg\" /> ");
 		sb.append("<title>");
 		sb.append(GetTitle());
 		sb.append("</title>");
@@ -125,7 +63,6 @@ public class VotePage {
 		sb.append("<link href=\"/style.1.4.4.css\" rel=\"stylesheet\" type=\"text/css\" />");
 		
 		sb.append("<!--[if lte IE 7]><link href=\"/style_ie7.1.0.0.css\" rel=\"stylesheet\" type=\"text/css\" /><![endif]-->");
-		//sb.append("<link rel=\"alternate\" type=\"application/rss+xml\" title=\"HartCode News\" href=\"http://www.hartcode.com/rss.xml\" />");
 		sb.append("<script type=\"text/javascript\" src=\"/hartcode.1.0.js\"></script>");
 		sb.append("<script type=\"text/javascript\" src=\"/ga.1.0.0.js\"></script>");
 		sb.append("</head>");
@@ -142,24 +79,9 @@ public class VotePage {
 		sb.append("<ul id=\"menu\">");
 		sb.append("<li><a id=\"homeli\" href=\"/\">Home</a></li>");
 		sb.append("<li><a id=\"newsli\" href=\"/news\">News</a></li>");
-		sb.append("<li><a id=\"minecraftli\" href=\"/minecraft\">Minecraft</a></li>");
-		sb.append("<li><a id=\"walltopli\" href=\"/wallpaper\">Wallpaper</a></li>");
 		sb.append("<li class=\"indent\"><a id=\"voteli\" href=\"/wallpaper/vote\">Vote</a></li>");
 		sb.append("<li><a id=\"yeastli\" href=\"/yeaststrains\">Yeast</a></li>");
 		sb.append("</ul>");
-		/*sb.append("<div id=\"fbdiv\">");
-		if (FBID != null)
-		{
-			sb.append("<div id=\"user-info\">");
-			sb.append("<img src=\"https://graph.facebook.com/" + FBID + "/picture\">");
-			sb.append(FBUserName);
-			sb.append("</div>");
-			sb.append("<a href=\"/Logout\" ><p id=\"fb-auth\">Logout</p></a></div>");
-		}else
-		{
-			sb.append("<a href=\"https://www.facebook.com/dialog/oauth?client_id=161596347286085&redirect_uri=http://"+FacebookAPI.domain+"/Login&scope=email,publish_actions\"><p id=\"fb-auth\" >Login to Facebook</p></a></div>");
-		}
-		*/
 		sb.append("<div id=\"social\">");
 		sb.append("<a class=\"twitter-timeline\" data-dnt=\"true\" href=\"https://twitter.com/hartalex0\" data-widget-id=\"375935069124173824\">Tweets by @hartalex0</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\"://platform.twitter.com/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document,\"script\",\"twitter-wjs\");</script>");
 		sb.append("</div>");
@@ -170,7 +92,6 @@ public class VotePage {
 		sb.append("<div id=\"adpanel\">"+ADs.getRandomAd120x240(ip)+"</div>");
 		logger.debug("End Ad Module");
 		}
-		//sb.append("<div id=\"social\"><a href=\"http://www.twitter.com/Hartcode\"><img src=\"/images/twitter-b.png\" alt=\"Follow Hartcode on Twitter\" width=\"61\" height=\"23\"/></a></div>");
 	
 		sb.append("</div>");
 		sb.append("<div id=\"main\">");

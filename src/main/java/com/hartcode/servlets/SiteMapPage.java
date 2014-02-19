@@ -7,14 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Order;
 
 import com.hartcode.libyeast.Culture;
 import com.hartcode.libyeast.Strain;
-import com.hartcode.libyeast.StrainType;
 import com.hartcode.libyeast.hibernate.HibernateUtil;
-import com.hartcode.modules.RSSModule;
-import com.hartcode.pages.RSSPage;
+
 
 /**
  * Servlet implementation class NewsRSS
@@ -47,11 +44,6 @@ public class SiteMapPage extends ServletPage {
 		retval.append("</url>");
 		retval.append("<url>");
 		retval.append("<loc>http://www.hartcode.com/wallpaper/vote</loc>");
-		retval.append("<changefreq>daily</changefreq>");
-		retval.append("<priority>1.0</priority>");
-		retval.append("</url>");
-		retval.append("<url>");
-		retval.append("<loc>http://www.hartcode.com/minecraft</loc>");
 		retval.append("<changefreq>daily</changefreq>");
 		retval.append("<priority>1.0</priority>");
 		retval.append("</url>");
