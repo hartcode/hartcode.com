@@ -77,13 +77,10 @@ public class PhotoVoteModule implements IMainModule {
 			}
 			sb.append("<li><h3>Choice " +((Integer)(i+1)).toString() + "</h3><p ><img id='img" + photoIDs[i].toString() + "' src = '/photos/thumb/"+photoIDs[i].toString()+"/image.jpg' alt='Choice " +((Integer)(i+1)).toString() + "' width='240' height='200' /><br/><br/><input type=\"radio\" name=\"cid\" value=\""+candidateIDs[i].toString()+"\"/>Vote</p></li>");	
 		}
-		//<a href=\"vote?pid="+photoIDs[i].toString()+"&cid="+candidateIDs[i].toString()+"\" >
 		sb.append("</ul></div>");
 		sb.append("<div class=\"choiceleft\">"+ ADs.getRandomAd120x600(ip)+"</div>");
-		sb.append("<hr style=\"clear:both;\"/><h3>Step 3</h3>");
-		sb.append("<p>Submit your vote</p>");
+		sb.append("<hr style=\"clear:both;\"/><h3>Submit your vote</h3>");
 		sb.append("<p class=\"submitout\"><input class=\"submit\" type=\"submit\" value=\"Vote\"/></p>");
-		//sb.append("<input type=\"submit\" value=\"Vote\">");
 		sb.append("</form>");
 		sb.append("</div>");
 		
