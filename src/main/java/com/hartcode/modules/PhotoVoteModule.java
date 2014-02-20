@@ -1,6 +1,5 @@
 package com.hartcode.modules;
 
-import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -15,18 +14,11 @@ public class PhotoVoteModule implements IMainModule {
 	Integer[] photoIDs = null;
 	Integer[] candidateIDs = null;
 	Integer userID = null;
-	Double m_btcvalue = 0.0;
-	String m_strbtcvalue = null;
-	Boolean m_captchafailed = false;
-	public PhotoVoteModule(Integer[] pids, Integer[] cids, Integer uid, Double btcvalue, Boolean captchafailed)
+	public PhotoVoteModule(Integer[] pids, Integer[] cids, Integer uid)
 	{
 		photoIDs = pids;
 		candidateIDs = cids;
 		userID = uid;
-		m_btcvalue = btcvalue;
-		DecimalFormat df = new DecimalFormat("#.##############");
-		m_strbtcvalue = df.format(m_btcvalue * 1000000);
-		m_captchafailed = captchafailed;
 	}
 		
 	public String GetMainModule() {

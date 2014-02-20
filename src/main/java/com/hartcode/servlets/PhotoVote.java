@@ -15,12 +15,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import javax.xml.parsers.ParserConfigurationException;
-
-import net.tanesha.recaptcha.ReCaptchaImpl;
-
-import net.tanesha.recaptcha.ReCaptchaResponse;
 
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
@@ -28,7 +23,6 @@ import org.xml.sax.SAXException;
 
 
 
-import com.hartcode.Facebook.Objects.AccessTokenData;
 import com.hartcode.PhotoADay.*;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
@@ -41,9 +35,6 @@ import com.hartcode.pages.*;
 public class PhotoVote extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static Logger logger = Logger.getLogger(PhotoVote.class);
-	private Double btcvalue = 0.000001;
-	private Double btctotalvaluetoday = 0.0;
-	private Double maxtotalbitcoins = btcvalue * 10000;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -57,18 +48,12 @@ public class PhotoVote extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AccessTokenData atd = null;
 		Cookie MyCookie = null;
 		Integer UserComputerID = null;
-		String FacebookStrUserID = null;
-		Integer FacebookUserID = null;
-		String strBitcoin = null;
-		Boolean captchafailed = false;
 		Cookie[] cookies = request.getCookies();
 		Calendar mycal = Calendar.getInstance();
 		mycal.setTimeZone(TimeZone.getTimeZone("UTC"));
 		mycal.add(Calendar.DATE, 1);
-		HttpSession session = request.getSession(false);
 		Date thedate = mycal.getTime();
 		if (logger.isDebugEnabled())
 		{
@@ -94,21 +79,6 @@ public class PhotoVote extends HttpServlet {
 		} catch (SAXException e2) {
 			// TODO Auto-generated catch block
 			logger.error(e2);
-		}
-		
-		try {
-			logger.debug("Check bitcointotal.");
-			
-			btctotalvaluetoday = va2.GetBitcoinsLeftToday(thedate);
-			
-			logger.debug("Finished Check bitcointotal");
-		} catch (Exception e) {
-			
-			logger.error(e);
-		}
-		if (btctotalvaluetoday >= maxtotalbitcoins)
-		{
-		   btcvalue = 0.0;
 		}
 		
 		if (cookies != null)
@@ -226,133 +196,29 @@ public class PhotoVote extends HttpServlet {
 		
 		if (UserComputerID != null)
 		{
-			FacebookStrUserID = request.getParameter("FBUser");
-			
-			if (FacebookStrUserID == null)
-			{
-				if (session != null)
-				{
-				FacebookStrUserID = (String)session.getAttribute("fbid");
-				atd = new AccessTokenData();
-				atd.AccessToken = (String)session.getAttribute("accessToken");
-				
-				}else
-				{
-					logger.debug("Session was not found");
-				}
-			}
-			if (FacebookStrUserID != null)
-			{
-				logger.debug("We have a facebook String userid: " + FacebookStrUserID);
-				try {
-				FacebookUserID = va2.GetFBUserID(FacebookStrUserID);
-				}catch (Exception e)
-				{
-					logger.error(e);
-				}
-			}
-			
-			
-			
 			Boolean hasvoted = false;
 			try {
-				if (FacebookUserID != null)
-				{
-					hasvoted = va2.hasUserVotedToday(thedate, FacebookUserID, UserComputerID);
-				}else
-				{
 					hasvoted = va2.hasUserVotedToday(thedate, UserComputerID);
-				}
 			} catch (Exception e) {
 				logger.error(e);
 			}
 			if (hasvoted)
 			{
 				logger.info("User has already voted today!");
-			//	va2.closeConnections();
 				response.sendRedirect("voteresults");
-				//response.addHeader("Content-Type", "text/html");
-				//PrintWriter pw = response.getWriter();
-				//VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode","","vote",request);
-				//pw.write(mp.toString());
-				//pw.close();
-				
 			}else
 			{
 				String strCandidateID = request.getParameter("cid");
-				//String strPhotoID = request.getParameter("pid");
-				strBitcoin = request.getParameter("btcadd");
 				
-				final String challengeValue = request.getParameter("recaptcha_challenge_field");
-				final String responseValue = request.getParameter("recaptcha_response_field");		
-				final String remoteAddress = request.getRemoteAddr();
-				
-				final String privateKey = "6LdypOYSAAAAAJBYK_MnWTthH_ledbuyKyGV3rWb";
-				
-		        ReCaptchaImpl reCaptcha = new ReCaptchaImpl();
-		        reCaptcha.setPrivateKey(privateKey);
-
-
-				if (strBitcoin == "")
-				{
-					strBitcoin = null;
-				}
 				if (strCandidateID != null )
 				{
-					//Integer photoID = 0;
-					/*if (strPhotoID != null)
-					{
-						photoID = Integer.valueOf(strPhotoID);
-					}*/
 					logger.info("User is Voting!");
 					logger.info("for cid: " + strCandidateID);
 					Integer CandidateID = Integer.valueOf(strCandidateID);
 					try {
-						if (FacebookUserID != null)
-						{
-							logger.debug("We now have a facebook user id: " + FacebookUserID);
-							va2.Vote(FacebookUserID,UserComputerID,CandidateID,thedate);
-							//FacebookAPI.PostVote(atd,FacebookStrUserID,photoID);
-						}else
-						{
-							logger.debug("We don't have a facebook user id. The user must not be logged in.");
-							if (strBitcoin !=null)
-							{
-								ReCaptchaResponse reCaptchaResponse = reCaptcha.checkAnswer(remoteAddress, challengeValue, responseValue);
-
-								if (reCaptchaResponse.isValid()) 
-								{
-									logger.info("Captch success");
-									captchafailed = false;
-									va2.Vote(UserComputerID,CandidateID,thedate,strBitcoin,btcvalue);
-								} 
-								else 
-								{
-									logger.warn("Captcha failed");
-									//va2.Vote(UserComputerID,CandidateID,thedate);
-									 captchafailed = true;
-									
-								}
-								
-							}else
-							{
-								va2.Vote(UserComputerID,CandidateID,thedate);
-								captchafailed = false;
-							}
-						}
-						logger.info("User has already voted today!");
-						//	va2.closeConnections();
-						if (captchafailed == false)
-						{
-							response.sendRedirect("voteresults");
-						}
-						//response.sendRedirect("Vote");
-						//response.addHeader("Content-Type", "text/html");
-						//PrintWriter pw = response.getWriter();
-						//VotePage mp = new VotePage(new PhotoVoteResultsModule(),"Vote - HartCode Technology Solutions","","vote",request);
-						//pw.write(mp.toString());
-						//pw.close();
-						//response.sendRedirect("/photos/Vote");
+							va2.Vote(UserComputerID,CandidateID,thedate);
+							
+						response.sendRedirect("voteresults");
 					} catch (Exception e) {
 						logger.error(e);
 					}
@@ -395,7 +261,7 @@ public class PhotoVote extends HttpServlet {
 				{
 					response.addHeader("Content-Type", "text/html");
 					PrintWriter pw = response.getWriter();
-					IMainModule module = new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID,btcvalue,captchafailed);
+					IMainModule module = new PhotoVoteModule(photoIDs,CandidateIDs, UserComputerID);
 					module.SetRequest(request);
 					Date lastmod = module.GetLastModifiedDate();;
 					if (lastmod != null)

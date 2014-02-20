@@ -33,17 +33,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>MinecraftPage</display-name>
-    <servlet-name>MinecraftPage</servlet-name>
-    <servlet-class>com.hartcode.servlets.MinecraftPage</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>MinecraftPage</servlet-name>
-    <url-pattern>/minecraft</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>AmazonFreeApp</display-name>
     <servlet-name>AmazonFreeApp</servlet-name>
     <servlet-class>com.hartcode.servlets.AmazonFreeAppXml</servlet-class>
@@ -261,8 +250,6 @@
     <servlet-name>YeastCulturesByStrain</servlet-name>
     <url-pattern>/yeastculturesbystrain</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <servlet-name>log4j-init</servlet-name>
     <servlet-class>com.hartcode.servlets.Log4jInit</servlet-class>
@@ -282,24 +269,5 @@
     <servlet-name>channel</servlet-name>
     <url-pattern>/channel.html</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Login</display-name>
-    <servlet-name>Login</servlet-name>
-    <servlet-class>com.hartcode.servlets.Login</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Login</servlet-name>
-    <url-pattern>/Login</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>Logout</display-name>
-    <servlet-name>Logout</servlet-name>
-    <servlet-class>com.hartcode.servlets.Logout</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Logout</servlet-name>
-    <url-pattern>/Logout</url-pattern>
-  </servlet-mapping>
+  
 </web-app>
