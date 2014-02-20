@@ -58,6 +58,7 @@ public class VotePage {
 		sb.append("<meta name=\"description\" content=\"");
 		sb.append(GetDescription());
 		sb.append("\"/>");
+		sb.append("<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"favicon.ico\" />");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\" />");
 		sb.append("<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />");
 		sb.append("<link href=\"/style.1.4.4.css\" rel=\"stylesheet\" type=\"text/css\" />");
