@@ -12,6 +12,11 @@ import com.hartcode.news.reader.data.App;
 public class AmazonFreeAppXml extends ServletPage {
 	  
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3223839588393304009L;
+
 	public String GetFileData(HttpServletRequest request)
 	{
 		String retval = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>";

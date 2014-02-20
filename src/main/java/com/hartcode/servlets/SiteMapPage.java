@@ -26,6 +26,7 @@ public class SiteMapPage extends ServletPage {
 		super("application/rss+xml");
 	}
 
+	@SuppressWarnings("unchecked")
 	public String GetFileData(HttpServletRequest request) {
 		StringBuilder retval = new StringBuilder();
 		retval.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
@@ -59,8 +60,9 @@ public class SiteMapPage extends ServletPage {
 		retval.append("</url>");
 		Session session = null;
 		Transaction trans = null;
+		
 		List<Strain> cs = null;
-		List<Culture> cc = null;
+		List<Culture> cc =  null;
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
 			trans = session.beginTransaction();

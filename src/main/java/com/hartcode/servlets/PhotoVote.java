@@ -28,7 +28,6 @@ import org.xml.sax.SAXException;
 
 
 
-import com.hartcode.Facebook.FacebookAPI;
 import com.hartcode.Facebook.Objects.AccessTokenData;
 import com.hartcode.PhotoADay.*;
 import com.hartcode.exceptions.InvalidPortException;
@@ -63,7 +62,6 @@ public class PhotoVote extends HttpServlet {
 		Integer UserComputerID = null;
 		String FacebookStrUserID = null;
 		Integer FacebookUserID = null;
-		String captcharesult = null;
 		String strBitcoin = null;
 		Boolean captchafailed = false;
 		Cookie[] cookies = request.getCookies();

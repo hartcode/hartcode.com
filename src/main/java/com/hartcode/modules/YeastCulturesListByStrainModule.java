@@ -1,7 +1,5 @@
 package com.hartcode.modules;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -28,17 +26,15 @@ public class YeastCulturesListByStrainModule implements IMainModule {
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	public String GetMainModule() 
 	{
-		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
 		StringBuilder sb = new StringBuilder();
 		Integer StrainID = -1;
-		String strCleanStrainID = null;
 		String strStrainID = m_request.getParameter("ID");
 		if (strStrainID != null) 
 		{
 			StrainID = Integer.valueOf(strStrainID);
-			strCleanStrainID = StrainID.toString();
 		} else {
 			logger.warn("ID parameter was empty");
 		}

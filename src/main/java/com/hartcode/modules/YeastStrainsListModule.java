@@ -1,7 +1,5 @@
 package com.hartcode.modules;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -29,9 +27,9 @@ public class YeastStrainsListModule implements IMainModule {
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	public String GetMainModule() 
 	{
-		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
 		StringBuilder sb = new StringBuilder();
 	
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -43,7 +41,7 @@ public class YeastStrainsListModule implements IMainModule {
 		{
 			Criteria crit = session.createCriteria(StrainType.class);
 			cst = crit.addOrder(Order.asc("name")).list();
-		
+			
 		} catch (Exception e) {
 		
 			logger.error("Exception: ", e);

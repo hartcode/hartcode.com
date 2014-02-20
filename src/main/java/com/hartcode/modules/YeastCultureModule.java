@@ -9,6 +9,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 
+
+
+
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -30,6 +33,7 @@ public class YeastCultureModule implements IMainModule {
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	public String GetMainModule() 
 	{
 		DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
@@ -51,8 +55,10 @@ public class YeastCultureModule implements IMainModule {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Culture c = null;
 		Strain s = null;
+		
 		List<CultureLocation> cl = null;
 		List<Culture> cc = null;
+		
 		try 
 		{
 			Criteria crit = session.createCriteria(Culture.class);
@@ -67,8 +73,10 @@ public class YeastCultureModule implements IMainModule {
 				Criteria crit2 = session.createCriteria(CultureLocation.class);
 				cl =  crit2.add(Restrictions.eq("Culture", c)).addOrder(Order.desc("MoveDate")).list();
 				
+				
 				Criteria crit3 = session.createCriteria(Culture.class);
 				cc =  crit3.add(Restrictions.eq("Source", c)).addOrder(Order.asc("CreateDate")).list();
+				
 				
 			}
 		} catch (Exception e) {

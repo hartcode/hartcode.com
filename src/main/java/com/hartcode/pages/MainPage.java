@@ -1,19 +1,10 @@
 package com.hartcode.pages;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.Logger;
-import org.xml.sax.SAXException;
 
-import com.hartcode.Facebook.Objects.UserData;
-import com.hartcode.PhotoADay.VoteDAO2;
-import com.hartcode.exceptions.InvalidPortException;
-import com.hartcode.exceptions.NullArgumentException;
 import com.hartcode.modules.*;
 
 
@@ -52,10 +43,6 @@ public class MainPage {
 		String retval = "";
 		StringBuilder sb = new StringBuilder();
 		logger.debug("Start Main Page");
-		VoteDAO2 va2 = null;
-		String FBUserName = null;
-		String FBID = null;
-		UserData ud = null;
 		HttpSession session = m_request.getSession(true);
 		String ip  = m_request.getHeader("X-FORWARDED-FOR");  
         if(ip == null)  
@@ -67,45 +54,6 @@ public class MainPage {
 		if (myuserid != null)
 		{
 			logger.debug("We have a hartcode userid: " + myuserid);
-		try {
-			logger.debug("Creating VoteDAO2 object.");
-			va2 = new VoteDAO2();
-			ud = va2.GetUserData(myuserid);
-			va2.closeConnections();
-			logger.debug("Finished Creating VoteDAO2 object.");
-		} catch (NullArgumentException e2) {
-			// TODO Auto-generated catch block
-			logger.error(e2);
-		} catch (InvalidPortException e2) {
-			// TODO Auto-generated catch block
-			logger.error(e2);
-		} catch (ParserConfigurationException e2) {
-			// TODO Auto-generated catch block
-			logger.error(e2);
-		} catch (SAXException e2) {
-			// TODO Auto-generated catch block
-			logger.error(e2);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if (ud != null)
-		{
-			FBUserName = ud.First_Name + " " + ud.Last_Name;
-			FBID = ud.ID;
-		}
-		else
-		{
-			logger.debug("No UserData pulled back");
-		
-		}
-			
 		}
 		sb.append("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">");
