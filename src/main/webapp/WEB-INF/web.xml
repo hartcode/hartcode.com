@@ -9,6 +9,9 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <listener>  
+    <listener-class>com.hartcode.servletcontext.HibernateSessionFactoryListener</listener-class>  
+</listener>  
   <servlet>
     <description></description>
     <display-name>IndexPage</display-name>

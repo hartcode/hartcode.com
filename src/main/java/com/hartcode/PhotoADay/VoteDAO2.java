@@ -11,7 +11,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
-import com.hartcode.Facebook.Objects.UserData;
 import com.hartcode.data.mysql.DAO;
 import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
@@ -34,128 +33,7 @@ public class VoteDAO2 {
 	{
 		
 	}
-	public UserData GetUserData(Integer id) throws Exception
-	{
-		UserData retval = null;
-		Object[][] obj = mydao.Select("Select FirstName, LastName, FBID, Gender, Email,FBLastUpdate, Verified, TimeZone, Locale from FBuser where ID= " + id + ";");
-		if (obj == null || obj.length == 0)
-		{ 
-			throw new Exception("Couldn't get FBUser Data for ID: " + id);
-		}else
-		{
-			retval = new UserData();
-			retval.First_Name = (String)(obj[0][0]);
-			retval.Last_Name = (String)(obj[0][1]);
-			retval.ID = ((Long)(obj[0][2])).toString();
-			retval.Gender = (String)(obj[0][3]);
-			retval.Email = (String)(obj[0][4]);
-			//retval.Updatedtime = (String)(obj[0][5]);
-			retval.Verified = (Boolean)(obj[0][6]);
-			retval.timezone =(Integer)(obj[0][7]);
-			retval.locale = (String)(obj[0][8]);
-		} 
 	
-		return retval;
-	}
-	
-	public  Integer GetFBUserID(String id) throws Exception
-	{
-		Integer retval = null;
-		Object[][] obj = mydao.Select("Select ID from FBuser where FBID= " + id + ";");
-		if (obj == null || obj.length == 0)
-		{ 
-			throw new Exception("Couldn't get FBUser ID for FBID: " + id);
-		}else
-		{
-			retval = (Integer)(obj[0][0]);
-		} 
-		return retval;
-	}
-	public  Integer NewUpdateFBUser(UserData ud) throws Exception
-	{
-		Integer retval = null;
-		try 
-		{
-			retval = GetFBUserID(ud.ID);
-			
-		}catch (Exception e)
-		{
-			logger.warn(e);
-		}
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		String strdate = null;
-		try {
-		 strdate = sdf.format(ud.getUpdatedTime());
-		}catch(Exception e)
-		{
-			logger.warn(e);
-			
-		}
-		// Doesn't exist, we need to create a new user record
-		String email;
-		 String date;
-		 String verified;
-		 String timezone;
-		 String locale;
-		 if (ud.Email== null)
-		 {
-			 email = "NULL";
-		 }else
-		 {
-			 email = "'" + ud.Email+"'";
-		 }
-		 if (strdate == null)
-		 {
-			 date = "NULL";
-		 }else
-		 {
-			 date = "'" + strdate+"'";
-		 }
-		 if (ud.Verified == null)
-		 {
-			 verified = "NULL";
-		 }else
-		 {
-			 verified =ud.Verified.toString();
-		 }
-		 if (ud.timezone == null)
-		 {
-			 timezone = "NULL";
-		 }else
-		 {
-			 timezone =ud.timezone.toString();
-		 }
-		 if (ud.locale == null)
-		 {
-			 locale = "NULL";
-		 }else
-		 {
-			 locale = "'" +ud.locale+"'";
-		 }
-		if (retval == null)
-		{
-			mydao.ExecuteSql("insert into FBuser (FBID,FirstName, LastName, Gender, Email,FBLastUpdate,Verified,TimeZone,Locale) values (" + ud.ID + ",'" + ud.First_Name + "','" + ud.Last_Name + "'," +
-					"'" + ud.getGender() + "'," +
-					 email + "," +
-					date + "," +
-					verified + "," +
-					timezone + "," +
-					locale + ");");
-			retval = GetFBUserID(ud.ID);
-		}else
-		{
-		 // Exists we should update it with new information.
-			mydao.ExecuteSql("update FBuser set FirstName = '" + ud.First_Name + "', LastName='" + ud.Last_Name + "',Gender = '" + ud.getGender() + "'," +
-					" Email = " + email + "," +
-					" FBLastUpdate= " + date + "," +
-					" Verified = " + verified + "," +
-					" TimeZone = " + timezone + "," +
-					" Locale = " + locale + " where FBID = " + ud.ID + " ;");
-		}
-		
-		return retval;
-	}
 	
 	public  String GetCookieByIP(String IP) throws Exception
 	{

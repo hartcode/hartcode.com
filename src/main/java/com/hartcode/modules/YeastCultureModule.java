@@ -51,7 +51,6 @@ public class YeastCultureModule implements IMainModule {
 		} else {
 			logger.warn("ID parameter was empty");
 		}
-
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Culture c = null;
 		Strain s = null;
