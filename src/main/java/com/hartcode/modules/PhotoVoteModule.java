@@ -95,7 +95,7 @@ public String GetTitle() {
 }
 @Override
 public String GetDescription() {
-	String retval = "Cast your vote for the wallpaper of the day and receive free Bitcoins.  We are now a Bitcoin faucet";
+	String retval = "Cast your vote for the wallpaper of the day.";
 	return retval;
 }
 
