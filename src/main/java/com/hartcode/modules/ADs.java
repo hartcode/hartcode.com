@@ -32,33 +32,11 @@ public class ADs {
 	}
 	public static String getRandomAd120x600(String ip)
 	{
-		String url = null;
-		if (ip.startsWith("192.168.2."))
-		{
-			url = "https://www.hartcode.com/style.1.4.2.css";
-			
-		}
-		else 
-		{
-			url = "https://coinurl.com/get.php?id=3724&SSL=1";
-		}
-		//return "<iframe scrolling=\"no\" style=\"border: 0; width: 120px; height: 600px;\" src=\""+url+"\"></iframe>";
 		return "";
 	}
 
 	public static String getRandomAd250x250(String ip)
 	{
-		String url = null;
-		if (ip.startsWith("192.168.2."))
-		{
-			url = "https://www.hartcode.com/style.1.4.2.css";
-			
-		}
-		else 
-		{
-			url = "";
-		}
-		//return "<iframe scrolling=\"no\" style=\"border: 0; width: 250px; height: 250px;\" src=\""+url+"\"></iframe>";
 		return "";
 	}
 }
