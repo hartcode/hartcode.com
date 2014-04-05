@@ -1,10 +1,11 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.rss;
 
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.hartcode.modules.RSSModule;
 import com.hartcode.pages.RSSPage;
+import com.hartcode.servlets.ServletPage;
 
 
 

@@ -1,6 +1,7 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.yeast;
 
 import com.hartcode.modules.YeastCulturesListByStrainModule;
+import com.hartcode.servlets.MainServlet;
 
 
 

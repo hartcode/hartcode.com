@@ -1,4 +1,4 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.wallpaper;
 
 import java.io.IOException;
 import java.sql.Date;

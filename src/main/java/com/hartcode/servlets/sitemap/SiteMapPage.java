@@ -1,4 +1,4 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.sitemap;
 
 import java.util.List;
 
@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import com.hartcode.libyeast.Culture;
 import com.hartcode.libyeast.Strain;
 import com.hartcode.libyeast.hibernate.HibernateUtil;
+import com.hartcode.servlets.ServletPage;
 
 
 /**
