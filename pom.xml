@@ -33,7 +33,7 @@
         <target>1.7</target>
         <showDeprecation>true</showDeprecation>
         <showWarnings>true</showWarnings>
-        <executable>C:\Program Files\Java\jdk1.7.0_51\bin\javac</executable>
+        <executable>C:\Program Files\Java\jdk1.7.0\bin\javac</executable>
         <fork>true</fork>
     </configuration>
 </plugin>
