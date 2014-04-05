@@ -262,15 +262,4 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  <servlet>
-    <description></description>
-    <display-name>channel</display-name>
-    <servlet-name>channel</servlet-name>
-    <servlet-class>com.hartcode.servlets.channel</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>channel</servlet-name>
-    <url-pattern>/channel.html</url-pattern>
-  </servlet-mapping>
-  
 </web-app>
