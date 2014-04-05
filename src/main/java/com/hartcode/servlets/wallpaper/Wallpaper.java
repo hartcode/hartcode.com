@@ -1,6 +1,7 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.wallpaper;
 
 import com.hartcode.modules.WallpaperModule;
+import com.hartcode.servlets.MainServlet;
 
 /**
  * Servlet implementation class Wallpaper

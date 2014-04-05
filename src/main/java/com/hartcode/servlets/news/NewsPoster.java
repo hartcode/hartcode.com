@@ -1,4 +1,4 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.news;
 
 import java.io.IOException;
 import java.io.PrintWriter;

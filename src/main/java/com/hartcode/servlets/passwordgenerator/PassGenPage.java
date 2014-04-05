@@ -1,4 +1,4 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.passwordgenerator;
 import javax.servlet.http.HttpServletRequest;
 
 import com.hartcode.modules.PassGenModule;
@@ -7,6 +7,7 @@ import com.hartcode.passgen.generators.CaseOption;
 import com.hartcode.passgen.generators.MixedWeightedGenerator;
 import com.hartcode.passgen.generators.NumericGenerator;
 import com.hartcode.passgen.generators.SpecialGenerator;
+import com.hartcode.servlets.MainServlet;
 
 
 /**

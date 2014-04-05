@@ -27,7 +27,7 @@
     <description></description>
     <display-name>SiteMapPage</display-name>
     <servlet-name>SiteMapPage</servlet-name>
-    <servlet-class>com.hartcode.servlets.SiteMapPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.sitemap.SiteMapPage</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -38,7 +38,7 @@
     <description></description>
     <display-name>AmazonFreeApp</display-name>
     <servlet-name>AmazonFreeApp</servlet-name>
-    <servlet-class>com.hartcode.servlets.AmazonFreeAppXml</servlet-class>
+    <servlet-class>com.hartcode.servlets.amazonfreeapp.AmazonFreeAppXml</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -49,7 +49,7 @@
     <description></description>
     <display-name>RSSNewsPage</display-name>
     <servlet-name>RSSNewsPage</servlet-name>
-    <servlet-class>com.hartcode.servlets.RSSNewsPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.rss.RSSNewsPage</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -60,7 +60,7 @@
     <description></description>
     <display-name>NewsPage</display-name>
     <servlet-name>NewsPage</servlet-name>
-    <servlet-class>com.hartcode.servlets.NewsPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.news.NewsPage</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -71,7 +71,7 @@
     <description></description>
     <display-name>PassGenPage</display-name>
     <servlet-name>PassGenPage</servlet-name>
-    <servlet-class>com.hartcode.servlets.PassGenPage</servlet-class>
+    <servlet-class>com.hartcode.servlets.passwordgenerator.PassGenPage</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -82,7 +82,7 @@
     <description></description>
     <display-name>NewsPoster</display-name>
     <servlet-name>NewsPoster</servlet-name>
-    <servlet-class>com.hartcode.servlets.NewsPoster</servlet-class>
+    <servlet-class>com.hartcode.servlets.news.NewsPoster</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -112,7 +112,7 @@
     <description></description>
     <display-name>PhotoADay</display-name>
     <servlet-name>PhotoADay</servlet-name>
-    <servlet-class>com.hartcode.servlets.PhotoADay</servlet-class>
+    <servlet-class>com.hartcode.servlets.wallpaper.PhotoADay</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -135,7 +135,7 @@
     <description></description>
     <display-name>PhotoVote</display-name>
     <servlet-name>PhotoVote</servlet-name>
-    <servlet-class>com.hartcode.servlets.PhotoVote</servlet-class>
+    <servlet-class>com.hartcode.servlets.wallpaper.PhotoVote</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -146,7 +146,7 @@
     <description></description>
     <display-name>PhotoVote2</display-name>
     <servlet-name>PhotoVote2</servlet-name>
-    <servlet-class>com.hartcode.servlets.PhotoVote</servlet-class>
+    <servlet-class>com.hartcode.servlets.wallpaper.PhotoVote</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -157,7 +157,7 @@
     <description></description>
     <display-name>photoserver</display-name>
     <servlet-name>photoserver</servlet-name>
-    <servlet-class>com.hartcode.servlets.photoserver</servlet-class>
+    <servlet-class>com.hartcode.servlets.wallpaper.photoserver</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -172,7 +172,7 @@
     <description></description>
     <display-name>Wallpaper</display-name>
     <servlet-name>Wallpaper</servlet-name>
-    <servlet-class>com.hartcode.servlets.Wallpaper</servlet-class>
+    <servlet-class>com.hartcode.servlets.wallpaper.Wallpaper</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -183,7 +183,7 @@
     <description></description>
     <display-name>Wallpaper2</display-name>
     <servlet-name>Wallpaper2</servlet-name>
-    <servlet-class>com.hartcode.servlets.Wallpaper</servlet-class>
+    <servlet-class>com.hartcode.servlets.wallpaper.Wallpaper</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -194,7 +194,7 @@
     <description></description>
     <display-name>PhotoVoteResults</display-name>
     <servlet-name>PhotoVoteResults</servlet-name>
-    <servlet-class>com.hartcode.servlets.PhotoVoteResults</servlet-class>
+    <servlet-class>com.hartcode.servlets.wallpaper.PhotoVoteResults</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -205,7 +205,7 @@
     <description></description>
     <display-name>PhotoVoteResults2</display-name>
     <servlet-name>PhotoVoteResults2</servlet-name>
-    <servlet-class>com.hartcode.servlets.PhotoVoteResults</servlet-class>
+    <servlet-class>com.hartcode.servlets.wallpaper.PhotoVoteResults</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -224,7 +224,7 @@
     <description></description>
     <display-name>Yeast</display-name>
     <servlet-name>Yeast</servlet-name>
-    <servlet-class>com.hartcode.servlets.Yeast</servlet-class>
+    <servlet-class>com.hartcode.servlets.yeast.Yeast</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -235,7 +235,7 @@
     <description></description>
     <display-name>YeastStrains</display-name>
     <servlet-name>YeastStrains</servlet-name>
-    <servlet-class>com.hartcode.servlets.YeastStrains</servlet-class>
+    <servlet-class>com.hartcode.servlets.yeast.YeastStrains</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
@@ -246,7 +246,7 @@
     <description></description>
     <display-name>YeastCulturesByStrain</display-name>
     <servlet-name>YeastCulturesByStrain</servlet-name>
-    <servlet-class>com.hartcode.servlets.YeastCulturesByStrain</servlet-class>
+    <servlet-class>com.hartcode.servlets.yeast.YeastCulturesByStrain</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>

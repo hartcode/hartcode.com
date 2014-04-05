@@ -1,4 +1,4 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.amazonfreeapp;
 
 import java.sql.SQLException;
 
@@ -8,6 +8,7 @@ import com.hartcode.exceptions.InvalidPortException;
 import com.hartcode.exceptions.NullArgumentException;
 import com.hartcode.news.reader.data.APPDAO;
 import com.hartcode.news.reader.data.App;
+import com.hartcode.servlets.ServletPage;
 
 public class AmazonFreeAppXml extends ServletPage {
 	  

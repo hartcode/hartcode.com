@@ -1,6 +1,7 @@
-package com.hartcode.servlets;
+package com.hartcode.servlets.news;
 
 import com.hartcode.modules.NewsModule;
+import com.hartcode.servlets.MainServlet;
 
 /**
  * Servlet implementation class IndexPage
