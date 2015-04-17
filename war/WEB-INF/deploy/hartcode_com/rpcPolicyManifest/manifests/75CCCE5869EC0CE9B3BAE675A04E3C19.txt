@@ -1,0 +1,2 @@
+serviceClass: com.hartcode.website.client.GreetingService
+path: C1125EEB9C8856CEFF6A005CD2690F8C.gwt.rpc

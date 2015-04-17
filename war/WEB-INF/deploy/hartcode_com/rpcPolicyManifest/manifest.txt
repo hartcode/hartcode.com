@@ -1,0 +1,3 @@
+# Module hartcode_com
+# RPC service class, partial path of RPC policy file
+com.hartcode.website.client.GreetingService, C1125EEB9C8856CEFF6A005CD2690F8C.gwt.rpc
