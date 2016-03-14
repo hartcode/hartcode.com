@@ -1,0 +1,29 @@
+{
+  "name": "hartcode",
+  "version": "1.0.0",
+  "description": "hartcode llc website",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && cross-env NODE_ENV=development webpack --config webpack.config.dev.js",
+    "start": "node devServer.js",
+    "lint": "eslint src",
+    "test": "mocha --compilers js:babel-core/register --recursive --require ./test/setup.js",
+    "test:watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+  ],
+  "author": "Alex Hart <alex@hartcode.com> (http://github.com/Vorgone)",
+  "license": "",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "index.html",
+  "dependencies": {
+    "serve-static": "1.10.2",
+	"connect": "3.4.1"
+  }
+}
