@@ -1,11 +1,15 @@
+variables:
+  inputimage: "gcr.io/hartonline-cloud/docker"
+  inputimageversion: "1.0"
+  outputimage: "gcr.io/hartonline-cloud/hartcode.com"
 build:
-  image: gcr.io/hartonline-cloud/docker:1.0
+  image: $inputimage:$inputimageversion
   script:
-    - docker build -t $IMAGENAME:$IMAGEVERSION .
-    - docker tag -f $IMAGENAME:$IMAGEVERSION $IMAGENAME:latest
+    - docker build -t $outputimage:$CI_BUILD_REF .
+    - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:latest
     
 deploy:
-  image: gcr.io/hartonline-cloud/docker:1.0
+  image: $inputimage:$inputimageversion
   script:
-    - /root/google-cloud-sdk/bin/gcloud docker push $IMAGENAME:$IMAGEVERSION
-    - /root/google-cloud-sdk/bin/gcloud docker push $IMAGENAME:latest
+    - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_REF
+    - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:latest
