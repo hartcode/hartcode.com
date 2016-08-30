@@ -2,3 +2,10 @@ build:
   image: gcr.io/hartonline-cloud/docker:1.0
   script:
     - docker build -t $IMAGENAME:$IMAGEVERSION .
+    - docker tag -f $IMAGENAME:$IMAGEVERSION $IMAGENAME:latest
+    
+deploy:
+  image: gcr.io/hartonline-cloud/docker:1.0
+  script:
+    - gcloud docker push $IMAGENAME:$IMAGEVERSION
+    - gcloud docker push $IMAGENAME:latest
