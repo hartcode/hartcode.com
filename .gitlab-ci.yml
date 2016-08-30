@@ -7,5 +7,5 @@ build:
 deploy:
   image: gcr.io/hartonline-cloud/docker:1.0
   script:
-    - gcloud docker push $IMAGENAME:$IMAGEVERSION
-    - gcloud docker push $IMAGENAME:latest
+    - /root/google-cloud-sdk/bin/gcloud docker push $IMAGENAME:$IMAGEVERSION
+    - /root/google-cloud-sdk/bin/gcloud docker push $IMAGENAME:latest
