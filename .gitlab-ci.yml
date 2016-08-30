@@ -1,6 +1,3 @@
-before_script:
-  - gcloud docker pull gcr.io/hartonline-cloud/docker:1.0
-
 build:
   script:
     - docker build -t $IMAGENAME:$IMAGEVERSION .
