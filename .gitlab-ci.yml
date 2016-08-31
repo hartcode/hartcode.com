@@ -1,13 +1,22 @@
 variables:
   outputimage: "gcr.io/hartonline-cloud/hartcode.com"
-build:
+
+stages:
+  - build
+  - deploy
+
+create_container:
+  stage: build
   image: gcr.io/hartonline-cloud/docker:1.0
   script:
     - docker build -t $outputimage:$CI_BUILD_REF .
     - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:latest
     
-deploy:
+push_container:
+  stage: deploy
   image: gcr.io/hartonline-cloud/docker:1.0
   script:
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_REF
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:latest
+  only:
+    - master
