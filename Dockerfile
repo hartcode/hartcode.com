@@ -1,4 +1,4 @@
-FROM mhart/alpine-node
+FROM mhart/alpine-node:base
 RUN mkdir /root/hartcode.com
 ADD src /root/hartcode.com/src
 ADD devServer.js /root/hartcode.com/devServer.js
@@ -7,4 +7,4 @@ WORKDIR /root/hartcode.com
 RUN npm install
 
 EXPOSE 8811
-CMD ["npm", "start"]
+ENTRYPOINT ["npm", "start"]
