@@ -8,14 +8,14 @@ stages:
 
 create_container:
   stage: build
-  image: gcr.io/hartonline-cloud/docker:1.0
+  image: gcr.io/hartonline-cloud/docker:latest
   script:
     - docker build -t $outputimage:$CI_BUILD_REF .
     - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:latest
     
 push_container:
   stage: deploy_container
-  image: gcr.io/hartonline-cloud/docker:1.0
+  image: gcr.io/hartonline-cloud/docker:latest
   script:
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_REF
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:latest
