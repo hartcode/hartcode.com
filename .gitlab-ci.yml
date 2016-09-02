@@ -27,7 +27,7 @@ deploy_container:
   image: gcr.io/hartonline-cloud/ansible:latest
   script:
     - echo "-----BEGIN OPENSSH PRIVATE KEY-----" > /root/.ssh/ansible 
-    - echo $ANSIBLE_DEPLOY_PRIVATE_KEY > /root/.ssh/ansible
-    - echo "-----END OPENSSH PRIVATE KEY-----" > /root/.ssh/ansible 
+    - echo $ANSIBLE_DEPLOY_PRIVATE_KEY >> /root/.ssh/ansible
+    - echo "-----END OPENSSH PRIVATE KEY-----" >> /root/.ssh/ansible 
     - chmod 400 /root/.ssh/ansible
-    - ansible -m ping all -u hartalex
+    - ansible-playbook .deploy-hartcode.com.yml
