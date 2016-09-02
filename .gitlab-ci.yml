@@ -3,7 +3,8 @@ variables:
 
 stages:
   - build
-  - deploy
+  - deploy_container
+  - deploy_site
 
 create_container:
   stage: build
@@ -13,7 +14,7 @@ create_container:
     - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:latest
     
 push_container:
-  stage: deploy
+  stage: deploy_container
   image: gcr.io/hartonline-cloud/docker:1.0
   script:
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_REF
@@ -22,8 +23,11 @@ push_container:
     - master
 
 deploy_container:
-  stage: deploy
+  stage: deploy_site
   image: gcr.io/hartonline-cloud/ansible:latest
   script:
+    - echo "-----BEGIN OPENSSH PRIVATE KEY-----" > /root/.ssh/ansible 
     - echo $ANSIBLE_DEPLOY_PRIVATE_KEY > /root/.ssh/ansible
+    - echo "-----END OPENSSH PRIVATE KEY-----" > /root/.ssh/ansible 
+    - chmod 400 /root/.ssh/ansible
     - ansible -m ping all -u hartalex

@@ -1,0 +1,18 @@
+---
+- hosts: hartweb.cloud.hartcode.com
+  remote_user: hartalex
+  tasks:
+    - name: get latest container
+      become: true
+      command: gcloud docker pull gcr.io/hartonline-cloud/hartcode.com:latest
+    - name: restart hartcode.com
+      become: true
+      docker_container:
+        name: hartcode.com
+        image: gcr.io/hartonline-cloud/hartcode.com:latest
+        state: started
+        restart: yes
+        recreate: yes
+        restart_policy: always
+        ports:
+          8811:8811
