@@ -31,3 +31,5 @@ deploy_container:
     - echo "-----END OPENSSH PRIVATE KEY-----" >> /root/.ssh/ansible 
     - chmod 400 /root/.ssh/ansible
     - ansible-playbook .deploy-hartcode.com.yml
+  only:
+    - master
