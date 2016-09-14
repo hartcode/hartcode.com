@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:5
+FROM mhart/alpine-node:6.5
 RUN mkdir /root/hartcode.com
 ADD src /root/hartcode.com/src
 ADD devServer.js /root/hartcode.com/devServer.js
