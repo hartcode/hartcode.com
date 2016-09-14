@@ -8,28 +8,34 @@ stages:
 
 create_container:
   stage: build
-  image: gcr.io/hartonline-cloud/docker:latest
+  image: docker:1.11
   script:
     - docker build -t $outputimage:$CI_BUILD_REF .
+    - if [[ $CI_BUILD_TAG ]]; then docker tag -f $outputimage:$CI_BUILD_REF $outputimage:$CI_BUILD_TAG; fi;
     - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:latest
     
 push_container:
   stage: deploy_container
-  image: gcr.io/hartonline-cloud/docker:latest
+  image: gcr.io/hartonline-cloud/docker:1.3
   script:
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_REF
+    - if [[ $CI_BUILD_TAG ]]; then /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_TAG; fi;
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:latest
   only:
     - master
+    - tags
 
 deploy_container:
   stage: deploy_site
-  image: gcr.io/hartonline-cloud/ansible:latest
+  image: gcr.io/hartonline-cloud/ansible:1.1
   script:
     - echo "-----BEGIN OPENSSH PRIVATE KEY-----" > /root/.ssh/ansible 
     - echo $ANSIBLE_DEPLOY_PRIVATE_KEY >> /root/.ssh/ansible
     - echo "-----END OPENSSH PRIVATE KEY-----" >> /root/.ssh/ansible 
+    - DEPLOY_VERSION=$CI_BUILD_REF
     - chmod 400 /root/.ssh/ansible
-    - ansible-playbook .deploy-hartcode.com.yml
+    - if [[ $CI_BUILD_TAG ]]; then DEPLOY_VERSION=$CI_BUILD_TAG; fi;
+    - export DEPLOY_VERSION
+    - ansible-playbook .ansible-deploy.yml  
   only:
-    - master
+    - tags
