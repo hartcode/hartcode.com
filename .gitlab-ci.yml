@@ -6,13 +6,20 @@ stages:
   - deploy_container
   - deploy_site
 
-create_container:
+create_container_ref:
   stage: build
   image: docker:1.11
   script:
     - docker build -t $outputimage:$CI_BUILD_REF .
-    - if [[ $CI_BUILD_TAG ]]; then docker tag -f $outputimage:$CI_BUILD_REF $outputimage:$CI_BUILD_TAG; fi;
+
+create_container_tag:
+  stage: build
+  image: docker:1.11
+  script:
+    - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:$CI_BUILD_TAG
     - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:latest
+  only:
+   - tags
     
 push_container_ref:
   stage: deploy_container
@@ -26,17 +33,10 @@ push_container_tag:
   stage: deploy_container
   image: gcr.io/hartonline-cloud/docker:1.3
   script:
-    - if [[ $CI_BUILD_TAG ]]; then /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_TAG; fi;
-  only:
-    - tags
-
-push_container_latest:
-  stage: deploy_container
-  image: gcr.io/hartonline-cloud/docker:1.3
-  script:
+    - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_TAG
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:latest
   only:
-    - master
+    - tags
 
 deploy_container:
   stage: deploy_site
