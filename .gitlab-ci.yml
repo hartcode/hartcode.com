@@ -3,6 +3,7 @@ variables:
 
 stages:
   - build
+  - tag
   - deploy_container
   - deploy_site
 
@@ -13,14 +14,14 @@ create_container_ref:
     - docker build -t $outputimage:$CI_BUILD_REF .
 
 create_container_tag:
-  stage: build
+  stage: tag
   image: docker:1.11
   script:
     - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:$CI_BUILD_TAG
     - docker tag -f $outputimage:$CI_BUILD_REF $outputimage:latest
   only:
    - tags
-    
+
 push_container_ref:
   stage: deploy_container
   image: gcr.io/hartonline-cloud/docker:1.3
@@ -43,13 +44,13 @@ deploy_container:
   stage: deploy_site
   image: gcr.io/hartonline-cloud/ansible:1.1
   script:
-    - echo "-----BEGIN OPENSSH PRIVATE KEY-----" > /root/.ssh/ansible 
+    - echo "-----BEGIN OPENSSH PRIVATE KEY-----" > /root/.ssh/ansible
     - echo $ANSIBLE_DEPLOY_PRIVATE_KEY >> /root/.ssh/ansible
-    - echo "-----END OPENSSH PRIVATE KEY-----" >> /root/.ssh/ansible 
+    - echo "-----END OPENSSH PRIVATE KEY-----" >> /root/.ssh/ansible
     - DEPLOY_VERSION=$CI_BUILD_REF
     - chmod 400 /root/.ssh/ansible
     - if [[ $CI_BUILD_TAG ]]; then DEPLOY_VERSION=$CI_BUILD_TAG; fi;
     - export DEPLOY_VERSION
-    - ansible-playbook .ansible-deploy.yml  
+    - ansible-playbook .ansible-deploy.yml
   only:
     - tags
