@@ -28,6 +28,7 @@ push_container_ref:
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_REF
   only:
     - master
+    - tags
 
 push_container_tag:
   stage: deploy_container
