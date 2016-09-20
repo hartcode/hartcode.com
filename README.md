@@ -7,7 +7,7 @@ npm install
 npm install cross-env -g
 npm install webpack -g
 npm install rimraf -g
-npm build
+npm run build
 npm start
 ```
 
