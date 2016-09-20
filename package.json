@@ -17,11 +17,12 @@
   "keywords": [
   ],
   "author": "Alex Hart <alex@hartcode.com> (http://github.com/hartalex)",
-  "license": "",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/hartcode/hartcode.com/issues",
+    "email": "alex@hartcode.com"
   },
-  "homepage": "index.html",
+  "homepage": "https://github.com/hartcode/hartcode.com/",
   "dependencies": {
     "serve-static": "1.10.2",
 	"connect": "3.4.1"
