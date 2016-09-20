@@ -43,8 +43,10 @@ push_container_tag:
 
 deploy_container:
   stage: deploy_site
-  image: gcr.io/hartonline-cloud/ansible:1.1
+  image: gcr.io/hartonline-cloud/ansible:1.2
   script:
+    - echo $ANSIBLE_DEPLOY_PUBLIC_KEY > /root/.ssh/ansible.pub
+    - chmod 644 /root/.ssh/ansible.pub
     - echo "-----BEGIN OPENSSH PRIVATE KEY-----" > /root/.ssh/ansible
     - echo $ANSIBLE_DEPLOY_PRIVATE_KEY >> /root/.ssh/ansible
     - echo "-----END OPENSSH PRIVATE KEY-----" >> /root/.ssh/ansible
