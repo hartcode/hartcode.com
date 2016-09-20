@@ -23,8 +23,19 @@
     "email": "alex@hartcode.com"
   },
   "homepage": "https://github.com/hartcode/hartcode.com/",
+  "devDependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "1.12.4",
+    "autoprefixer": "6.3.1",
+    "html-webpack-plugin": "2.8.1",
+    "extract-text-webpack-plugin": "1.0.1",
+    "webpack": "1.12.12",
+    "webpack-dev-middleware": "1.5.1",
+    "webpack-hot-middleware": "2.6.4",
+    "cross-env": "1.0.7"
+  },
   "dependencies": {
     "serve-static": "1.10.2",
-	"connect": "3.4.1"
+	  "connect": "3.4.1"
   }
 }
