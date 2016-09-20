@@ -4,10 +4,9 @@ The source code for hartcode.com.
 ## Setup
 ```bash
 npm install
-```
-
-## Start
-```bash
+npm install cross-env -g
+npm install webpack -g
+npm build
 npm start
 ```
 
