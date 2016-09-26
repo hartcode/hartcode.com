@@ -1,0 +1,11 @@
+.header h1 { display:inline; }
+.header {background-color:black; color: white;}
+ul { list-style-type: none;}
+ul li { display: inline;}
+
+body {background-color: black;}
+.body {background-color: white;}
+
+.footer {background-color: black; text-align: center;}
+.footer_menu { color: white;}
+.footer_menu a:hover {background-color: blue;}
