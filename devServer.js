@@ -31,8 +31,12 @@ app.get('/privacy', function(req, res) {
   res.render('privacy');
 });
 
-app.get('/terms', function(req, res) {
-  res.render('terms');
+app.get('/terms-of-use', function(req, res) {
+  res.render('terms-of-use');
+});
+
+app.get('/end-user-license-agreement', function(req, res) {
+  res.render('end-user-license-agreement');
 });
 
 app.use(express.static(__dirname + '/html'));
