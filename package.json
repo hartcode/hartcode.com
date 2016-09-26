@@ -4,18 +4,13 @@
   "description": "hartcode llc website",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && cross-env NODE_ENV=development webpack --config webpack.config.dev.js",
     "start": "node devServer.js",
-    "lint": "eslint src",
-    "test": "mocha --compilers js:babel-core/register --recursive --require ./test/setup.js",
-    "test:watch": "npm test -- --watch"
+    "lint": "eslint 'src/**'"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ahrtcode/hartcode.com.git"
   },
-  "keywords": [
-  ],
   "author": "Alex Hart <alex@hartcode.com> (http://github.com/hartalex)",
   "license": "GPL-3.0",
   "bugs": {
@@ -23,19 +18,17 @@
     "email": "alex@hartcode.com"
   },
   "homepage": "https://github.com/hartcode/hartcode.com/",
-  "devDependencies": {
-    "bootstrap": "3.3.7",
-    "jquery": "1.12.4",
-    "autoprefixer": "6.3.1",
-    "html-webpack-plugin": "2.8.1",
-    "extract-text-webpack-plugin": "1.0.1",
-    "webpack": "1.12.12",
-    "webpack-dev-middleware": "1.5.1",
-    "webpack-hot-middleware": "2.6.4",
-    "cross-env": "1.0.7"
-  },
   "dependencies": {
-    "serve-static": "1.10.2",
-	  "connect": "3.4.1"
+    "connect": "3.4.1",
+    "express": "^4.14.0",
+    "serve-static": "1.10.2"
+  },
+  "devDependencies": {
+    "eslint": "^3.6.0",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "rimraf": "^2.5.4"
   }
 }
