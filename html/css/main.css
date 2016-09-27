@@ -12,4 +12,8 @@ body {background-color: black;}
 
 h1 { text-align: center;}
 .body { padding:30px; }
-img { border-radius:50%;}
+.footer img { border-radius:50%;}
+.company-title {float:left; padding-top:40px;}
+.company-title h2 {margin-top:0px}
+.header img {float:left;}
+.navbar {margin-bottom:0px;}

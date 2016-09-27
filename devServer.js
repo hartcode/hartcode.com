@@ -8,15 +8,15 @@ app.get('/', function(req, res) {
 });
 
 app.get('/products', function(req, res) {
-  res.render('products');
+  res.render('products', { active: 'products' });
 });
 
 app.get('/hire', function(req, res) {
-  res.render('hire');
+  res.render('hire', { active: 'hire' });
 });
 
 app.get('/about', function(req, res) {
-  res.render('about');
+  res.render('about', { active: 'about' });
 });
 
 app.get('/careers', function(req, res) {
@@ -28,7 +28,7 @@ app.get('/contact', function(req, res) {
 });
 
 app.get('/privacy', function(req, res) {
-  res.render('privacy');
+  res.render('privacy', { active: 'privacy' });
 });
 
 app.get('/terms-of-use', function(req, res) {
