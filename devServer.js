@@ -12,7 +12,7 @@ app.get('/products', function(req, res) {
 });
 
 app.get('/hire', function(req, res) {
-  res.render('hire'};
+  res.render('hire');
 });
 
 app.get('/about', function(req, res) {
