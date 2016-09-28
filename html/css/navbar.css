@@ -39,6 +39,10 @@
   color: #ffffff;
   background-color: #a9a9a9;
 }
+
+.hire li.li-hire > a,
+.products li.li-products > a,
+.about li.li-about > a,
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {

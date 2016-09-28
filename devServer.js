@@ -8,15 +8,15 @@ app.get('/', function(req, res) {
 });
 
 app.get('/products', function(req, res) {
-  res.render('products', { active: 'products' });
+  res.render('products');
 });
 
 app.get('/hire', function(req, res) {
-  res.render('hire', { active: 'hire' });
+  res.render('hire'};
 });
 
 app.get('/about', function(req, res) {
-  res.render('about', { active: 'about' });
+  res.render('about');
 });
 
 app.get('/careers', function(req, res) {

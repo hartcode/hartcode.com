@@ -2,17 +2,38 @@
 .header {background-color:black; color: white;}
 ul.menu { list-style-type: none;}
 ul.menu li { display: inline;}
+ul {padding-left:0px;}
 
-body {background-color: black;}
+body {background-color: black; min-width: 475px;}
 .body {background-color: white;}
 
-.footer {background-color: black; text-align: center;}
+.footer {background-color: black; margin-top:20px;}
 .menu { color: white;}
 .menu a:hover {background-color: blue;}
 
-h1 { text-align: center;}
 .body { padding:30px; }
 .footer img { border-radius:50%;}
 .company-title {float:left; padding-top:40px;}
 .company-title h2 {margin-top:0px}
 .header img {float:left;}
+
+.index .body .hire,.index .body .products {
+  background-image: url('/images/head.jpg');
+  border-radius:25px;
+  text-align:center;
+  padding:100px;
+  margin:10px;
+  min-width: 400px;
+}
+
+.index .body > div {
+  max-width:500px;
+  margin-left: auto;
+  margin-right: auto;}
+
+.index .body h1 {color:white; font-size:300%; background-color: #3e5a70;}
+.index .body a {text-decoration: none;}
+
+.products .body, .hire .body, .about .body, .contact .body p, .careers .body p, h1, .footer {text-align:center;}
+
+.about .body img {border-radius: 50%;}
