@@ -17,17 +17,23 @@ body {background-color: black; min-width: 475px;}
 .company-title h2 {margin-top:0px}
 .header img {float:left;}
 
+.index .body .products {
+  background-image: url('/images/products.png');
+}
+
+.index .body .hire {
+  background-image: url('/images/hire.png');
+}
+
 .index .body .hire,.index .body .products {
-  background-image: url('/images/head.jpg');
   border-radius:25px;
   text-align:center;
   padding:100px;
   margin:10px;
-  min-width: 400px;
 }
 
 .index .body > div {
-  max-width:500px;
+  max-width:395px;
   margin-left: auto;
   margin-right: auto;}
 
