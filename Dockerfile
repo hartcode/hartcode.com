@@ -1,6 +1,6 @@
 FROM mhart/alpine-node:6.5
 RUN mkdir /root/hartcode.com
-ADD * /root/hartcode.com/
+COPY . /root/hartcode.com/
 WORKDIR /root/hartcode.com
 RUN npm install
 RUN npm run build
