@@ -18,11 +18,11 @@ body {background-color: black; min-width: 475px;}
 .header img {float:left;}
 
 .index .body .products {
-  background-image: url('/images/products.png');
+  background-image: url('../images/products.png');
 }
 
 .index .body .hire {
-  background-image: url('/images/hire.png');
+  background-image: url('../images/hire.png');
 }
 
 .index .body .hire,.index .body .products {

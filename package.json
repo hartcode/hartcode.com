@@ -4,8 +4,8 @@
   "description": "hartcode llc website",
   "scripts": {
     "clean": "rimraf build",
-    "build": "npm run clean && babel src -d build",
-    "start": "npm run build && node build/server.js",
+    "build": "npm run clean && babel src/server -d build/server && webpack",
+    "start": "node build/server/server.js",
     "lint": "eslint 'src/**'"
   },
   "repository": {
@@ -23,17 +23,26 @@
     "bootstrap": "3.3.7",
     "ejs": "2.5.2",
     "express": "4.14.0",
+    "jquery": "^3.1.1",
     "serve-static": "1.10.2"
   },
   "devDependencies": {
     "babel-cli": "6.16.0",
+    "babel-loader": "^6.2.5",
     "babel-preset-latest": "6.16.0",
-    "mocha": "3.1.0",
+    "css-loader": "^0.25.0",
     "eslint": "3.6.0",
     "eslint-config-airbnb": "12.0.0",
     "eslint-plugin-import": "1.16.0",
     "eslint-plugin-jsx-a11y": "2.2.2",
     "eslint-plugin-react": "6.3.0",
-    "rimraf": "2.5.4"
+    "file-loader": "^0.9.0",
+    "image-webpack-loader": "^2.0.0",
+    "mocha": "3.1.0",
+    "resolve-url-loader": "^1.6.0",
+    "rimraf": "2.5.4",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.2"
   }
 }
