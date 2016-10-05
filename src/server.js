@@ -1,44 +1,12 @@
 import express from 'express';
+import routes from './routes/routes';
+var port = process.env.PORT || 8811;
 var app = express();
 
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res) {
-  res.render('index');
-});
-
-app.get('/products', function(req, res) {
-  res.render('products');
-});
-
-app.get('/hire', function(req, res) {
-  res.render('hire');
-});
-
-app.get('/about', function(req, res) {
-  res.render('about');
-});
-
-app.get('/careers', function(req, res) {
-  res.render('careers');
-});
-
-app.get('/contact', function(req, res) {
-  res.render('contact');
-});
-
-app.get('/privacy', function(req, res) {
-  res.render('privacy', { active: 'privacy' });
-});
-
-app.get('/terms-of-use', function(req, res) {
-  res.render('terms-of-use');
-});
-
-app.get('/end-user-license-agreement', function(req, res) {
-  res.render('end-user-license-agreement');
-});
+routes(app);
 
 app.use(express.static(__dirname + '/../static'));
 
-app.listen(8811);
+app.listen(port);
