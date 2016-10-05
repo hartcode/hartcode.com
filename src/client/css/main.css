@@ -9,7 +9,6 @@ body {background-color: black; min-width: 475px;}
 
 .footer {background-color: black; margin-top:20px;}
 .menu { color: white;}
-.menu a:hover {background-color: blue;}
 
 .body { padding:30px; }
 .footer img { border-radius:50%;}
