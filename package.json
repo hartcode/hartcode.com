@@ -20,7 +20,6 @@
   "homepage": "https://github.com/hartcode/hartcode.com/",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "connect": "3.4.1",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
     "serve-static": "1.10.2"
