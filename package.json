@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "hartcode llc website",
   "scripts": {
-    "clean": "rimraf dist",
-    "start": "node devServer.js",
+    "clean": "rimraf build",
+    "build": "npm run clean && babel src -d build",
+    "start": "node build/server.js",
     "lint": "eslint 'src/**'"
   },
   "repository": {
@@ -19,17 +20,20 @@
   },
   "homepage": "https://github.com/hartcode/hartcode.com/",
   "dependencies": {
-    "bootstrap": "^3.3.7",
-    "ejs": "^2.5.2",
-    "express": "^4.14.0",
+    "bootstrap": "3.3.7",
+    "ejs": "2.5.2",
+    "express": "4.14.0",
     "serve-static": "1.10.2"
   },
   "devDependencies": {
-    "eslint": "^3.6.0",
-    "eslint-config-airbnb": "^12.0.0",
-    "eslint-plugin-import": "^1.16.0",
-    "eslint-plugin-jsx-a11y": "^2.2.2",
-    "eslint-plugin-react": "^6.3.0",
-    "rimraf": "^2.5.4"
+    "babel-cli": "6.16.0",
+    "babel-preset-latest": "6.16.0",
+    "mocha": "3.1.0",
+    "eslint": "3.6.0",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.2",
+    "eslint-plugin-react": "6.3.0",
+    "rimraf": "2.5.4"
   }
 }

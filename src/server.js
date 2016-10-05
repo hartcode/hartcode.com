@@ -1,4 +1,4 @@
-var express = require('express');
+import express from 'express';
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -39,6 +39,6 @@ app.get('/end-user-license-agreement', function(req, res) {
   res.render('end-user-license-agreement');
 });
 
-app.use(express.static(__dirname + '/html'));
+app.use(express.static(__dirname + '/../static'));
 
 app.listen(8811);
