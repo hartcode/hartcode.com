@@ -2,6 +2,9 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ],
     entry: "./src/client/client.js",
     output: {
         path: __dirname + '/build/client',
