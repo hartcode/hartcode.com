@@ -39,7 +39,7 @@ module.exports = {
             },
             {
               test: /.*\.(gif|png|jpe?g|svg|ico)$/i,
-              loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]','image-webpack']
+              loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]']
             },
             {
               test: /.*\.(ttf|eot|woff|woff2)$/i,
