@@ -20,29 +20,21 @@
   },
   "homepage": "https://github.com/hartcode/hartcode.com/",
   "dependencies": {
+    "babel-cli": "6.16.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-latest": "6.16.0",
+    "css-loader": "^0.25.0",
     "babel-preset-react": "^6.16.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "bootstrap": "3.3.7",
     "ejs": "2.5.2",
     "express": "4.14.0",
     "jquery": "^3.1.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "serve-static": "1.10.2"
-  },
-  "devDependencies": {
-    "babel-cli": "6.16.0",
-    "babel-loader": "^6.2.5",
-    "babel-preset-latest": "6.16.0",
-    "css-loader": "^0.25.0",
-    "eslint": "3.6.0",
-    "eslint-config-airbnb": "12.0.0",
-    "eslint-plugin-import": "1.16.0",
-    "eslint-plugin-jsx-a11y": "2.2.2",
-    "eslint-plugin-react": "6.3.0",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "serve-static": "1.10.2",
     "file-loader": "^0.9.0",
     "image-webpack-loader": "^2.0.0",
-    "mocha": "3.1.0",
     "resolve-url-loader": "^1.6.0",
     "rimraf": "2.5.4",
     "style-loader": "^0.13.1",
@@ -50,5 +42,13 @@
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1",
     "webpack-hot-middleware": "^2.12.2"
+  },
+  "devDependencies": {
+    "eslint": "3.6.0",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.2",
+    "eslint-plugin-react": "6.3.0",
+    "mocha": "3.1.0"
   }
 }
