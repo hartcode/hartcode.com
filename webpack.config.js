@@ -1,10 +1,12 @@
 const webpack = require('webpack');
 const path = require('path');
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
+      new ExtractTextPlugin("style.css"),
       new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.DedupePlugin(),
       new CommonsChunkPlugin("commons.js")
@@ -18,7 +20,12 @@ module.exports = {
       products: "./src/client/products.js",
       privacy: "./src/client/privacy.js",
       termsofuse: "./src/client/terms-of-use.js",
-      enduserlicenseagreement: "./src/client/end-user-license-agreement.js"
+      enduserlicenseagreement: "./src/client/end-user-license-agreement.js",
+      css: [
+            "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "./src/client/css/main.css",
+            "./src/client/css/navbar.css"
+           ]
     },
     output: {
         path: __dirname + '/build/client',
@@ -28,7 +35,7 @@ module.exports = {
         loaders: [
             {
               test: /\.css$/,
-              loader: "style-loader!css-loader!resolve-url-loader"
+              loader: ExtractTextPlugin.extract("style-loader","css-loader!resolve-url-loader")
             },
             {
               test: /.*\.(gif|png|jpe?g|svg|ico)$/i,
