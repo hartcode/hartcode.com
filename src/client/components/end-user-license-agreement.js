@@ -1,7 +1,11 @@
 import React from 'react';
+import Header from './header.js';
+import Footer from './footer.js';
 
 export function renderRoot() {
     return (
+      <div>
+      <Header/>
       <div className="body">
         <h1>End User License Agreement</h1>
         <h2>HartCode LLC</h2>
@@ -95,5 +99,7 @@ export function renderRoot() {
           <li><h3>Miscellaneous.</h3></li>
             <p>This Agreement and the relationship between you and HartCode shall be governed by the laws of the State of Wisconsin. You hereby consent to the exclusive jurisdiction and forum of the federal and state courts located in the State of Wisconsin for all purposes in connection with any action or proceeding which arises out of or relates to your use of the Game Module, Service, the Website, this Agreement, as well as any Account, License, License Code, Sub-License Code, Processor, Registration, Software, or Update. HartCode’s failure to enforce any right or provision of this Agreement does not constitute a waiver of that right or provision.</p>
         </ol>
+      </div>
+      <Footer/>
       </div>
     );}

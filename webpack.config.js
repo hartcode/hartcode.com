@@ -7,8 +7,8 @@ module.exports = {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new ExtractTextPlugin("style.css"),
-      new webpack.optimize.UglifyJsPlugin(),
-      new webpack.optimize.DedupePlugin(),
+      //new webpack.optimize.UglifyJsPlugin(),
+      //new webpack.optimize.DedupePlugin(),
       new CommonsChunkPlugin("commons.js")
     ],
     entry: {

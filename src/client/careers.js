@@ -10,12 +10,3 @@ var root = document.getElementById('root');
 if (root !== null) {
   render(renderRoot(), root);
 }
-
-document.getElementsByName('facebook').forEach(function(img){
- img.src = require('./images/facebook.png');});
-document.getElementsByName('twitter').forEach(function(img){
- img.src = require('./images/twitter.png');});
-document.getElementsByName('githublight').forEach(function(img){
- img.src = require('./images/githublight.png');});
-document.getElementsByName('logo').forEach(function(img){
- img.src = require('./images/logo.png');});

@@ -1,7 +1,11 @@
 import React from 'react';
+import Header from './header.js';
+import Footer from './footer.js';
 
 export function renderRoot() {
     return (
+      <div>
+      <Header/>
       <div className="body">
         <h1>Hire Us</h1>
         <p>
@@ -13,5 +17,7 @@ export function renderRoot() {
         <p>
           Send us an email at <a href="mailto:contact@hartcode.com">contact@hartcode.com</a>.
         </p>
+      </div>
+      <Footer/>
       </div>
     );}

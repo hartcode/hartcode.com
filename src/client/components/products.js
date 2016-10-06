@@ -1,7 +1,11 @@
 import React from 'react';
+import Header from './header.js';
+import Footer from './footer.js';
 
 export function renderRoot() {
     return (
+      <div>
+      <Header/>
       <div className="body">
         <h1>Products</h1>
         <p>
@@ -11,5 +15,7 @@ export function renderRoot() {
         <p>
           Stay tuned for more updates.
         </p>
+      </div>
+      <Footer/>
       </div>
     );}

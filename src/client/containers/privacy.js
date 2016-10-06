@@ -1,11 +1,7 @@
 import React from 'react';
-import Header from './header.js';
-import Footer from './footer.js';
 
 export function renderRoot() {
     return (
-      <div>
-      <Header/>
       <div className="body">
         <h1>Privacy Policy</h1>
         <p>HartCode values your privacy and we've developed a comprehensive Privacy Policy that explains how we collect, use, and store your information. This Privacy Policy may change at HartCode's sole discretion, without notice. Therefore, we suggest that you check this page often to stay aware of the Privacy Policy. By accessing or using the HartCode Website, Game Module and/or Service, you agree to be bound by the terms and conditions of this Privacy Policy. If you do not agree to the terms and conditions of this Privacy Policy, please stop using the HartCode Website and/or Service.</p>
@@ -53,7 +49,5 @@ export function renderRoot() {
           <li><h3>User Content</h3></li>
             <p>You may be able to post user-generated content, such as comments, photos, presentations, articles, profiles, messages, notes, text, information, music, and videos (“User Content”) in the Game Module, Service or on the Website. By posting such content you are voluntarily making such content accessible to other users as well as HartCode as further described in the End User License Agreement.</p>
         </ol>
-      </div>
-      <Footer/>
       </div>
     );}

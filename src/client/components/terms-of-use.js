@@ -1,7 +1,11 @@
 import React from 'react';
+import Header from './header.js';
+import Footer from './footer.js';
 
 export function renderRoot() {
     return (
+      <div>
+      <Header/>
       <div className="body">
         <h1>Terms of Use</h1>
         <ol>
@@ -61,5 +65,7 @@ export function renderRoot() {
           <li><h3>Miscellaneous.</h3></li>
             <p>These Terms of Use and the relationship between you and HartCode shall be governed by the laws of the State of Wisconsin. You hereby consent to the exclusive jurisdiction and forum of the federal and state courts located in the State of Wisconsin for all purposes in connection with any action or proceeding which arises out of or relates to your use of the Website, these Terms of Use, or any Content or Registration Data. HartCode's failure to enforce any right or provision of these Terms of Use does not constitute a waiver of that right or provision. HartCode may revise these Terms of Use at any time, and any such revisions shall be effective immediately without notice. You should visit this page from time to time to review the then-current Terms of Use. HartCode may, in its sole discretion, terminate or suspend your access to all or part of the Website for any reason, including, without limitation, breach of these Terms of Use.</p>
         </ol>
+      </div>
+      <Footer/>
       </div>
     );}
