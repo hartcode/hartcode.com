@@ -44,3 +44,4 @@ body {background-color: black; min-width: 475px;}
 .about .body img {border-radius: 50%;}
 
 li {padding-left:10px;padding-right:10px;}
+.menu li a, .menu li a:hover { color: white;}

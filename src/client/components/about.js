@@ -1,12 +1,13 @@
 import React from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
-import facebook from '../images/facebook.png';
-import twitter from '../images/twitter.png';
-import github from '../images/github.png';
 import alex from '../images/alex.png';
+import SocialMenu from './menu/social/social-menu.js';
 
 export function renderRoot() {
+  var github = {username:"hartalex",dark:"true"};
+  var facebook = {username:"alexander.hart7"};
+  var twitter = {username:"hartalex0"};
     return (
       <div>
       <Header/>
@@ -17,11 +18,7 @@ export function renderRoot() {
         <h2> Our Founder</h2>
         <img src={alex} />
         <h3>Alexander Hart</h3>
-        <ul className="menu">
-          <li><a href="https://facebook.com/alexander.hart7"><img src={facebook} width="32" height="32"/></a></li>
-          <li><a href="https://twitter.com/hartalex0"><img src={twitter} width="32" height="32"/></a></li>
-          <li><a href="https://github.com/hartalex"><img src={github} width="32" height="32"/></a></li>
-        </ul>
+        <SocialMenu facebook={facebook} twitter={twitter} github={github} />
         <p>
           Alex started programming at an early age. He was in middle school when he discovered basic code in the back of a PC Kids magazine. From there Alex started writing his own programs and games in QBasic. From an early age he loved computers and then taught himself C and C++. He went off to college to get a bachelor of arts degree in computer science with a minor in art. Since then he has worked as a developer for 11 years in the private sector.
         </p>

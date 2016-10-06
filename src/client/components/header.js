@@ -14,7 +14,7 @@ export default class Header extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <img name="logo" src={ logo } width="180" height="180"/>
+              <img src={ logo } width="180" height="180"/>
               <div className="company-title">
                 <h1>HartCode</h1>
                 <h2>Game Studio</h2>

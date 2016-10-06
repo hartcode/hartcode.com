@@ -1,11 +1,11 @@
 import React from 'react';
-import twitter from '../images/twitter.png';
-import facebook from '../images/facebook.png';
-import githublight from '../images/githublight.png';
-
+import SocialMenu from './menu/social/social-menu.js';
 export default class Footer extends React.Component {
 
   render() {
+  var github = {username:"hartcode"};
+  var facebook = {username:"hartcodellc"};
+  var twitter = {username:"hartcode"};
     return (
       <div className="footer">
         <ul className="menu">
@@ -15,11 +15,7 @@ export default class Footer extends React.Component {
           <li><a href="/privacy">Privacy</a></li>
           <li><a href="/terms-of-use">Terms</a></li>
         </ul>
-        <ul className="menu">
-          <li><a href="https://facebook.com/hartcodellc"><img src={facebook} width="32" height="32"/></a></li>
-          <li><a href="https://twitter.com/hartcode"><img src={twitter} width="32" height="32"/></a></li>
-          <li><a href="https://github.com/hartcode"><img src={githublight} width="32" height="32"/></a></li>
-        </ul>
+        <SocialMenu facebook={facebook} twitter={twitter} github={github} />
       </div>
     );
   }
