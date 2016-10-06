@@ -59,7 +59,7 @@ app.get('/terms-of-use', function(req, res) {
 app.get('/end-user-license-agreement', function(req, res) {
   res.render('end-user-license-agreement', {
     title: "End User License Agreement",
-    bodyClass: "index"
+    bodyClass: "end-user-license-agreement"
   });
 });
 }

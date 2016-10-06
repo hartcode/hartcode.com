@@ -1,14 +1,28 @@
 const webpack = require('webpack');
 const path = require('path');
+const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 module.exports = {
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.optimize.UglifyJsPlugin(),
+      new webpack.optimize.DedupePlugin(),
+      new CommonsChunkPlugin("commons.js")
     ],
-    entry: "./src/client/client.js",
+    entry: {
+      index: "./src/client/index.js",
+      contact: "./src/client/contact.js",
+      about: "./src/client/about.js",
+      careers: "./src/client/careers.js",
+      hire: "./src/client/hire.js",
+      products: "./src/client/products.js",
+      privacy: "./src/client/privacy.js",
+      termsofuse: "./src/client/terms-of-use.js",
+      enduserlicenseagreement: "./src/client/end-user-license-agreement.js"
+    },
     output: {
         path: __dirname + '/build/client',
-        filename: "bundle.js"
+        filename: "[name].js"
     },
     module: {
         loaders: [

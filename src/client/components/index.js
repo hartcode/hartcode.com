@@ -1,7 +1,6 @@
 import React from 'react';
-import { render } from 'react-dom';
 
-export function renderIndex() {
+export function renderRoot() {
     return (
       <div className="body">
         <div>
