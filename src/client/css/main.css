@@ -42,3 +42,5 @@ body {background-color: black; min-width: 475px;}
 .products .body, .hire .body, .about .body, .contact .body p, .careers .body p, h1, .footer {text-align:center;}
 
 .about .body img {border-radius: 50%;}
+
+li {padding-left:10px;padding-right:10px;}
