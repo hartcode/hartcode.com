@@ -6,6 +6,7 @@ import './css/navbar.css';
 // js dependencies
 import '../../node_modules/jquery/src/jquery.js'
 import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
+//import './components/index.js'
 
 document.getElementsByName('facebook').forEach(function(img){
  img.src = require('./images/facebook.png');});

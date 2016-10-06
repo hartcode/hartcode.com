@@ -20,10 +20,13 @@
   },
   "homepage": "https://github.com/hartcode/hartcode.com/",
   "dependencies": {
+    "babel-preset-react": "^6.16.0",
     "bootstrap": "3.3.7",
     "ejs": "2.5.2",
     "express": "4.14.0",
     "jquery": "^3.1.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
     "serve-static": "1.10.2"
   },
   "devDependencies": {
