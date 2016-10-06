@@ -9,7 +9,7 @@ module.exports = {
       new ExtractTextPlugin("style.css"),
       new webpack.optimize.UglifyJsPlugin(),
       new webpack.optimize.DedupePlugin(),
-      new CommonsChunkPlugin("commons.js")
+      new CommonsChunkPlugin("commons.js",["index","contact","about","careers","hire","products","privacy","termsofuse","enduserlicenseagreement"])
     ],
     entry: {
       index: "./src/client/index.js",
