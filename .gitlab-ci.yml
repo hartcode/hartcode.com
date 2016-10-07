@@ -28,9 +28,6 @@ push_container_ref:
   image: gcr.io/hartonline-cloud/docker:1.3
   script:
     - /root/google-cloud-sdk/bin/gcloud docker push $outputimage:$CI_BUILD_REF
-  only:
-    - master
-    - tags
 
 push_container_tag:
   stage: deploy_container
