@@ -19,3 +19,5 @@
         restart_policy: always
         ports:
           "{{port}}:8811"
+        env:
+          NODE_ENV: production
