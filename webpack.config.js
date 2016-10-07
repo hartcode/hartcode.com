@@ -25,7 +25,8 @@ module.exports = {
             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
             "./src/client/css/main.css",
             "./src/client/css/navbar.css"
-           ]
+          ],
+      favicon: "./src/client/images/favicon.ico"
     },
     output: {
         path: __dirname + '/build/client',
@@ -38,8 +39,12 @@ module.exports = {
               loader: ExtractTextPlugin.extract("style-loader","css-loader!resolve-url-loader")
             },
             {
-              test: /.*\.(gif|png|jpe?g|svg|ico)$/i,
+              test: /.*\.(gif|png|jpe?g|svg)$/i,
               loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]']
+            },
+            {
+              test: /.*favicon\.(ico)$/i,
+              loaders: ['file?name=favicon.ico']
             },
             {
               test: /.*\.(ttf|eot|woff|woff2)$/i,
