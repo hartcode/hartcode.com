@@ -4,7 +4,7 @@ ul.menu { list-style-type: none;}
 ul.menu li { display: inline;}
 ul {padding-left:0px;}
 
-body {background-color: black; min-width: 475px;}
+body {background-color: black;}
 .body {background-color: white;}
 
 .footer {background-color: black; margin-top:20px;}
@@ -45,3 +45,9 @@ body {background-color: black; min-width: 475px;}
 
 li {padding-left:10px;padding-right:10px;}
 .menu li a, .menu li a:hover { color: white;}
+
+@media only screen and (max-device-width: 480px),only screen and (max-width: 480px) {
+  body {
+  			min-width: 416px;
+  		}
+}
