@@ -11,7 +11,7 @@
     - name: restart hartcode.com
       become: true
       docker_container:
-        name: hartcode.com
+        name: "{{port}}.hartcode.com"
         image: "gcr.io/hartonline-cloud/hartcode.com:{{local_deploy_version}}"
         state: started
         restart: yes
