@@ -28,4 +28,4 @@
       register: json_response
     - name: Validate commit
       fail: msg="The commits don't match"
-      when:  "(json_response.content|from_json)['commit'] is defined and (json_response.content|from_json)['commit'] == '{{commit}}''"
+      when:  "(json_response.content|from_json)['commit'] is defined and (json_response.content|from_json)['commit'] == '{{commit}}'"
