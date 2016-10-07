@@ -4,13 +4,12 @@ ul.menu { list-style-type: none;}
 ul.menu li { display: inline;}
 ul {padding-left:0px;}
 
-body {background-color: black;}
-.body {background-color: white;}
+body {background-color: black; min-width:220px;}
+.body {background-color: white;padding:30px;}
 
 .footer {background-color: black; margin-top:20px;}
 .menu { color: white;}
 
-.body { padding:30px; }
 .footer img { border-radius:50%;}
 .company-title {float:left; padding-top:40px;}
 .company-title h2 {margin-top:0px}
@@ -18,10 +17,12 @@ body {background-color: black;}
 
 .index .body .products {
   background-image: url('../images/products.png');
+  background-repeat: no-repeat;
 }
 
 .index .body .hire {
   background-image: url('../images/hire.png');
+  background-repeat: no-repeat;
 }
 
 .index .body .hire,.index .body .products {
@@ -36,7 +37,7 @@ body {background-color: black;}
   margin-left: auto;
   margin-right: auto;}
 
-.index .body h1 {color:white; font-size:300%; background-color: #3e5a70;}
+.index .body h1 {color:white; font-size:300%; background-color: transparent;}
 .index .body a {text-decoration: none;}
 
 .products .body, .hire .body, .about .body, .contact .body p, .careers .body p, h1, .footer {text-align:center;}
@@ -46,9 +47,91 @@ body {background-color: black;}
 li {padding-left:10px;padding-right:10px;}
 .menu li a, .menu li a:hover { color: white;}
 
-@media only screen and (max-device-width: 480px),only screen and (max-width: 480px) {
-  body {
-  			min-width: 416px;
-            max-width: 480px;
-  		}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+.founder {
+  width: 200px;
+  height: 200px;
+}
+.socialMenuItem {
+  width: 32px;
+  height: 32px;
+}
+
+@media only screen and (max-device-width: 450px),only screen and (max-width: 450px) {
+.header img {
+  width: 90px;
+  height: 90px;
+}
+.company-title {padding-top:20px;}
+.company-title h1, .company-title h2 {
+  font-size: 150%;
+}
+h1, .index .body h1 {
+  font-size: 125%;
+}
+h2, h3 {
+  font-size: 115%;
+}
+ .body {
+  font-size: 100%;
+  }
+
+.index .body .hire,.index .body .products {
+  padding:50px;
+  margin:5px;
+}
+.index .body > div {
+  max-width:200px;
+}
+.body { padding:15px;}
+.footer ul.menu li { font-size:75%;}
+.founder {
+  width: 150px;
+  height: 150px;
+}
+.socialMenuItem {
+  width: 24px;
+  height: 24px;
+}
+}
+
+@media only screen and (max-device-width: 300px),only screen and (max-width: 300px) {
+.header img {
+  width: 45px;
+  height: 45px;
+}
+.company-title {padding-top:10px;}
+.company-title h1, .company-title h2 {
+  font-size: 100%;
+}
+h1, .index .body h1 {
+  font-size: 100%;
+}
+h2, h3 {
+  font-size: 90%;
+}
+  .body {
+  font-size: 75%;
+  }
+
+.index .body .hire,.index .body .products {
+  padding:25px;
+  margin:2px;
+}
+.index .body > div {
+  max-width:150px;
+}
+.body { padding:7px;}
+.footer ul.menu li { font-size:50%;}
+.founder {
+  width: 100px;
+  height: 100px;
+}
+.socialMenuItem {
+  width: 16px;
+  height: 16px;
+}
 }

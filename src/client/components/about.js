@@ -16,7 +16,7 @@ export function renderRoot() {
         <p> We are small game studio located in the very heart of the midwest.</p>
 
         <h2> Our Founder</h2>
-        <img src={alex} />
+        <img className="founder" src={alex} />
         <h3>Alexander Hart</h3>
         <SocialMenu facebook={facebook} twitter={twitter} github={github} />
         <p>

@@ -93,3 +93,15 @@
 }
 
 .navbar {margin-bottom:0px;}
+
+@media only screen and (max-device-width: 450px),only screen and (max-width: 450px) {
+.navbar-default .navbar-nav li > a {
+  font-size: 75%;
+}
+}
+
+@media only screen and (max-device-width: 300px),only screen and (max-width: 300px) {
+.navbar-default .navbar-nav li > a {
+  font-size: 50%;
+}
+}
