@@ -49,6 +49,6 @@ li {padding-left:10px;padding-right:10px;}
 @media only screen and (max-device-width: 480px),only screen and (max-width: 480px) {
   body {
   			min-width: 416px;
-        width:416px;
+            max-width: 480px;
   		}
 }
