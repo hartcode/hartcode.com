@@ -22,7 +22,7 @@
           "{{port}}:8811"
         env:
           NODE_ENV: production
-    - wait_for:
+    - wait_for: timeout=10
     - name: Get JSON from page
       uri: url="http://127.0.0.1:{{port}}/info" return_content=yes
       register: json_response
