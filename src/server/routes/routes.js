@@ -1,3 +1,5 @@
+import info from './info';
+
 module.exports = function(app) {
 
 app.get('/', function(req, res) {
@@ -71,4 +73,7 @@ app.get('/end-user-license-agreement', function(req, res) {
     jsFile:"enduserlicenseagreement.js"
   });
 });
+
+app.get('/info', info);
+
 }

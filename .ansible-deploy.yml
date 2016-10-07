@@ -3,6 +3,8 @@
   remote_user: hartalex
   vars:
    local_deploy_version: "{{ lookup('env','DEPLOY_VERSION') }}"
+   commit: "{{ lookup('env','CI_BUILD_REF') }}"
+   tag: "{{ lookup('env','CI_BUILD_TAG') }}"
    port: "{{ lookup('env','PORT') }}"
   tasks:
     - name: get latest container
@@ -21,3 +23,5 @@
           "{{port}}:8811"
         env:
           NODE_ENV: production
+          COMMIT: "{{commit}}"
+          TAG: "{{tag}}"

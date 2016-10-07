@@ -1,5 +1,4 @@
 FROM mhart/alpine-node:6.5
-ENV NODE_ENV production
 RUN mkdir /root/hartcode.com
 COPY . /root/hartcode.com/
 WORKDIR /root/hartcode.com
