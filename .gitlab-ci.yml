@@ -41,19 +41,35 @@ push_container_tag:
   only:
     - tags
 
-deploy_container:
+deploy_container_prod:
   stage: deploy_site
   image: gcr.io/hartonline-cloud/ansible:1.2
   script:
     - DEPLOY_VERSION=$CI_BUILD_REF
+    - PORT=8811
+    - export PORT
     - if [[ $CI_BUILD_TAG ]]; then DEPLOY_VERSION=$CI_BUILD_TAG; fi;
     - export DEPLOY_VERSION
     - ansible-playbook .ansible-deploy.yml
   only:
     - tags
+
+deploy_container_test:
+  stage: deploy_site
+  image: gcr.io/hartonline-cloud/ansible:1.2
+  script:
+    - DEPLOY_VERSION=$CI_BUILD_REF
+    - PORT=8711
+    - export PORT
+    - if [[ $CI_BUILD_TAG ]]; then DEPLOY_VERSION=$CI_BUILD_TAG; fi;
+    - export DEPLOY_VERSION
+    - ansible-playbook .ansible-deploy.yml
+  only:
+    - test
+
 sync_github:
   stage: sync
   image: docker:1.12.1-git
   script:
    - git fetch --prune
-   - git push --prune git@github.com:hartcode/hartcode.com.git +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/* 
+   - git push --prune git@github.com:hartcode/hartcode.com.git +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*

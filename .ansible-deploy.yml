@@ -3,6 +3,7 @@
   remote_user: hartalex
   vars:
    local_deploy_version: "{{ lookup('env','DEPLOY_VERSION') }}"
+   port: "{{ lookup('env','PORT') }}"
   tasks:
     - name: get latest container
       become: true
@@ -17,4 +18,4 @@
         recreate: yes
         restart_policy: always
         ports:
-          8811:8811
+          "{{port}}:8811"
