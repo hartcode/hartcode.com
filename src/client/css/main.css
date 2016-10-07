@@ -96,6 +96,13 @@ h2, h3 {
   width: 24px;
   height: 24px;
 }
+.index .body .products {
+  background-image: url('../images/productsMedium.png');
+}
+
+.index .body .hire {
+  background-image: url('../images/hireMedium.png');
+  }
 }
 
 @media only screen and (max-device-width: 300px),only screen and (max-width: 300px) {
@@ -134,4 +141,11 @@ h2, h3 {
   width: 16px;
   height: 16px;
 }
+.index .body .products {
+  background-image: url('../images/productsSmall.png');
+}
+
+.index .body .hire {
+  background-image: url('../images/hireSmall.png');
+  }
 }
