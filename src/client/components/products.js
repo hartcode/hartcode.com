@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
+import zombiehunterdownload from '../files/zombie-hunter.zip';
 import zombiehunterimage from '../images/zombie-hunter.gif';
 export function renderRoot() {
     return (
@@ -23,7 +24,7 @@ export function renderRoot() {
         </p>
         <p>Zobmie Hunter 100 is a nostalgic text-based action adventure game.</p>
         <p>Explore explorations, Quest quests, and Achieve achievements.</p>
-        <p>DEMO to be released on 12/25/2016.</p>
+        <p>DEMO is available now <a href={zombiehunterdownload}>Zombie-hunter</a></p>
 
         <img src={zombiehunterimage} />
       </div>

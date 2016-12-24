@@ -47,7 +47,7 @@ module.exports = {
               loaders: ['file?name=favicon.ico']
             },
             {
-              test: /.*\.(ttf|eot|woff|woff2)$/i,
+              test: /.*\.(ttf|eot|woff|woff2|zip)$/i,
               loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]']
             },
             {
