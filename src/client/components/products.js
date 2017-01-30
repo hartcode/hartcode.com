@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './header.js';
 import Footer from './footer.js';
-import zombiehunterdownload from '../files/zombie-hunter.zip';
 import zombiehunterimage from '../images/zombie-hunter.gif';
 export function renderRoot() {
     return (
@@ -10,9 +9,9 @@ export function renderRoot() {
       <div className="body">
         <h1>Products</h1>
         <p>
-          We are currently working on our first title called "Zombie Hunter 100".
+          We are currently working on our first title called "Zombie Hunter 1000".
         </p>
-        <h2>Zombie Hunter 100</h2>
+        <h2>Zombie Hunter 1000</h2>
         <p>
         The human race has fallen to a zombie apocalypse.
 
@@ -22,9 +21,8 @@ export function renderRoot() {
         With the humans gone, the Artificial Intelligence created 'Zombie Hunter' class robots to deliver the cure to the humans.
         As a Zombie Hunter it's up to YOU to save humanity.
         </p>
-        <p>Zobmie Hunter 100 is a nostalgic text-based action adventure game.</p>
+        <p>Zombie Hunter 1000 is a nostalgic text-based action adventure game.</p>
         <p>Explore explorations, Quest quests, and Achieve achievements.</p>
-        <p>DEMO is available now <a href={zombiehunterdownload}>Zombie-hunter</a></p>
 
         <img src={zombiehunterimage} />
       </div>
