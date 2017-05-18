@@ -1,14 +1,14 @@
-import React from 'react';
-import Header from './header.js';
-import Footer from './footer.js';
-import alex from '../images/alex.png';
-import SocialMenu from './menu/social/social-menu.js';
+import React from 'react'
+import Header from './header.js'
+import Footer from './footer.js'
+import alex from '../images/alex.png'
+import SocialMenu from './menu/social/social-menu.js'
 
-export function renderRoot() {
-  var github = {username:"hartalex",dark:"true"};
-  var facebook = {username:"alexander.hart7"};
-  var twitter = {username:"hartalex0"};
-    return (
+export function renderRoot () {
+  var github = {username: 'hartalex', dark: 'true'}
+  var facebook = {username: 'alexander.hart7'}
+  var twitter = {username: 'hartalex0'}
+  return (
       <div>
       <Header/>
       <div className="body">
@@ -31,4 +31,5 @@ export function renderRoot() {
       </div>
       <Footer/>
       </div>
-    );}
+  )
+}

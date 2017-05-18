@@ -1,9 +1,9 @@
-import React from 'react';
-import Header from './header.js';
-import Footer from './footer.js';
-import zombiehunterimage from '../images/zombie-hunter.gif';
-export function renderRoot() {
-    return (
+import React from 'react'
+import Header from './header.js'
+import Footer from './footer.js'
+import zombiehunterimage from '../images/zombie-hunter.gif'
+export function renderRoot () {
+  return (
       <div>
       <Header/>
       <div className="body">
@@ -28,4 +28,5 @@ export function renderRoot() {
       </div>
       <Footer/>
       </div>
-    );}
+  )
+}

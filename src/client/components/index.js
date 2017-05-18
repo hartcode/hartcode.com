@@ -1,9 +1,9 @@
-import React from 'react';
-import Header from './header.js';
-import Footer from './footer.js';
+import React from 'react'
+import Header from './header.js'
+import Footer from './footer.js'
 
-export function renderRoot() {
-    return (
+export function renderRoot () {
+  return (
       <div>
       <Header/>
       <div className="body">
@@ -14,4 +14,5 @@ export function renderRoot() {
       </div>
       <Footer/>
       </div>
-   );}
+  )
+}

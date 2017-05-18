@@ -1,11 +1,10 @@
-import React from 'react';
-import SocialMenu from './menu/social/social-menu.js';
+import React from 'react'
+import SocialMenu from './menu/social/social-menu.js'
 export default class Footer extends React.Component {
-
-  render() {
-  var github = {username:"hartcode"};
-  var facebook = {username:"hartcodellc"};
-  var twitter = {username:"hartcode"};
+  render () {
+    var github = {username: 'hartcode'}
+    var facebook = {username: 'hartcodellc'}
+    var twitter = {username: 'hartcode'}
     return (
       <div className="footer">
         <ul className="menu">
@@ -15,6 +14,6 @@ export default class Footer extends React.Component {
         </ul>
         <SocialMenu facebook={facebook} twitter={twitter} github={github} />
       </div>
-    );
+    )
   }
 }
