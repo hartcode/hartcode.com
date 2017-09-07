@@ -1,0 +1,3 @@
+sudo docker build -t hartcode .
+sudo docker rm -f hartcode
+sudo docker run --name hartcode --restart always -d -p 8811 --network="host" hartcode
