@@ -1,16 +1,15 @@
 cache:
   directories:
     - "$HOME/google-cloud-sdk/"
+    - node_modules
 language: node_js
 node_js:
 - node
 script:
-        #- yarn run lint
-        #- yarn run build
-- openssl md5 client-secret.json
+- yarn run lint
+- yarn run build
 - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv
    -in client-secret.json.enc -out client-secret.json -d 
-- openssl md5 client-secret.json
   # If the SDK is not already cached, download it and unpack it
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then
   rm -rf $HOME/google-cloud-sdk;
