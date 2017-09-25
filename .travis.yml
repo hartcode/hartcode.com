@@ -5,16 +5,18 @@ language: node_js
 node_js:
 - node
 script:
-- yarn run lint
-- yarn run build
+        #- yarn run lint
+        #- yarn run build
+- openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv
+   -in client-secret.json.enc -out client-secret.json -d 
   # If the SDK is not already cached, download it and unpack it
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then
   rm -rf $HOME/google-cloud-sdk;
   export CLOUDSDK_CORE_DISABLE_PROMPTS=1;
   curl https://sdk.cloud.google.com | bash;
   fi
-- docker build -t gcr.io/hartonline-cloud/hartcode.com-$TRAVIS_BRANCH:$TRAVIS_COMMIT .
 - gcloud auth activate-service-account --key-file client-secret.json
+- docker build -t gcr.io/hartonline-cloud/hartcode.com-$TRAVIS_BRANCH:$TRAVIS_COMMIT .
 - gcloud docker push gcr.io/hartonline-cloud/hartcode.com-$TRAVIS_BRANCH:$TRAVIS_COMMIT
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
@@ -24,6 +26,3 @@ addons:
 after_success:
 - npm install -g codeclimate-test-reporter
 - codeclimate-test-reporter < lcov.info
-dd:
-- openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv
-  -in client-secret.json.enc -out client-secret.json -d
