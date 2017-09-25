@@ -6,6 +6,8 @@ script:
 - yarn run build
   # If the SDK is not already cached, download it and unpack it
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then
+  rm -rf $HOME/google-cloud-sdk;
+  export CLOUDSDK_CORE_DISABLE_PROMPTS=1;
   curl https://sdk.cloud.google.com | bash;
   fi
 - docker build -t . gcr.io/hartonline-cloud/hartcode.com-$TRAVIS_BRANCH:$TRAVIS_COMMIT
