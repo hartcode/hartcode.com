@@ -7,8 +7,10 @@ node_js:
 script:
         #- yarn run lint
         #- yarn run build
+- openssl md5 client-secret.json
 - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv
    -in client-secret.json.enc -out client-secret.json -d 
+- openssl md5 client-secret.json
   # If the SDK is not already cached, download it and unpack it
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then
   rm -rf $HOME/google-cloud-sdk;
@@ -17,7 +19,7 @@ script:
   fi
 - gcloud auth activate-service-account --key-file client-secret.json
 - docker build -t gcr.io/hartonline-cloud/hartcode.com:$TRAVIS_BRANCH-$TRAVIS_TAG-$TRAVIS_COMMIT .
-- gcloud docker push gcr.io/hartonline-cloud/hartcode.com:$TRAVIS_BRANCH-$TRAVIS_TAG-$TRAVIS_COMMIT
+- gcloud docker -- push gcr.io/hartonline-cloud/hartcode.com:$TRAVIS_BRANCH-$TRAVIS_TAG-$TRAVIS_COMMIT
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
