@@ -4,6 +4,13 @@ node_js:
 script:
 - yarn run lint
 - yarn run build
+  # If the SDK is not already cached, download it and unpack it
+- if [ ! -d ${HOME}/google-cloud-sdk ]; then
+  curl https://sdk.cloud.google.com | bash;
+  fi
+- docker build -t . gcr.io/hartonline-cloud/hartcode.com-$TRAVIS_BRANCH:$TRAVIS_COMMIT
+- gcloud auth activate-service-account --key-file client-secret.json
+- gcloud docker push gcr.io/hartonline-cloud/hartcode.com-$TRAVIS_BRANCH:$TRAVIS_COMMIT
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
