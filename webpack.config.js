@@ -2,14 +2,18 @@ const webpack = require('webpack');
 const path = require('path');
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new ExtractTextPlugin("style.css"),
-      new webpack.optimize.UglifyJsPlugin(),
-      new webpack.optimize.DedupePlugin(),
-      new CommonsChunkPlugin("commons.js",["index","contact","about","careers","hire","products","privacy","termsofuse","enduserlicenseagreement"])
+      new UglifyJSPlugin(),
+      new CommonsChunkPlugin(
+	      { name: 'commons',
+	chunks: ['index', 'contact', 'about', 'careers', 'hire', 'products', 'privacy', 'termsofuse', 'enduserlicenseagreement'],
+        filename: 'commons.js'
+      })
     ],
     entry: {
       index: "./src/client/index.js",
@@ -36,28 +40,28 @@ module.exports = {
         loaders: [
             {
               test: /\.css$/,
-              loader: ExtractTextPlugin.extract("style-loader","css-loader!resolve-url-loader")
+              loader: ExtractTextPlugin.extract({fallback: "style-loader", use:"css-loader!resolve-url-loader"})
             },
             {
               test: /.*\.(gif|png|jpe?g|svg)$/i,
-              loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]']
+              loaders: ['file-loader?hash=sha512&digest=hex&name=[hash].[ext]']
             },
             {
               test: /.*favicon\.(ico)$/i,
-              loaders: ['file?name=favicon.ico']
+              loaders: ['file-loader?name=favicon.ico']
             },
             {
               test: /.*\.(ttf|eot|woff|woff2|zip)$/i,
-              loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]']
+              loaders: ['file-loader?hash=sha512&digest=hex&name=[hash].[ext]']
             },
             {
               test: /\.js$/,
               exclude: /(node_modules)/,
-              loader: 'babel', // 'babel-loader' is also a valid name to reference
-              query: {
-              presets: ['latest']
+              loader: 'babel-loader',
+		    options: {
+			    presets: ['react']
+		    }
             }
-        }
         ]
     }
 };
