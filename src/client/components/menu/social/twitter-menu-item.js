@@ -5,7 +5,7 @@ export default class TwitterMenuItem extends React.Component {
   render () {
     var url = 'https://twitter.com/' + this.props.username
     return (
-          <SocialMenuItem url={url} image={twitter}/>
+      <SocialMenuItem url={url} image={twitter}/>
     )
   }
 }

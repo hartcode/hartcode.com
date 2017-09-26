@@ -10,7 +10,7 @@ export default class FacebookMenuItem extends React.Component {
       image = github
     }
     return (
-          <SocialMenuItem url={url} image={image}/>
+      <SocialMenuItem url={url} image={image}/>
     )
   }
 }

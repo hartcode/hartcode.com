@@ -4,7 +4,7 @@ import Footer from './footer.js'
 
 export function renderRoot () {
   return (
-      <div>
+    <div>
       <Header/>
       <div className="body">
         <h1>Hire Us</h1>
@@ -19,6 +19,6 @@ export function renderRoot () {
         </p>
       </div>
       <Footer/>
-      </div>
+    </div>
   )
 }

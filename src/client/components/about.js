@@ -9,7 +9,7 @@ export function renderRoot () {
   var facebook = {username: 'alexander.hart7'}
   var twitter = {username: 'hartalex0'}
   return (
-      <div>
+    <div>
       <Header/>
       <div className="body">
         <h1>About Us</h1>
@@ -30,6 +30,6 @@ export function renderRoot () {
         </p>
       </div>
       <Footer/>
-      </div>
+    </div>
   )
 }

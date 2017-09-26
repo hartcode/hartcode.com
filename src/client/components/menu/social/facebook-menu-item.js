@@ -5,7 +5,7 @@ export default class FacebookMenuItem extends React.Component {
   render () {
     var url = 'https://facebook.com/' + this.props.username
     return (
-          <SocialMenuItem url={url} image={facebook}/>
+      <SocialMenuItem url={url} image={facebook}/>
     )
   }
 }

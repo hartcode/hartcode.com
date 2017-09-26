@@ -4,7 +4,7 @@ import Footer from './footer.js'
 import zombiehunterimage from '../images/zombie-hunter.gif'
 export function renderRoot () {
   return (
-      <div>
+    <div>
       <Header/>
       <div className="body">
         <h1>Products</h1>
@@ -27,6 +27,6 @@ export function renderRoot () {
         <img src={zombiehunterimage} />
       </div>
       <Footer/>
-      </div>
+    </div>
   )
 }
