@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact-compat'
 import githublight from '../../../images/githublight.png'
 import github from '../../../images/github.png'
 import SocialMenuItem from './social-menu-item.js'

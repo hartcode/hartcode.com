@@ -1,7 +1,7 @@
 import '../../node_modules/jquery/src/jquery.js'
 import '../../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import { renderRoot } from './components/privacy.js'
-import { render } from 'react-dom'
+import { render } from 'preact-compat'
 import Analytics from './components/analytics.js'
 Analytics.analytics()
 

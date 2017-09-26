@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact-compat'
 import FacebookMenuItem from './facebook-menu-item.js'
 import TwitterMenuItem from './twitter-menu-item.js'
 import GithubMenuItem from './github-menu-item.js'

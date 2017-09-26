@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact-compat'
 import logo from '../images/logo.png'
 export default class Header extends React.Component {
   render () {

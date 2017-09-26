@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact-compat'
 import facebook from '../../../images/facebook.png'
 import SocialMenuItem from './social-menu-item.js'
 export default class FacebookMenuItem extends React.Component {

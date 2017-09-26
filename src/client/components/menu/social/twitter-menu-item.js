@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact-compat'
 import twitter from '../../../images/twitter.png'
 import SocialMenuItem from './social-menu-item.js'
 export default class TwitterMenuItem extends React.Component {

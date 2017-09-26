@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact-compat'
 import Header from './header.js'
 import Footer from './footer.js'
 import alex from '../images/alex.png'

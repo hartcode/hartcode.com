@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'preact-compat'
 import SocialMenu from './menu/social/social-menu.js'
 export default class Footer extends React.Component {
   render () {
