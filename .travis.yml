@@ -12,7 +12,7 @@ services:
 node_js:
 - node
 before_install:
-  - pip install ansible
+  - pip install ansible --user
 script:
 - npm run lint
 - npm run build
