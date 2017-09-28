@@ -7,7 +7,7 @@ if [ $TRAVIS_BRANCH == 'prod' ] || [ $TRAVIS_BRANCH == $TRAVIS_TAG ]; then
     curl https://sdk.cloud.google.com | bash;
   fi;
   gcloud auth activate-service-account --key-file client-secret.json;
-  docker build --build-arg TRAVIS_COMMIT=$TRAVIS_COMMIT --build-arg TRAVIS_TAG=$TRAVIS_BRANCH -t gcr.io/hartonline-cloud/$1:$TRAVIS_BRANCH-$TRAVIS_COMMIT .;
+  docker build --build-arg COMMIT=$TRAVIS_COMMIT --build-arg TAG=$TRAVIS_BRANCH -t gcr.io/hartonline-cloud/$1:$TRAVIS_BRANCH-$TRAVIS_COMMIT .;
   gcloud docker -- push gcr.io/hartonline-cloud/$1:$TRAVIS_BRANCH-$TRAVIS_COMMIT;
 else
   echo "Branch not allowed to push to cloud repo"

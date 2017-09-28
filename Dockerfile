@@ -1,6 +1,8 @@
 FROM mhart/alpine-node:8
-ENV COMMIT ${TRAVIS_COMMIT}
-ENV TAG ${TRAVIS_TAG}
+ARG COMMIT=local
+ARG TAG=local
+ENV COMMIT ${COMMIT}
+ENV TAG ${TAG}
 ENV NODE_ENV production
 RUN mkdir -p /root/hartcode.com/build
 COPY ./build /root/hartcode.com/build
