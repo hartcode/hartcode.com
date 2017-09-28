@@ -8,6 +8,10 @@ services:
   - docker
 node_js:
 - node
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y python3-pip
+  - pip install ansible
 script:
 - npm run lint
 - npm run build
@@ -22,3 +26,6 @@ after_success:
 - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv
    -in client-secret.json.enc -out client-secret.json -d 
 - ./deployToGCS.sh hartcode.com
+- openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in ansible.enc -out ansible -d
+- openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in ansible.enc -out ansible.pub -d
+- ansible-playbook -i inventory.yml .ansible-deploy.yml
