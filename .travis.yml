@@ -3,15 +3,15 @@ cache:
   directories:
     - "$HOME/google-cloud-sdk/"
     - node_modules
-language: node_js
+language: 
+  - node_js
+  - python
+python: 2.7
 services:
   - docker
 node_js:
 - node
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y python-apt
-  - python --version
   - pip install ansible
 script:
 - npm run lint
