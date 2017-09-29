@@ -7,24 +7,37 @@ language:
   - node_js
   - python
 python: 2.7
+stages:
+  - build
+  - test
+  - name: deploy
+    if: branch = prod
+env:
+  - port: 8811
 services:
   - docker
 node_js:
 - node
-before_install:
-  - pip install ansible --user
-script:
-- npm run lint
-- npm run build
+jobs:
+  include:
+    - stage: build
+      script:
+        - npm run build
+    - stage: test 
+      script:
+        - npm run lint
+          # - npm install -g codeclimate-test-reporter
+          # - codeclimate-test-reporter < lcov.info
+    - stage: deploy
+      script:
+        - npm run build
+        - pip install ansible --user
+        - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in secrets.tar.enc -out secrets.tar -d
+        - tar xvf secrets.tar
+        - ./deployToGCS.sh hartcode.com
+        - ./deployAnsible.sh
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
   code_climate:
     repo_token: 11ca02b88df3885339c43642e739969e72ad77ab864650018fd6c1c9bdcb5cb0
-after_success:
-- npm install -g codeclimate-test-reporter
-- codeclimate-test-reporter < lcov.info
-- openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in secrets.tar.enc -out secrets.tar -d
-- tar xvf secrets.tar 
-- ./deployToGCS.sh hartcode.com
-- ./deployAnsible.sh
