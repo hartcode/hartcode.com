@@ -30,6 +30,8 @@ after_success:
 - export ANSIBLE_HOST_KEY_CHECKING=False
 - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in ansible.enc -out ansible -d
 - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in ansible.pub.enc -out ansible.pub -d  
+- openssl dgst -md5 ansible
+- openssl dgst -md5 ansible.pub
 - chmod 400 ansible
 - ssh-add ansible
 - ansible-playbook -i inventory.yml .ansible-deploy.yml
