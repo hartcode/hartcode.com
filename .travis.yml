@@ -9,7 +9,7 @@ language:
 python: 2.7
 stages:
   - name: update_depends
-    if: type IN (cron, push)
+    if: type IN (cron)
   - name: build
     if: type IN (push, pull_request)
   - name: deploy
