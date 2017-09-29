@@ -12,8 +12,6 @@ stages:
   - test
   - name: deploy
     if: branch = prod
-env:
-  - port: 8811
 services:
   - docker
 node_js:
