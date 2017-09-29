@@ -36,8 +36,9 @@ jobs:
         - ./deployAnsible.sh
     - stage: update_depends
       script:
-        - npm -p outdated | cut -d: -f4 | xargs -n1 npm install
-        - npm install
+        - cut --help
+        - xargs --help
+        - ./updateDepends.sh
         - npm run lint
         - npm run build
       after_success:
