@@ -2,7 +2,7 @@
 - hosts: hartweb.cloud.hartcode.com
   remote_user: hartalex
   vars:
-   port: "{{ lookup('env','PORT') }}"
+   myport: "{{ lookup('env','PORT') }}"
    commit: "{{ lookup('env', 'TRAVIS_COMMIT') }}"
    tag: "{{ lookup('env', 'TRAVIS_BRANCH') }}"
   tasks:
@@ -19,10 +19,10 @@
         recreate: yes
         restart_policy: always
         ports:
-          "{{port}}:8811"
+          "{{myport}}:8811"
     - wait_for: timeout=5
     - name: Get JSON from page
-      uri: url="http://127.0.0.1:{{port}}/info" return_content=yes
+      uri: url="http://127.0.0.1:{{myport}}/info" return_content=yes
       register: json_response
     - name: Validate commit
       fail: msg="The commits don't match"
