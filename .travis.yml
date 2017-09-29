@@ -29,6 +29,6 @@ after_success:
 - ./deployToGCS.sh hartcode.com
 - export ANSIBLE_HOST_KEY_CHECKING=False
 - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in ansible.enc -out ansible -d
-- openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in ansible.enc -out ansible.pub -d
+- openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in ansible.pub.enc -out ansible.pub -d
 - chmod 400 ansible
-- /dev/null | ansible-playbook -i inventory.yml .ansible-deploy.yml
+- ansible-playbook -i inventory.yml .ansible-deploy.yml
