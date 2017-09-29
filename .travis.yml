@@ -8,7 +8,10 @@ language:
   - python
 python: 2.7
 stages:
-  - build
+  - name: update_depends
+    if: type = cron
+  - name: build
+    if: type IN (push, pull_request)
   - name: deploy
     if: branch IN (test, prod)
 services:
@@ -31,6 +34,19 @@ jobs:
         - tar xvf secrets.tar
         - ./deployToGCS.sh hartcode.com
         - ./deployAnsible.sh
+    - stage: update_depends
+      script:
+        - npm -gp outdated | cut -d: -f4 | xargs -n1 npm -g install
+        - npm install
+        - npm run lint
+        - npm run build
+      after_success:
+        - git config --global user.email "travis@travis-ci.org"
+          git config --global user.name "Travis CI"
+        - git add package.json
+        - git commit -m "Cron Auto Updated Dependencies"
+        - git push
+
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
