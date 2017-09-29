@@ -36,8 +36,6 @@ jobs:
         - ./deployAnsible.sh
     - stage: update_depends
       script:
-        - cut --help
-        - xargs --help
         - ./updateDepends.sh
         - npm run lint
         - npm run build

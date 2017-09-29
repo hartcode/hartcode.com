@@ -8,7 +8,6 @@ module.exports = {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new ExtractTextPlugin("style.css"),
-      new UglifyJSPlugin(),
       new CommonsChunkPlugin(
 	      { name: 'commons',
 	chunks: ['index', 'contact', 'about', 'careers', 'hire', 'products', 'privacy', 'termsofuse', 'enduserlicenseagreement'],
@@ -59,7 +58,7 @@ module.exports = {
               exclude: /(node_modules)/,
               loader: 'babel-loader',
 		    options: {
-			    presets: ['react']
+			    presets: ['react','minify']
 		    }
             }
         ]
