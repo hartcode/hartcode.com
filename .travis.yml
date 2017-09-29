@@ -44,7 +44,7 @@ jobs:
           git config --global user.name "Travis CI"
         - git add package.json
         - git commit -m "Cron Auto Updated Dependencies"
-        - git push
+        - git push origin HEAD:master
 
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
