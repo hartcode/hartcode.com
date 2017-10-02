@@ -8,7 +8,6 @@ module.exports = {
     plugins: [
       new webpack.HotModuleReplacementPlugin(),
       new ExtractTextPlugin("style.css"),
-      new UglifyJSPlugin(),
       new CommonsChunkPlugin(
 	      { name: 'commons',
 	chunks: ['index', 'contact', 'about', 'careers', 'hire', 'products', 'privacy', 'termsofuse', 'enduserlicenseagreement'],
@@ -37,29 +36,44 @@ module.exports = {
         filename: "[name].js"
     },
     module: {
-        loaders: [
+        rules: [
             {
               test: /\.css$/,
               loader: ExtractTextPlugin.extract({fallback: "style-loader", use:"css-loader!resolve-url-loader"})
             },
             {
               test: /.*\.(gif|png|jpe?g|svg)$/i,
-              loaders: ['file-loader?hash=sha512&digest=hex&name=[hash].[ext]']
+              use: [
+		      {
+			      loader: 'file-loader',
+			      options: {}
+		      }
+	      ]
             },
             {
               test: /.*favicon\.(ico)$/i,
-              loaders: ['file-loader?name=favicon.ico']
+              use: [
+		      {
+			      loader: 'file-loader',
+			      options: {name:'favicon.ico'}
+		      }
+	      ]
             },
             {
               test: /.*\.(ttf|eot|woff|woff2|zip)$/i,
-              loaders: ['file-loader?hash=sha512&digest=hex&name=[hash].[ext]']
+              use: [
+		      {
+			      loader: 'file-loader',
+			      options: {}
+		      }
+	      ]
             },
             {
               test: /\.js$/,
               exclude: /(node_modules)/,
               loader: 'babel-loader',
 		    options: {
-			    presets: ['react']
+			    presets: ['react','minify']
 		    }
             }
         ]
