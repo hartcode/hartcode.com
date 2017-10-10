@@ -44,7 +44,7 @@ jobs:
         - git config --global user.email "travis@travis-ci.org"
         - git config --global user.name "Travis CI"
         - git add package.json
-        - git commit -m "Cron Auto Updated Dependencies"
+        - git commit -m "Cron Auto Updated Dependencies [ci skip]"
         - tar xvf secrets.tar
         - chmod 400 travis
         - eval "$(ssh-agent -s)"
