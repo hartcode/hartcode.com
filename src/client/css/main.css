@@ -60,6 +60,8 @@ li {padding-left:10px;padding-right:10px;}
   height: 32px;
 }
 
+.body ul li {text-align:left;}
+
 @media only screen and (max-device-width: 450px),only screen and (max-width: 450px) {
 .header img {
   width: 90px;
@@ -148,4 +150,6 @@ h2, h3 {
 .index .body .hire {
   background-image: url('../images/hireSmall.png');
   }
+
+
 }

@@ -3,7 +3,7 @@
 if [ $TRAVIS_BRANCH == 'prod' ] || [ $TRAVIS_BRANCH == $TRAVIS_TAG ]; then
   export PORT=8811
 fi
-if [ $TRAVIS_BRANCH == 'test' ] || [ $TRAVIS_BRANCH == $TRAVIS_TAG ]; then
+if [ $TRAVIS_BRANCH == 'test' ]; then
   export PORT=8711
 fi
 export ANSIBLE_HOST_KEY_CHECKING=False
