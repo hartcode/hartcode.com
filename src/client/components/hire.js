@@ -15,6 +15,15 @@ export function renderRoot () {
           We wear many hats and are available to Code, Create, Write, or Design anything you might need.
         </p>
         <p>
+          We occasionally post videos of things we are working on <a href="https://www.youtube.com/user/hartac83/">Youtube</a>.
+        </p>
+        <p>
+          Also we have 3D art up on <a href="https://sketchfab.com/hartalex">Sketchfab</a>.
+        </p>
+        <p>
+          Checkout our open source repositories at <a href="https://github.com/hartalex/">Github</a>.
+        </p>
+        <p>
           Send us an email at <a href="mailto:contact@hartcode.com">contact@hartcode.com</a>.
         </p>
       </div>
