@@ -3,6 +3,8 @@ import Header from './header.js'
 import Footer from './footer.js'
 import treasurefighterimage from '../images/TreasureFighter.gif'
 import soyouwanttobuildasnowmanimage from '../images/soyouwanttobuildasnowmanimage.png'
+import moneydropimage from '../images/moneydropimage.png'
+import zomboneimage from '../images/zomboneimage.png'
 export function renderRoot () {
   return (
     <div>
@@ -41,6 +43,22 @@ export function renderRoot () {
           <li>Uses Standard FPS controls - Mouse Look, WASD movement</li>
           <li>Open Source - if you find a bug please post an issue on github <a href='https://github.com/hartalex/soyouwanttobuildasnowman'>https://github.com/hartalex/soyouwanttobuildasnowman</a></li>
           <li>This game was created during Ludum Dare 38. ldjam.com</li>
+        </ul>
+        <h2>Money Drop</h2>
+        <img src={moneydropimage} />
+        <p>
+          <a href='https://alexhart.itch.io/money-drop'>https://alexhart.itch.io/so-you-want-to-build-a-snowman</a>
+        </p>
+        <p></p>
+        <ul>
+        </ul>
+        <h2>Zombone</h2>
+        <img src={zomboneimage} />
+        <p>
+          <a href='https://alexhart.itch.io/zombone'>https://alexhart.itch.io/so-you-want-to-build-a-snowman</a>
+        </p>
+        <p></p>
+        <ul>
         </ul>
       </div>
       <Footer/>
