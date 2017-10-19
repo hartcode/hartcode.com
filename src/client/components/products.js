@@ -49,16 +49,19 @@ export function renderRoot () {
         <p>
           <a href='https://alexhart.itch.io/money-drop'>https://alexhart.itch.io/so-you-want-to-build-a-snowman</a>
         </p>
-        <p></p>
+        <p>Catch as much money as you can while avoiding the bombs.</p>
         <ul>
+          <li>See who can get the highest score</li>
         </ul>
         <h2>Zombone</h2>
         <img src={zomboneimage} />
         <p>
           <a href='https://alexhart.itch.io/zombone'>https://alexhart.itch.io/so-you-want-to-build-a-snowman</a>
         </p>
-        <p></p>
+        <p>You are alone in a graveyard trying to survive a zombie attack.</p>
         <ul>
+          <li>Zombies!</li>
+          <li>See who can get the highest score</li>
         </ul>
       </div>
       <Footer/>
