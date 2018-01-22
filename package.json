@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/hartcode/hartcode.com/",
   "dependencies": {
-    "bootstrap": "3.3.7",
+    "bootstrap": "^4.0.0",
     "ejs": "2.5.7",
     "express": "^4.16.2",
     "jquery": "^3.2.1",
@@ -49,7 +49,8 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "image-webpack-loader": "3.4.2",
-    "mocha": "^4.1.0",
+    "mocha": "^5.0.0",
+    "popper.js": "^1.12.9",
     "resolve-url-loader": "^2.2.1",
     "rimraf": "2.6.2",
     "style-loader": "^0.19.1",

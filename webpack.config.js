@@ -44,7 +44,7 @@ module.exports = {
         rules: [
             {
               test: /\.css$/,
-              loader: ExtractTextPlugin.extract({fallback: "style-loader", use:"css-loader!resolve-url-loader"})
+              use: ['style-loader', 'css-loader']
             },
             {
               test: /.*\.(gif|png|jpe?g|svg)$/i,
