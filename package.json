@@ -27,7 +27,7 @@
     "jquery": "^3.2.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "serve-static": "^1.13.1"
+    "serve-static": "^1.13.2"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
