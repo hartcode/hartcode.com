@@ -2,6 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/hartcode/hartcode.com/badges/gpa.svg)](https://codeclimate.com/github/hartcode/hartcode.com)
 [![Test Coverage](https://codeclimate.com/github/hartcode/hartcode.com/badges/coverage.svg)](https://codeclimate.com/github/hartcode/hartcode.com/coverage)
 ![Dependencies](https://david-dm.org/hartcode/hartcode.com.svg)
+[![NSP Status](https://nodesecurity.io/orgs/hartalex/projects/eb594eb5-a06a-40b3-bdbb-852143adcd02/badge)](https://nodesecurity.io/orgs/hartalex/projects/eb594eb5-a06a-40b3-bdbb-852143adcd02)
 # Hartcode Website
 The source code for hartcode.com.
 
