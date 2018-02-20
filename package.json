@@ -1,6 +1,6 @@
 {
   "name": "hartcode",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "hartcode llc website",
   "scripts": {
     "clean": "rimraf build",
@@ -44,10 +44,10 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-node": "^6.0.0",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-react": "^7.6.0",
+    "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "3.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.7",
+    "file-loader": "^1.1.8",
     "image-webpack-loader": "^4.1.0",
     "mocha": "^5.0.1",
     "popper.js": "^1.12.9",
