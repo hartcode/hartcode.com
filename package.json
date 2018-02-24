@@ -1,6 +1,6 @@
 {
   "name": "hartcode",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "hartcode llc website",
   "scripts": {
     "clean": "rimraf build",
@@ -54,7 +54,7 @@
     "resolve-url-loader": "^2.2.1",
     "rimraf": "2.6.2",
     "style-loader": "^0.20.2",
-    "uglifyjs-webpack-plugin": "^1.2.1",
+    "uglifyjs-webpack-plugin": "^1.2.2",
     "url-loader": "^0.6.2",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.0",
