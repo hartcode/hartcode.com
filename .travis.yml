@@ -3,7 +3,7 @@ cache:
   directories:
     - "$HOME/google-cloud-sdk/"
     - node_modules
-language: 
+language:
   - node_js
   - python
 python: 2.7
@@ -22,34 +22,15 @@ jobs:
   include:
     - stage: build
       script:
-        - npm run lint
-          # - npm install -g codeclimate-test-reporter
-          # - codeclimate-test-reporter < lcov.info
-        - npm run build
+        - ./build.sh
     - stage: deploy
       script:
-        - npm run build
-        - pip install ansible --user
-        - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in secrets.tar.enc -out secrets.tar -d
-        - tar xvf secrets.tar
-        - ./deployToGCS.sh hartcode.com
-        - ./deployAnsible.sh
+        - ./deploy.sh
     - stage: update_depends
       script:
-        - ./updateDepends.sh
-        - npm run lint
-        - npm run build
+        - ./update.sh
       after_success:
-        - openssl aes-256-cbc -K $encrypted_3b5afcaadad7_key -iv $encrypted_3b5afcaadad7_iv -in secrets.tar.enc -out secrets.tar -d
-        - git config --global user.email "travis@travis-ci.org"
-        - git config --global user.name "Travis CI"
-        - tar xvf secrets.tar
-        - chmod 400 travis
-        - eval "$(ssh-agent -s)"
-        - ssh-add travis
-        - git remote add deploy git@github.com:hartcode/hartcode.com.git
-        - npm version patch -f -m "%s - Cron Auto Update Dependencies [ci skip]"
-        - git push deploy HEAD:master
+        - ./commit.sh
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
