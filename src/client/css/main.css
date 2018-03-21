@@ -11,7 +11,7 @@ body {background-color: black; min-width:220px;}
 .menu { color: white;}
 
 .footer img { border-radius:50%;}
-.company-title {float:left; padding-top:40px;}
+.company-title {float:left;}
 .company-title h2 {margin-top:0px}
 .header img {float:left;}
 
@@ -67,7 +67,7 @@ li {padding-left:10px;padding-right:10px;}
   width: 90px;
   height: 90px;
 }
-.company-title {padding-top:20px;}
+
 .company-title h1, .company-title h2 {
   font-size: 150%;
 }
@@ -107,12 +107,11 @@ h2, h3 {
   }
 }
 
-@media only screen and (max-device-width: 300px),only screen and (max-width: 300px) {
+@media only screen and (max-device-width: 330),only screen and (max-width: 330px) {
 .header img {
   width: 45px;
   height: 45px;
 }
-.company-title {padding-top:10px;}
 .company-title h1, .company-title h2 {
   font-size: 100%;
 }
@@ -150,6 +149,8 @@ h2, h3 {
 .index .body .hire {
   background-image: url('../images/hireSmall.png');
   }
+}
 
-
+.bg-dark {
+  background-color: #000!important;
 }

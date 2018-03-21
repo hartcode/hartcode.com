@@ -1,6 +1,8 @@
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   plugins: [
@@ -20,7 +22,7 @@ module.exports = {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
+          name: 'common',
           chunks: 'all'
         }
       }
@@ -38,13 +40,9 @@ module.exports = {
     enduserlicenseagreement: './src/client/end-user-license-agreement.js',
     style: [
       './node_modules/bootstrap/dist/css/bootstrap.min.css',
-      './src/client/css/main.css',
-      './src/client/css/navbar.css'
+      './src/client/css/main.css'
     ],
-    favicon: './src/client/images/favicon.ico',
-    vendors: [
-      'bootstrap'
-    ]
+    favicon: './src/client/images/favicon.ico'
   },
   output: {
     path: path.join(__dirname, '/build/client'),
