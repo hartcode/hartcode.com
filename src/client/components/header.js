@@ -1,31 +1,27 @@
 import React from 'react'
+import '../../../node_modules/jquery/src/jquery.js'
+import '../../../node_modules/bootstrap/dist/js/bootstrap.min.js'
+import '../../../node_modules/popper.js/dist/popper.min.js'
 import logo from '../images/logo.png'
 export default class Header extends React.Component {
   render () {
     return (
       <div className="header">
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-collapse" aria-expanded="false">
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-              </button>
-              <img src={ logo } width="180" height="180"/>
-              <div className="company-title">
-                <h1>HartCode</h1>
-                <h2>Game Studio</h2>
-              </div>
-            </div>
-            <div className="collapse navbar-collapse" id="menu-collapse">
-              <ul className="nav navbar-nav navbar-right">
-                <li className="li-products"><a href="/products">Products</a></li>
-                <li className="li-hire"><a href="/hire">Hire Us</a></li>
-                <li className="li-about"><a href="/about">About HartCode</a></li>
-              </ul>
-            </div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <img src={ logo } width="180" height="180"/>
+          <div className="company-title mr-auto">
+            <h1>HartCode</h1>
+            <h2>Game Studio</h2>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li className="nav-item"><a className="nav-link" href="/products">Products</a></li>
+              <li className="nav-item"><a className="nav-link" href="/hire">Hire Us</a></li>
+              <li className="nav-item"><a className="nav-link" href="/about">About</a></li>
+            </ul>
           </div>
         </nav>
       </div>
