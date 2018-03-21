@@ -1,6 +1,4 @@
 import React from 'react'
-import '../../../node_modules/jquery/src/jquery.js'
-import '../../../node_modules/bootstrap/dist/js/bootstrap.min.js'
 import logo from '../images/logo.png'
 export default class Header extends React.Component {
   render () {
