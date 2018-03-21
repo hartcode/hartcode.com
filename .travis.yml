@@ -22,15 +22,15 @@ jobs:
   include:
     - stage: build
       script:
-        - ./build.sh
+        - ./scripts/build.sh
     - stage: deploy
       script:
-        - ./deploy.sh
+        - ./scripts/deploy.sh
     - stage: update_depends
       script:
-        - ./update.sh
+        - ./scripts/update.sh
       after_success:
-        - ./commit.sh
+        - ./scripts/commit.sh
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
