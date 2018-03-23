@@ -4,7 +4,6 @@
   "description": "hartcode llc website",
   "scripts": {
     "clean": "rimraf build",
-    "dev": "webpack-dev-server --mode development --open",
     "build": "npm run clean && babel src/server -d build/server && webpack --mode production",
     "start": "node build/server/server.js",
     "prodstart": "node build/server/server.prod.js",
@@ -57,7 +56,6 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.12",
-    "webpack-dev-server": "^3.1.1",
     "webpack-hot-middleware": "^2.21.2"
   },
   "false": {}
