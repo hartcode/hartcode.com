@@ -4,7 +4,7 @@
   "description": "hartcode llc website",
   "scripts": {
     "clean": "rimraf build",
-    "build": "npm run clean && babel src/server -d build/server && webpack --mode production",
+    "build": "yarn run clean && babel src/server -d build/server && webpack --mode production",
     "start": "node build/server/server.js",
     "prodstart": "node build/server/server.prod.js",
     "webpack-analyse": "webpack --profile --json > stats.json",
