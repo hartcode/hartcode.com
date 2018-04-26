@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../images/logo.png'
+import navbar from 'bootstrap' // eslint-disable-line no-unused-vars
 export default class Header extends React.Component {
   render () {
     return (

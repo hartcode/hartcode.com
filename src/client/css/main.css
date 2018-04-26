@@ -4,8 +4,10 @@ ul.menu { list-style-type: none;}
 ul.menu li { display: inline;}
 ul {padding-left:0px;}
 
-body {background-color: black; min-width:220px;}
+body {background-color: black; min-width:235px;}
 .body {background-color: white;padding:30px;}
+
+body.products {min-width:264px;}
 
 .footer {background-color: black; margin-top:20px;}
 .menu { color: white;}
@@ -62,10 +64,20 @@ li {padding-left:10px;padding-right:10px;}
 
 .body ul li {text-align:left;}
 
-@media only screen and (max-device-width: 450px),only screen and (max-width: 450px) {
+.products .body img {
+  width: 425px;
+  height: 254px;
+}
+
+@media only screen and (max-device-width: 480px),only screen and (max-width: 480px) {
 .header img {
-  width: 90px;
-  height: 90px;
+  width: 45px;
+  height: 45px;
+}
+
+.products .body img {
+  width: 300px;
+  height: 179px;
 }
 
 .company-title h1, .company-title h2 {
@@ -105,13 +117,33 @@ h2, h3 {
 .index .body .hire {
   background-image: url('../images/hireMedium.png');
   }
+
 }
 
-@media only screen and (max-device-width: 330),only screen and (max-width: 330px) {
+@media only screen and (max-device-width: 350),only screen and (max-width: 350px) {
 .header img {
   width: 45px;
   height: 45px;
 }
+
+.products .body img {
+  width: 200px;
+  height: 119px;
+}
+
+.navbar-toggler {
+  width: 28px;
+  height: 26px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+.navbar-toggler-icon {
+  width: 14px;
+  height: 14px;
+}
+
 .company-title h1, .company-title h2 {
   font-size: 100%;
 }
