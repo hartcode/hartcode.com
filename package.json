@@ -1,6 +1,6 @@
 {
   "name": "hartcode",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "hartcode llc website",
   "scripts": {
     "clean": "rimraf build",
