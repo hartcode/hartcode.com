@@ -1,6 +1,6 @@
 {
   "name": "hartcode",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "hartcode llc website",
   "scripts": {
     "clean": "rimraf build",
@@ -27,8 +27,8 @@
     "express": "^4.16.3",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.3",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "serve-static": "^1.13.2"
   },
   "devDependencies": {
