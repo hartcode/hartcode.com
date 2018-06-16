@@ -3,3 +3,4 @@ node_modules
 build
 *.retry
 *.log
+secrets.tar
