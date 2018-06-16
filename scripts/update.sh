@@ -12,6 +12,7 @@ git merge master -X update
 ./updateDepends.sh
 npm run lint
 npm run build
+git add .
 npm version patch -f -m "%s - Cron Auto Update Dependencies [ci skip]"
 git push deploy HEAD:update
 git checkout master
