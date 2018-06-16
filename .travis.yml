@@ -29,8 +29,6 @@ jobs:
     - stage: update_depends
       script:
         - ./scripts/update.sh
-      after_success:
-        - ./scripts/commit.sh
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
