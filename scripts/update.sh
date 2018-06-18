@@ -8,12 +8,13 @@ eval "$(ssh-agent -s)"
 ssh-add travis
 git remote add deploy git@github.com:hartcode/hartcode.com.git
 git pull deploy HEAD:master
-git merge master -X update
+git merge master -X theirs
 ./updateDepends.sh
 npm run lint
 npm run build
 git add package*
-npm version patch -f -m "%s - Cron Auto Update Dependencies [ci skip]"
+npm --no-git-tag-version version patch -f
+git commit -m "Cron Auto Update Dependencies [ci skip]"
 git push deploy HEAD:update
 git checkout master
 git merge update
