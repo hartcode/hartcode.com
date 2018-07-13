@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/hartcode/hartcode.com/",
   "dependencies": {
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^4.1.2",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
