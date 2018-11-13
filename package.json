@@ -27,8 +27,8 @@
     "express": "^4.16.4",
     "jquery": "^3.3.1",
     "popper.js": "^1.14.5",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "serve-static": "^1.13.2"
   },
   "devDependencies": {
