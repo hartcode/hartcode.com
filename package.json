@@ -26,7 +26,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
-    "popper.js": "^1.14.5",
+    "popper.js": "^1.14.6",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "serve-static": "^1.13.2"
