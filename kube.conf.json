@@ -1,0 +1,45 @@
+{
+  "apiVersion": "apps/v1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "hartcode",
+    "labels": {
+      "app": "hartcode",
+      "version": "v1"
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "app": "hartcode"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "hartcode"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "application",
+            "image": "gcr.io/hartonline-cloud/hartcode.com@sha256:0686a750e051b82bd49f2b0ddb7dc73e44084b9dc32ef655472a299e8b61ffca",
+            "resources": {
+              "limits": {
+                "cpu": ".1",
+                "memory": "100Mi"
+              }
+            },
+            "ports": [
+              {
+                "containerPort": 8811
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
