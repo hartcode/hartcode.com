@@ -28,8 +28,8 @@
             "image": "gcr.io/hartonline-cloud/$1:$(TRAVIS_BRANCH)-$(TRAVIS_COMMIT)",
             "resources": {
               "limits": {
-                "cpu": ".1",
-                "memory": "100Mi"
+                "cpu": ".2",
+                "memory": "200Mi"
               }
             },
             "ports": [
