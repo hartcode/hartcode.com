@@ -7,6 +7,12 @@ if [ $TRAVIS_BRANCH == 'test' ]; then
   export PORT=8711
 fi
 
-gcloud config set compute/zone us-central1-c
+if [ ! -d ${HOME}/google-cloud-sdk ]; then
+  rm -rf $HOME/google-cloud-sdk;
+  export CLOUDSDK_CORE_DISABLE_PROMPTS=1;
+  curl https://sdk.cloud.google.com | bash;
+fi;
+
+gcloud auth activate-service-account --key-file client-secret.json;
 gcloud container clusters get-credentials test
 kubectl apply -f kube.conf.json
