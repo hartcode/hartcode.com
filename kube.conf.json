@@ -9,7 +9,7 @@
     }
   },
   "spec": {
-    "replicas": 1,
+    "replicas": 2,
     "selector": {
       "matchLabels": {
         "app": "hartcode"
@@ -36,7 +36,21 @@
               {
                 "containerPort": 8811
               }
-            ]
+            ],
+            "livenessProbe": {
+              "httpGet": {
+                "port": 8811
+              },
+              "initialDelaySeconds": 3,
+              "periodSeconds": 3
+            },
+            "readinessProbe": {
+              "httpGet": {
+                "port": 8811
+              },
+              "initialDelaySeconds": 3,
+              "periodSeconds": 3
+            }
           }
         ]
       }
