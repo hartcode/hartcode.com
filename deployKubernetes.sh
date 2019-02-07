@@ -14,5 +14,6 @@ if [ ! -d ${HOME}/google-cloud-sdk ]; then
 fi;
 
 gcloud auth activate-service-account --key-file client-secret.json;
+gcloud config set compute/zone us-central1-c
 gcloud container clusters get-credentials test
 kubectl apply -f kube.conf.json
