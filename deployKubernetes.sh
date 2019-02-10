@@ -16,4 +16,6 @@ fi;
 gcloud auth activate-service-account --key-file client-secret.json;
 gcloud config set compute/zone us-central1-c
 gcloud container clusters get-credentials test
+sed -i "s/(TRAVIS_BRANCH)/$TRAVIS_BRANCH/g" kube.conf.json
+sed -i "s/(TRAVIS_COMMIT)/$TRAVIS_COMMIT/g" kube.conf.json
 kubectl apply -f kube.conf.json
