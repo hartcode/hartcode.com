@@ -8,8 +8,6 @@ language:
   - python
 python: 2.7
 stages:
-  - name: update_depends
-    if: type IN (cron) and branch = update
   - name: build
     if: type IN (push, pull_request)
   - name: deploy
@@ -26,9 +24,6 @@ jobs:
     - stage: deploy
       script:
         - ./scripts/deploy.sh
-    - stage: update_depends
-      script:
-        - ./scripts/update.sh
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
