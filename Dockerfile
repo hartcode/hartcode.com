@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:8
+FROM node:11.9.0-alpine
 ARG COMMIT=local
 ARG TAG=local
 ENV COMMIT ${COMMIT}

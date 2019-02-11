@@ -8,9 +8,11 @@ language:
   - python
 python: 2.7
 stages:
-  - name: build
+  - name: lint
     if: type IN (push, pull_request)
-  - name: deploy
+  - name: buildContainer
+    if: type IN (push, pull_request)
+  - name: releaseContainer
     if: branch IN (test, prod, master) and type = push
 services:
   - docker
@@ -18,12 +20,15 @@ node_js:
 - node
 jobs:
   include:
-    - stage: build
+    - stage: lint
       script:
-        - ./scripts/build.sh
-    - stage: deploy
+        - npm run lint
+    - stage: buildContainer
       script:
-        - ./scripts/deploy.sh
+        - ./scripts/buildContainer.sh
+    - stage: releaseContainer
+      script:
+        - ./scripts/releaseContainer.sh
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
