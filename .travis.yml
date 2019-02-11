@@ -17,7 +17,7 @@ stages:
 services:
   - docker
 node_js:
-- node
+  - "11.9.0"
 jobs:
   include:
     - stage: lint
