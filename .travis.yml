@@ -22,7 +22,7 @@ jobs:
   include:
     - stage: buildContainer
       script:
-         - npm run lint
+        - npm run lint
         - ./scripts/buildContainer.sh
     - stage: releaseContainer
       script:
