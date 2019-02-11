@@ -1,8 +1,6 @@
 FROM node:11.9.0-alpine
 ARG COMMIT=local
-ARG TAG=local
 ENV COMMIT ${COMMIT}
-ENV TAG ${TAG}
 ENV NODE_ENV production
 RUN mkdir -p /root/hartcode.com/build
 COPY ./build /root/hartcode.com/build

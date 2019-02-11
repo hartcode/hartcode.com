@@ -25,7 +25,7 @@
         "containers": [
           {
             "name": "application",
-            "image": "gcr.io/hartonline-cloud/hartcode.com:(TRAVIS_BRANCH)-(TRAVIS_COMMIT)",
+            "image": "gcr.io/hartonline-cloud/hartcode.com:(TRAVIS_COMMIT)",
             "resources": {
               "limits": {
                 "cpu": ".1",
