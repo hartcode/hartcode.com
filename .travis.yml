@@ -27,6 +27,7 @@ jobs:
     - stage: releaseContainer
       script:
         - ./scripts/releaseContainer.sh
+        - npm run cleanOldContainers
 notifications:
   slack: hartcode:GqPCaLxnPqXfPJBMjJbEvG81
 addons:
