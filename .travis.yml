@@ -18,6 +18,8 @@ services:
   - docker
 node_js:
   - "11.9.0"
+before_install:
+  - ./scripts/setup.sh
 jobs:
   include:
     - stage: lint
