@@ -8,8 +8,6 @@ language:
   - python
 python: 2.7
 stages:
-  - name: lint
-    if: type IN (push, pull_request)
   - name: buildContainer
     if: type IN (push, pull_request)
   - name: releaseContainer
@@ -22,11 +20,9 @@ before_install:
   - ./scripts/setup.sh
 jobs:
   include:
-    - stage: lint
-      script:
-        - npm run lint
     - stage: buildContainer
       script:
+         - npm run lint
         - ./scripts/buildContainer.sh
     - stage: releaseContainer
       script:
