@@ -1,4 +1,4 @@
-yFROM node:11.9.0-alpine
+FROM node:11.9.0-alpine
 ARG COMMIT=local
 ENV COMMIT ${COMMIT}
 ENV NODE_ENV production
