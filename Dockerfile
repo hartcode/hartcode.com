@@ -2,12 +2,13 @@ FROM node:11.9.0-alpine
 ARG COMMIT=local
 ENV COMMIT ${COMMIT}
 ENV NODE_ENV production
-RUN mkdir -p /root/hartcode.com/build
-COPY ./build /root/hartcode.com/build
-COPY ./views /root/hartcode.com/views
-COPY ./package.json /root/hartcode.com/package.json
-COPY ./webpack.config.js /root/hartcode.com/webpack.config.js
-WORKDIR /root/hartcode.com
-RUN npm install
+RUN groupadd -r nodejs && useradd -m -r -g -s /bin/bash nodejs nodejs
+USER nodejs
+WORKDIR /home/nodejs/app
+COPY ./package.json .
+RUN npm install --production
+COPY ./build ./build
+COPY ./views ./views
+COPY ./webpack.config.js ./webpack.config.js
 EXPOSE 8811
 ENTRYPOINT ["npm","run", "prodstart"]
