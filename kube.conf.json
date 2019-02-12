@@ -28,7 +28,7 @@
             "image": "gcr.io/hartonline-cloud/hartcode.com:(TRAVIS_COMMIT)",
             "resources": {
               "limits": {
-                "cpu": ".1",
+                "cpu": ".01",
                 "memory": "50Mi"
               }
             },
