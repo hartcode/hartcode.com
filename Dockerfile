@@ -2,7 +2,7 @@ FROM node:11.9.0-alpine
 ARG COMMIT=local
 ENV COMMIT ${COMMIT}
 ENV NODE_ENV production
-RUN groupadd -r nodejs && useradd -m -r -g -s /bin/bash nodejs nodejs
+RUN addgroup -S nodejs && adduser -S -G nodejs -s /bin/sh nodejs
 USER nodejs
 WORKDIR /home/nodejs/app
 COPY ./package.json .
