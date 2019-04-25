@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './header.js'
 import Footer from './footer.js'
+import config from '../../config.js'
 
 export function renderRoot () {
   return <Careers />
@@ -14,13 +15,12 @@ export default class Careers extends React.Component {
   }
 
   componentDidMount () {
-    fetch('http://api.test.hartcode.com/careers')
+    fetch(config.apiUrl + '/careers')
       .then((response) => {
         return response.json()
       })
       .then((res) => {
         const data = res.data
-        console.log(data)
         this.setState({
           data
         })
