@@ -2,7 +2,7 @@
   "kind": "Service",
   "apiVersion": "v1",
   "metadata": {
-    "name": "hartcode"
+    "name": "hartcode-nodeport"
   },
   "spec": {
     "selector": {
@@ -10,12 +10,12 @@
     },
     "ports": [
       {
-        "name": "http",
+        "name": "hartcode-http",
         "protocol": "TCP",
         "port": 80,
         "targetPort": 8811
       }
     ],
-    "type": "LoadBalancer"
+    "type": "NodePort"
   }
 }

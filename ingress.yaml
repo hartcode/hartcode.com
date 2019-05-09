@@ -1,0 +1,11 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hartcode-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: hartcode-prod
+    networking.gke.io/managed-certificates: hartcode-cert-prod
+spec:
+  backend:
+    serviceName: hartcode-nodeport
+    servicePort: hartcode-http
