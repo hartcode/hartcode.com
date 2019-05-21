@@ -1,3 +1,3 @@
 module.exports = {
-  apiUrl: 'https://api.hartcode.com'
+  apiUrl: 'http://api.hartcode.com'
 }
