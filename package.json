@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/hartcode/hartcode.com/",
   "dependencies": {
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.4.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "popper.js": "^1.14.7",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
