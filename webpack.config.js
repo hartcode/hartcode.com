@@ -44,9 +44,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader', 'css-loader'
-        ]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
@@ -62,7 +60,7 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {name: 'favicon.ico'}
+            options: { name: 'favicon.ico' }
           }
         ]
       },
@@ -78,14 +76,21 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-
-        use: [{
-          loader: 'babel-loader',
-
-          options: {
-            presets: ['react', 'minify']
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              compact: true,
+              presets: [
+                [
+                  '@babel/env',
+                  { targets: { browsers: ['Chrome >=59'] } },
+                  '@babel/react'
+                ]
+              ]
+            }
           }
-        }]
+        ]
       }
     ]
   }

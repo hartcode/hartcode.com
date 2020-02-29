@@ -1,9 +1,14 @@
 {
-  "presets": [ "react",
-    ["env", {
+  "presets": [ 
+    ["@babel/env", {
       "targets": {
         "node": "current"
       }
-    }]
-  ]
+    }
+    ],
+     "@babel/preset-react"
+
+  ],
+  "plugins": ["rewire"],
+  "compact": true
 }
