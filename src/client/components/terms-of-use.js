@@ -3,7 +3,9 @@ import Header from './header.js'
 import Footer from './footer.js'
 
 /**
+ * The main react component for the /terms-of-use webpage.
  *
+ * @returns {object} - The JSX for the terms of use webpage.
  */
 export function renderRoot() {
   return (
