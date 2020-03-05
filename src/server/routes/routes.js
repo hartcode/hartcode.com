@@ -1,75 +1,75 @@
 import info from './info'
 
-module.exports = function (app) {
-  app.get('/', function (req, res) {
+module.exports = function(app) {
+  app.get('/', (req, res) => {
     res.render('main', {
-      title: '',
       bodyClass: 'index',
-      jsFile: 'index.js'
+      jsFile: 'index.js',
+      title: ''
     })
   })
 
-  app.get('/products', function (req, res) {
+  app.get('/products', (req, res) => {
     res.render('main', {
-      title: 'Products',
       bodyClass: 'products',
-      jsFile: 'products.js'
+      jsFile: 'products.js',
+      title: 'Products'
     })
   })
 
-  app.get('/hire', function (req, res) {
+  app.get('/hire', (req, res) => {
     res.render('main', {
-      title: 'Hire Us',
       bodyClass: 'hire',
-      jsFile: 'hire.js'
+      jsFile: 'hire.js',
+      title: 'Hire Us'
     })
   })
 
-  app.get('/about', function (req, res) {
+  app.get('/about', (req, res) => {
     res.render('main', {
-      title: 'About Us',
       bodyClass: 'about',
-      jsFile: 'about.js'
+      jsFile: 'about.js',
+      title: 'About Us'
     })
   })
 
-  app.get('/careers', function (req, res) {
+  app.get('/careers', (req, res) => {
     res.render('main', {
-      title: 'Careers',
       bodyClass: 'careers',
-      jsFile: 'careers.js'
+      jsFile: 'careers.js',
+      title: 'Careers'
     })
   })
 
-  app.get('/contact', function (req, res) {
+  app.get('/contact', (req, res) => {
     res.render('main', {
-      title: 'Contact Us',
       bodyClass: 'contact',
-      jsFile: 'contact.js'
+      jsFile: 'contact.js',
+      title: 'Contact Us'
     })
   })
 
-  app.get('/privacy', function (req, res) {
+  app.get('/privacy', (req, res) => {
     res.render('main', {
-      title: 'Privacy Policy',
       bodyClass: 'privacy',
-      jsFile: 'privacy.js'
+      jsFile: 'privacy.js',
+      title: 'Privacy Policy'
     })
   })
 
-  app.get('/terms-of-use', function (req, res) {
+  app.get('/terms-of-use', (req, res) => {
     res.render('main', {
-      title: 'Terms of Use',
       bodyClass: 'terms-of-use',
-      jsFile: 'termsofuse.js'
+      jsFile: 'termsofuse.js',
+      title: 'Terms of Use'
     })
   })
 
-  app.get('/end-user-license-agreement', function (req, res) {
+  app.get('/end-user-license-agreement', (req, res) => {
     res.render('main', {
-      title: 'End User License Agreement',
       bodyClass: 'end-user-license-agreement',
-      jsFile: 'enduserlicenseagreement.js'
+      jsFile: 'enduserlicenseagreement.js',
+      title: 'End User License Agreement'
     })
   })
 

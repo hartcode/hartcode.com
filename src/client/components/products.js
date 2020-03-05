@@ -5,6 +5,9 @@ import treasurefighterimage from '../images/TreasureFighter.gif'
 import soyouwanttobuildasnowmanimage from '../images/soyouwanttobuildasnowmanimage.png'
 import moneydropimage from '../images/moneydropimage.png'
 import zomboneimage from '../images/zomboneimage.png'
+/**
+ *
+ */
 export function renderRoot() {
   return (
     <div>
@@ -17,8 +20,8 @@ export function renderRoot() {
           The King has a big problem, it seems that all of his treasure has come
           to life and is now attacking people. You play a janitor who is
           mistaken for a knight, and sent down into the castle depths to subdue
-          the King''s treasure. This side scrolling game focuses on short casual
-          battles with various treasure based enemies.
+          the King&apos;s treasure. This side scrolling game focuses on short
+          casual battles with various treasure based enemies.
           <ul>
             <li>
               Jump, Slash, Kick, and Crouch your way to victory whilest battling
@@ -40,7 +43,7 @@ export function renderRoot() {
         <p>
           Take control of the coolest person in the snow globe, the snowman.
           Life is great for this little snowman until someone shakes the snow
-          globe and all of his pieces fall off. Now it''s up to you to track
+          globe and all of his pieces fall off. Now it&apos;s up to you to track
           down all of the pieces of the snowman, and put him back together.
         </p>
         <ul>

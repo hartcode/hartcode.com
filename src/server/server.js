@@ -12,13 +12,15 @@ app.set('view engine', 'ejs')
 
 if (process.env.NODE_ENV !== 'production') {
   const compiler = webpack(config)
-  app.use(webpackDevMiddleware(compiler, {
-    quiet: false,
-    noInfo: false,
-    stats: {
-      colors: true
-    }
-  }))
+  app.use(
+    webpackDevMiddleware(compiler, {
+      noInfo: false,
+      quiet: false,
+      stats: {
+        colors: true
+      }
+    })
+  )
 
   app.use(webpackHotMiddleware(compiler))
 }

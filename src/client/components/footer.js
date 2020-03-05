@@ -1,10 +1,11 @@
 import React from 'react'
 import SocialMenu from './menu/social/social-menu.js'
 export default class Footer extends React.Component {
-  render () {
-    var github = { username: 'hartcode' }
-    var facebook = { username: 'hartcodellc' }
-    var twitter = { username: 'hartcode' }
+  render() {
+    const github = { username: 'hartcode' }
+    const facebook = { username: 'hartcodellc' }
+    const twitter = { username: 'hartcode' }
+
     return (
       <div className="footer">
         <ul className="menu">

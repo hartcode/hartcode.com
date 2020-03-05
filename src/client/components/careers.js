@@ -3,6 +3,9 @@ import Header from './header.js'
 import Footer from './footer.js'
 import config from '../../config.js'
 
+/**
+ *
+ */
 export function renderRoot () {
   return <Careers />
 }
@@ -15,12 +18,10 @@ export default class Careers extends React.Component {
   }
 
   componentDidMount () {
-    fetch(config.apiUrl + '/careers')
-      .then((response) => {
-        return response.json()
-      })
+    fetch(`${config.apiUrl}/careers`)
+      .then((response) => response.json())
       .then((res) => {
-        const data = res.data
+        const { data } = res
         this.setState({
           data
         })
