@@ -1,11 +1,13 @@
+/* eslint-disable node/no-unpublished-import */
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpack from 'webpack'
-import config from '../../webpack.config'
+import config from '../../webpack.config.js'
 import express from 'express'
-import routes from './routes/routes'
+import routes from './routes/routes.js'
 import path from 'path'
-const port = process.env.PORT || 8811
+const defaultPort = 8811
+const port = process.env.PORT || defaultPort
 const app = express()
 
 app.set('view engine', 'ejs')

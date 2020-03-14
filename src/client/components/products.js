@@ -6,7 +6,9 @@ import soyouwanttobuildasnowmanimage from '../images/soyouwanttobuildasnowmanima
 import moneydropimage from '../images/moneydropimage.png'
 import zomboneimage from '../images/zomboneimage.png'
 /**
+ * Renders the product page.
  *
+ * @returns {object} The product page.
  */
 export function renderRoot() {
   return (
