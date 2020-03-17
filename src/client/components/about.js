@@ -5,7 +5,9 @@ import alex from '../images/alex.png'
 import SocialMenu from './menu/social/social-menu.js'
 
 /**
+ * Renders the about us page.
  *
+ * @returns {object} The about page in jsx.
  */
 export function renderRoot() {
   return (
@@ -25,7 +27,9 @@ export function renderRoot() {
 }
 
 /**
+ * Renders the Founder Component.
  *
+ * @returns {object} The Founder component in jsx.
  */
 function founder() {
   const github = { dark: 'true', username: 'hartalex' }
@@ -44,7 +48,9 @@ function founder() {
 }
 
 /**
+ * Renders the Founder Description Component.
  *
+ * @returns {object} The founder description component in jsx.
  */
 function founderDesc() {
   return (

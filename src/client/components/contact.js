@@ -3,19 +3,22 @@ import Header from './header.js'
 import Footer from './footer.js'
 
 /**
+ * Renders the Contact page.
  *
+ * @returns {object} The contact page in jsx.
  */
-export function renderRoot () {
+export function renderRoot() {
   return (
     <div>
-      <Header/>
+      <Header />
       <div className="body">
         <h1>Contact Us</h1>
         <p>
-          Send us an email at <a href="mailto:contact@hartcode.com">contact@hartcode.com</a>.
+          Send us an email at{' '}
+          <a href="mailto:contact@hartcode.com">contact@hartcode.com</a>.
         </p>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

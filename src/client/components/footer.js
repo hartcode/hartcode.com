@@ -1,6 +1,11 @@
 import React from 'react'
 import SocialMenu from './menu/social/social-menu.js'
 
+/**
+ * Renders the footer component.
+ *
+ * @returns {object} The footer component in jsx.
+ */
 export function render() {
   const github = { username: 'hartcode' }
   const facebook = { username: 'hartcodellc' }

@@ -3,7 +3,9 @@ import Header from './header.js'
 import Footer from './footer.js'
 
 /**
+ * Renders the eula page.
  *
+ * @returns {object} The eula page in jsx.
  */
 export function renderRoot() {
   return (

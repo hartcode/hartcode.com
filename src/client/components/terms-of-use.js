@@ -222,143 +222,147 @@ export function renderRoot() {
                 provided notification or an agent of such person.
               </li>
             </ol>
+            <p>
+              Pursuant to the Digital Millennium Copyright Act (17 U.S.C.
+              §512(c)(2)), our designated agent to receive notices and counter
+              notices of claimed infringement is:
+            </p>
+            <p>
+              DMCA Notice
+              <br />
+              c/o Alex Hart
+              <br />
+              9941 Flagstone Dr
+              <br />
+              Cedarburg, WI 53012
+              <br />
+              contact@hartcode.com
+            </p>
+            <p>
+              We reserve the right to remove any infringing material that we
+              believe in good faith to be copyrighted material that is used
+              without authorization by user of the Website. We also reserve the
+              right to suspend or delete the account of any repeat offender.
+            </p>
           </li>
-          <p>
-            Pursuant to the Digital Millennium Copyright Act (17 U.S.C.
-            §512(c)(2)), our designated agent to receive notices and counter
-            notices of claimed infringement is:
-          </p>
-          <p>
-            DMCA Notice
-            <br />
-            c/o Alex Hart
-            <br />
-            9941 Flagstone Dr
-            <br />
-            Cedarburg, WI 53012
-            <br />
-            contact@hartcode.com
-          </p>
-          <p>
-            We reserve the right to remove any infringing material that we
-            believe in good faith to be copyrighted material that is used
-            without authorization by user of the Website. We also reserve the
-            right to suspend or delete the account of any repeat offender.
-          </p>
           <li>
             <h3>Website Provided &quot;As Is&quot;.</h3>
+            <p>
+              You understand and agree that the HartCode Website and all
+              services and information provided on it are provided “As Is” and
+              that HartCode assumes no responsibility for the accuracy,
+              timeliness, deletion or mis-delivery of any user communication,
+              information, or configuration. You, and not HartCode, are entirely
+              responsible for all material that you post, transmit or otherwise
+              make available through the Website. HartCode does not review or
+              control the material that others post, transmit or otherwise make
+              available through the Website, and accordingly HartCode does not
+              guarantee the accuracy, integrity or quality of such material. You
+              acknowledge that HartCode and its designees shall have the right
+              (but not the obligation) in their sole discretion to refuse or
+              remove any material that is available through the Website.
+            </p>
           </li>
-          <p>
-            You understand and agree that the HartCode Website and all services
-            and information provided on it are provided “As Is” and that
-            HartCode assumes no responsibility for the accuracy, timeliness,
-            deletion or mis-delivery of any user communication, information, or
-            configuration. You, and not HartCode, are entirely responsible for
-            all material that you post, transmit or otherwise make available
-            through the Website. HartCode does not review or control the
-            material that others post, transmit or otherwise make available
-            through the Website, and accordingly HartCode does not guarantee the
-            accuracy, integrity or quality of such material. You acknowledge
-            that HartCode and its designees shall have the right (but not the
-            obligation) in their sole discretion to refuse or remove any
-            material that is available through the Website.
-          </p>
           <li>
             <h3>Indemnification.</h3>
+            <p>
+              You agree to indemnify and hold harmless HartCode, and its
+              subsidiaries, affiliates, officers, agents, and employees, from
+              any claim or demand by any third party arising out of material you
+              post, transmit or otherwise make available through the Website,
+              your use of the Website, your connection to the Website, your
+              violation of these Terms of Use, or your violation of any rights
+              of another person or entity.
+            </p>
           </li>
-          <p>
-            You agree to indemnify and hold harmless HartCode, and its
-            subsidiaries, affiliates, officers, agents, and employees, from any
-            claim or demand by any third party arising out of material you post,
-            transmit or otherwise make available through the Website, your use
-            of the Website, your connection to the Website, your violation of
-            these Terms of Use, or your violation of any rights of another
-            person or entity.
-          </p>
           <li>
             <h3>DISCLAIMER.</h3>
+            <p>
+              THIS WEBSITE, INCLUDING ANY CONTENT OR INFORMATION CONTAINED
+              WITHIN OR PROVIDED THROUGH IT, IS PROVIDED “AS IS” WITH NO
+              REPRESENTATIONS OR WARRANTIES OF ANY KIND, EITHER EXPRESSED OR
+              IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+              MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+              NON-INFRINGEMENT. YOU ASSUME TOTAL RESPONSIBILITY AND RISK FOR
+              YOUR USE OF THIS WEBSITE AND THE INFORMATION RECEIVED THROUGH IT.
+              FURTHER, HARTCODE MAKES NO REPRESENTATIONS WHATSOEVER ABOUT OTHER
+              WEBSITES WHICH YOU MAY ACCESS THROUGH ITS WEBSITE or the content,
+              SERVICES OR PRODUCTS contained therein or obtained there through.
+              HARTCODE FURTHER DOES NOT WARRANT THE QUALITY, VALIDITY, ACCURACY
+              OR COMPLETENESS OF THE MATERIALS OR THAT THE FUNCTIONS CONTAINED
+              ON THE WEBSITE WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT
+              DEFECTS OR INACCURACIES WILL BE CORRECTED. HARTCODE MAY MAKE
+              CHANGES TO THE WEBSITE, OR TO THE PRODUCTS, SERVICES,
+              SPECIFICATIONS OR PRICES DESCRIBED IN IT, AT ANY TIME WITHOUT
+              NOTICE. THE MATERIALS MAY BE OUT OF DATE, AND FILAMENT GAMES MAKES
+              NO COMMITMENT TO UPDATE THE MATERIALS AT THIS WEBSITE OR TO MAKE
+              ANY NOTIFICATION OF CHANGES. INFORMATION PUBLISHED AT THIS WEBSITE
+              MAY REFER TO PRODUCTS, PROGRAMS OR SERVICES THAT ARE NOT
+              AVAILABLE. YOU HEREBY RELEASE HartCode from any and all claims,
+              demands and damages, known or unknown, suspected or unsuspected,
+              disclosed or undisclosed, arising out of or in any way related to
+              a dispute between you and another USER. California residents
+              hereby shall and do waive California Civil Code 1542, which
+              provides “A general release does not extend to claims which the
+              creditor does not know or suspect to exist in his or her favor at
+              the time of executing the release, which if known by him or her
+              must have materially affected his or her settlement with the
+              debtor.”
+            </p>
           </li>
-          <p>
-            THIS WEBSITE, INCLUDING ANY CONTENT OR INFORMATION CONTAINED WITHIN
-            OR PROVIDED THROUGH IT, IS PROVIDED “AS IS” WITH NO REPRESENTATIONS
-            OR WARRANTIES OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING,
-            BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY,
-            FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. YOU ASSUME
-            TOTAL RESPONSIBILITY AND RISK FOR YOUR USE OF THIS WEBSITE AND THE
-            INFORMATION RECEIVED THROUGH IT. FURTHER, HARTCODE MAKES NO
-            REPRESENTATIONS WHATSOEVER ABOUT OTHER WEBSITES WHICH YOU MAY ACCESS
-            THROUGH ITS WEBSITE or the content, SERVICES OR PRODUCTS contained
-            therein or obtained there through. HARTCODE FURTHER DOES NOT WARRANT
-            THE QUALITY, VALIDITY, ACCURACY OR COMPLETENESS OF THE MATERIALS OR
-            THAT THE FUNCTIONS CONTAINED ON THE WEBSITE WILL BE UNINTERRUPTED OR
-            ERROR-FREE, OR THAT DEFECTS OR INACCURACIES WILL BE CORRECTED.
-            HARTCODE MAY MAKE CHANGES TO THE WEBSITE, OR TO THE PRODUCTS,
-            SERVICES, SPECIFICATIONS OR PRICES DESCRIBED IN IT, AT ANY TIME
-            WITHOUT NOTICE. THE MATERIALS MAY BE OUT OF DATE, AND FILAMENT GAMES
-            MAKES NO COMMITMENT TO UPDATE THE MATERIALS AT THIS WEBSITE OR TO
-            MAKE ANY NOTIFICATION OF CHANGES. INFORMATION PUBLISHED AT THIS
-            WEBSITE MAY REFER TO PRODUCTS, PROGRAMS OR SERVICES THAT ARE NOT
-            AVAILABLE. YOU HEREBY RELEASE HartCode from any and all claims,
-            demands and damages, known or unknown, suspected or unsuspected,
-            disclosed or undisclosed, arising out of or in any way related to a
-            dispute between you and another USER. California residents hereby
-            shall and do waive California Civil Code 1542, which provides “A
-            general release does not extend to claims which the creditor does
-            not know or suspect to exist in his or her favor at the time of
-            executing the release, which if known by him or her must have
-            materially affected his or her settlement with the debtor.”
-          </p>
           <li>
             <h3>LIMITATION OF LIABILITY.</h3>
+            <p>
+              HARTCODE AND ITS MEMBERS, DIRECTORS, OFFICERS, EMPLOYEES AND
+              AGENTS AND ITS AFFILIATES ARE NEITHER RESPONSIBLE NOR LIABLE FOR
+              ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL,
+              EXEMPLARY, PUNITIVE OR OTHER DAMAGES ARISING OUT OF OR RELATING IN
+              ANY WAY TO THE WEBSITE OR ANY INFORMATION RECEIVED FROM THE
+              WEBSITE, INCLUDING THE CONTENT OR ANY INFORMATION CONTAINED WITHIN
+              OR THROUGH THE WEBSITE. YOUR SOLE REMEDY FOR DISSATISFACTION WITH
+              THE WEBSITE IS TO STOP USING THE WEBSITE AND THE INFORMATION
+              OBTAINED THEREIN.
+            </p>
           </li>
-          <p>
-            HARTCODE AND ITS MEMBERS, DIRECTORS, OFFICERS, EMPLOYEES AND AGENTS
-            AND ITS AFFILIATES ARE NEITHER RESPONSIBLE NOR LIABLE FOR ANY
-            DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, EXEMPLARY,
-            PUNITIVE OR OTHER DAMAGES ARISING OUT OF OR RELATING IN ANY WAY TO
-            THE WEBSITE OR ANY INFORMATION RECEIVED FROM THE WEBSITE, INCLUDING
-            THE CONTENT OR ANY INFORMATION CONTAINED WITHIN OR THROUGH THE
-            WEBSITE. YOUR SOLE REMEDY FOR DISSATISFACTION WITH THE WEBSITE IS TO
-            STOP USING THE WEBSITE AND THE INFORMATION OBTAINED THEREIN.
-          </p>
           <li>
             <h3>Patches and Updates.</h3>
+            <p>
+              HartCode may apply patches, updates and modifications to its
+              Website at any time (each an “Update”). HartCode may change,
+              modify, suspend, or discontinue any aspect of any Website at any
+              time. HartCode may also impose limits on certain features or
+              restrict your access to parts or all of the Website without notice
+              or liability. HartCode makes no representation that the Website
+              will work on a particular web browser, version of a web browser or
+              device. You are responsible for having necessary Internet
+              connections, equipment, software (including a web browser) and
+              services for you to effectively access the Website. HartCode will
+              endeavor to make the Website accessible on the most common web
+              browsers and the current and penultimate version of such web
+              browsers and some common devices, but make no representations or
+              warranties on the same.
+            </p>
           </li>
-          <p>
-            HartCode may apply patches, updates and modifications to its Website
-            at any time (each an “Update”). HartCode may change, modify,
-            suspend, or discontinue any aspect of any Website at any time.
-            HartCode may also impose limits on certain features or restrict your
-            access to parts or all of the Website without notice or liability.
-            HartCode makes no representation that the Website will work on a
-            particular web browser, version of a web browser or device. You are
-            responsible for having necessary Internet connections, equipment,
-            software (including a web browser) and services for you to
-            effectively access the Website. HartCode will endeavor to make the
-            Website accessible on the most common web browsers and the current
-            and penultimate version of such web browsers and some common
-            devices, but make no representations or warranties on the same.
-          </p>
           <li>
             <h3>Miscellaneous.</h3>
+            <p>
+              These Terms of Use and the relationship between you and HartCode
+              shall be governed by the laws of the State of Wisconsin. You
+              hereby consent to the exclusive jurisdiction and forum of the
+              federal and state courts located in the State of Wisconsin for all
+              purposes in connection with any action or proceeding which arises
+              out of or relates to your use of the Website, these Terms of Use,
+              or any Content or Registration Data. HartCode&apos;s failure to
+              enforce any right or provision of these Terms of Use does not
+              constitute a waiver of that right or provision. HartCode may
+              revise these Terms of Use at any time, and any such revisions
+              shall be effective immediately without notice. You should visit
+              this page from time to time to review the then-current Terms of
+              Use. HartCode may, in its sole discretion, terminate or suspend
+              your access to all or part of the Website for any reason,
+              including, without limitation, breach of these Terms of Use.
+            </p>
           </li>
-          <p>
-            These Terms of Use and the relationship between you and HartCode
-            shall be governed by the laws of the State of Wisconsin. You hereby
-            consent to the exclusive jurisdiction and forum of the federal and
-            state courts located in the State of Wisconsin for all purposes in
-            connection with any action or proceeding which arises out of or
-            relates to your use of the Website, these Terms of Use, or any
-            Content or Registration Data. HartCode&apos;s failure to enforce any
-            right or provision of these Terms of Use does not constitute a
-            waiver of that right or provision. HartCode may revise these Terms
-            of Use at any time, and any such revisions shall be effective
-            immediately without notice. You should visit this page from time to
-            time to review the then-current Terms of Use. HartCode may, in its
-            sole discretion, terminate or suspend your access to all or part of
-            the Website for any reason, including, without limitation, breach of
-            these Terms of Use.
-          </p>
         </ol>
       </div>
       <Footer />

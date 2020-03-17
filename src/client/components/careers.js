@@ -4,23 +4,25 @@ import Footer from './footer.js'
 import config from '../../config.js'
 
 /**
+ * Renders the careers component.
  *
+ * @returns {object} The careers component in jsx.
  */
-export function renderRoot () {
+export function renderRoot() {
   return <Careers />
 }
 export default class Careers extends React.Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       data: '...'
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     fetch(`${config.apiUrl}/careers`)
-      .then((response) => response.json())
-      .then((res) => {
+      .then(response => response.json())
+      .then(res => {
         const { data } = res
         this.setState({
           data
@@ -28,7 +30,7 @@ export default class Careers extends React.Component {
       })
   }
 
-  render () {
+  render() {
     return (
       <div>
         <Header />

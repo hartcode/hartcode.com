@@ -3,7 +3,9 @@ import Header from './header.js'
 import Footer from './footer.js'
 
 /**
+ * Renders the index component.
  *
+ * @returns {object} The index component in jsx.
  */
 export function renderRoot() {
   return (
